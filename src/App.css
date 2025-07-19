@@ -3,6 +3,13 @@
   margin: 0 auto;
 }
 
+/* Vapor UI의 container 클래스 재정의 */
+.container {
+  max-width: 1172px !important;
+  width: 1172px !important;
+  padding: 0 16px;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

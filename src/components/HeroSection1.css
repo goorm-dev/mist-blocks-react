@@ -104,6 +104,10 @@
     height: 16rem;
 }
 
+.hero-card-subtitle {
+    margin-bottom: var(--vapor-size-space-050);
+}
+
 .hero-card-container {
     flex: 1;
     height: 100%;
