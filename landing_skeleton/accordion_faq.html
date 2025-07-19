@@ -1,0 +1,386 @@
+<!-- =========================
+    기본 설정 (만지지 마세요)
+========================== -->
+<!-- vapor-foundation 및 Pretendard 폰트 -->
+<link id="vapor-foundation" rel="stylesheet" href="https://statics.goorm.io/gds/foundation/v0.27.0/vapor-foundation.min.css">
+<link rel="prefetch" as="style" id="vapor-foundation-preload-light" href="https://statics.goorm.io/gds/foundation/v0.27.0/vapor-foundation.min.css">
+<link rel="prefetch" as="style" id="vapor-foundation-preload-dark" href="https://statics.goorm.io/gds/foundation/v0.27.0/vapor-foundation.dark.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+
+<!-- Bootstrap dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- marked.js CDN 추가 -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<!-- =========================
+    HTML (복사해서 사용하세요)
+========================== -->
+<section id="faq" class="content-section faq-section">
+    <div class="container">
+        <h2 class="title">아코디언 컴포넌트</h2>
+        
+        <!-- FAQ Category Tabs -->
+        <ul class="nav nav-pills faq-nav mb-4">
+            <li class="nav-item">
+                <a class="nav-link nav-link-lg active" href="#" data-category="category1">카테고리 1</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-link-lg" href="#" data-category="category2">카테고리 2</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-link-lg" href="#" data-category="category3">카테고리 3</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-link-lg" href="#" data-category="category4">카테고리 4</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-link-lg" href="#" data-category="category5">카테고리 5</a>
+            </li>
+        </ul>
+        
+        <!-- FAQ Content -->
+        <div class="faq-content" id="faq-content"></div>
+    </div>
+</section>
+
+
+<!-- =========================
+    CSS (부분적으로 복사해서 사용하세요)
+========================== -->
+<style>
+    /* Global Styles & Theme (만지지 마세요) */
+    body {
+        background-color: var(--gray-000);
+        word-break: keep-all;
+    }
+    h5 {
+        letter-spacing: -.012rem;
+    }
+    .title {
+        color: var(--text-normal);
+        margin-bottom: var(--space-700);
+    }
+    .content-section {
+        padding: var(--space-800) 0;
+    }
+    a:focus,a:hover {
+        text-decoration: none !important;
+    }
+
+    /* FAQ Section (복사해서 사용하세요) */
+    .content-section {
+        padding: var(--space-800) 0;
+    }
+    .faq-card {
+        overflow: hidden;
+    }
+    .faq-card-header {
+        border-bottom: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .faq-question {
+        color: var(--text-normal);
+        margin: 0;
+    }
+    .faq-icon {
+        color: var(--text-alternative);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease;
+        will-change: transform;
+        margin-left: var(--space-200);
+        flex-shrink: 0;
+    }
+    .faq-card-header[aria-expanded="true"] .faq-icon {
+        transform: rotate(180deg);
+    }
+    .faq-card.active .faq-icon {
+        transform: rotate(180deg);
+    }
+    .faq-card-body {
+        border-top: 0.0625rem solid var(--border-color);
+        display: none;
+    }
+    .faq-card.active .faq-card-body {
+        display: block;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    .faq-answer p {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+    }
+    .faq-answer p:last-child,
+    .faq-answer ul:last-child,
+    .faq-answer ol:last-child,
+    .faq-answer pre:last-child {
+        margin-bottom: 0;
+    }
+    ul.faq-inside,
+    ol.faq-inside {
+        padding-inline-start: 14px;
+    }
+    .faq-content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-200);
+    }
+    .faq-answer img {
+    width: 240px;
+    height: auto;
+    max-width: 100%;
+    }
+    /* table 속성 */
+    .faq-answer table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        margin: 1em 0;
+    }
+    .faq-answer th, .faq-answer td {
+        border: 1px solid var(--border-color);
+        padding: var(--space-150);
+        text-align: left;
+        background: var(--background-normal);
+    }
+    .faq-answer th {
+        background-color: var(--background-alternative);
+        font-weight: bold;
+    }
+    @media (min-width: 1440px) {
+        .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+            max-width: 1172px !important;
+        }
+    }
+    @media (max-width: 576px) {
+        .faq-nav.nav-pills {
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            width: 100%;
+            display: flex;
+        }
+        .nav-item .nav-link {
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+    }
+</style>
+
+<!-- =========================
+    JavaScript (복사해서 사용하세요)
+========================== -->
+<script>
+    // FAQ 데이터 (마크다운 지원)
+    const faqData = {
+    category1: [
+        {
+            question: "마크다운에서 제목은 어떻게 쓰는지 보여주세요.",
+            answer: `
+# 제목1  
+## 제목2  
+### 제목3  
+#### 제목4  
+##### 제목5  
+###### 제목6  
+위와 같이 \`#\` 기호를 사용해 제목을 작성할 수 있습니다.
+            `
+        },
+        {
+            question: "강조(Emphasis)와 목록(Lists) 마크다운 예시를 보여주세요.",
+            answer: `
+**1. 강조(Emphasis)**
+- *이탤릭* 또는 _이탤릭_
+- **굵게** 또는 __굵게__
+- ~~취소선~~
+
+**2. 목록(Lists)**
+- 순서 없는 목록1
+- 순서 없는 목록2
+- 하위 목록
+1. 순서 있는 목록1
+2. 순서 있는 목록2
+            `
+        },
+        {
+            question: "링크(Links)와 이미지(Images) 마크다운 예시를 보여주세요.",
+            answer: `
+**3. 링크(Links)**
+
+[구름 홈페이지](https://goorm.io)
+
+**4. 이미지(Images)**
+
+![구름 로고](https://statics.goorm.io/logo/goorm.svg)
+            `
+        },
+        {
+            question: "인용문(Blockquote)와 코드(Code) 마크다운 예시를 보여주세요.",
+            answer: `
+**5. 인용문(Blockquote)**
+> 이것은 인용문입니다.
+>> 중첩 인용문도 가능합니다.
+
+**6. 코드(Code)**
+- 인라인 코드: \`console.log('hello')\`
+- 코드 블록:
+\`\`\`js
+function hello() {
+console.log('hello');
+}
+\`\`\`
+            `
+        },
+        {
+            question: "수평선, 표, 체크박스, 줄바꿈 마크다운 예시를 보여주세요.",
+            answer: `
+**7. 수평선(Horizontal Rule)**
+___
+***
+___
+
+**8. 표(Table)**
+
+| 이름   | 역할     |
+|--------|----------|
+| 홍길동 | 개발자   |
+| 김철수 | 디자이너 |
+
+**9. 체크박스(Task List)**
+- [x] 마크다운 공부하기
+- [ ] 점심 먹기
+
+**10. 줄바꿈(Line Breaks)**
+
+줄바꿈은  
+이렇게 두 칸 이상 띄우고 엔터로 할 수 있습니다.<br>또는 <br> 태그 사용
+            `
+        }
+    ],
+    category2: [
+        {
+        question: "질문 3",
+        answer: "답변 3"
+        },
+        {
+        question: "질문 4",
+        answer: "답변 4"
+        }
+    ],
+    category3: [
+        {
+        question: "질문 5",
+        answer: "답변 5"
+        },
+        {
+        question: "질문 6",
+        answer: "답변 6"
+        }
+    ],
+    category4: [
+        {
+        question: "질문 7",
+        answer: "답변 7"
+        },
+        {
+        question: "질문 8",
+        answer: "답변 8"
+        }
+    ],
+    category5: [
+        {
+        question: "질문 9",
+        answer: "답변 9"
+        },
+        {
+        question: "질문 10",
+        answer: "답변 10"
+        }
+    ]
+    };
+
+    // FAQ 렌더링 함수 (마크다운 → HTML 변환)
+    function renderFaq(category) {
+    const container = document.getElementById('faq-content');
+    container.innerHTML = '';
+    faqData[category].forEach((item, idx) => {
+        const card = document.createElement('div');
+        card.className = 'card faq-card';
+        card.innerHTML = `
+        <div class="card-header faq-card-header" tabindex="0" role="button" aria-expanded="false">
+            <h6 class="faq-question">${item.question}</h6>
+            <div class="faq-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+        </div>
+        <div class="card-body faq-card-body">
+            <div class="faq-answer">${marked.parse(item.answer)}</div>
+        </div>
+        `;
+        container.appendChild(card);
+    });
+
+    container.querySelectorAll('.faq-answer ul, .faq-answer ol').forEach(list => {
+    list.classList.add('faq-inside', 'paragraph-lg');
+    });
+
+    // 아코디언 기능 (동적 생성이므로 여기서 이벤트 바인딩)
+    container.querySelectorAll('.faq-card-header').forEach(header => {
+        header.addEventListener('click', function(e) {
+        const currentCard = this.closest('.faq-card');
+        const isActive = currentCard.classList.contains('active');
+        // 모든 카드 닫기
+        container.querySelectorAll('.faq-card').forEach(card => {
+            card.classList.remove('active');
+            card.querySelector('.faq-card-header').setAttribute('aria-expanded', 'false');
+        });
+        // 클릭한 카드만 열기
+        if (!isActive) {
+            currentCard.classList.add('active');
+            this.setAttribute('aria-expanded', 'true');
+        }
+        e.stopPropagation();
+        });
+        header.setAttribute('role', 'button');
+        header.setAttribute('tabindex', '0');
+        header.setAttribute('aria-expanded', 'false');
+        header.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.keyCode === 13) {
+            e.preventDefault();
+            this.click();
+        }
+        });
+    });
+    }
+
+    // 탭 클릭 시 렌더링
+    document.querySelectorAll('.faq-nav .nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const category = this.getAttribute('data-category');
+        // 탭 active 처리
+        document.querySelectorAll('.faq-nav .nav-link').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+        renderFaq(category);
+    });
+    });
+
+    // 첫 로딩 시 첫 번째 카테고리 렌더링
+    document.addEventListener('DOMContentLoaded', () => {
+    renderFaq('category1');
+    // 첫 번째 탭 active 처리
+    document.querySelector('.faq-nav .nav-link[data-category="category1"]').classList.add('active');
+    });
+</script>

@@ -1,0 +1,290 @@
+<!-- =========================
+    기본 설정 (만지지 마세요)
+========================== -->
+<!-- vapor-foundation 및 Pretendard 폰트 -->
+<link id="vapor-foundation" rel="stylesheet" href="https://statics.goorm.io/gds/foundation/v0.27.0/vapor-foundation.min.css">
+<link rel="prefetch" as="style" id="vapor-foundation-preload-light" href="https://statics.goorm.io/gds/foundation/v0.27.0/vapor-foundation.min.css">
+<link rel="prefetch" as="style" id="vapor-foundation-preload-dark" href="https://statics.goorm.io/gds/foundation/v0.27.0/vapor-foundation.dark.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+
+<!-- Bootstrap dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- =========================
+    HTML (복사해서 사용하세요)
+========================== -->
+<section class="content-section course-section">
+    <div class="container">
+        <h2 class="title">과정 카드 컴포넌트</h2>
+        <div class="courses-container">
+            <!-- PC - 영상 / Mobile - 이미지 -->
+            <div class="course-common">
+               <div class="course-card">
+                   <a href="fullstack.html" class="course-link">
+                       <div class="course-thumb">
+                           <div class="course-status-badge">
+                                <div class="badge badge-lg badge-contrast">오픈 알림</div>
+                           </div>
+                           <video class="course-video pc-story-video" autoplay loop muted playsinline preload="metadata">
+                               <source media="(min-width: 577px)" src="여기에 경로를 입력하세요" type="video/mp4">
+                           </video>
+                           <picture class="mobile-picture">
+                               <source media="(max-width: 576px)" srcset="여기에 경로를 입력하세요">
+                               <img src="source/img-default.png" alt="img-default" class="course-video">
+                           </picture>
+                       </div>
+                       <div class="course-info">
+                           <div class="course-info-text">
+                               <h5 class="course-name">프로그램 이름</h5>
+                               <div class="subtitle-1 course-period">
+                                   <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"
+                                       xmlns="http://www.w3.org/2000/svg">
+                                       <path
+                                           d="M5.33333 9.33325C5.14444 9.33325 4.98611 9.26936 4.85833 9.14158C4.73056 9.01381 4.66667 8.85547 4.66667 8.66658C4.66667 8.4777 4.73056 8.31936 4.85833 8.19158C4.98611 8.06381 5.14444 7.99992 5.33333 7.99992C5.52222 7.99992 5.68056 8.06381 5.80833 8.19158C5.93611 8.31936 6 8.4777 6 8.66658C6 8.85547 5.93611 9.01381 5.80833 9.14158C5.68056 9.26936 5.52222 9.33325 5.33333 9.33325ZM8 9.33325C7.81111 9.33325 7.65278 9.26936 7.525 9.14158C7.39722 9.01381 7.33333 8.85547 7.33333 8.66658C7.33333 8.4777 7.39722 8.31936 7.525 8.19158C7.65278 8.06381 7.81111 7.99992 8 7.99992C8.18889 7.99992 8.34722 8.06381 8.475 8.19158C8.60278 8.31936 8.66667 8.4777 8.66667 8.66658C8.66667 8.85547 8.60278 9.01381 8.475 9.14158C8.34722 9.26936 8.18889 9.33325 8 9.33325ZM10.6667 9.33325C10.4778 9.33325 10.3194 9.26936 10.1917 9.14158C10.0639 9.01381 10 8.85547 10 8.66658C10 8.4777 10.0639 8.31936 10.1917 8.19158C10.3194 8.06381 10.4778 7.99992 10.6667 7.99992C10.8556 7.99992 11.0139 8.06381 11.1417 8.19158C11.2694 8.31936 11.3333 8.4777 11.3333 8.66658C11.3333 8.85547 11.2694 9.01381 11.1417 9.14158C11.0139 9.26936 10.8556 9.33325 10.6667 9.33325ZM3.33333 14.6666C2.96667 14.6666 2.65278 14.536 2.39167 14.2749C2.13056 14.0138 2 13.6999 2 13.3333V3.99992C2 3.63325 2.13056 3.31936 2.39167 3.05825C2.65278 2.79714 2.96667 2.66659 3.33333 2.66659H4V1.99992C4 1.81103 4.06389 1.6527 4.19167 1.52492C4.31944 1.39714 4.47778 1.33325 4.66667 1.33325C4.85556 1.33325 5.01389 1.39714 5.14167 1.52492C5.26944 1.6527 5.33333 1.81103 5.33333 1.99992V2.66659H10.6667V1.99992C10.6667 1.81103 10.7306 1.6527 10.8583 1.52492C10.9861 1.39714 11.1444 1.33325 11.3333 1.33325C11.5222 1.33325 11.6806 1.39714 11.8083 1.52492C11.9361 1.6527 12 1.81103 12 1.99992V2.66659H12.6667C13.0333 2.66659 13.3472 2.79714 13.6083 3.05825C13.8694 3.31936 14 3.63325 14 3.99992V13.3333C14 13.6999 13.8694 14.0138 13.6083 14.2749C13.3472 14.536 13.0333 14.6666 12.6667 14.6666H3.33333ZM3.33333 13.3333H12.6667V6.66658H3.33333V13.3333Z"
+                                           fill="currentColor" />
+                                   </svg>
+                                   교육 일정 ㅣ YYYY.MM.DD (월) - YYYY.MM.DD (목)
+                               </div>
+                           </div>
+                           <div class="badge-container">
+                               <div class="badge badge-primary">태그1</div>
+                               <div class="badge badge-primary">태그2</div>
+                               <div class="badge badge-primary">태그3</div>
+                               <div class="badge badge-primary">태그4</div>
+                           </div>
+                       </div>
+                   </a>
+               </div>
+               <div class="course-action-container">
+                   <button type="button" class="btn btn-block btn-lg btn-primary" onclick="window.open('여기에 링크를 입력하세요', '_blank')">CTA Button</button>
+               </div>
+            </div>
+
+            <!-- PC / Mobile - 이미지 -->
+            <div class="course-common">
+            <div class="course-card">
+                <a href="fullstack.html" class="course-link">
+                    <div class="course-thumb">
+                        <div class="course-status-badge">
+                            <div class="badge badge-lg badge-primary">모집 중</div>
+                        </div>
+                        <img class="course-image" src="여기에 경로를 입력하세요" alt="course-image" onerror="this.onerror=null;this.src='source/img-default.png';">
+                    </div>
+                    <div class="course-info">
+                        <div class="course-info-text">
+                            <h5 class="course-name">프로그램 이름</h5>
+                            <div class="subtitle-1 course-period">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M5.33333 9.33325C5.14444 9.33325 4.98611 9.26936 4.85833 9.14158C4.73056 9.01381 4.66667 8.85547 4.66667 8.66658C4.66667 8.4777 4.73056 8.31936 4.85833 8.19158C4.98611 8.06381 5.14444 7.99992 5.33333 7.99992C5.52222 7.99992 5.68056 8.06381 5.80833 8.19158C5.93611 8.31936 6 8.4777 6 8.66658C6 8.85547 5.93611 9.01381 5.80833 9.14158C5.68056 9.26936 5.52222 9.33325 5.33333 9.33325ZM8 9.33325C7.81111 9.33325 7.65278 9.26936 7.525 9.14158C7.39722 9.01381 7.33333 8.85547 7.33333 8.66658C7.33333 8.4777 7.39722 8.31936 7.525 8.19158C7.65278 8.06381 7.81111 7.99992 8 7.99992C8.18889 7.99992 8.34722 8.06381 8.475 8.19158C8.60278 8.31936 8.66667 8.4777 8.66667 8.66658C8.66667 8.85547 8.60278 9.01381 8.475 9.14158C8.34722 9.26936 8.18889 9.33325 8 9.33325ZM10.6667 9.33325C10.4778 9.33325 10.3194 9.26936 10.1917 9.14158C10.0639 9.01381 10 8.85547 10 8.66658C10 8.4777 10.0639 8.31936 10.1917 8.19158C10.3194 8.06381 10.4778 7.99992 10.6667 7.99992C10.8556 7.99992 11.0139 8.06381 11.1417 8.19158C11.2694 8.31936 11.3333 8.4777 11.3333 8.66658C11.3333 8.85547 11.2694 9.01381 11.1417 9.14158C11.0139 9.26936 10.8556 9.33325 10.6667 9.33325ZM3.33333 14.6666C2.96667 14.6666 2.65278 14.536 2.39167 14.2749C2.13056 14.0138 2 13.6999 2 13.3333V3.99992C2 3.63325 2.13056 3.31936 2.39167 3.05825C2.65278 2.79714 2.96667 2.66659 3.33333 2.66659H4V1.99992C4 1.81103 4.06389 1.6527 4.19167 1.52492C4.31944 1.39714 4.47778 1.33325 4.66667 1.33325C4.85556 1.33325 5.01389 1.39714 5.14167 1.52492C5.26944 1.6527 5.33333 1.81103 5.33333 1.99992V2.66659H10.6667V1.99992C10.6667 1.81103 10.7306 1.6527 10.8583 1.52492C10.9861 1.39714 11.1444 1.33325 11.3333 1.33325C11.5222 1.33325 11.6806 1.39714 11.8083 1.52492C11.9361 1.6527 12 1.81103 12 1.99992V2.66659H12.6667C13.0333 2.66659 13.3472 2.79714 13.6083 3.05825C13.8694 3.31936 14 3.63325 14 3.99992V13.3333C14 13.6999 13.8694 14.0138 13.6083 14.2749C13.3472 14.536 13.0333 14.6666 12.6667 14.6666H3.33333ZM3.33333 13.3333H12.6667V6.66658H3.33333V13.3333Z"
+                                        fill="currentColor" />
+                                </svg>
+                                교육 일정 ㅣ YYYY.MM.DD (월) - YYYY.MM.DD (목)
+                            </div>
+                        </div>
+                        <div class="badge-container">
+                            <div class="badge badge-primary">태그1</div>
+                            <div class="badge badge-primary">태그2</div>
+                            <div class="badge badge-primary">태그3</div>
+                            <div class="badge badge-primary">태그4</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="course-action-container">
+                <button type="button" class="btn btn-block btn-lg btn-primary" onclick="window.open('여기에 경로를 입력하세요', '_blank')">CTA Button</button>
+            </div>
+            </div>
+
+            <!-- PC / Mobile - 이미지 -->
+            <div class="course-common">
+                <div class="course-card">
+                    <a href="fullstack.html" class="course-link">
+                        <div class="course-thumb">
+                            <div class="course-status-badge">
+                                <div class="badge badge-lg badge-warning">모집 마감</div>
+                            </div>
+                            <img class="course-image" src="여기에 경로를 입력하세요" alt="course-image" onerror="this.onerror=null;this.src='source/img-default.png';">
+                        </div>
+                        <div class="course-info">
+                            <div class="course-info-text">
+                                <h5 class="course-name">프로그램 이름</h5>
+                                <div class="subtitle-1 course-period">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M5.33333 9.33325C5.14444 9.33325 4.98611 9.26936 4.85833 9.14158C4.73056 9.01381 4.66667 8.85547 4.66667 8.66658C4.66667 8.4777 4.73056 8.31936 4.85833 8.19158C4.98611 8.06381 5.14444 7.99992 5.33333 7.99992C5.52222 7.99992 5.68056 8.06381 5.80833 8.19158C5.93611 8.31936 6 8.4777 6 8.66658C6 8.85547 5.93611 9.01381 5.80833 9.14158C5.68056 9.26936 5.52222 9.33325 5.33333 9.33325ZM8 9.33325C7.81111 9.33325 7.65278 9.26936 7.525 9.14158C7.39722 9.01381 7.33333 8.85547 7.33333 8.66658C7.33333 8.4777 7.39722 8.31936 7.525 8.19158C7.65278 8.06381 7.81111 7.99992 8 7.99992C8.18889 7.99992 8.34722 8.06381 8.475 8.19158C8.60278 8.31936 8.66667 8.4777 8.66667 8.66658C8.66667 8.85547 8.60278 9.01381 8.475 9.14158C8.34722 9.26936 8.18889 9.33325 8 9.33325ZM10.6667 9.33325C10.4778 9.33325 10.3194 9.26936 10.1917 9.14158C10.0639 9.01381 10 8.85547 10 8.66658C10 8.4777 10.0639 8.31936 10.1917 8.19158C10.3194 8.06381 10.4778 7.99992 10.6667 7.99992C10.8556 7.99992 11.0139 8.06381 11.1417 8.19158C11.2694 8.31936 11.3333 8.4777 11.3333 8.66658C11.3333 8.85547 11.2694 9.01381 11.1417 9.14158C11.0139 9.26936 10.8556 9.33325 10.6667 9.33325ZM3.33333 14.6666C2.96667 14.6666 2.65278 14.536 2.39167 14.2749C2.13056 14.0138 2 13.6999 2 13.3333V3.99992C2 3.63325 2.13056 3.31936 2.39167 3.05825C2.65278 2.79714 2.96667 2.66659 3.33333 2.66659H4V1.99992C4 1.81103 4.06389 1.6527 4.19167 1.52492C4.31944 1.39714 4.47778 1.33325 4.66667 1.33325C4.85556 1.33325 5.01389 1.39714 5.14167 1.52492C5.26944 1.6527 5.33333 1.81103 5.33333 1.99992V2.66659H10.6667V1.99992C10.6667 1.81103 10.7306 1.6527 10.8583 1.52492C10.9861 1.39714 11.1444 1.33325 11.3333 1.33325C11.5222 1.33325 11.6806 1.39714 11.8083 1.52492C11.9361 1.6527 12 1.81103 12 1.99992V2.66659H12.6667C13.0333 2.66659 13.3472 2.79714 13.6083 3.05825C13.8694 3.31936 14 3.63325 14 3.99992V13.3333C14 13.6999 13.8694 14.0138 13.6083 14.2749C13.3472 14.536 13.0333 14.6666 12.6667 14.6666H3.33333ZM3.33333 13.3333H12.6667V6.66658H3.33333V13.3333Z"
+                                            fill="currentColor" />
+                                    </svg>
+                                    교육 일정 ㅣ YYYY.MM.DD (월) - YYYY.MM.DD (목)
+                                </div>
+                            </div>
+                            <div class="badge-container">
+                                <div class="badge badge-primary">태그1</div>
+                                <div class="badge badge-primary">태그2</div>
+                                <div class="badge badge-primary">태그3</div>
+                                <div class="badge badge-primary">태그4</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="course-action-container">
+                    <button type="button" class="btn btn-block btn-lg btn-primary" onclick="window.open('여기에 경로를 입력하세요', '_blank')">CTA Button</button>
+                </div>
+            </div>
+       </div>
+    </div>
+</section>
+
+
+<!-- =========================
+    CSS (부분적으로 복사해서 사용하세요)
+========================== -->
+<style>
+    /* Global Styles & Theme (만지지 마세요) */
+    body {
+        background-color: var(--gray-000);
+        word-break: keep-all;
+    }
+    h5 {
+        letter-spacing: -.012rem;
+    }
+    .title {
+        color: var(--text-normal);
+        margin-bottom: var(--space-700);
+    }
+    .content-section {
+        padding: var(--space-800) 0;
+    }
+    a:focus,a:hover {
+        text-decoration: none !important;
+    }
+
+    /* Course Card (복사해서 사용하세요) */
+    .courses-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3개의 카드를 한 줄에 표시 */
+        gap: var(--space-300);
+    }
+    .course-thumb {
+        width: 100%;
+        aspect-ratio: 5 / 3;
+        border-radius: var(--border-radius-400);
+        overflow: hidden;
+        background-color: var(--gray-100);
+        position: relative;
+    }
+    .course-status-badge {
+        position: absolute;
+        top: var(--space-200);
+        left: var(--space-200);
+        z-index: 1;
+    }
+    .course-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: transform 0.3s ease;
+    }
+    .course-card:hover .course-video {
+        transform: scale(1.05);
+    }
+    .pc-story-video {
+        display: block;
+    }
+    .mobile-picture {
+        display: none;
+    }
+    .course-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: transform 0.3s ease;
+    }
+    .course-card:hover .course-image {
+        transform: scale(1.05);
+    }
+    .course-name {
+        color: var(--text-normal);
+        margin-bottom: var(--space-050);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+        -webkit-box-orient: vertical;
+        display: flex;
+    }
+    .course-period {
+        color: var(--text-hint);
+        margin-bottom: var(--space-150);
+        display: flex;
+        align-items: center;
+        gap: var(--space-050);
+    }
+    .badge-container {
+        gap: var(--space-050);
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .course-link {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-150);
+    }
+    .course-common {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--space-300);
+    }
+    .early-text {
+        background-color: var(--ktb-tech-rose);
+        border-radius: var(--border-radius-400);
+        padding: var(--space-150);
+        color: var(--white);
+    }
+    .course-action-container {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-100);
+    }
+    @media (min-width: 1440px) {
+        .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+            max-width: 1172px !important;
+        }
+    }
+    @media (max-width: 992px) {
+        .courses-container {
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-300);
+            row-gap: var(--space-500);
+        }
+    }
+    @media (max-width: 576px) {
+        .courses-container {
+            grid-template-columns: 1fr;
+            gap: var(--space-400);
+        }
+        .course-common {
+            gap: var(--space-200);
+        }
+        .pc-story-video {
+            display: none;
+        }
+
+        .mobile-picture {
+            display: block;
+        }
+    }
+</style>

@@ -1,0 +1,401 @@
+<!-- =========================
+    기본 설정 (만지지 마세요)
+========================== -->
+<!-- vapor-foundation 및 Pretendard 폰트 -->
+<link id="vapor-foundation" rel="stylesheet" href="https://statics.goorm.io/gds/foundation/v0.27.0/vapor-foundation.min.css">
+<link rel="prefetch" as="style" id="vapor-foundation-preload-light" href="https://statics.goorm.io/gds/foundation/v0.27.0/vapor-foundation.min.css">
+<link rel="prefetch" as="style" id="vapor-foundation-preload-dark" href="https://statics.goorm.io/gds/foundation/v0.27.0/vapor-foundation.dark.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+
+<!-- Bootstrap dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- =========================
+    HTML (복사해서 사용하세요)
+========================== -->
+<section class="hero-section">
+    <div class="container">
+        <div class="hero-content-wrapper">
+            <!-- 상단 카드 2개 -->
+            <div class="hero-top-row">
+                <div class="hero-left-container">
+                    <div class="hero-image-placeholder">
+                        <video class="hero-left-video" autoplay loop muted playsinline preload="metadata" poster="source/img-default-hero-left.png">
+                            <source media="(min-width: 577px)" src="여기에 경로를 입력하세요" type="video/mp4">
+                        </video>
+                        <img src="여기에 경로를 입력하세요" alt="hero-main-mobile" class="hero-left-image">
+                    </div>
+                    <div class="hero-image-dim"></div>
+                    <h1 class="hero-title">메인 타이틀을<br>최대 30자<br>이내로 입력하세요</h1>
+                </div>
+                <div class="hero-right-container">
+                    <div class="hero-right-background"></div>
+                    <picture id="hero-main-picture">
+                        <source media="(max-width: 992px)" srcset="여기에 경로를 입력하세요">
+                        <img src="여기에 경로를 입력하세요" alt="main-image" class="hero-right-image">
+                    </picture>
+                </div>
+            </div>
+
+            <!-- 하단 카드 3개 -->
+            <div class="hero-bottom-row">
+                <div class="hero-card-container">
+                    <div class="hero-card-image">
+                        <img src="여기에 경로를 입력하세요" alt="sub-image-1" class="hero-card-bg">
+                    </div>
+                    <div class="hero-card-overlay"></div>
+                    <div class="hero-card-content">
+                        <div class="hero-card-subtitle subtitle-2">라벨 1</div>
+                        <h3 class="hero-card-title">서브 타이틀 1</h3>
+                        <p class="hero-card-description paragraph">서브 타이틀 1에 대한 설명을 입력하세요</p>
+                    </div>
+                </div>
+
+                <div class="hero-card-container">
+                    <div class="hero-card-image">
+                        <img src="여기에 경로를 입력하세요" alt="sub-image-2" class="hero-card-bg">
+                    </div>
+                    <div class="hero-card-overlay"></div>
+                    <div class="hero-card-content">
+                        <div class="hero-card-subtitle subtitle-2">라벨 2</div>
+                        <h3 class="hero-card-title">서브 타이틀 2</h3>
+                        <p class="hero-card-description paragraph">서브 타이틀 2에 대한 설명을 입력하세요</p>
+                    </div>
+                </div>
+
+                <div class="hero-card-container">
+                    <div class="hero-card-image">
+                        <img src="여기에 경로를 입력하세요" alt="sub-image-3" class="hero-card-bg">
+                    </div>
+                    <div class="hero-card-overlay"></div>
+                    <div class="hero-card-content">
+                        <div class="hero-card-subtitle subtitle-2">라벨 3</div>
+                        <h3 class="hero-card-title">서브 타이틀 3</h3>
+                        <p class="hero-card-description paragraph">서브 타이틀 3에 대한 설명을 입력하세요</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========================
+    CSS (부분적으로 복사해서 사용하세요)
+========================== -->
+<style>
+    /* Global Styles & Theme (만지지 마세요) */
+    body {
+        background-color: var(--gray-000);
+        word-break: keep-all;
+    }
+    h5 {
+        letter-spacing: -.012rem;
+    }
+    .title {
+        color: var(--text-normal);
+        margin-bottom: var(--space-700);
+    }
+    .content-section {
+        padding: var(--space-800) 0;
+    }
+    a:focus,a:hover {
+        text-decoration: none !important;
+    }
+
+    /* Hero Section (복사해서 사용하세요) */
+    .hero-section {
+        background-color: var(--gray-000);
+        padding-bottom: var(--space-800);
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+    }
+    .hero-content-wrapper {
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+        gap: var(--space-300);
+    }
+    /* 상단 행 스타일 */
+    .hero-top-row {
+        display: -webkit-box;
+        display: flex;
+        gap: var(--space-300);
+        height: 32rem;
+    }
+    .hero-left-container {
+        -webkit-box-flex: 3;
+        flex: 3;
+        position: relative;
+        height: 100%;
+        border-radius: var(--border-radius-600);
+        overflow: hidden;
+        background-color: var(--background-alternative-01);
+    }
+    .hero-right-container {
+        -webkit-box-flex: 1;
+        flex: 1;
+        position: relative;
+        height: 100%;
+        border-radius: var(--border-radius-600);
+        overflow: hidden;
+    }
+    .hero-right-background {
+        width: 100%;
+        height: 100%;
+        background: var(--background-alternative-01);
+        border-radius: var(--border-radius-600);
+    }
+    .hero-right-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .hero-image-placeholder {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    .hero-left-image {
+        display: none;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .hero-left-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .hero-image-placeholder img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .hero-image-dim {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--black);
+        opacity: 0.32;
+        pointer-events: none;
+    }
+    .hero-title {
+        position: absolute;
+        left: var(--space-500);
+        bottom: var(--space-500);
+        font-weight: var(--font-weight-700);
+        line-height: var(--line-height-700);
+        font-size: var(--font-size-700);
+        color: var(--white);
+        margin-bottom: 0;
+    }
+    /* 하단 행 스타일 */
+    .hero-bottom-row {
+        display: -webkit-box;
+        display: flex;
+        gap: var(--space-300);
+        height: 16rem;
+    }
+    .hero-card-container {
+        -webkit-box-flex: 1;
+        flex: 1;
+        height: 100%;
+        position: relative;
+        border-radius: var(--border-radius-600);
+        overflow: hidden;
+        cursor: pointer;
+        -webkit-transition: -webkit-transform 0.3s ease;
+        transition: transform 0.3s ease;
+        background: var(--background-alternative-01);
+    }
+    .hero-card-container:hover {
+        -webkit-transform: translateY(-8px);
+        transform: translateY(-8px);
+    }
+    .hero-card-image {
+        width: auto;
+        height: 7.5rem;
+        position: absolute;
+        right: var(--space-400);
+        top: var(--space-400);
+    }
+    .hero-card-bg {
+        width: 100%;
+        height: 100%;
+    }
+    .hero-card-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+    }
+    .hero-card-container:hover .hero-card-overlay {
+        -webkit-backdrop-filter: blur(24px);
+        backdrop-filter: blur(24px);
+    }
+    .hero-card-content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: var(--space-400);
+        -webkit-transition: -webkit-transform 0.5s ease;
+        transition: transform 0.5s ease;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+    }
+    .hero-card-title {
+        color: var(--text-normal);
+        margin-bottom: 0;
+    }
+    .hero-card-subtitle {
+        color: var(--text-hint);
+        margin-bottom: var(--space-050);
+    }
+    .hero-card-description {
+        opacity: 0;
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+        -webkit-transition: -webkit-transform 0.5s ease;
+        transition: transform 0.5s ease;
+        margin: 0;
+        height: 0;
+    }
+    .hero-card-container:hover .hero-card-description {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        height: auto;
+    }
+    .hero-card-container:hover .hero-card-content {
+        .hero-card-title {
+            margin-bottom: var(--space-200);
+        }
+    }
+    @media (min-width: 1440px) {
+        .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+            max-width: 1172px !important;
+        }
+    }
+    @media (max-width: 1200px) {
+        /* 하단 행 스타일 */
+        .hero-card-image {
+            height: 6.25rem;
+            right: var(--space-300);
+            top: var(--space-300);
+        }
+    }
+    @media (max-width: 992px) {
+        .hero-top-row,
+        .hero-bottom-row {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            flex-direction: column;
+            height: auto;
+        }
+        .hero-left-container {
+            aspect-ratio: 5 / 3;
+            width: 100%;
+            flex: none;
+        }
+        .hero-right-container {
+            height: 14rem;
+            width: 100%;
+            flex: none;
+        }
+        .hero-card-container {
+            height: 14rem;
+            width: 100%;
+            flex: none;
+        }
+        .hero-card-image {
+            position: absolute;
+            right: var(--space-400);
+            top: 50%;
+            transform: translateY(-50%);
+            height: 7.5rem;
+        }
+        .hero-title {
+            font-size: var(--font-size-600);
+            line-height: var(--line-height-500);
+        }
+        .hero-right-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    @media (max-width: 768px) {
+        .hero-section h1 {
+            font-size: var(--font-size-500);
+        }
+        .hero-title {
+            left: var(--space-400);
+            bottom: var(--space-400);
+        }
+        .hero-top-row {
+            gap: var(--space-200);
+        }
+        .hero-right-image {
+            width: 100%;
+            height: 100%;
+        }
+        .hero-content-wrapper {
+            gap: var(--space-200);
+        }
+        .hero-bottom-row {
+            gap: var(--space-200);
+        }
+    }
+    @media (max-width: 576px) {
+        .hero-section {
+            padding-bottom: var(--space-600);
+        }
+        .hero-section h1 {
+            font-size: 1.75rem;
+        }
+        .hero-title {
+            left: var(--space-300);
+            bottom: var(--space-300);
+            line-height: 2.375rem;
+        }
+        .hero-left-container {
+            aspect-ratio: 1 / 1;
+        }
+        .hero-left-video {
+            display: none !important;
+        }
+        .hero-left-image {
+            display: block;
+        }
+        .hero-card-content {
+            padding: var(--space-300);
+        }
+        .hero-card-image {
+            right: var(--space-300);
+            top: var(--space-300);
+            transform: none;
+            height: 6.5rem;
+        }
+    }  
+</style>

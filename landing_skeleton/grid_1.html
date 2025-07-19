@@ -1,0 +1,345 @@
+<!-- =========================
+    기본 설정 (만지지 마세요)
+========================== -->
+<!-- vapor-foundation 및 Pretendard 폰트 -->
+<link id="vapor-foundation" rel="stylesheet" href="https://statics.goorm.io/gds/foundation/v0.27.0/vapor-foundation.min.css">
+<link rel="prefetch" as="style" id="vapor-foundation-preload-light" href="https://statics.goorm.io/gds/foundation/v0.27.0/vapor-foundation.min.css">
+<link rel="prefetch" as="style" id="vapor-foundation-preload-dark" href="https://statics.goorm.io/gds/foundation/v0.27.0/vapor-foundation.dark.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+
+<!-- Bootstrap dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- =========================
+    HTML (복사해서 사용하세요)
+========================== -->
+<section class="content-section">
+    <div class="container">
+        <h2 class="title">Layout Grid 1</h2>
+        <div class="card-grid">
+            <!-- Card 1 -->
+            <div class="card card-type1" data-link="여기에 링크를 입력하세요" role="button" tabindex="0">
+                <!-- 영상 및 이미지 소스 입력 -->
+                <video class="card-media pc-media" loop muted playsinline preload="metadata">
+                    <source media="(min-width: 577px)" src="여기에 비디오 경로를 입력하세요" type="video/mp4">
+                </video>
+                <picture class="mobile-picture">
+                    <source media="(max-width: 576px)" srcset="여기에 모바일용 이미지 경로를 입력하세요">
+                    <img src="여기에 기본 이미지 경로를 입력하세요" alt="여기에 카드1 이미지 설명을 입력하세요" class="card-media">
+                </picture>
+                <div class="card-gradient"></div>
+                <div class="card-play-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="currentColor">
+                        <path opacity="0.7" d="M20.5625 32.875L32.25 25.4375C32.7917 25.09 33.0625 24.6073 33.0625 23.9894C33.0625 23.3715 32.7917 22.8958 32.25 22.5625L20.5625 15.125C19.9792 14.7917 19.4062 14.7819 18.8438 15.0956C18.2812 15.4094 18 15.8983 18 16.5625V31.4375C18 32.1017 18.2812 32.5906 18.8438 32.9044C19.4062 33.2181 19.9792 33.2083 20.5625 32.875ZM24.0175 48C20.7142 48 17.6042 47.375 14.6875 46.125C11.7708 44.875 9.21875 43.1562 7.03125 40.9688C4.84375 38.7812 3.125 36.23 1.875 33.315C0.625 30.4 0 27.2854 0 23.9713C0 20.6571 0.625 17.5521 1.875 14.6562C3.125 11.7604 4.84375 9.21875 7.03125 7.03125C9.21875 4.84375 11.77 3.125 14.685 1.875C17.6 0.625 20.7146 0 24.0287 0C27.3429 0 30.4479 0.625 33.3438 1.875C36.2396 3.125 38.7812 4.84375 40.9688 7.03125C43.1562 9.21875 44.875 11.765 46.125 14.67C47.375 17.5754 48 20.6796 48 23.9825C48 27.2858 47.375 30.3958 46.125 33.3125C44.875 36.2292 43.1562 38.7812 40.9688 40.9688C38.7812 43.1562 36.235 44.875 33.33 46.125C30.4246 47.375 27.3204 48 24.0175 48Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <div class="card-info">
+                    <div class="card-info-text">
+                        <div class="card-subheading-container">
+                            <h6 class="card-subheading">카드 1 서브타이틀</h6>
+                            <span class="badge badge-lg badge-primary">뱃지 텍스트</span>
+                        </div>
+                        <h2 class="card-heading">카드 1 타이틀</h2>
+                        <p class="card-description paragraph-lg">카드 1 주요 메세지</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="card card-type2" data-link="여기에 링크를 입력하세요" role="button" tabindex="0">
+                <!-- 영상 및 이미지 소스 입력 -->
+                <video class="card-media pc-media" loop muted playsinline preload="metadata">
+                    <source media="(min-width: 577px)" src="여기에 비디오 경로를 입력하세요" type="video/mp4">
+                </video>
+                <picture class="mobile-picture">
+                    <source media="(max-width: 576px)" srcset="여기에 모바일용 이미지 경로를 입력하세요">
+                    <img src="여기에 기본 이미지 경로를 입력하세요" alt="여기에 카드2 이미지 설명을 입력하세요" class="card-media">
+                </picture>
+                <div class="card-gradient"></div>
+                <div class="card-play-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="currentColor">
+                        <path opacity="0.7" d="M20.5625 32.875L32.25 25.4375C32.7917 25.09 33.0625 24.6073 33.0625 23.9894C33.0625 23.3715 32.7917 22.8958 32.25 22.5625L20.5625 15.125C19.9792 14.7917 19.4062 14.7819 18.8438 15.0956C18.2812 15.4094 18 15.8983 18 16.5625V31.4375C18 32.1017 18.2812 32.5906 18.8438 32.9044C19.4062 33.2181 19.9792 33.2083 20.5625 32.875ZM24.0175 48C20.7142 48 17.6042 47.375 14.6875 46.125C11.7708 44.875 9.21875 43.1562 7.03125 40.9688C4.84375 38.7812 3.125 36.23 1.875 33.315C0.625 30.4 0 27.2854 0 23.9713C0 20.6571 0.625 17.5521 1.875 14.6562C3.125 11.7604 4.84375 9.21875 7.03125 7.03125C9.21875 4.84375 11.77 3.125 14.685 1.875C17.6 0.625 20.7146 0 24.0287 0C27.3429 0 30.4479 0.625 33.3438 1.875C36.2396 3.125 38.7812 4.84375 40.9688 7.03125C43.1562 9.21875 44.875 11.765 46.125 14.67C47.375 17.5754 48 20.6796 48 23.9825C48 27.2858 47.375 30.3958 46.125 33.3125C44.875 36.2292 43.1562 38.7812 40.9688 40.9688C38.7812 43.1562 36.235 44.875 33.33 46.125C30.4246 47.375 27.3204 48 24.0175 48Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <div class="card-info">
+                    <div class="card-info-text">
+                        <div class="card-subheading-container">
+                            <h6 class="card-subheading">카드 2 서브타이틀</h6>
+                            <span class="badge badge-lg badge-primary">뱃지 텍스트</span>
+                        </div>
+                        <h2 class="card-heading">카드 2 타이틀</h2>
+                        <p class="card-description paragraph-lg">카드 2 주요 메세지</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="card card-type3" data-link="여기에 링크를 입력하세요" role="button" tabindex="0">
+                <!-- 영상 및 이미지 소스 입력 -->
+                <video class="card-media pc-media" loop muted playsinline preload="metadata">
+                    <source media="(min-width: 577px)" src="여기에 비디오 경로를 입력하세요" type="video/mp4">
+                </video>
+                <picture class="mobile-picture">
+                    <source media="(max-width: 576px)" srcset="여기에 모바일용 이미지 경로를 입력하세요">
+                    <img src="여기에 기본 이미지 경로를 입력하세요" alt="여기에 카드3 이미지 설명을 입력하세요" class="card-media">
+                </picture>
+                <div class="card-gradient"></div>
+                <div class="card-play-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="currentColor">
+                        <path opacity="0.7" d="M20.5625 32.875L32.25 25.4375C32.7917 25.09 33.0625 24.6073 33.0625 23.9894C33.0625 23.3715 32.7917 22.8958 32.25 22.5625L20.5625 15.125C19.9792 14.7917 19.4062 14.7819 18.8438 15.0956C18.2812 15.4094 18 15.8983 18 16.5625V31.4375C18 32.1017 18.2812 32.5906 18.8438 32.9044C19.4062 33.2181 19.9792 33.2083 20.5625 32.875ZM24.0175 48C20.7142 48 17.6042 47.375 14.6875 46.125C11.7708 44.875 9.21875 43.1562 7.03125 40.9688C4.84375 38.7812 3.125 36.23 1.875 33.315C0.625 30.4 0 27.2854 0 23.9713C0 20.6571 0.625 17.5521 1.875 14.6562C3.125 11.7604 4.84375 9.21875 7.03125 7.03125C9.21875 4.84375 11.77 3.125 14.685 1.875C17.6 0.625 20.7146 0 24.0287 0C27.3429 0 30.4479 0.625 33.3438 1.875C36.2396 3.125 38.7812 4.84375 40.9688 7.03125C43.1562 9.21875 44.875 11.765 46.125 14.67C47.375 17.5754 48 20.6796 48 23.9825C48 27.2858 47.375 30.3958 46.125 33.3125C44.875 36.2292 43.1562 38.7812 40.9688 40.9688C38.7812 43.1562 36.235 44.875 33.33 46.125C30.4246 47.375 27.3204 48 24.0175 48Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <div class="card-info">
+                    <div class="card-info-text">
+                        <div class="card-subheading-container">
+                            <h6 class="card-subheading">카드 3 서브타이틀</h6>
+                            <span class="badge badge-lg badge-primary">뱃지 텍스트</span>
+                        </div>
+                        <h2 class="card-heading">카드 3 타이틀</h2>
+                        <p class="card-description paragraph-lg">카드 3 주요 메세지</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="card card-type4" data-link="여기에 링크를 입력하세요" role="button" tabindex="0">
+                <!-- 영상 및 이미지 소스 입력 -->
+                <video class="card-media pc-media" loop muted playsinline preload="metadata">
+                    <source media="(min-width: 577px)" src="여기에 비디오 경로를 입력하세요" type="video/mp4">
+                </video>
+                <picture class="mobile-picture">
+                    <source media="(max-width: 576px)" srcset="여기에 모바일용 이미지 경로를 입력하세요">
+                    <img src="여기에 기본 이미지 경로를 입력하세요" alt="여기에 카드4 이미지 설명을 입력하세요" class="card-media">
+                </picture>
+                <div class="card-gradient"></div>
+                <div class="card-play-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="currentColor">
+                        <path opacity="0.7" d="M20.5625 32.875L32.25 25.4375C32.7917 25.09 33.0625 24.6073 33.0625 23.9894C33.0625 23.3715 32.7917 22.8958 32.25 22.5625L20.5625 15.125C19.9792 14.7917 19.4062 14.7819 18.8438 15.0956C18.2812 15.4094 18 15.8983 18 16.5625V31.4375C18 32.1017 18.2812 32.5906 18.8438 32.9044C19.4062 33.2181 19.9792 33.2083 20.5625 32.875ZM24.0175 48C20.7142 48 17.6042 47.375 14.6875 46.125C11.7708 44.875 9.21875 43.1562 7.03125 40.9688C4.84375 38.7812 3.125 36.23 1.875 33.315C0.625 30.4 0 27.2854 0 23.9713C0 20.6571 0.625 17.5521 1.875 14.6562C3.125 11.7604 4.84375 9.21875 7.03125 7.03125C9.21875 4.84375 11.77 3.125 14.685 1.875C17.6 0.625 20.7146 0 24.0287 0C27.3429 0 30.4479 0.625 33.3438 1.875C36.2396 3.125 38.7812 4.84375 40.9688 7.03125C43.1562 9.21875 44.875 11.765 46.125 14.67C47.375 17.5754 48 20.6796 48 23.9825C48 27.2858 47.375 30.3958 46.125 33.3125C44.875 36.2292 43.1562 38.7812 40.9688 40.9688C38.7812 43.1562 36.235 44.875 33.33 46.125C30.4246 47.375 27.3204 48 24.0175 48Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <div class="card-info">
+                    <div class="card-info-text">
+                        <div class="card-subheading-container">
+                            <h6 class="card-subheading">카드 4 서브타이틀</h6>
+                            <span class="badge badge-lg badge-primary">뱃지 텍스트</span>
+                        </div>
+                        <h2 class="card-heading">카드 4 타이틀</h2>
+                        <p class="card-description paragraph-lg">카드 4 주요 메세지</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========================
+    CSS (부분적으로 복사해서 사용하세요)
+========================== -->
+<style>
+    /* Global Styles & Theme (만지지 마세요) */
+    body {
+        background-color: var(--gray-000);
+        word-break: keep-all;
+    }
+    h5 {
+        letter-spacing: -.012rem;
+    }
+    .title {
+        color: var(--text-normal);
+        margin-bottom: var(--space-700);
+    }
+    .content-section {
+        padding: var(--space-800) 0;
+    }
+    a:focus,a:hover {
+        text-decoration: none !important;
+    }
+
+    /* grid_1 / 2x2 (복사해서 사용하세요) */
+    .card-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-300);
+        width: 100%;
+    }
+    .card {
+        position: relative;
+        border-radius: var(--border-radius-600);
+        overflow: hidden;
+        background-color: var(--background-alternative-01);
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    .card:hover {
+        transform: translateY(-8px);
+    }
+    /* 첫 번째와 두 번째 카드 (넓은 직사각형) */
+    .card-type1,
+    .card-type2 {
+        width: calc(50% - var(--space-300) / 2);
+        height: 22.75rem;
+    }
+    .card-type3,
+    .card-type4 {
+        width: calc(50% - var(--space-300) / 2);
+        height: 22.75rem;
+    }
+    .card-media {
+        position: absolute;
+        top: var(--space-000);
+        left: var(--space-000);
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* 처음에는 비디오를 일시 중지 상태로 시작 */
+        pointer-events: none; /* 비디오 자체에 대한 마우스 이벤트 방지 */
+    }
+    .pc-media {
+        display: block;
+    }
+    .mobile-picture {
+        display: none;
+    }
+    .card-gradient {
+        position: absolute;
+        top: var(--space-000);
+        left: var(--space-000);
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, transparent 0%, var(--gray-050) 95%);
+    }
+    .card-info {
+        position: absolute;
+        padding: var(--space-400);
+        width: 100%;
+        top: var(--space-000);
+        display: flex;
+        flex-direction: column;
+    }
+    .card-heading {
+        margin-bottom: var(--space-200);
+        color: var(--text-normal);
+    }
+    .card-subheading {
+        margin-bottom: var(--space-100);
+        color: var(--text-alternative);
+    }
+    .card-subheading-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .card-description {
+        color: var(--text-hint);
+        margin-bottom: 0;
+    }
+    .company-logo {
+        height: var(--size-500);
+        width: auto;
+        display: block;
+    }
+    .card-play-icon {
+        position: absolute;
+        bottom: var(--space-300);
+        right: var(--space-300);
+        z-index: 10;
+        color: var(--white);
+        background: rgb(255 255 255 / 16%);
+        border-radius: 100%;
+        padding: var(--space-050);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+    }
+    .card:hover .card-play-icon {
+        background: rgb(255 255 255 / 32%);
+    }
+    @media (min-width: 1440px) {
+        .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+            max-width: 1172px !important;
+        }
+    }
+    @media (max-width: 1200px) {
+        .card-grid {
+            max-width: 1172px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-300);
+        }
+        .card-type1,
+        .card-type2,
+        .card-type3,
+        .card-type4 {
+            width: 100%;
+        }
+    }
+    @media (max-width: 768px) {
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-200);
+        }
+        .card-type1,
+        .card-type2,
+        .card-type3,
+        .card-type4 {
+            width: 100%;
+            height: 22.75rem;
+        }
+    }
+    @media (max-width: 576px) {
+        .card-info {
+            padding: var(--space-300);
+        }
+        .card:hover {
+            -webkit-transform: none;
+            transform: none;
+        }
+        .pc-media {
+            display: none;
+        }
+        .mobile-picture {
+            display: block;
+        }
+    }
+</style>
+
+<!-- =========================
+    JavaScript (복사해서 사용하세요)
+========================== -->
+<script>
+    // card hover 비디오 재생 기능
+    document.addEventListener('DOMContentLoaded', () => {
+        const cards = document.querySelectorAll('.card');
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        cards.forEach(card => {
+            const video = card.querySelector('.card-media');
+            if (!video) return; // 비디오가 없는 카드는 건너뜀
+            if (isMobile) {
+                // 모바일: 터치로 비디오 토글
+                card.addEventListener('touchstart', () => {
+                    if (video.paused) {
+                        video.play().catch(() => {});
+                    } else {
+                        video.pause();
+                    }
+                }, { passive: true });
+            } else {
+                // 데스크톱: hover로 비디오 재생/일시정지
+                card.addEventListener('mouseenter', () => {
+                    video.play().catch(() => {});
+                });
+                card.addEventListener('mouseleave', () => {
+                    video.pause();
+                });
+                // 키보드 접근성
+                card.addEventListener('focus', () => {
+                    video.play().catch(() => {});
+                });
+                card.addEventListener('blur', () => {
+                    video.pause();
+                });
+            }
+        });
+    });
+</script>
