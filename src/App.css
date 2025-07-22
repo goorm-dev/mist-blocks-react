@@ -1,15 +1,72 @@
-#root {
-  max-width: 1172px;
-  margin: 0 auto;
-}
-
 /* Vapor UI의 container 클래스 재정의 */
 .container {
-  max-width: 1172px !important;
-  width: 1172px !important;
-  padding: 0 16px;
+  width: 100%;
+  padding-right: 16px;
+  padding-left: 16px;
+  margin-right: auto;
+  margin-left: auto
 }
-
+@media (min-width: 576px) {
+  .container {
+      max-width:540px
+  }
+}
+@media (min-width: 768px) {
+  .container {
+      max-width:720px
+  }
+}
+@media (min-width: 992px) {
+  .container {
+      max-width:940px
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+      max-width:1172px
+  }
+}
+@media (min-width: 1440px) {
+  .container {
+      max-width:1404px
+  }
+}
+.container-fluid,.container-lg,.container-md,.container-sm,.container-xl,.container-xxl {
+  width: 100%;
+  padding-right: 16px;
+  padding-left: 16px;
+  margin-right: auto;
+  margin-left: auto
+}
+@media (min-width: 576px) {
+  .container,.container-sm {
+      max-width:540px
+  }
+}
+@media (min-width: 768px) {
+  .container,.container-md,.container-sm {
+      max-width:720px
+  }
+}
+@media (min-width: 992px) {
+  .container,.container-lg,.container-md,.container-sm {
+      max-width:940px
+  }
+}
+@media (min-width: 1200px) {
+  .container,.container-lg,.container-md,.container-sm,.container-xl {
+      max-width:1172px
+  }
+}
+@media (min-width: 1440px) {
+  .container,.container-lg,.container-md,.container-sm,.container-xl,.container-xxl {
+      max-width:1404px
+  }
+}
+svg {
+  overflow: hidden;
+  vertical-align: middle;
+}
 .logo {
   height: 6em;
   padding: 1.5em;

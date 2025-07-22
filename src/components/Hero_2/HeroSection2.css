@@ -1,0 +1,69 @@
+/* HeroSection2 skeleton 스타일 */
+.hero2-root {
+  position: relative;
+  min-height: 480px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--vapor-color-background-normal);
+  overflow: hidden;
+}
+
+.hero2-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero2-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1.5rem 2.5rem 1.5rem;
+}
+
+.hero2-label {
+  margin-bottom: 1.5rem;
+}
+
+.hero2-headline {
+  margin-bottom: 2.5rem;
+}
+
+.hero2-headline-line + .hero2-headline-line {
+  margin-top: 0.5rem;
+}
+
+.hero2-cta-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.hero2-cta {
+  min-width: 160px;
+}
+
+@media (max-width: 600px) {
+  .hero2-content {
+    max-width: 100%;
+    padding: 2rem 0.5rem 2rem 0.5rem;
+  }
+  .hero2-headline {
+    margin-bottom: 1.5rem;
+  }
+  .hero2-label {
+    margin-bottom: 1rem;
+  }
+  .hero2-cta {
+    min-width: 120px;
+  }
+} 

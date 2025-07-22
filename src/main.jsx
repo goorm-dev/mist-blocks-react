@@ -6,11 +6,10 @@ import { createThemeConfig, ThemeProvider } from '@vapor-ui/core';
 
 
 export const themeConfig = createThemeConfig({
-    appearance: 'light',
-    radius: 1,
+    appearance: 'dark',
+    radius: 'none',
     scaling: 1,
     storageKey: 'my-vapor-theme',
-    primaryColor: '#ffc107', // hex code로 설정
 });
 
 createRoot(document.getElementById('root')).render(
