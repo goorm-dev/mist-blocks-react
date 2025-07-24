@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 /* Vapor UI의 container 클래스 재정의 */
 .container {
   width: 100%;
