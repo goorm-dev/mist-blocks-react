@@ -3,7 +3,7 @@
     padding: var(--vapor-size-space-800) 0;
 }
 .title {
-    color: var(--vapor-color-foreground-secondary-darker);
+    color: var(--vapor-color-foreground-normal);
     margin-bottom: var(--vapor-size-space-700);
     display: block;
 }
@@ -69,7 +69,7 @@
 }
 .card-heading {
     margin-bottom: var(--vapor-size-space-200);
-    color: var(--vapor-color-foreground-secondary-darker);
+    color: var(--vapor-color-foreground-normal);
 }
 .card-subheading {
     margin-bottom: var(--vapor-size-space-100);

@@ -48,10 +48,6 @@
   justify-content: center;
 }
 
-.hero2-cta {
-  min-width: 160px;
-}
-
 @media (max-width: 600px) {
   .hero2-content {
     max-width: 100%;
@@ -62,8 +58,5 @@
   }
   .hero2-label {
     margin-bottom: 1rem;
-  }
-  .hero2-cta {
-    min-width: 120px;
   }
 } 

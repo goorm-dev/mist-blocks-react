@@ -88,7 +88,7 @@ function GridSection1() {
   return (
     <section className="content-section">
       <div className="container">
-        <Text typography="heading2" className="title">Layout Grid 1</Text>
+        <Text typography="heading2" className="title">Grid 1</Text>
         <div className="card-grid">
           {cards.map((card, idx) => (
             <div
