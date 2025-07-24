@@ -24,52 +24,49 @@ const FooterFull = () => {
         <div className="footer-content">
           <div className="footer-info-column">
             <div className="footer-section footer-section-vertical">
-              <Text typography="subtitle1" className="footer-title">{'고객센터'}</Text>
+              <Text typography="subtitle1" className="footer-title" foreground="hint">{'고객센터'}</Text>
               <Text typography="body1" className="footer-text">{'고객센터 설명'}</Text>
-              <a href="{{customer center link}}" target="_blank" className="text-button text-button-lg text-button-primary btn-text-button">
-                {/* 아이콘 */}
-                <DiscussionIcon style={{ width: '20px', height: '20px', color: 'var(--vapor-color-foreground-normal)' }} />
-                <Text as="span" typography="button1">{'채팅 상담 바로가기'}</Text>
-              </a>
+              <a href="{{service1 link}}" className="footer-link"><DiscussionIcon style={{ width: '20px', height: '20px', color: 'var(--vapor-color-foreground-normal)' }} /><Text as="span" typography="heading6">{'서비스1'}</Text></a>
             </div>
             <div className="footer-section footer-section-vertical">
-              <Text typography="subtitle1" className="footer-title">{'운영시간'}</Text>
+              <Text typography="subtitle1" className="footer-title" foreground="hint">{'운영시간'}</Text>
               <Text typography="body1" className="footer-text">{'운영시간 설명'}</Text>
             </div>
           </div>
           <div className="footer-links-column">
             <div className="footer-links-wrapper">
               <div className="footer-links-block footer-section-vertical">
-                <Text typography="subtitle1" className="footer-title">{'서비스'}</Text>
+                <Text typography="subtitle1" className="footer-title" foreground="hint">{'서비스'}</Text>
                 <ul className="footer-links">
-                  <li><a href="{{service1 link}}" className="footer-link text-button text-button-lg text-button-secondary"><Text as="span" typography="button2">{'서비스1'}</Text></a></li>
-                  <li><a href="{{service2 link}}" className="footer-link text-button text-button-lg text-button-secondary"><Text as="span" typography="button2">{'서비스2'}</Text></a></li>
-                  <li><a href="{{service3 link}}" className="footer-link text-button text-button-lg text-button-secondary"><Text as="span" typography="button2">{'서비스3'}</Text></a></li>
+                  <li><a href="{{service1 link}}"><Text as="span" typography="heading6" className="footer-link">{'서비스1'}</Text></a></li>
+                  <li><a href="{{service2 link}}"><Text as="span" typography="heading6" className="footer-link">{'서비스2'}</Text></a></li>
+                  <li><a href="{{service3 link}}"><Text as="span" typography="heading6" className="footer-link">{'서비스3'}</Text></a></li>
                 </ul>
               </div>
               <div className="footer-links-block footer-section-vertical">
-                <Text typography="subtitle1" className="footer-title">{'외부링크'}</Text>
+                <Text typography="subtitle1" className="footer-title" foreground="hint">{'외부링크'}</Text>
                 <ul className="footer-links">
-                  <li><a href="{{external1 link}}" target="_blank" className="footer-link text-button text-button-lg text-button-secondary"><Text as="span" typography="button2">{'외부링크1'}</Text></a></li>
-                  <li><a href="{{external2 link}}" target="_blank" className="footer-link text-button text-button-lg text-button-secondary"><Text as="span" typography="button2">{'외부링크2'}</Text></a></li>
-                  <li><a href="{{external3 link}}" target="_blank" className="footer-link text-button text-button-lg text-button-secondary"><Text as="span" typography="button2">{'외부링크3'}</Text></a></li>
+                  <li><a href="{{external1 link}}" target="_blank"><Text as="span" typography="heading6">{'외부링크1'}</Text></a></li>
+                  <li><a href="{{external2 link}}" target="_blank"><Text as="span" typography="heading6">{'외부링크2'}</Text></a></li>
+                  <li><a href="{{external3 link}}" target="_blank"><Text as="span" typography="heading6">{'외부링크3'}</Text></a></li>
                 </ul>
               </div>
             </div>
           </div>
           <div className="footer-top-button">
-            <button id="top-button" className="text-button text-button-lg text-button-secondary" aria-label="페이지 상단으로 이동">
-              <Text as="span" typography="button2">{'TOP'}</Text>
+            <a id="top-button" className="footer-link" aria-label="페이지 상단으로 이동">
+              <Text as="span" typography="heading6">{'TOP'}</Text>
               <svg className="top-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M11.9961 3.375C11.8838 3.375 11.7784 3.3945 11.6801 3.43351C11.5818 3.47252 11.4937 3.53104 11.4156 3.60906L6.43008 8.59462C6.25843 8.76627 6.17261 8.96522 6.17261 9.19148C6.17261 9.41774 6.25843 9.6167 6.43008 9.78835C6.60172 9.95999 6.79678 10.0497 7.01524 10.0575C7.2337 10.0653 7.42672 9.98496 7.59431 9.81643L11.1582 6.25398V20.1574C11.1582 20.3961 11.2385 20.5962 11.399 20.7577C11.5596 20.9192 11.7585 21 11.9959 21C12.2332 21 12.4338 20.9192 12.5977 20.7577C12.7615 20.5962 12.8434 20.3961 12.8434 20.1574V6.25398L16.4012 9.81175C16.5677 9.9834 16.7653 10.0692 16.9941 10.0692C17.223 10.0692 17.427 9.9834 17.6062 9.81175C17.7703 9.6401 17.8524 9.44115 17.8524 9.21489C17.8524 8.98863 17.7666 8.78967 17.5949 8.61803L12.586 3.60906C12.5017 3.53104 12.4104 3.47252 12.3121 3.43351C12.2138 3.3945 12.1085 3.375 11.9961 3.375Z" fill="currentColor" />
               </svg>
-            </button>
+            </a>
           </div>
         </div>
         <div className="footer-bottom-content">
           <div className="footer-info-text">
-            <Text as="p" typography="body2" className="company-info paragraph">{'회사 정보'}</Text>
-            <Text as="p" typography="caption1" className="copyright paragraph">{'저작권 정보'}</Text>
+            <Text as="p" typography="body2">{'대표  류성태 ㅣ  개인정보보호책임자  곽경주 ㅣ  사업자 등록번호  124-87-39200'}</Text>
+            <Text as="p" typography="body2">{'주소  경기도 성남시 분당구 판교로 242 PDC A동 9층 ㅣ 전화  031-600-8586 ㅣ 이메일  contact@goorm.io'}</Text>
+            <Text as="p" typography="body2">{'ⓒ goorm Inc. All rights reserved.'}</Text>
           </div>
           {/* 소셜 미디어 아이콘 */}
           <div className="social-icons">

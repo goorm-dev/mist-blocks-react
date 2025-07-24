@@ -4,9 +4,6 @@
 .footer.content-section {
     padding-bottom: 10rem;
 }
-.footer.index-footer {
-    padding-bottom: var(--vapor-size-space-600);
-}
 .footer-content {
     display: flex;
     justify-content: space-between;
@@ -23,13 +20,23 @@
 .footer-section:last-child {
     margin-bottom: 0;
 }
+.footer-section-vertical {
+    display: flex;
+    flex-direction: column;
+}
 .footer-title {
-    color: var(--vapor-color-foreground-hint);
     margin-bottom: var(--vapor-size-space-200);
 }
 .footer-text {
-    color: var(--vapor-color-foreground-normal);
     margin-bottom: var(--vapor-size-space-200);
+    color: var(--vapor-color-gray-800);
+}
+.footer-link {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--vapor-size-space-075);
+    color: var(--vapor-color-gray-800);
 }
 .footer-links-column {
     flex: 0 0 45%;
@@ -41,27 +48,14 @@
 .footer-links-block {
     flex: 0 0 48%;
 }
-.footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
 .footer-links li {
     margin-bottom: var(--vapor-size-space-200);
-}
-.footer-link {
-    padding: 0;
 }
 .footer-top-button {
     flex: 0 0 15%;
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
-}
-.top-icon {
-    width: var(--vapor-size-size-300);
-    height: var(--vapor-size-size-300);
-    margin-left: var(--vapor-size-space-050);
 }
 .footer-bottom-content {
     display: flex;
@@ -72,21 +66,7 @@
 .footer-info-text {
     display: flex;
     flex-direction: column;
-}
-.text-button {
-    padding: 0px;
-}
-.btn-text-button {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
     gap: var(--vapor-size-space-050);
-}
-.company-info, .copyright {
-    color: var(--vapor-color-foreground-normal);
-}
-.copyright {
-    margin-bottom: 0;
 }
 .social-icons {
     display: flex;
@@ -103,11 +83,7 @@
     transition: color 0.2s ease;
 }
 .social-icon:hover {
-    color: var(--vapor-color-background-primary);
-}
-.footer-section-vertical {
-  display: flex;
-  flex-direction: column;
+    color: var(--vapor-color-background-contrast);
 }
 @media (min-width: 1440px) {
     .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
