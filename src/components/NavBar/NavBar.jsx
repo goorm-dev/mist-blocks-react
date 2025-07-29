@@ -66,7 +66,7 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
           </button>
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
-          <a href="#" className="text-sm/6 font-semibold text-gray-50 hover:bg-gray-800/20 rounded-lg p-2 transition-colors">
+          <a href="#" className="text-sm/6 font-semibold text-gray-50 dark:text-gray-900 hover:bg-gray-800/20 rounded-lg p-2 transition-colors">
             DEEP DIVE 소개
           </a>
           <Popover className="relative">
