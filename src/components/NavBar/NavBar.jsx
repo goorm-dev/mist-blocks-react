@@ -12,7 +12,7 @@ import {
 } from '@headlessui/react'
 import {
   ArrowPathIcon,
-  Bars3Icon,
+  Bars2Icon,
   ChartPieIcon,
   CursorArrowRaysIcon,
   FingerPrintIcon,
@@ -24,15 +24,15 @@ import {
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 
 const products = [
-  { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-  { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'Security', description: 'Your customers\' data will be safe and secure', href: '#', icon: FingerPrintIcon },
-  { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-  { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
-  { name: 'Reporting', description: 'Detailed insights and analytics', href: '#', icon: ChartPieIcon },
-  { name: 'Collaboration', description: 'Work together with your team', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'Compliance', description: 'Meet regulatory requirements', href: '#', icon: FingerPrintIcon },
-  { name: 'Performance', description: 'Optimize your application speed', href: '#', icon: SquaresPlusIcon },
+  { name: '프로그램 1', description: '프로그램 간단한 설명', href: '#', icon: ChartPieIcon },
+  { name: '프로그램 2', description: '프로그램 간단한 설명', href: '#', icon: CursorArrowRaysIcon },
+  { name: '프로그램 3', description: '프로그램 간단한 설명', href: '#', icon: FingerPrintIcon },
+  { name: '프로그램 4', description: '프로그램 간단한 설명', href: '#', icon: SquaresPlusIcon },
+  { name: '프로그램 5', description: '프로그램 간단한 설명', href: '#', icon: ArrowPathIcon },
+  { name: '프로그램 6', description: '프로그램 간단한 설명', href: '#', icon: ChartPieIcon },
+  { name: '프로그램 7', description: '프로그램 간단한 설명', href: '#', icon: CursorArrowRaysIcon },
+  { name: '프로그램 8', description: '프로그램 간단한 설명', href: '#', icon: FingerPrintIcon },
+  { name: '프로그램 9', description: '프로그램 간단한 설명', href: '#', icon: SquaresPlusIcon },
 ]
 const callsToAction = [
   { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
@@ -62,17 +62,17 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-50"
           >
             <span className="sr-only">Open main menu</span>
-            <Bars3Icon aria-hidden="true" className="size-6" />
+            <Bars2Icon aria-hidden="true" className="size-6 stroke-2" />
           </button>
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
-          <a href="#" className="text-sm/6 font-semibold text-gray-50 dark:text-gray-900 hover:bg-gray-800/20 rounded-lg p-2 transition-colors">
+          <a href="#" className="text-sm/6 font-semibold text-gray-50 hover:bg-gray-800/20 rounded-lg p-2 transition-colors">
             DEEP DIVE 소개
           </a>
           <Popover className="relative">
             <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-50 hover:bg-gray-800/20 rounded-lg p-2 transition-colors">
               교육 프로그램
-              <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-50" />
+              <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-50 stroke-2" />
             </PopoverButton>
 
             <PopoverPanel
@@ -130,7 +130,7 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
             onClick={toggleDarkMode}
             className="text-sm/6 font-semibold text-gray-50 hover:bg-gray-800/20 rounded-lg p-2 transition-colors"
           >
-            {isDarkMode ? <MoonIcon className="size-5" /> : <SunIcon className="size-5" />}
+            {isDarkMode ? <MoonIcon className="size-5 stroke-2" /> : <SunIcon className="size-5 stroke-2" />}
           </button>
         </div>
       </nav>
@@ -152,7 +152,7 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
               className="-m-2.5 rounded-md p-2.5 text-gray-700"
             >
               <span className="sr-only">Close menu</span>
-              <XMarkIcon aria-hidden="true" className="size-6" />
+              <XMarkIcon aria-hidden="true" className="size-6 stroke-2" />
             </button>
           </div>
           <div className="mt-6 flow-root">
@@ -160,8 +160,8 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
               <div className="space-y-2 py-6">
                 <Disclosure as="div" className="-mx-3">
                   <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
-                    Product
-                    <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-open:rotate-180" />
+                    교육 프로그램
+                    <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-open:rotate-180 stroke-2" />
                   </DisclosureButton>
                   <DisclosurePanel className="mt-2 space-y-2">
                     {products.map((item) => (
@@ -180,19 +180,19 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                 >
-                  Features
+                  프로젝트 쇼케이스
                 </a>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                 >
-                  Marketplace
+                  문의하기
                 </a>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                 >
-                  Company
+                  소개
                 </a>
               </div>
               <div className="py-6">
@@ -200,7 +200,7 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
                   onClick={toggleDarkMode}
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 hover:text-gray-700 transition-colors"
                 >
-                  {isDarkMode ? <MoonIcon className="size-5" /> : <SunIcon className="size-5" />}
+                  {isDarkMode ? <MoonIcon className="size-5 stroke-2" /> : <SunIcon className="size-5 stroke-2" />}
                 </button>
               </div>
             </div>

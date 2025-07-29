@@ -40,6 +40,7 @@
 
 .hero2-headline-line + .hero2-headline-line {
   margin-top: 0.5rem;
+  color: var(--vapor-color-gray-950);
 }
 
 .hero2-cta-group {

@@ -16,8 +16,8 @@ const HeroSection2 = () => {
           {/* <Badge color="secondary" size="md">{'{{label text}}'}</Badge> */}
         </div>
         <div className="hero2-headline">
-          <Text typography="display4" foreground="accent" className="hero2-headline-line">{'몰입의 깊이가 실력의 높이가 되는 곳'}</Text>
-          <Text typography="display4" foreground="accent" className="hero2-headline-line">{'DEEP DIVE'}</Text>
+          <Text typography="display4" foreground="undefined" className="hero2-headline-line">{'몰입의 깊이가 실력의 높이가 되는 곳'}</Text>
+          <Text typography="display4" foreground="undefined" className="hero2-headline-line">{'DEEP DIVE'}</Text>
         </div>
         <div className="hero2-cta-group">
           <Button size="xl" color="secondary" className="hero2-cta">{'Get Started'}</Button>
