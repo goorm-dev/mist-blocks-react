@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css'
 import HeroSection2 from './components/Hero_2/HeroSection2';
 import HeroSection1 from './components/Hero_1/HeroSection1'
@@ -8,9 +8,20 @@ import FooterFull from './components/FooterFull/FooterFull';
 import Navbar from './components/NavBar/NavBar';
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    // HTML 요소에 data-theme 속성 설정
+    document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+  }, [isDarkMode]);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
   return (
     <main>
-        <Navbar />
+        <Navbar isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
         <HeroSection2 />
         <HeroSection1 />
         <GridSection1 />

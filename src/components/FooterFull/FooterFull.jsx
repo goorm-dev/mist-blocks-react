@@ -69,15 +69,12 @@ const FooterFull = () => {
           {/* 소셜 미디어 아이콘 */}
           <div className="social-icons">
             <a href="{{instagram link}}" target="_blank" className="social-icon" aria-label="Instagram">
-              {/* 인스타그램 아이콘 */}
               <InstagramIcon style={{ width: '20px', height: '20px', color: 'inherit' }} />
             </a>
             <a href="{{youtube link}}" target="_blank" className="social-icon" aria-label="YouTube">
-              {/* 유튜브 아이콘 */}
               <YoutubeIcon style={{ width: '20px', height: '20px', color: 'inherit' }} />
             </a>
             <a href="{{blog link}}" target="_blank" className="social-icon" aria-label="Blog">
-              {/* 블로그 아이콘 */}
               <BlogIcon style={{ width: '20px', height: '20px', color: 'inherit' }} />
             </a>
           </div>
