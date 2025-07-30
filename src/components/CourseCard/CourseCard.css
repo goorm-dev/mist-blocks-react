@@ -1,0 +1,133 @@
+.courses-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3개의 카드를 한 줄에 표시 */
+    gap: var(--vapor-size-space-300);
+}
+.course-thumb {
+    width: 100%;
+    aspect-ratio: 5 / 3;
+    border-radius: var(--vapor-size-borderRadius-400);
+    overflow: hidden;
+    background-color: var(--vapor-color-gray-100);
+    position: relative;
+    border: 0.0625rem solid var(--vapor-color-border-normal);
+}
+.course-status-badge {
+    position: absolute;
+    top: var(--vapor-size-space-200);
+    left: var(--vapor-size-space-200);
+    z-index: 1;
+}
+.course-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease;
+}
+.course-card:hover .course-video {
+    transform: scale(1.05);
+}
+/* PC에서만 비디오 표시 (video-with-mobile-image 타입용) */
+.pc-story-video {
+    display: block;
+}
+.mobile-picture {
+    display: none;
+}
+.course-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease;
+}
+.course-card:hover .course-image {
+    transform: scale(1.05);
+}
+.course-name {
+    color: var(--vapor-color-gray-900);
+    margin-bottom: var(--vapor-size-space-050);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    display: flex;
+}
+.course-period {
+    color: var(--vapor-color-background-hint);
+    margin-bottom: var(--vapor-size-space-150);
+    display: flex;
+    align-items: center;
+    gap: var(--vapor-size-space-050);
+}
+.badge-container {
+    gap: var(--vapor-size-space-050);
+    display: flex;
+    flex-wrap: wrap;
+}
+.course-link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--vapor-size-space-150);
+}
+.course-common {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--vapor-size-space-300);
+}
+.early-text {
+    background-color: var(--ktb-tech-rose);
+    border-radius: var(--vapor-size-borderRadius-400);
+    padding: var(--vapor-size-space-150);
+    color: var(--vapor-color-white);
+}
+.course-action-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--vapor-size-space-100);
+}
+/* Responsive Design */
+@media (min-width: 1440px) {
+    .container, 
+    .container-lg, 
+    .container-md, 
+    .container-sm, 
+    .container-xl, 
+    .container-xxl {
+        max-width: 1172px !important;
+    }
+}
+@media (max-width: 992px) {
+    .courses-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--vapor-size-space-300);
+        row-gap: var(--vapor-size-space-500);
+    }
+}
+@media (max-width: 768px) {
+    .courses-container {
+        grid-template-columns: 1fr;
+        gap: var(--vapor-size-space-400);
+    }
+    .course-common {
+        gap: var(--vapor-size-space-200);
+    }
+}
+@media (max-width: 576px) {
+    /* 모바일에서 PC 비디오 숨기고 모바일 이미지 표시 (video-with-mobile-image 타입용) */
+    .pc-story-video {
+        display: none;
+    }
+    .mobile-picture {
+        display: block;
+    }
+} 

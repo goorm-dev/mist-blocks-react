@@ -6,6 +6,7 @@ import GridSection1 from './components/Grid_1/GridSection1';
 import AccordionFaq from './components/AccordionFaq/AccordionFaq';
 import FooterFull from './components/FooterFull/FooterFull';
 import Navbar from './components/NavBar/NavBar';
+import CourseCard from './components/CourseCard/CourseCard';
 import { useTheme } from '@vapor-ui/core';
 
 function App() {
@@ -27,8 +28,9 @@ function App() {
   return (
     <main>
       <Navbar isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
-      <HeroSection2 />
+      {/* <HeroSection2 /> */}
       <HeroSection1 />
+      <CourseCard />
       <GridSection1 />
       <AccordionFaq />
       <FooterFull />

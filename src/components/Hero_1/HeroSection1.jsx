@@ -31,7 +31,7 @@ const HeroSection1 = () => {
   };
 
   return (
-    <section className="hero-section">
+    <section className="content-hero-section hero-section">
       <div className="container">
         <div className="hero-content-wrapper">
           {/* 상단 카드 2개 */}
