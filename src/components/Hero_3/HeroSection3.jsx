@@ -60,7 +60,8 @@ const HeroSection3 = () => {
   const templateData = {
     mainTitle: "메인 타이틀을<br />최대 30자<br />이내로 입력하세요",
     videoSrc: "https://statics.goorm.io/ktb/ktb_main_jeju.mp4",
-    mobileImageSrc: "{{mobile_image_source}}",
+    videoPoster: "/landing_skeleton/source/img-default-hero-left.png",
+    mobileImageSrc: "/landing_skeleton/source/img-default-hero-left.png",
     cards: [
       {
         label: "라벨1",
@@ -118,7 +119,7 @@ const HeroSection3 = () => {
                 muted 
                 playsInline 
                 preload="metadata" 
-                poster="source/img-default-hero-left.png"
+                poster={templateData.videoPoster}
               >
                 <source media="(min-width: 577px)" src={templateData.videoSrc} type="video/mp4" />
               </video>

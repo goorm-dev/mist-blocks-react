@@ -121,11 +121,6 @@
     background: var(--vapor-color-background-normal-darker);
 }
 
-.hero-card-container:hover,
-.hero-card-container.hovered {
-    transform: translateY(-8px);
-}
-
 .hero-card-image {
     width: auto;
     height: 7.5rem;

@@ -4,10 +4,36 @@ import './HeroSection1.css';
 
 const HeroSection1 = () => {
   const [isHovered, setIsHovered] = useState(null);
+  const [screenSize, setScreenSize] = useState('desktop');
 
   // 컴포넌트 마운트 확인
   useEffect(() => {
     console.log('🎨 HeroSection1 컴포넌트가 성공적으로 렌더링되었습니다!');
+  }, []);
+
+  // 화면 크기 감지
+  useEffect(() => {
+    const checkScreenSize = () => {
+      const width = window.innerWidth;
+      if (width <= 576) {
+        setScreenSize('mobile');
+      } else if (width <= 768) {
+        setScreenSize('tablet');
+      } else if (width <= 992) {
+        setScreenSize('small-desktop');
+      } else {
+        setScreenSize('desktop');
+      }
+    };
+
+    // 초기 체크
+    checkScreenSize();
+
+    // 리사이즈 이벤트 리스너
+    window.addEventListener('resize', checkScreenSize);
+
+    // 클린업
+    return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
   // 비디오 자동 재생을 위한 useEffect
@@ -30,6 +56,63 @@ const HeroSection1 = () => {
     console.log('🖱️ 카드 호버가 해제되었습니다.');
   };
 
+  // 템플릿 변수들
+  const templateData = {
+    mainTitle: "메인 타이틀을<br />최대 30자<br />이내로 입력하세요",
+    videoSrc: "https://statics.goorm.io/ktb/ktb_main_jeju.mp4",
+    videoPoster: "/landing_skeleton/source/img-default-hero-left.png",
+    mobileImageSrc: "/landing_skeleton/source/img-default-hero-left.png",
+    rightImageSrc: "{{right_image_source}}",
+    rightImageMobileSrc: "/landing_skeleton/source/img-default-hero-right-2.png",
+    cards: [
+      {
+        label: "라벨1",
+        title: "서브 타이틀1",
+        description: "설명을 입력하세요.",
+        imageSrc: "{{image_source_1}}"
+      },
+      {
+        label: "라벨2",
+        title: "서브 타이틀2",
+        description: "설명을 입력하세요.",
+        imageSrc: "{{image_source_2}}"
+      },
+      {
+        label: "라벨3",
+        title: "서브 타이틀3",
+        description: "설명을 입력하세요.",
+        imageSrc: "{{image_source_3}}"
+      }
+    ]
+  };
+
+  // 반응형 타이포그래피 결정 함수
+  const getResponsiveTypography = () => {
+    switch (screenSize) {
+      case 'mobile':
+        return "heading2"; // 576px 이하
+      case 'tablet':
+        return "heading2"; // 768px 이하
+      case 'small-desktop':
+        return "heading1"; // 992px 이하
+      default:
+        return "display4"; // 992px 초과
+    }
+  };
+
+  // br 태그를 JSX로 변환하는 함수
+  const renderTitleWithBreaks = (title) => {
+    if (!title) return null;
+    
+    const parts = title.split('<br />');
+    return parts.map((part, index) => (
+      <React.Fragment key={index}>
+        {part}
+        {index < parts.length - 1 && <br />}
+      </React.Fragment>
+    ));
+  };
+
   return (
     <section className="content-hero-section hero-section">
       <div className="container">
@@ -45,50 +128,31 @@ const HeroSection1 = () => {
                   muted 
                   playsInline 
                   preload="metadata" 
-                  poster="/landing_skeleton/source/img-default-hero-left.png"
+                  poster={templateData.videoPoster}
                 >
-                  <source media="(min-width: 577px)" src="/landing_skeleton/source/video.png" type="video/mp4" />
+                  <source media="(min-width: 577px)" src={templateData.videoSrc} type="video/mp4" />
                 </video>
-                <img src="/landing_skeleton/source/img-default-hero-left.png" alt="hero-main-mobile" className="hero-left-image" />
+                <img src={templateData.mobileImageSrc} alt="hero-main-mobile" className="hero-left-image" />
               </div>
               <div className="hero-image-dim"></div>
               <div className="hero-title">
-                <Text typography="display4" foreground="accent">
-                  메인 타이틀을<br />최대 30자<br />이내로 입력하세요
+                <Text typography={getResponsiveTypography()} foreground="accent">
+                  {renderTitleWithBreaks(templateData.mainTitle)}
                 </Text>
               </div>
             </div>
             <div className="hero-right-container">
               <div className="hero-right-background"></div>
               <picture id="hero-main-picture">
-                <source media="(max-width: 992px)" srcSet="/landing_skeleton/source/img-default-hero-right-2.png" />
-                <img src="여기에 이미지 경로를 넣어주세요" alt="main-image" className="hero-right-image" />
+                <source media="(max-width: 992px)" srcSet={templateData.rightImageMobileSrc} />
+                <img src={templateData.rightImageSrc} alt="main-image" className="hero-right-image" />
               </picture>
             </div>
           </div>
 
           {/* 하단 카드 3개 */}
           <div className="hero-bottom-row">
-            {[
-              {
-                label: "라벨 1",
-                title: "서브 타이틀 1",
-                description: "서브 타이틀 1에 대한 설명을 입력하세요",
-                imageSrc: "여기에 이미지 경로를 넣어주세요"
-              },
-              {
-                label: "라벨 2", 
-                title: "서브 타이틀 2",
-                description: "서브 타이틀 2에 대한 설명을 입력하세요",
-                imageSrc: "여기에 이미지 경로를 넣어주세요"
-              },
-              {
-                label: "라벨 3",
-                title: "서브 타이틀 3", 
-                description: "서브 타이틀 3에 대한 설명을 입력하세요",
-                imageSrc: "여기에 이미지 경로를 넣어주세요"
-              }
-            ].map((card, index) => (
+            {templateData.cards.map((card, index) => (
               <div 
                 key={index}
                 className={`hero-card-container ${isHovered === index ? 'hovered' : ''}`}
