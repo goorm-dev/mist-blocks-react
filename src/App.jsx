@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
-import HeroSection2 from './components/Hero_2/HeroSection2';
-import HeroSection1 from './components/Hero_1/HeroSection1'
+// import HeroSection2 from './components/Hero_2/HeroSection2';
+// import HeroSection1 from './components/Hero_1/HeroSection1'
+import HeroSection3 from './components/Hero_3/HeroSection3';
 import GridSection1 from './components/Grid_1/GridSection1';
 import AccordionFaq from './components/AccordionFaq/AccordionFaq';
 import FooterFull from './components/FooterFull/FooterFull';
@@ -29,7 +30,8 @@ function App() {
     <main>
       <Navbar isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
       {/* <HeroSection2 /> */}
-      <HeroSection1 />
+      {/* <HeroSection1 /> */}
+      <HeroSection3 />
       <CourseCard />
       <GridSection1 />
       <AccordionFaq />
