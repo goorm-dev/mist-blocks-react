@@ -2,6 +2,63 @@
 @import "tailwindcss";
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
+:root {
+  --pointer-x: 50%;
+  --pointer-y: 50%;
+  --pointer-from-center: 0;
+  --pointer-from-top: 0.5;
+  --pointer-from-left: 0.5;
+  --card-opacity: 0;
+  --rotate-x: 0deg;
+  --rotate-y: 0deg;
+  --background-x: 50%;
+  --background-y: 50%;
+  --grain: src/assets/grain.webp;
+  --icon: src/assets/iconpattern.png;
+  --behind-gradient: none;
+  --inner-gradient: none;
+  --sunpillar-1: hsl(2, 100%, 73%);
+  --sunpillar-2: hsl(53, 100%, 69%);
+  --sunpillar-3: hsl(93, 100%, 69%);
+  --sunpillar-4: hsl(176, 100%, 76%);
+  --sunpillar-5: hsl(228, 100%, 74%);
+  --sunpillar-6: hsl(283, 100%, 73%);
+  --sunpillar-clr-1: var(--sunpillar-1);
+  --sunpillar-clr-2: var(--sunpillar-2);
+  --sunpillar-clr-3: var(--sunpillar-3);
+  --sunpillar-clr-4: var(--sunpillar-4);
+  --sunpillar-clr-5: var(--sunpillar-5);
+  --sunpillar-clr-6: var(--sunpillar-6);
+}
+
+/* 다크 테마 컬러 커스터마이징 */
+[data-theme="dark"] {
+  /* Foreground Colors */
+  --vapor-color-foreground-contrast: #323640;
+  --vapor-color-foreground-contrast-darker: #434753;
+  --vapor-color-foreground-hint: #626673;
+  --vapor-color-foreground-hint-darker: #7C7F8D;
+  --vapor-color-foreground-normal: #CFCFD8;
+  --vapor-color-foreground-normal-lighter: #7C7F8D;
+  --vapor-color-foreground-secondary: #A6A8B6;
+  --vapor-color-foreground-secondary-darker: #CFCFD8;
+  --vapor-color-foreground-accent: #FFFFFF;
+  
+  /* Background Colors */
+  --vapor-color-background-normal: #141418;
+  --vapor-color-background-normal-lighter: #1B1E23;
+  --vapor-color-background-normal-darker: #1B1E23;
+  --vapor-color-background-secondary: #262930;
+  --vapor-color-background-contrast: #323640;
+  --vapor-color-background-hint: #626673;
+  
+  /* Border Colors */
+  --vapor-color-border-normal: #262930;
+  --vapor-color-border-secondary: #262930;
+  --vapor-color-border-contrast: #323640;
+  --vapor-color-border-hint: #626673;
+}
+
 /* Global styles */
 .container,
 .container-fluid,

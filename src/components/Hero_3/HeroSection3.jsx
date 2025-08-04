@@ -59,7 +59,7 @@ const HeroSection3 = () => {
   // 템플릿 변수들
   const templateData = {
     mainTitle: "메인 타이틀을<br />최대 30자<br />이내로 입력하세요",
-    videoSrc: "https://statics.goorm.io/ktb/ktb_main_jeju.mp4",
+    videoSrc: "",
     videoPoster: "/landing_skeleton/source/img-default-hero-left.png",
     mobileImageSrc: "/landing_skeleton/source/img-default-hero-left.png",
     cards: [

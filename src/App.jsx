@@ -9,6 +9,7 @@ import FooterFull from './components/FooterFull/FooterFull';
 import Navbar from './components/NavBar/NavBar';
 import CourseCard from './components/CourseCard/CourseCard';
 import { useTheme } from '@vapor-ui/core';
+import SpecialProfile from './components/SpecialProfile/SpecialProfile';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -33,6 +34,7 @@ function App() {
       {/* <HeroSection1 /> */}
       <HeroSection3 />
       <CourseCard />
+      <SpecialProfile />
       <GridSection1 />
       <AccordionFaq />
       <FooterFull />
