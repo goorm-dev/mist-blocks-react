@@ -78,9 +78,14 @@
 .pc-inside {
   inset: 1px;
   position: absolute;
-  background-image: var(--inner-gradient);
+  background-image: var(--inner-gradient-light);
   background-color: rgba(0, 0, 0, 0.9);
   transform: translate3d(0, 0, 0.01px);
+}
+
+/* 다크 테마에서 그라디언트 변경 */
+[data-theme="dark"] .pc-inside {
+  background-image: var(--inner-gradient-dark);
 }
   
 .pc-shine {
@@ -183,7 +188,7 @@
   align-items: center;
   justify-content: space-between;
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(24px) brightness(1.1);
+  backdrop-filter: blur(2rem) brightness(1.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--vapor-size-borderRadius-400);
   padding: var(--vapor-size-space-150) var(--vapor-size-space-175);
@@ -258,6 +263,12 @@
   margin: 0 auto;
   position: relative;
   white-space: nowrap;
+}
+
+/* 라이트 테마에서 프로필 텍스트 그라디언트 조정 */
+[data-theme="light"] .profile-name,
+[data-theme="light"] .profile-title {
+  background-image: linear-gradient(to bottom, var(--vapor-color-foreground-normal), var(--vapor-color-foreground-secondary));
 }
   
 @keyframes glow-bg {

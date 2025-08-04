@@ -29,6 +29,9 @@
   --sunpillar-clr-4: var(--sunpillar-4);
   --sunpillar-clr-5: var(--sunpillar-5);
   --sunpillar-clr-6: var(--sunpillar-6);
+  
+  /* 라이트 테마용 그라디언트 */
+  --inner-gradient-light: linear-gradient(145deg,#FFFFFFcc 0%,#F7F7FA88 100%);
 }
 
 /* 다크 테마 컬러 커스터마이징 */
@@ -36,12 +39,12 @@
   /* Foreground Colors */
   --vapor-color-foreground-contrast: #323640;
   --vapor-color-foreground-contrast-darker: #434753;
-  --vapor-color-foreground-hint: #626673;
-  --vapor-color-foreground-hint-darker: #7C7F8D;
-  --vapor-color-foreground-normal: #CFCFD8;
-  --vapor-color-foreground-normal-lighter: #7C7F8D;
-  --vapor-color-foreground-secondary: #A6A8B6;
-  --vapor-color-foreground-secondary-darker: #CFCFD8;
+  --vapor-color-foreground-hint: #737785;
+  --vapor-color-foreground-hint-darker: #8C8F9E;
+  --vapor-color-foreground-normal: #D6D6DE;
+  --vapor-color-foreground-normal-lighter: #8C8F9E;
+  --vapor-color-foreground-secondary: #B4B5C3;
+  --vapor-color-foreground-secondary-darker: #D6D6DE;
   --vapor-color-foreground-accent: #FFFFFF;
   
   /* Background Colors */
@@ -50,13 +53,16 @@
   --vapor-color-background-normal-darker: #1B1E23;
   --vapor-color-background-secondary: #262930;
   --vapor-color-background-contrast: #323640;
-  --vapor-color-background-hint: #626673;
+  --vapor-color-background-hint: #737785;
   
   /* Border Colors */
   --vapor-color-border-normal: #262930;
   --vapor-color-border-secondary: #262930;
   --vapor-color-border-contrast: #323640;
-  --vapor-color-border-hint: #626673;
+  --vapor-color-border-hint: #737785;
+  
+  /* 다크 테마용 그라디언트 */
+  --inner-gradient-dark: linear-gradient(145deg,#3236408c 0%,#62667344 100%);
 }
 
 /* Global styles */
