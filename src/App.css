@@ -35,10 +35,7 @@
 }
 
 /* 다크 테마 컬러 커스터마이징 - 강제 적용 */
-[data-theme="dark"],
-[data-theme="dark"] *,
-html[data-theme="dark"],
-html[data-theme="dark"] * {
+:root.vapor-dark-theme {
   /* Foreground Colors */
   --vapor-color-foreground-contrast: #323640 !important;
   --vapor-color-foreground-contrast-darker: #434753 !important;
@@ -86,13 +83,14 @@ html[data-theme="dark"] * {
   padding: var(--vapor-size-space-800) 0;
 }
 .content-hero-section {
-  padding-top: 7.5rem;
+  padding-top: 6.25rem;
 }
 
 .title {
   color: var(--vapor-color-gray-900);
   margin-bottom: var(--vapor-size-space-700);
   display: block;
+  text-align: center;
 }
 svg {
   overflow: hidden;

@@ -338,7 +338,7 @@ const ProfileCard = ({
             {/* 사용자 정보 표시 */}
             {showUserInfo && (
               <div className="pc-user-info">
-                                  <div className="pc-user-details">
+                  <div className="pc-user-details">
                     <div className="pc-user-text">
                       <div className="pc-stack-badges">
                         {stack.split(',').map((tag, index) => (

@@ -2,6 +2,7 @@
   display: flex;
   gap: var(--vapor-size-space-100);
   margin-bottom: var(--vapor-size-space-300);
+  justify-content: center;
 }
 .faq-section .faq-content {
   display: flex;

@@ -86,7 +86,7 @@ const CourseCard = ({
       tags: ["태그1", "태그2", "태그3", "태그4"],
       // 썸네일 타입: PC 비디오 + 모바일 이미지
       thumbnailType: 'image',
-      imageSrc: "src/assets/iconpattern.png",
+      imageSrc: "https://oopy.lazyrockets.com/api/v2/notion/image?src=attachment%3A935acf52-2726-4fe2-a55e-a17006cc610a%3Athum_fullstack_employee.png&blockId=23e4e699-7fb0-800f-a359-d9e28667d7a9",
       mobileImageSrc: "여기에 경로를 입력하세요",
       ctaButtonLabel: "CTA Button",
       ctaButtonLink: "여기에 링크를 입력하세요",
