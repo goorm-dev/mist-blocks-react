@@ -21,7 +21,7 @@ import {
   SunIcon,
   MoonIcon,
 } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
 const products = [
   { name: '프로그램 1', description: '프로그램 간단한 설명', href: '#', icon: ChartPieIcon },
   { name: '프로그램 2', description: '프로그램 간단한 설명', href: '#', icon: CursorArrowRaysIcon },
@@ -32,10 +32,6 @@ const products = [
   { name: '프로그램 7', description: '프로그램 간단한 설명', href: '#', icon: CursorArrowRaysIcon },
   { name: '프로그램 8', description: '프로그램 간단한 설명', href: '#', icon: FingerPrintIcon },
   { name: '프로그램 9', description: '프로그램 간단한 설명', href: '#', icon: SquaresPlusIcon },
-]
-const callsToAction = [
-  { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
-  { name: 'Contact sales', href: '#', icon: PhoneIcon },
 ]
 export default function Example({ isDarkMode, toggleDarkMode }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -65,12 +61,12 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
             <Bars2Icon aria-hidden="true" className="size-6 stroke-2" />
           </button>
         </div>
-        <PopoverGroup className="hidden lg:flex lg:gap-x-12">
-          <a href="#" className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 rounded-lg p-2 transition-colors">
+        <PopoverGroup className="hidden lg:flex lg:gap-x-8">
+          <a href="#" className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 rounded-lg p-3 transition-colors">
             DEEP DIVE 소개
           </a>
           <Popover className="relative">
-            <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 rounded-lg p-2 transition-colors">
+            <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 rounded-lg p-3 transition-colors">
               교육 프로그램
               <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-[var(--vapor-color-foreground-normal)] stroke-2" />
             </PopoverButton>
@@ -120,17 +116,20 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
               </div>
             </PopoverPanel>
           </Popover>
-          <a href="#" className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 rounded-lg p-2 transition-colors">
+          <a href="#" className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 rounded-lg p-3 transition-colors">
             프로젝트 쇼케이스
           </a>
         </PopoverGroup>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
           <button
             onClick={toggleDarkMode}
-            className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 rounded-lg p-2 transition-colors"
+            className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 rounded-lg p-3 transition-colors"
           >
             {isDarkMode ? <MoonIcon className="size-5 stroke-2" /> : <SunIcon className="size-5 stroke-2" />}
           </button>
+          <a href="#" className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 rounded-lg p-3 transition-colors">
+            지원 확인
+          </a>
         </div>
       </nav>
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
@@ -195,6 +194,12 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16"
                 >
                   소개
+                </a>
+                <a
+                  href="#"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16"
+                >
+                  지원 확인
                 </a>
               </div>
               <div className="py-6">

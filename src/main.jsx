@@ -7,7 +7,7 @@ import { createThemeConfig, ThemeProvider } from '@vapor-ui/core';
 
 
 export const themeConfig = createThemeConfig({
-    appearance: 'light',
+    appearance: 'dark',
     radius: 'md',
     scaling: 1,
     storageKey: 'my-vapor-theme'

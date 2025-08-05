@@ -73,6 +73,28 @@ import { CalendarIcon } from '@vapor-ui/icons';
  * {
  *   showCtaButton: false
  * }
+ * 
+ * @example
+ * // statusType 옵션 사용 예시
+ * 
+ * // 기본 컬러 타입
+ * {
+ *   statusType: "primary",    // 파란색
+ *   statusType: "contrast",   // 회색
+ *   statusType: "warning"     // 주황색
+ * }
+ * 
+ * // open 타입
+ * {
+ *   statusType: "open",       // KTC 그라디언트 (보라색 → 청록색)
+ *   status: "모집 중"
+ * }
+ * 
+ * // close 타입
+ * {
+ *   statusType: "close",      // 배경: secondary, 텍스트: hint
+ *   status: "모집 마감"
+ * }
  */
 const CourseCard = ({ 
   title = "Course Card",
@@ -81,13 +103,12 @@ const CourseCard = ({
       id: 1,
       name: "프로그램 이름",
       period: "YY.MM.DD (월) - YY.MM.DD (목)",
-      status: "오픈 알림",
-      statusType: "contrast", // contrast, primary, warning
+      status: "모집 중",
+      statusType: "open", // contrast, primary, warning, open, close
       tags: ["태그1", "태그2", "태그3", "태그4"],
       // 썸네일 타입: PC 비디오 + 모바일 이미지
       thumbnailType: 'image',
-      imageSrc: "https://oopy.lazyrockets.com/api/v2/notion/image?src=attachment%3A935acf52-2726-4fe2-a55e-a17006cc610a%3Athum_fullstack_employee.png&blockId=23e4e699-7fb0-800f-a359-d9e28667d7a9",
-      mobileImageSrc: "여기에 경로를 입력하세요",
+      imageSrc: "src/assets/img-default.png",
       ctaButtonLabel: "CTA Button",
       ctaButtonLink: "여기에 링크를 입력하세요",
       link: "fullstack.html",
@@ -97,12 +118,12 @@ const CourseCard = ({
       id: 2,
       name: "프로그램 이름",
       period: "YY.MM.DD (월) - YY.MM.DD (목)",
-      status: "모집 중",
-      statusType: "primary",
+      status: "모집 마감",
+      statusType: "close",
       tags: ["태그1", "태그2", "태그3", "태그4"],
       // 썸네일 타입: 이미지만 사용
       thumbnailType: 'image',
-      imageSrc: "https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F38552da6-340d-42c1-a9a1-b181ff331f03%2F9ef5c62c-e8f1-4c1f-ae5e-1162f445a04a%2F1.png&blockId=1f94e699-7fb0-8076-83ca-f51e59de12f6",
+      imageSrc: "src/assets/img-default.png",
       ctaButtonLabel: "CTA Button",
       ctaButtonLink: "여기에 경로를 입력하세요",
       link: "fullstack.html",
@@ -113,11 +134,11 @@ const CourseCard = ({
       name: "프로그램 이름",
       period: "YY.MM.DD (월) - YY.MM.DD (목)",
       status: "모집 마감",
-      statusType: "warning",
+      statusType: "close",
       tags: ["태그1", "태그2", "태그3", "태그4"],
       // 썸네일 타입: PC 비디오 + 모바일 이미지
       thumbnailType: 'image',
-      imageSrc: "https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F38552da6-340d-42c1-a9a1-b181ff331f03%2Fda1e4cbe-7abf-46e2-a210-454ef8b53570%2F5.png&blockId=23e4e699-7fb0-807e-bfff-ee87778b9095",
+      imageSrc: "src/assets/img-default.png",
       ctaButtonLabel: "CTA Button",
       ctaButtonLink: "여기에 링크를 입력하세요",
       link: "fullstack.html",
@@ -128,11 +149,11 @@ const CourseCard = ({
       name: "프로그램 이름",
       period: "YY.MM.DD (월) - YY.MM.DD (목)",
       status: "모집 마감",
-      statusType: "warning",
+      statusType: "close",
       tags: ["태그1", "태그2", "태그3", "태그4"],
       // 썸네일 타입: PC 비디오 + 모바일 이미지
       thumbnailType: 'image',
-      imageSrc: "https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F38552da6-340d-42c1-a9a1-b181ff331f03%2Fda1e4cbe-7abf-46e2-a210-454ef8b53570%2F5.png&blockId=23e4e699-7fb0-807e-bfff-ee87778b9095",
+      imageSrc: "src/assets/img-default.png",
       ctaButtonLabel: "CTA Button",
       ctaButtonLink: "여기에 링크를 입력하세요",
       link: "fullstack.html",
@@ -143,11 +164,11 @@ const CourseCard = ({
       name: "프로그램 이름",
       period: "YY.MM.DD (월) - YY.MM.DD (목)",
       status: "모집 마감",
-      statusType: "warning",
+      statusType: "close",
       tags: ["태그1", "태그2", "태그3", "태그4"],
       // 썸네일 타입: PC 비디오 + 모바일 이미지
       thumbnailType: 'image',
-      imageSrc: "https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F38552da6-340d-42c1-a9a1-b181ff331f03%2Fda1e4cbe-7abf-46e2-a210-454ef8b53570%2F5.png&blockId=23e4e699-7fb0-807e-bfff-ee87778b9095",
+      imageSrc: "src/assets/img-default.png",
       ctaButtonLabel: "CTA Button",
       ctaButtonLink: "여기에 링크를 입력하세요",
       link: "fullstack.html",
@@ -158,11 +179,11 @@ const CourseCard = ({
       name: "프로그램 이름",
       period: "YY.MM.DD (월) - YY.MM.DD (목)",
       status: "모집 마감",
-      statusType: "warning",
+      statusType: "close",
       tags: ["태그1", "태그2", "태그3", "태그4"],
       // 썸네일 타입: PC 비디오 + 모바일 이미지
       thumbnailType: 'image',
-      imageSrc: "https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F38552da6-340d-42c1-a9a1-b181ff331f03%2Fda1e4cbe-7abf-46e2-a210-454ef8b53570%2F5.png&blockId=23e4e699-7fb0-807e-bfff-ee87778b9095",
+      imageSrc: "src/assets/img-default.png",
       ctaButtonLabel: "CTA Button",
       ctaButtonLink: "여기에 링크를 입력하세요",
       link: "fullstack.html",
@@ -171,12 +192,12 @@ const CourseCard = ({
       id: 7,
       name: "프로그램 이름",
       period: "YY.MM.DD (월) - YY.MM.DD (목)",
-      status: "모집 마감",
-      statusType: "warning",
+      status: "모집 중",
+      statusType: "open",
       tags: ["태그1", "태그2", "태그3", "태그4"],
       // 썸네일 타입: PC 비디오 + 모바일 이미지
       thumbnailType: 'image',
-      imageSrc: "https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F38552da6-340d-42c1-a9a1-b181ff331f03%2Fda1e4cbe-7abf-46e2-a210-454ef8b53570%2F5.png&blockId=23e4e699-7fb0-807e-bfff-ee87778b9095",
+      imageSrc: "src/assets/img-default.png",
       ctaButtonLabel: "CTA Button",
       ctaButtonLink: "여기에 링크를 입력하세요",
       link: "fullstack.html",
@@ -186,12 +207,12 @@ const CourseCard = ({
       id: 8,
       name: "프로그램 이름",
       period: "YY.MM.DD (월) - YY.MM.DD (목)",
-      status: "모집 마감",
-      statusType: "warning",
+      status: "모집 중",
+      statusType: "open",
       tags: ["태그1", "태그2", "태그3", "태그4"],
       // 썸네일 타입: PC 비디오 + 모바일 이미지
       thumbnailType: 'image',
-      imageSrc: "https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F38552da6-340d-42c1-a9a1-b181ff331f03%2Fda1e4cbe-7abf-46e2-a210-454ef8b53570%2F5.png&blockId=23e4e699-7fb0-807e-bfff-ee87778b9095",
+      imageSrc: "src/assets/img-default.png",
       ctaButtonLabel: "CTA Button",
       ctaButtonLink: "여기에 링크를 입력하세요",
       link: "fullstack.html",
@@ -202,11 +223,11 @@ const CourseCard = ({
       name: "프로그램 이름",
       period: "YY.MM.DD (월) - YY.MM.DD (목)",
       status: "모집 마감",
-      statusType: "warning",
+      statusType: "close",
       tags: ["태그1", "태그2", "태그3", "태그4"],
       // 썸네일 타입: PC 비디오 + 모바일 이미지
       thumbnailType: 'image',
-      imageSrc: "https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F38552da6-340d-42c1-a9a1-b181ff331f03%2Fda1e4cbe-7abf-46e2-a210-454ef8b53570%2F5.png&blockId=23e4e699-7fb0-807e-bfff-ee87778b9095",
+      imageSrc: "src/assets/img-default.png",
       ctaButtonLabel: "CTA Button",
       ctaButtonLink: "여기에 링크를 입력하세요",
       link: "fullstack.html",
@@ -306,14 +327,22 @@ const CourseCard = ({
               <div className="course-card">
                 <a href={course.link} className="course-link">
                   <div className="course-thumb">
-                    <div className="course-thumb-inside">
-                      <div className="course-status-badge">
+                    <div className="course-status-badge">
+                      {course.statusType === 'open' ? (
+                        <Badge size="lg" color="primary" className="open-badge">
+                          {course.status}
+                        </Badge>
+                      ) : course.statusType === 'close' ? (
+                        <Badge size="lg" color="contrast" className="close-badge">
+                          {course.status}
+                        </Badge>
+                      ) : (
                         <Badge size="lg" color={course.statusType}>
                           {course.status}
                         </Badge>
-                      </div>
-                      {renderCourseThumb(course)}
+                      )}
                     </div>
+                    {renderCourseThumb(course)}
                   </div>
                   <div className="course-info">
                     <div className="course-info-text">
