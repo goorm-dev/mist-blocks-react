@@ -86,7 +86,7 @@ const CourseCard = ({
       tags: ["태그1", "태그2", "태그3", "태그4"],
       // 썸네일 타입: PC 비디오 + 모바일 이미지
       thumbnailType: 'image',
-      imageSrc: "https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F38552da6-340d-42c1-a9a1-b181ff331f03%2Fadc2ab3f-d071-4cf4-8c86-93fc83ed2ad8%2F4.png&blockId=1f94e699-7fb0-80a7-b050-f3735788557d",
+      imageSrc: "src/assets/iconpattern.png",
       mobileImageSrc: "여기에 경로를 입력하세요",
       ctaButtonLabel: "CTA Button",
       ctaButtonLink: "여기에 링크를 입력하세요",
@@ -122,6 +122,95 @@ const CourseCard = ({
       ctaButtonLink: "여기에 링크를 입력하세요",
       link: "fullstack.html",
       showCtaButton: false // CTA 버튼 표시
+    },
+    {
+      id: 4,
+      name: "프로그램 이름",
+      period: "YY.MM.DD (월) - YY.MM.DD (목)",
+      status: "모집 마감",
+      statusType: "warning",
+      tags: ["태그1", "태그2", "태그3", "태그4"],
+      // 썸네일 타입: PC 비디오 + 모바일 이미지
+      thumbnailType: 'image',
+      imageSrc: "https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F38552da6-340d-42c1-a9a1-b181ff331f03%2Fda1e4cbe-7abf-46e2-a210-454ef8b53570%2F5.png&blockId=23e4e699-7fb0-807e-bfff-ee87778b9095",
+      ctaButtonLabel: "CTA Button",
+      ctaButtonLink: "여기에 링크를 입력하세요",
+      link: "fullstack.html",
+      showCtaButton: false // CTA 버튼 표시
+    },
+    {
+      id: 5,
+      name: "프로그램 이름",
+      period: "YY.MM.DD (월) - YY.MM.DD (목)",
+      status: "모집 마감",
+      statusType: "warning",
+      tags: ["태그1", "태그2", "태그3", "태그4"],
+      // 썸네일 타입: PC 비디오 + 모바일 이미지
+      thumbnailType: 'image',
+      imageSrc: "https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F38552da6-340d-42c1-a9a1-b181ff331f03%2Fda1e4cbe-7abf-46e2-a210-454ef8b53570%2F5.png&blockId=23e4e699-7fb0-807e-bfff-ee87778b9095",
+      ctaButtonLabel: "CTA Button",
+      ctaButtonLink: "여기에 링크를 입력하세요",
+      link: "fullstack.html",
+      showCtaButton: false // CTA 버튼 표시
+    },
+    {
+      id: 6,
+      name: "프로그램 이름",
+      period: "YY.MM.DD (월) - YY.MM.DD (목)",
+      status: "모집 마감",
+      statusType: "warning",
+      tags: ["태그1", "태그2", "태그3", "태그4"],
+      // 썸네일 타입: PC 비디오 + 모바일 이미지
+      thumbnailType: 'image',
+      imageSrc: "https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F38552da6-340d-42c1-a9a1-b181ff331f03%2Fda1e4cbe-7abf-46e2-a210-454ef8b53570%2F5.png&blockId=23e4e699-7fb0-807e-bfff-ee87778b9095",
+      ctaButtonLabel: "CTA Button",
+      ctaButtonLink: "여기에 링크를 입력하세요",
+      link: "fullstack.html",
+      showCtaButton: false // CTA 버튼 표시
+    },{
+      id: 7,
+      name: "프로그램 이름",
+      period: "YY.MM.DD (월) - YY.MM.DD (목)",
+      status: "모집 마감",
+      statusType: "warning",
+      tags: ["태그1", "태그2", "태그3", "태그4"],
+      // 썸네일 타입: PC 비디오 + 모바일 이미지
+      thumbnailType: 'image',
+      imageSrc: "https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F38552da6-340d-42c1-a9a1-b181ff331f03%2Fda1e4cbe-7abf-46e2-a210-454ef8b53570%2F5.png&blockId=23e4e699-7fb0-807e-bfff-ee87778b9095",
+      ctaButtonLabel: "CTA Button",
+      ctaButtonLink: "여기에 링크를 입력하세요",
+      link: "fullstack.html",
+      showCtaButton: false // CTA 버튼 표시
+    },
+    {
+      id: 8,
+      name: "프로그램 이름",
+      period: "YY.MM.DD (월) - YY.MM.DD (목)",
+      status: "모집 마감",
+      statusType: "warning",
+      tags: ["태그1", "태그2", "태그3", "태그4"],
+      // 썸네일 타입: PC 비디오 + 모바일 이미지
+      thumbnailType: 'image',
+      imageSrc: "https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F38552da6-340d-42c1-a9a1-b181ff331f03%2Fda1e4cbe-7abf-46e2-a210-454ef8b53570%2F5.png&blockId=23e4e699-7fb0-807e-bfff-ee87778b9095",
+      ctaButtonLabel: "CTA Button",
+      ctaButtonLink: "여기에 링크를 입력하세요",
+      link: "fullstack.html",
+      showCtaButton: false // CTA 버튼 표시
+    },
+    {
+      id: 9,
+      name: "프로그램 이름",
+      period: "YY.MM.DD (월) - YY.MM.DD (목)",
+      status: "모집 마감",
+      statusType: "warning",
+      tags: ["태그1", "태그2", "태그3", "태그4"],
+      // 썸네일 타입: PC 비디오 + 모바일 이미지
+      thumbnailType: 'image',
+      imageSrc: "https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F38552da6-340d-42c1-a9a1-b181ff331f03%2Fda1e4cbe-7abf-46e2-a210-454ef8b53570%2F5.png&blockId=23e4e699-7fb0-807e-bfff-ee87778b9095",
+      ctaButtonLabel: "CTA Button",
+      ctaButtonLink: "여기에 링크를 입력하세요",
+      link: "fullstack.html",
+      showCtaButton: false // CTA 버튼 표시
     }
   ]
 }) => {
@@ -131,7 +220,9 @@ const CourseCard = ({
     }
   };
 
-    /**
+
+
+   /**
    * 썸네일 렌더링 함수
    * @param {Object} course - 과정 데이터
    * @returns {JSX.Element} 썸네일 요소
@@ -215,12 +306,14 @@ const CourseCard = ({
               <div className="course-card">
                 <a href={course.link} className="course-link">
                   <div className="course-thumb">
-                    <div className="course-status-badge">
-                      <Badge size="lg" color={course.statusType}>
-                        {course.status}
-                      </Badge>
+                    <div className="course-thumb-inside">
+                      <div className="course-status-badge">
+                        <Badge size="lg" color={course.statusType}>
+                          {course.status}
+                        </Badge>
+                      </div>
+                      {renderCourseThumb(course)}
                     </div>
-                    {renderCourseThumb(course)}
                   </div>
                   <div className="course-info">
                     <div className="course-info-text">

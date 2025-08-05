@@ -8,15 +8,39 @@
     aspect-ratio: 5 / 3;
     border-radius: var(--vapor-size-borderRadius-400);
     overflow: hidden;
-    background-color: var(--vapor-color-gray-100);
+    background-color: var(--vapor-color-background-normal);
     position: relative;
-    border: 0.0625rem solid var(--vapor-color-border-normal);
+    transition: all 0.3s ease;
+    background-blend-mode: color-dodge, normal, normal, normal;
+    background-size: 100% 100%;
+    background-position: 0 0, 0 0, 50% 50%, 0 0;
+}
+
+.course-thumb:hover {
+    --card-opacity: 1;
+    background-image: radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y), hsla(266, 100%, 90%, var(--card-opacity)) 4%, hsla(266, 50%, 80%, calc(var(--card-opacity) * 0.75)) 10%, hsla(266, 25%, 70%, calc(var(--card-opacity) * 0.5)) 50%, hsla(266, 0%, 60%, 0) 100%), radial-gradient(35% 52% at 55% 20%, #00ffaac4 0%, #073aff00 100%), radial-gradient(100% 100% at 50% 50%, #00c1ffff 1%, #073aff00 76%), conic-gradient(from 124deg at 50% 50%, #c137ffff 0%, #07c6ffff 40%, #07c6ffff 60%, #c137ffff 100%);
+    transition: all 0.5s ease;
+}
+
+.course-thumb-inside {
+    inset: 1px;
+    position: absolute;
+    background-image: var(--inner-gradient-light);
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: translate3d(0, 0, 0.01px);
+    border-radius: var(--vapor-size-borderRadius-400);
+    z-index: 1;
+}
+
+/* 다크 테마에서 그라디언트 변경 */
+[data-theme="dark"] .course-thumb-inside {
+    background-image: var(--inner-gradient-dark);
 }
 .course-status-badge {
     position: absolute;
     top: var(--vapor-size-space-200);
     left: var(--vapor-size-space-200);
-    z-index: 1;
+    z-index: 2;
 }
 .course-video {
     width: 100%;
@@ -45,10 +69,11 @@
     top: 0;
     left: 0;
     transition: transform 0.3s ease;
+    border-radius: var(--vapor-size-borderRadius-400);
 }
-.course-card:hover .course-image {
+/* .course-card:hover .course-image {
     transform: scale(1.05);
-}
+} */
 .course-name {
     color: var(--vapor-color-gray-900);
     margin-bottom: var(--vapor-size-space-050);
