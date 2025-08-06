@@ -38,20 +38,27 @@ import { CalendarIcon } from '@vapor-ui/icons';
  * @example
  * // 썸네일 타입별 사용 예시
  * 
- * // 1. 비디오만 사용 (PC/모바일 모두)
+ * // 1. Lottie 애니메이션 사용
+ * {
+ *   thumbnailType: 'lottie',
+ *   lottieSrc: "https://lottie.host/1e1721d6-d785-4fa6-875f-d19e9c249439/rsJD4klMRl.lottie",
+ *   imageSrc: "/images/fallback.jpg"
+ * }
+ * 
+ * // 2. 비디오만 사용 (PC/모바일 모두)
  * {
  *   thumbnailType: 'video',
  *   videoSrc: "/videos/course1.mp4",
  *   imageSrc: "/images/fallback.jpg"
  * }
  * 
- * // 2. 이미지만 사용 (PC/모바일 모두)
+ * // 3. 이미지만 사용 (PC/모바일 모두)
  * {
  *   thumbnailType: 'image',
  *   imageSrc: "/images/course2.jpg"
  * }
  * 
- * // 3. PC 비디오 + 모바일 이미지
+ * // 4. PC 비디오 + 모바일 이미지
  * {
  *   thumbnailType: 'video-with-mobile-image',
  *   videoSrc: "/videos/course3.mp4",
@@ -96,6 +103,8 @@ import { CalendarIcon } from '@vapor-ui/icons';
  *   status: "모집 마감"
  * }
  */
+
+
 const CourseCard = ({ 
   title = "Course Card",
   courses = [
@@ -106,9 +115,10 @@ const CourseCard = ({
       status: "모집 중",
       statusType: "open", // contrast, primary, warning, open, close
       tags: ["태그1", "태그2", "태그3", "태그4"],
-      // 썸네일 타입: PC 비디오 + 모바일 이미지
-      thumbnailType: 'image',
-      imageSrc: "src/assets/img-default.png",
+      // 썸네일 타입: Lottie 애니메이션
+      thumbnailType: 'lottie',
+      lottieSrc: "https://lottie.host/1e1721d6-d785-4fa6-875f-d19e9c249439/rsJD4klMRl.lottie",
+      imageSrc: "/images/fallback.jpg",
       ctaButtonLabel: "CTA Button",
       ctaButtonLink: "여기에 링크를 입력하세요",
       link: "fullstack.html",
@@ -250,6 +260,22 @@ const CourseCard = ({
    */
   const renderCourseThumb = (course) => {
     switch (course.thumbnailType) {
+      case 'lottie':
+        // Lottie 애니메이션 표시
+        return (
+          <dotlottie-wc
+            src={course.lottieSrc}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover'
+            }}
+            speed="1"
+            autoplay
+            loop
+          />
+        );
+      
       case 'video':
         // PC/모바일 모두에서 비디오 재생
         return (
