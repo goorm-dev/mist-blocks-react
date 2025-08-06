@@ -29,7 +29,16 @@
   --sunpillar-clr-4: var(--sunpillar-4);
   --sunpillar-clr-5: var(--sunpillar-5);
   --sunpillar-clr-6: var(--sunpillar-6);
-  --ktc-gradient: linear-gradient(104deg, #C137FF 0%, #07C6FF 100%);
+  --ktc-tech-up-blue: #0242F1;
+  --ktc-tech-up-fullstack: #0e75e2;
+  --ktc-tech-up-cybersecurity: #ec3550;
+  --ktc-tech-up-frontend: #28c864;
+  --ktc-tech-up-backend: #19e1ca;
+  --ktc-tech-up-cloud-infra: #728CF4;
+  --ktc-tech-up-cloud-native: #ffc800;
+  --ktc-tech-up-generative-ai: #ff6200;
+  --ktc-tech-up-product-designer: #f413a9;
+  --ktc-tech-up-pm: #974af0;
 }
 
 :root.vapor-light-theme {
@@ -81,7 +90,6 @@
 .content-hero-section {
   padding-top: 6.25rem;
 }
-
 .title {
   color: var(--vapor-color-gray-900);
   margin-bottom: var(--vapor-size-space-700);
@@ -91,6 +99,16 @@
 svg {
   overflow: hidden;
   vertical-align: middle;
+}
+.open-badge {
+  background: var(--ktc-tech-up-blue) !important;
+  color: var(--vapor-color-white) !important;
+  border: none !important;
+}
+.close-badge {
+  background: var(--vapor-color-background-secondary) !important;
+  color: var(--vaporcolor-foreground-hint-darker) !important;
+  border: none !important;
 }
 
 /* Responsive container breakpoints */

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './CourseCard.css';
 import { Text, Badge, Button  } from '@vapor-ui/core';
 import { CalendarIcon } from '@vapor-ui/icons';
@@ -118,10 +119,10 @@ const CourseCard = ({
       // 썸네일 타입: Lottie 애니메이션
       thumbnailType: 'lottie',
       lottieSrc: "https://lottie.host/1e1721d6-d785-4fa6-875f-d19e9c249439/rsJD4klMRl.lottie",
-      imageSrc: "/images/fallback.jpg",
+      imageSrc: "src/assets/img-default.png",
       ctaButtonLabel: "CTA Button",
       ctaButtonLink: "여기에 링크를 입력하세요",
-      link: "fullstack.html",
+      link: "/fullstack",
       showCtaButton: false // CTA 버튼 표시 여부
     },
     {
@@ -131,8 +132,9 @@ const CourseCard = ({
       status: "모집 마감",
       statusType: "close",
       tags: ["태그1", "태그2", "태그3", "태그4"],
-      // 썸네일 타입: 이미지만 사용
-      thumbnailType: 'image',
+      // 썸네일 타입: Lottie 애니메이션
+      thumbnailType: 'lottie',
+      lottieSrc: "https://lottie.host/1e1721d6-d785-4fa6-875f-d19e9c249439/rsJD4klMRl.lottie",
       imageSrc: "src/assets/img-default.png",
       ctaButtonLabel: "CTA Button",
       ctaButtonLink: "여기에 경로를 입력하세요",
@@ -351,7 +353,7 @@ const CourseCard = ({
           {courses.map((course) => (
             <div key={course.id} className="course-common">
               <div className="course-card">
-                <a href={course.link} className="course-link">
+                <Link to={course.link} className="course-link">
                   <div className="course-thumb">
                     <div className="course-status-badge">
                       {course.statusType === 'open' ? (
@@ -386,7 +388,7 @@ const CourseCard = ({
                       ))}
                     </div>
                   </div>
-                </a>
+                </Link>
               </div>
               {course.showCtaButton && (
                 <div className="course-action-container">

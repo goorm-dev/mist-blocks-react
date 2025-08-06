@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import './App.css'
 import '@vapor-ui/core/styles.css'; 
@@ -8,7 +9,7 @@ import { createThemeConfig, ThemeProvider } from '@vapor-ui/core';
 
 export const themeConfig = createThemeConfig({
     appearance: 'dark',
-    radius: 'md',
+    radius: 'none',
     scaling: 1,
     storageKey: 'my-vapor-theme'
 });
@@ -16,7 +17,9 @@ export const themeConfig = createThemeConfig({
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider config={themeConfig}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </ThemeProvider>
   </StrictMode>,
 )

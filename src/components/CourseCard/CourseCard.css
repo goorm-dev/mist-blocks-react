@@ -14,7 +14,7 @@
     border: 1px solid var(--vapor-color-border-normal);
 }
 .course-card:hover .course-thumb {
-    border-color: var(--vapor-color-background-primary);
+    border-color: var(--ktc-tech-up-blue);
     transition: all 0.3s ease;
 }
 .course-card:hover .course-image {
@@ -26,20 +26,6 @@
     top: var(--vapor-size-space-200);
     left: var(--vapor-size-space-200);
     z-index: 2;
-}
-
-/* open 배지 스타일 */
-.course-status-badge .open-badge {
-    background: var(--ktc-gradient) !important;
-    color: white !important;
-    border: none !important;
-}
-
-/* close 타입 배지 스타일 */
-.course-status-badge .close-badge {
-    background: var(--vapor-color-background-secondary) !important;
-    color: var(--vapor-color-foreground-hint) !important;
-    border: none !important;
 }
 .course-video {
     width: 100%;
