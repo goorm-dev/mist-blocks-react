@@ -118,7 +118,7 @@ const CourseCard = ({
       tags: ["태그1", "태그2", "태그3", "태그4"],
       // 썸네일 타입: Lottie 애니메이션
       thumbnailType: 'lottie',
-      lottieSrc: "https://lottie.host/1e1721d6-d785-4fa6-875f-d19e9c249439/rsJD4klMRl.lottie",
+      lottieSrc: "",
       imageSrc: "src/assets/img-default.png",
       ctaButtonLabel: "CTA Button",
       ctaButtonLink: "여기에 링크를 입력하세요",
@@ -134,7 +134,7 @@ const CourseCard = ({
       tags: ["태그1", "태그2", "태그3", "태그4"],
       // 썸네일 타입: Lottie 애니메이션
       thumbnailType: 'lottie',
-      lottieSrc: "https://lottie.host/1e1721d6-d785-4fa6-875f-d19e9c249439/rsJD4klMRl.lottie",
+      lottieSrc: "",
       imageSrc: "src/assets/img-default.png",
       ctaButtonLabel: "CTA Button",
       ctaButtonLink: "여기에 경로를 입력하세요",

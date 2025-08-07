@@ -75,13 +75,13 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-8">
           {mainMenuItems.slice(0, 1).map((item) => (
-            <Link key={item.name} to={item.href} className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 rounded-lg p-3 transition-colors">
+            <Link key={item.name} to={item.href} className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 rounded-lg p-3 transition-[background-color]">
               {item.name}
             </Link>
           ))}
           {mainMenuItems.slice(1, 2).map((item) => (
             <Popover key={item.name} className="relative">
-              <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 rounded-lg p-3 transition-colors">
+              <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 rounded-lg p-3 transition-[background-color]">
                 {item.name}
                 <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-[var(--vapor-color-foreground-normal)] stroke-2" />
               </PopoverButton>
@@ -133,7 +133,7 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
             </Popover>
           ))}
           {mainMenuItems.slice(2, 3).map((item) => (
-            <Link key={item.name} to={item.href} className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 rounded-lg p-3 transition-colors">
+            <Link key={item.name} to={item.href} className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 rounded-lg p-3 transition-[background-color]">
               {item.name}
             </Link>
           ))}
@@ -141,12 +141,12 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
           <button
             onClick={toggleDarkMode}
-            className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 rounded-lg p-3 transition-colors"
+            className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 rounded-lg p-3 transition-[background-color]"
           >
             {isDarkMode ? <SunIcon className="size-5 stroke-2" /> : <MoonIcon className="size-5 stroke-2" />}
           </button>
           {mainMenuItems.slice(3, 4).map((item) => (
-            <Link key={item.name} to={item.href} className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 rounded-lg p-3 transition-colors">
+            <Link key={item.name} to={item.href} className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 rounded-lg p-3 transition-[background-color]">
               {item.name}
             </Link>
           ))}
@@ -218,7 +218,7 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
               <div className="py-6">
                 <button
                   onClick={toggleDarkMode}
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 transition-colors"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 transition-[background-color]"
                 >
                   {isDarkMode ? <SunIcon className="size-5 stroke-2" /> : <MoonIcon className="size-5 stroke-2" />}
                 </button>

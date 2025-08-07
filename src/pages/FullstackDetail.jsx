@@ -22,7 +22,7 @@ function FullstackDetail() {
 
   return (
     <>
-      <Navbar isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+      <Navbar isDarkMode={appearance} toggleDarkMode={() => setTheme({appearance: appearance === 'dark' ? 'light' : 'dark'})} />
       <main className="fullstack-body">
         {/* 여기에 상세 페이지 내용이 들어갈 예정입니다 */}
       </main>

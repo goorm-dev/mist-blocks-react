@@ -9,13 +9,7 @@ import { useTheme } from '@vapor-ui/core';
 import SpecialProfile from '../components/SpecialProfile/SpecialProfile';
 
 function Home() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const { setTheme, appearance } = useTheme();
-
-  useEffect(() => {
-    // HTML 요소에 data-theme 속성 설정
-    document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
-  }, [isDarkMode]);
 
   const toggleDarkMode = () => {
     setTheme({
@@ -26,7 +20,7 @@ function Home() {
 
   return (
     <main>
-      <Navbar isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+      <Navbar isDarkMode={appearance === 'dark'} toggleDarkMode={() => setTheme({appearance: appearance === 'dark' ? 'light' : 'dark'})} />
       {/* <HeroSection3 /> */}
       <HeroSection4 />
       <CourseCard />
