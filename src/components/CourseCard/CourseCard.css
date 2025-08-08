@@ -13,18 +13,13 @@
     transition: all 0.3s ease;
     border: 1px solid var(--vapor-color-border-normal);
 }
-.course-card:hover .course-thumb {
-    border-color: var(--ktc-tech-up-blue);
-    transition: all 0.3s ease;
-}
 .course-card:hover .course-image {
     transform: scale(1.05);
 }
-
 .course-status-badge {
     position: absolute;
-    top: var(--vapor-size-space-200);
-    left: var(--vapor-size-space-200);
+    top: var(--vapor-size-space-000);
+    left: var(--vapor-size-space-000);
     z-index: 2;
 }
 .course-video {
@@ -105,7 +100,12 @@ dotlottie-wc {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: var(--vapor-size-space-300);
+    padding: var(--vapor-size-space-200);
+    border: 1px solid var(--vapor-color-border-normal);
+}
+.course-common:hover {
+    border-color: var(--ktc-tech-up-blue);
+    transition: all 0.3s ease;
 }
 .early-text {
     background-color: var(--ktb-tech-rose);
@@ -129,19 +129,14 @@ dotlottie-wc {
         max-width: 1172px !important;
     }
 }
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
     .courses-container {
         grid-template-columns: repeat(2, 1fr);
-        gap: var(--vapor-size-space-300);
-        row-gap: var(--vapor-size-space-500);
     }
 }
 @media (max-width: 768px) {
     .courses-container {
         grid-template-columns: 1fr;
-        gap: var(--vapor-size-space-400);
-    }
-    .course-common {
         gap: var(--vapor-size-space-200);
     }
 }

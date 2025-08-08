@@ -62,9 +62,8 @@ const FooterFull = () => {
         </div>
         <div className="footer-bottom-content">
           <div className="footer-info-text">
-            <Text as="p" typography="body2" foreground="normal">{'대표  류성태 ㅣ  개인정보보호책임자  곽경주 ㅣ  사업자 등록번호  124-87-39200'}</Text>
-            <Text as="p" typography="body2" foreground="normal">{'주소  경기도 성남시 분당구 판교로 242 PDC A동 9층 ㅣ 전화  031-600-8586 ㅣ 이메일  contact@goorm.io'}</Text>
-            <Text as="p" typography="body2" foreground="normal">{'ⓒ goorm Inc. All rights reserved.'}</Text>
+            <Text as="p" typography="body2" foreground="normal">{'kt cloud TECH UP은 kt cloud가 만든 차세대 인재 양성을 위한 기술 교육 전문 브랜드입니다.'}</Text>
+            <Text as="p" typography="body2" foreground="normal">{'Copyright© 2025 kt cloud corp. All rights reserved.'}</Text>
           </div>
           {/* 소셜 미디어 아이콘 */}
           <div className="social-icons">

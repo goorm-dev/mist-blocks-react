@@ -39,13 +39,28 @@
 }
 @media (max-width: 768px) {
   .faq-section .faq-nav {
-    flex-wrap: nowrap;
     overflow-x: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    justify-content: flex-start;
+    padding-bottom: var(--vapor-size-space-100);
   }
-  .faq-section .faq-nav .faq-tab {
-    white-space: nowrap;
+  .faq-section .faq-nav::-webkit-scrollbar {
+    display: none;
+  }
+  .faq-section .faq-nav-list {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: var(--vapor-size-space-100);
+    min-width: max-content;
+  }
+  .faq-section .faq-nav-item {
     flex-shrink: 0;
+  }
+  .faq-section .faq-nav-link {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: fit-content;
   }
 } 

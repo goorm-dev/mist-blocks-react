@@ -301,7 +301,7 @@
 @media (max-width: 768px) {
   .profile-cards-grid {
     grid-template-columns: 1fr;
-    gap: var(--vapor-size-space-400);
+    gap: var(--vapor-size-space-200);
   }
   .pc-card{
     aspect-ratio: 1 / 1;

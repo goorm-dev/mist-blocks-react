@@ -23,8 +23,8 @@ import {
   MoonIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import logoLight from '../../assets/logo_KTB_light.svg'
-import logoDark from '../../assets/logo_KTB_dark.svg'
+import logoLight from '../../assets/logo_ktc_light.svg'
+import logoDark from '../../assets/logo_ktc_dark.svg'
 const products = [
   { name: '풀스택', description: '프로그램 간단한 설명', href: '/fullstack', icon: ChartPieIcon },
   { name: '프론트엔드', description: '프로그램 간단한 설명', href: '#', icon: CursorArrowRaysIcon },
@@ -59,7 +59,7 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
             <img
               alt="Logo"
               src={isDarkMode ? logoDark : logoLight}
-              className="h-10 w-auto"
+              className="h-7 w-auto"
             />
           </Link>
         </div>

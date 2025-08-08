@@ -57,12 +57,13 @@ const AccordionFaq = () => {
         <Text typography="heading2" className="title">FAQ</Text>
         {/* Vapor Nav 컴포넌트로 탭 네비게이션 */}
         <Nav.Root className="faq-nav" size="lg" shape="fill" aria-label="FAQ 카테고리 선택">
-          <Nav.List>
+          <Nav.List className="faq-nav-list">
             {FAQ_TABS.map((tab) => (
-              <Nav.Item key={tab.key}>
+              <Nav.Item key={tab.key} className="faq-nav-item">
                 <Nav.Link
                   as="button"
                   type="button"
+                  className="faq-nav-link"
                   selected={activeTab === tab.key}
                   onClick={() => handleTabClick(tab.key)}
                   aria-current={activeTab === tab.key ? 'page' : undefined}

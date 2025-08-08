@@ -5,24 +5,18 @@ import './FullstackDetail.css';
 import { useTheme } from '@vapor-ui/core';
 
 function FullstackDetail() {
-    const [isDarkMode, setIsDarkMode] = useState(false);
-    const { setTheme, appearance } = useTheme();
-  
-    useEffect(() => {
-      // HTML 요소에 data-theme 속성 설정
-      document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
-    }, [isDarkMode]);
-  
-    const toggleDarkMode = () => {
-      setTheme({
-        appearance: appearance === 'dark' ? 'light' : 'dark',
-      });
-      setIsDarkMode(!isDarkMode);
-    };
+  const { setTheme, appearance } = useTheme();
+
+  const toggleDarkMode = () => {
+    setTheme({
+      appearance: appearance === 'dark' ? 'light' : 'dark',
+    });
+    setIsDarkMode(!isDarkMode);
+  };
 
   return (
     <>
-      <Navbar isDarkMode={appearance} toggleDarkMode={() => setTheme({appearance: appearance === 'dark' ? 'light' : 'dark'})} />
+      <Navbar isDarkMode={appearance === 'dark'} toggleDarkMode={() => setTheme({appearance: appearance === 'dark' ? 'light' : 'dark'})} />
       <main className="fullstack-body">
         {/* 여기에 상세 페이지 내용이 들어갈 예정입니다 */}
       </main>
