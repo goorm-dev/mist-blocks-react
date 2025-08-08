@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './CourseCard.css';
-import { Text, Badge, Button  } from '@vapor-ui/core';
-import { CalendarIcon } from '@vapor-ui/icons';
+import { Text } from '@vapor-ui/core';
+import CourseCardItem from './CourseCardItem';
 
 /**
  * CourseCard 컴포넌트
@@ -108,6 +107,7 @@ import { CalendarIcon } from '@vapor-ui/icons';
 
 const CourseCard = ({ 
   title = "Course Card",
+  onCtaClick,
   courses = [
     {
       id: 1,
@@ -123,279 +123,20 @@ const CourseCard = ({
       ctaButtonLink: "여기에 링크를 입력하세요",
       link: "/fullstack",
       showCtaButton: false // CTA 버튼 표시 여부
-    },
-    {
-      id: 2,
-      name: "프로그램 이름",
-      period: "YY.MM.DD (월) - YY.MM.DD (목)",
-      status: "모집 마감",
-      statusType: "close",
-      tags: ["태그1", "태그2", "태그3", "태그4"],
-      // 썸네일 타입: Lottie 애니메이션
-      thumbnailType: 'image',
-      imageSrc: "src/assets/img-default.png",
-      ctaButtonLabel: "CTA Button",
-      ctaButtonLink: "여기에 경로를 입력하세요",
-      link: "fullstack.html",
-      showCtaButton: false // CTA 버튼 숨김
-    },
-    {
-      id: 3,
-      name: "프로그램 이름",
-      period: "YY.MM.DD (월) - YY.MM.DD (목)",
-      status: "모집 마감",
-      statusType: "close",
-      tags: ["태그1", "태그2", "태그3", "태그4"],
-      // 썸네일 타입: PC 비디오 + 모바일 이미지
-      thumbnailType: 'image',
-      imageSrc: "src/assets/img-default.png",
-      ctaButtonLabel: "CTA Button",
-      ctaButtonLink: "여기에 링크를 입력하세요",
-      link: "fullstack.html",
-      showCtaButton: false // CTA 버튼 표시
-    },
-    {
-      id: 4,
-      name: "프로그램 이름",
-      period: "YY.MM.DD (월) - YY.MM.DD (목)",
-      status: "모집 마감",
-      statusType: "close",
-      tags: ["태그1", "태그2", "태그3", "태그4"],
-      // 썸네일 타입: PC 비디오 + 모바일 이미지
-      thumbnailType: 'image',
-      imageSrc: "src/assets/img-default.png",
-      ctaButtonLabel: "CTA Button",
-      ctaButtonLink: "여기에 링크를 입력하세요",
-      link: "fullstack.html",
-      showCtaButton: false // CTA 버튼 표시
-    },
-    {
-      id: 5,
-      name: "프로그램 이름",
-      period: "YY.MM.DD (월) - YY.MM.DD (목)",
-      status: "모집 마감",
-      statusType: "close",
-      tags: ["태그1", "태그2", "태그3", "태그4"],
-      // 썸네일 타입: PC 비디오 + 모바일 이미지
-      thumbnailType: 'image',
-      imageSrc: "src/assets/img-default.png",
-      ctaButtonLabel: "CTA Button",
-      ctaButtonLink: "여기에 링크를 입력하세요",
-      link: "fullstack.html",
-      showCtaButton: false // CTA 버튼 표시
-    },
-    {
-      id: 6,
-      name: "프로그램 이름",
-      period: "YY.MM.DD (월) - YY.MM.DD (목)",
-      status: "모집 마감",
-      statusType: "close",
-      tags: ["태그1", "태그2", "태그3", "태그4"],
-      // 썸네일 타입: PC 비디오 + 모바일 이미지
-      thumbnailType: 'image',
-      imageSrc: "src/assets/img-default.png",
-      ctaButtonLabel: "CTA Button",
-      ctaButtonLink: "여기에 링크를 입력하세요",
-      link: "fullstack.html",
-      showCtaButton: false // CTA 버튼 표시
-    },{
-      id: 7,
-      name: "프로그램 이름",
-      period: "YY.MM.DD (월) - YY.MM.DD (목)",
-      status: "모집 중",
-      statusType: "open",
-      tags: ["태그1", "태그2", "태그3", "태그4"],
-      // 썸네일 타입: PC 비디오 + 모바일 이미지
-      thumbnailType: 'image',
-      imageSrc: "src/assets/img-default.png",
-      ctaButtonLabel: "CTA Button",
-      ctaButtonLink: "여기에 링크를 입력하세요",
-      link: "fullstack.html",
-      showCtaButton: false // CTA 버튼 표시
-    },
-    {
-      id: 8,
-      name: "프로그램 이름",
-      period: "YY.MM.DD (월) - YY.MM.DD (목)",
-      status: "모집 중",
-      statusType: "open",
-      tags: ["태그1", "태그2", "태그3", "태그4"],
-      // 썸네일 타입: PC 비디오 + 모바일 이미지
-      thumbnailType: 'image',
-      imageSrc: "src/assets/img-default.png",
-      ctaButtonLabel: "CTA Button",
-      ctaButtonLink: "여기에 링크를 입력하세요",
-      link: "fullstack.html",
-      showCtaButton: false // CTA 버튼 표시
-    },
-    {
-      id: 9,
-      name: "프로그램 이름",
-      period: "YY.MM.DD (월) - YY.MM.DD (목)",
-      status: "모집 마감",
-      statusType: "close",
-      tags: ["태그1", "태그2", "태그3", "태그4"],
-      // 썸네일 타입: PC 비디오 + 모바일 이미지
-      thumbnailType: 'image',
-      imageSrc: "src/assets/img-default.png",
-      ctaButtonLabel: "CTA Button",
-      ctaButtonLink: "여기에 링크를 입력하세요",
-      link: "fullstack.html",
-      showCtaButton: false // CTA 버튼 표시
     }
   ]
 }) => {
-  const handleCtaClick = (link) => {
-    if (link && link !== "여기에 링크를 입력하세요") {
-      window.open(link, '_blank');
-    }
-  };
-
-
-
-   /**
-   * 썸네일 렌더링 함수
-   * @param {Object} course - 과정 데이터
-   * @returns {JSX.Element} 썸네일 요소
-   */
-  const renderCourseThumb = (course) => {
-    switch (course.thumbnailType) {
-      case 'lottie':
-        // Lottie 애니메이션 표시
-        return (
-          <dotlottie-wc
-            src={course.lottieSrc}
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover'
-            }}
-            speed="1"
-            autoplay
-            loop
-          />
-        );
-      
-      case 'video':
-        // PC/모바일 모두에서 비디오 재생
-        return (
-          <video 
-            className="course-video" 
-            autoPlay 
-            loop 
-            muted 
-            playsInline 
-            preload="metadata"
-          >
-            <source 
-              src={course.videoSrc} 
-              type="video/mp4" 
-            />
-          </video>
-        );
-      
-      case 'video-with-mobile-image':
-        // PC에서는 비디오, 모바일에서는 이미지 표시
-        return (
-          <>
-            <video 
-              className="course-video pc-story-video" 
-              autoPlay 
-              loop 
-              muted 
-              playsInline 
-              preload="metadata"
-            >
-              <source 
-                media="(min-width: 577px)" 
-                src={course.videoSrc} 
-                type="video/mp4" 
-              />
-            </video>
-            <picture className="mobile-picture">
-              <source 
-                media="(max-width: 576px)" 
-                srcSet={course.mobileImageSrc} 
-              />
-              <img 
-                src={course.imageSrc} 
-                alt="course-thumbnail" 
-                className="course-video" 
-              />
-            </picture>
-          </>
-        );
-      
-      case 'image':
-      default:
-        // PC/모바일 모두에서 이미지 표시
-        return (
-          <img 
-            className="course-image" 
-            src={course.imageSrc} 
-            alt="course-image" 
-            onError={(e) => {
-              e.target.onerror = null;
-              e.target.src = 'src/assets/img-default.png';
-            }}
-          />
-        );
-    }
-  };
-
   return (
     <section className="content-section course-section">
       <div className="container">
         <Text typography="heading2" className="title">{title}</Text>
         <div className="courses-container">
           {courses.map((course) => (
-            <div key={course.id} className="course-common">
-              <div className="course-card">
-                <Link to={course.link} className="course-link">
-                  <div className="course-thumb">
-                    <div className="course-status-badge">
-                      {course.statusType === 'open' ? (
-                        <Badge size="lg" color="primary" className="open-badge">
-                          {course.status}
-                        </Badge>
-                      ) : course.statusType === 'close' ? (
-                        <Badge size="lg" color="contrast" className="close-badge">
-                          {course.status}
-                        </Badge>
-                      ) : (
-                        <Badge size="lg" color={course.statusType}>
-                          {course.status}
-                        </Badge>
-                      )}
-                    </div>
-                    {renderCourseThumb(course)}
-                  </div>
-                  <div className="course-info">
-                    <div className="course-info-text">
-                      <Text typography="heading5" className="course-name">{course.name}</Text>
-                      <Text typography="subtitle1" className="course-period">
-                        <CalendarIcon />
-                        <span>교육 일정 ㅣ {course.period}</span>
-                      </Text>
-                    </div>
-                    <div className="badge-container">
-                      {course.tags.map((tag, index) => (
-                        <Badge key={index} size="md" color="primary">
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                </Link>
-              </div>
-              {course.showCtaButton && (
-                <div className="course-action-container">
-                  <Button size="lg" color="primary" block onClick={() => handleCtaClick(course.ctaButtonLink)}>
-                    {course.ctaButtonLabel}
-                  </Button>
-                </div>
-              )}
-            </div>
+            <CourseCardItem 
+              key={course.id} 
+              course={course} 
+              onCtaClick={onCtaClick}
+            />
           ))}
         </div>
       </div>

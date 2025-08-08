@@ -1,0 +1,208 @@
+/* Course Section New Styles */
+.course-section-new {
+  padding: var(--vapor-size-space-800) 0;
+}
+
+/* Track Group */
+.track-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vapor-size-space-600);
+}
+
+/* Track Category */
+.track-category {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vapor-size-space-300);
+}
+
+.track-header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.track-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vapor-size-space-100);
+}
+
+.track-title {
+  color: var(--vapor-color-foreground-normal);
+  margin: 0;
+}
+
+.track-description {
+  color: var(--vapor-color-foreground-hint-darker);
+  margin: 0;
+}
+
+/* Course Control */
+.course-control {
+  display: flex;
+  flex-direction: row;
+  gap: var(--vapor-size-space-075);
+  align-items: center;
+}
+
+.slider-control-btn {
+  background-color: var(--vapor-color-background-secondary) !important;
+  border: none !important;
+  color: var(--vapor-color-foreground-hint) !important;
+  width: var(--vapor-size-dimension-400);
+  height: var(--vapor-size-dimension-400);
+  border-radius: var(--vapor-size-borderRadius-300);
+  transition: all 0.2s ease;
+}
+
+.slider-control-btn:hover {
+  background-color: var(--vapor-color-border-contrast) !important;
+  color: var(--vapor-color-foreground-normal) !important;
+}
+
+.slider-control-btn:disabled {
+  background-color: var(--vapor-color-background-secondary) !important;
+  color: var(--vapor-color-foreground-hint) !important;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.slider-control-btn:disabled:hover {
+  background-color: var(--vapor-color-background-secondary) !important;
+  color: var(--vapor-color-foreground-hint) !important;
+}
+
+/* Course Container */
+.course-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Grid Layout (for non-slider tracks) */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--vapor-size-space-300);
+}
+
+/* Slider Layout */
+.slider-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider-track {
+  display: flex;
+  flex-direction: row;
+  transition: transform 0.3s ease;
+}
+
+.slider-slide {
+  width: 100%;
+  flex-shrink: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--vapor-size-space-300);
+}
+
+/* Individual Card Slider */
+.slider-track-individual {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--vapor-size-space-300);
+  transition: transform 0.3s ease;
+  width: 100%;
+}
+
+/* 1200px 이상에서 슬라이더 카드 고정 너비 */
+@media (min-width: 1201px) {
+  .slider-track-individual {
+    grid-template-columns: repeat(4, 364px);
+    justify-content: flex-start;
+  }
+  
+  /* 1200px 이상에서는 확실히 overflow 숨김 */
+  .slider-wrapper {
+    overflow: hidden !important;
+  }
+}
+
+/* ============================================
+ * 개별 카드 스타일은 CourseCardItem 컴포넌트에서 관리
+ * CourseCard.css에 정의된 스타일 재사용
+ * =========================================== */
+
+/* Responsive Design */
+
+@media (max-width: 1200px) {
+  .courses-grid,
+  .slider-slide {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* 1200px 이하에서는 슬라이더를 그리드로 변경 */
+  .slider-track-individual {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--vapor-size-space-300);
+    width: 100% !important;
+    transform: none !important;
+    transition: none;
+  }
+  
+  /* 1200px 이하에서만 overflow visible로 변경 */
+  .slider-wrapper {
+    overflow: visible;
+  }
+}
+
+@media (max-width: 768px) {
+  .track-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--vapor-size-space-200);
+  }
+  
+  .course-control {
+    align-self: flex-end;
+  }
+  
+  .courses-grid,
+  .slider-slide {
+    grid-template-columns: 1fr;
+    gap: var(--vapor-size-space-200);
+  }
+  
+  /* 모바일에서도 슬라이더를 그리드로 변경 */
+  .slider-track-individual {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--vapor-size-space-200);
+    width: 100% !important;
+    transform: none !important;
+    transition: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .course-section-new {
+    padding: var(--vapor-size-space-600) 0;
+  }
+  
+  .course-section-new .title {
+    margin-bottom: var(--vapor-size-space-600);
+    text-align: left;
+  }
+  
+  .track-text {
+    gap: var(--vapor-size-space-050);
+  }
+  
+  .track-header {
+    gap: var(--vapor-size-space-150);
+  }
+}

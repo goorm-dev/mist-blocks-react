@@ -91,10 +91,10 @@
   padding-top: 6.25rem;
 }
 .title {
-  color: var(--vapor-color-gray-900);
+  color: var(--vapor-color-foreground-normal);
   margin-bottom: var(--vapor-size-space-700);
   display: block;
-  text-align: center;
+  white-space: pre-line;
 }
 svg {
   overflow: hidden;
