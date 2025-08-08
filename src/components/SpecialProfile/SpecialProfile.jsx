@@ -407,7 +407,7 @@ const ProfileCard = ({
  * />
  */
 const SpecialProfile = ({ 
-  title = "Special Profile",
+  title = "기술과 경험을 전할\n멘토 라인업",
   profiles = [
     {
       id: 1,

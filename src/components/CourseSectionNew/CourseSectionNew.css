@@ -49,33 +49,6 @@
   align-items: center;
 }
 
-.slider-control-btn {
-  background-color: var(--vapor-color-background-secondary) !important;
-  border: none !important;
-  color: var(--vapor-color-foreground-hint) !important;
-  width: var(--vapor-size-dimension-400);
-  height: var(--vapor-size-dimension-400);
-  border-radius: var(--vapor-size-borderRadius-300);
-  transition: all 0.2s ease;
-}
-
-.slider-control-btn:hover {
-  background-color: var(--vapor-color-border-contrast) !important;
-  color: var(--vapor-color-foreground-normal) !important;
-}
-
-.slider-control-btn:disabled {
-  background-color: var(--vapor-color-background-secondary) !important;
-  color: var(--vapor-color-foreground-hint) !important;
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.slider-control-btn:disabled:hover {
-  background-color: var(--vapor-color-background-secondary) !important;
-  color: var(--vapor-color-foreground-hint) !important;
-}
-
 /* Course Container */
 .course-container {
   width: 100%;

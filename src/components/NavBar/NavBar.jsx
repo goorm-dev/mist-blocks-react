@@ -33,7 +33,7 @@ const products = [
   { name: '클라우드 인프라', description: '프로그램 간단한 설명', href: '#', icon: ArrowPathIcon },
   { name: '생성형 AI', description: '프로그램 간단한 설명', href: '#', icon: ChartPieIcon },
   { name: '사이버 보안', description: '프로그램 간단한 설명', href: '#', icon: CursorArrowRaysIcon },
-  { name: '프로덕트 디자이너', description: '프로그램 간단한 설명', href: '#', icon: FingerPrintIcon },
+  { name: '프로덕트 디자인', description: '프로그램 간단한 설명', href: '#', icon: FingerPrintIcon },
   { name: '프로젝트 매니지먼트', description: '프로그램 간단한 설명', href: '#', icon: SquaresPlusIcon },
 ]
 

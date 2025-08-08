@@ -177,7 +177,7 @@ const CourseSectionNew = ({
       courses: [
         {
           id: 1,
-          name: "풀스택 개발자 과정",
+          name: "풀스택",
           period: "2024.03.15 (월) - 2024.06.15 (목)",
           status: "모집 중",
           statusType: "open",
@@ -189,7 +189,7 @@ const CourseSectionNew = ({
         },
         {
           id: 2,
-          name: "프론트엔드 심화 과정",
+          name: "프론트엔드",
           period: "2024.04.01 (월) - 2024.07.01 (목)",
           status: "모집 중",
           statusType: "open",
@@ -201,7 +201,7 @@ const CourseSectionNew = ({
         },
         {
           id: 3,
-          name: "백엔드 개발자 과정",
+          name: "백엔드",
           period: "2024.05.01 (월) - 2024.08.01 (목)",
           status: "모집 마감",
           statusType: "close",
@@ -221,7 +221,7 @@ const CourseSectionNew = ({
       courses: [
         {
           id: 4,
-          name: "클라우드 엔지니어 과정",
+          name: "클라우드 네이티브",
           period: "2024.03.20 (수) - 2024.06.20 (목)",
           status: "모집 중",
           statusType: "open",
@@ -233,7 +233,7 @@ const CourseSectionNew = ({
         },
         {
           id: 5,
-          name: "AI/ML 엔지니어 과정",
+          name: "클라우드 인프라",
           period: "2024.04.15 (월) - 2024.07.15 (월)",
           status: "모집 중",
           statusType: "open",
@@ -245,7 +245,7 @@ const CourseSectionNew = ({
         },
         {
           id: 6,
-          name: "사이버보안 전문가 과정",
+          name: "생성형 AI",
           period: "2024.05.10 (금) - 2024.08.10 (토)",
           status: "모집 중",
           statusType: "open",
@@ -257,7 +257,7 @@ const CourseSectionNew = ({
         },
         {
           id: 7,
-          name: "데이터 엔지니어 과정",
+          name: "사이버 보안",
           period: "2024.06.01 (토) - 2024.09.01 (일)",
           status: "모집 예정",
           statusType: "contrast",
@@ -271,13 +271,13 @@ const CourseSectionNew = ({
     },
     {
       id: 'product-design',
-      title: '프로덕트 운영 / 디자인 트랙',
+      title: '프로덕트 전문가 트랙',
       description: '기획부터 설계까지, 디지털 프로덕트 전반을 경험하는 실무형 프로덕트 트랙',
       hasSlider: false,
       courses: [
         {
           id: 8,
-          name: "UX/UI 디자이너 과정",
+          name: "프로덕트 디자인",
           period: "2024.03.25 (월) - 2024.06.25 (화)",
           status: "모집 중",
           statusType: "open",
@@ -289,7 +289,7 @@ const CourseSectionNew = ({
         },
         {
           id: 9,
-          name: "프로덕트 매니저 과정",
+          name: "프로젝트 매니지먼트",
           period: "2024.04.10 (수) - 2024.07.10 (수)",
           status: "모집 중",
           statusType: "open",
@@ -489,19 +489,17 @@ const CourseSectionNew = ({
           {showSlider && (
             <div className="course-control">
               <IconButton
-                size="sm"
-                color="contrast"
+                size="md"
+                color="secondary"
                 onClick={() => moveSlider(track.id, 'prev')}
-                className="slider-control-btn"
                 disabled={isButtonDisabled(track.id, 'prev')}
               >
                 <ChevronLeftOutlineIcon />
               </IconButton>
               <IconButton
-                size="sm"
-                color="contrast"
+                size="md"
+                color="secondary"
                 onClick={() => moveSlider(track.id, 'next')}
-                className="slider-control-btn"
                 disabled={isButtonDisabled(track.id, 'next')}
               >
                 <ChevronRightOutlineIcon />
