@@ -117,8 +117,7 @@ const CourseCard = ({
       statusType: "open", // contrast, primary, warning, open, close
       tags: ["태그1", "태그2", "태그3", "태그4"],
       // 썸네일 타입: Lottie 애니메이션
-      thumbnailType: 'lottie',
-      lottieSrc: "",
+      thumbnailType: 'image',
       imageSrc: "src/assets/img-default.png",
       ctaButtonLabel: "CTA Button",
       ctaButtonLink: "여기에 링크를 입력하세요",
@@ -133,8 +132,7 @@ const CourseCard = ({
       statusType: "close",
       tags: ["태그1", "태그2", "태그3", "태그4"],
       // 썸네일 타입: Lottie 애니메이션
-      thumbnailType: 'lottie',
-      lottieSrc: "",
+      thumbnailType: 'image',
       imageSrc: "src/assets/img-default.png",
       ctaButtonLabel: "CTA Button",
       ctaButtonLink: "여기에 경로를 입력하세요",

@@ -26,7 +26,7 @@ const FooterFull = () => {
             <div className="footer-section footer-section-vertical">
               <Text typography="subtitle1" className="footer-title" foreground="hint">{'고객센터'}</Text>
               <Text typography="body1" className="footer-text" foreground="normal">{'고객센터 설명'}</Text>
-              <a href="{{service1 link}}" className="footer-link-chat"><DiscussionIcon style={{ width: '20px', height: '20px', color: 'inherit' }} /><Text typography="heading6" foreground="inherit">{'서비스1'}</Text></a>
+              <a href="https://ktcloud-techup.channel.io" className="footer-link-chat"><DiscussionIcon style={{ width: '20px', height: '20px', color: 'inherit' }} /><Text typography="heading6" foreground="inherit">채팅 상담 바로가기</Text></a>
             </div>
             <div className="footer-section footer-section-vertical">
               <Text typography="subtitle1" className="footer-title" foreground="hint">{'운영시간'}</Text>
@@ -67,13 +67,13 @@ const FooterFull = () => {
           </div>
           {/* 소셜 미디어 아이콘 */}
           <div className="social-icons">
-            <a href="{{instagram link}}" target="_blank" className="social-icon" aria-label="Instagram">
+            {/* <a href="{{instagram link}}" target="_blank" className="social-icon" aria-label="Instagram">
               <InstagramIcon style={{ width: '20px', height: '20px', color: 'inherit' }} />
-            </a>
-            <a href="{{youtube link}}" target="_blank" className="social-icon" aria-label="YouTube">
+            </a> */}
+            <a href="https://www.youtube.com/@ktcloud" target="_blank" className="social-icon" aria-label="YouTube">
               <YoutubeIcon style={{ width: '20px', height: '20px', color: 'inherit' }} />
             </a>
-            <a href="{{blog link}}" target="_blank" className="social-icon" aria-label="Blog">
+            <a href="https://tech.ktcloud.com" target="_blank" className="social-icon" aria-label="Blog">
               <BlogIcon style={{ width: '20px', height: '20px', color: 'inherit' }} />
             </a>
           </div>

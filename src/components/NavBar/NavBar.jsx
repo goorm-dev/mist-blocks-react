@@ -67,7 +67,7 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-[var(--vapor-color-foreground-normal)]"
+            className="-m-2.5 inline-flex items-center justify-center p-2.5 text-[var(--vapor-color-foreground-normal)]"
           >
             <span className="sr-only">Open main menu</span>
             <Bars2Icon aria-hidden="true" className="size-6 stroke-2" />
@@ -75,28 +75,28 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-8">
           {mainMenuItems.slice(0, 1).map((item) => (
-            <Link key={item.name} to={item.href} className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 rounded-lg p-3 transition-[background-color]">
+            <Link key={item.name} to={item.href} className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 p-3 transition-[background-color]">
               {item.name}
             </Link>
           ))}
           {mainMenuItems.slice(1, 2).map((item) => (
             <Popover key={item.name} className="relative">
-              <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 rounded-lg p-3 transition-[background-color]">
+              <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 p-3 transition-[background-color]">
                 {item.name}
                 <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-[var(--vapor-color-foreground-normal)] stroke-2" />
               </PopoverButton>
               <PopoverPanel
                 transition
-                className="absolute left-1/2 z-10 mt-3 w-screen max-w-2xl -translate-x-1/2 overflow-hidden rounded-2xl bg-[var(--vapor-color-background-normal)] shadow-lg ring-1 ring-[var(--vapor-color-border-normal)] transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
+                className="absolute left-1/2 z-10 mt-3 w-screen max-w-2xl -translate-x-1/2 overflow-hidden bg-[var(--vapor-color-background-normal)] shadow-lg ring-1 ring-[var(--vapor-color-border-normal)] transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
               >
                 <div className="grid grid-cols-2 gap-4 p-4">
                   <div className="space-y-4">
                     {item.dropdownItems.slice(0, 5).map((dropdownItem) => (
                       <div
                         key={dropdownItem.name}
-                        className="group relative flex items-center gap-x-3 rounded-lg p-3 text-sm/6 hover:bg-[var(--vapor-color-gray-400)]/16"
+                        className="group relative flex items-center gap-x-3 p-3 text-sm/6 hover:bg-[var(--vapor-color-gray-400)]/16"
                       >
-                        <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-[var(--vapor-color-background-normal-darker)] group-hover:bg-[var(--vapor-color-background-normal)]">
+                        <div className="flex size-11 flex-none items-center justify-center bg-[var(--vapor-color-background-normal-darker)] group-hover:bg-[var(--vapor-color-background-normal)]">
                           <dropdownItem.icon aria-hidden="true" className="size-5 text-[var(--vapor-color-foreground-normal-lighter)] group-hover:text-[var(--vapor-color-background-primary)]" />
                         </div>
                         <div className="flex-auto">
@@ -113,9 +113,9 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
                     {item.dropdownItems.slice(5, 9).map((dropdownItem) => (
                       <div
                         key={dropdownItem.name}
-                        className="group relative flex items-center gap-x-3 rounded-lg p-3 text-sm/6 hover:bg-[var(--vapor-color-gray-400)]/16"
+                        className="group relative flex items-center gap-x-3 p-3 text-sm/6 hover:bg-[var(--vapor-color-gray-400)]/16"
                       >
-                        <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-[var(--vapor-color-background-normal-darker)] group-hover:bg-[var(--vapor-color-background-normal)]">
+                        <div className="flex size-11 flex-none items-center justify-center bg-[var(--vapor-color-background-normal-darker)] group-hover:bg-[var(--vapor-color-background-normal)]">
                           <dropdownItem.icon aria-hidden="true" className="size-5 text-[var(--vapor-color-foreground-normal-lighter)] group-hover:text-[var(--vapor-color-background-primary)]" />
                         </div>
                         <div className="flex-auto">
@@ -133,7 +133,7 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
             </Popover>
           ))}
           {mainMenuItems.slice(2, 3).map((item) => (
-            <Link key={item.name} to={item.href} className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 rounded-lg p-3 transition-[background-color]">
+            <Link key={item.name} to={item.href} className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 p-3 transition-[background-color]">
               {item.name}
             </Link>
           ))}
@@ -141,12 +141,12 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
           <button
             onClick={toggleDarkMode}
-            className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 rounded-lg p-3 transition-[background-color]"
+            className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 p-3 transition-[background-color]"
           >
             {isDarkMode ? <SunIcon className="size-5 stroke-2" /> : <MoonIcon className="size-5 stroke-2" />}
           </button>
           {mainMenuItems.slice(3, 4).map((item) => (
-            <Link key={item.name} to={item.href} className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 rounded-lg p-3 transition-[background-color]">
+            <Link key={item.name} to={item.href} className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 p-3 transition-[background-color]">
               {item.name}
             </Link>
           ))}
@@ -161,13 +161,13 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
               <img
                 alt=""
                 src={isDarkMode ? logoDark : logoLight}
-                className="h-8 w-auto"
+                className="h-7 w-auto"
               />
             </Link>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
-              className="-m-2.5 rounded-md p-2.5 text-[var(--vapor-color-foreground-normal)]"
+              className="-m-2.5 p-2.5 text-[var(--vapor-color-foreground-normal)]"
             >
               <span className="sr-only">Close menu</span>
               <XMarkIcon aria-hidden="true" className="size-6 stroke-2" />
@@ -180,14 +180,14 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
                   <Link
                     key={item.name}
                     to={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16"
+                    className="-mx-3 block px-3 py-2 text-base/7 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16"
                   >
                     {item.name}
                   </Link>
                 ))}
                 {mainMenuItems.slice(1, 2).map((item) => (
                   <Disclosure key={item.name} as="div" className="-mx-3">
-                    <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16">
+                    <DisclosureButton className="group flex w-full items-center justify-between py-2 pr-3.5 pl-3 text-base/7 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16">
                       {item.name}
                       <ChevronDownIcon aria-hidden="true" className="size-6 flex-none group-data-open:rotate-180 stroke-2" />
                     </DisclosureButton>
@@ -197,7 +197,7 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
                           key={dropdownItem.name}
                           as={Link}
                           to={dropdownItem.href}
-                          className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16"
+                          className="block py-2 pr-3 pl-6 text-sm/7 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16"
                         >
                           {dropdownItem.name}
                         </DisclosureButton>
@@ -209,7 +209,7 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
                   <Link
                     key={item.name}
                     to={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16"
+                    className="-mx-3 block px-3 py-2 text-base/7 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16"
                   >
                     {item.name}
                   </Link>
@@ -218,7 +218,7 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
               <div className="py-6">
                 <button
                   onClick={toggleDarkMode}
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 transition-[background-color]"
+                  className="-mx-3 block px-3 py-2.5 text-base/7 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 transition-[background-color]"
                 >
                   {isDarkMode ? <SunIcon className="size-5 stroke-2" /> : <MoonIcon className="size-5 stroke-2" />}
                 </button>
