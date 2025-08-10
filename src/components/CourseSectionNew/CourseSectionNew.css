@@ -7,7 +7,7 @@
 .track-group {
   display: flex;
   flex-direction: column;
-  gap: var(--vapor-size-space-600);
+  gap: var(--vapor-size-space-700);
 }
 
 /* Track Category */
