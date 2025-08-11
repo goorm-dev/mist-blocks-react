@@ -1,21 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, Button, Badge, IconButton } from '@vapor-ui/core';
 import './DetailHero.css';
 import { LinkOutlineIcon } from '@vapor-ui/icons';
 
 // 재사용 가능한 데이터 구조
 const defaultDetailHeroData = {
-  title: "풀스택 개발",
+  title: "풀스택",
   description: "풀스택 개발 풀스택 개발 풀스택 개발 풀스택 개발 풀스택 개발",
   tags: ["태그1", "태그2", "태그3", "태그4", "태그5"],
   ctaButton: {
     text: "풀스택 개발 지원하기",
     link: "/fullstack",
-    onClick: () => console.log("지원하기 클릭")
   },
   shareButton: {
     link: window.location.href,
-    onClick: () => console.log("공유하기 클릭")
   },
   courseInfo: [
     {
@@ -42,6 +40,8 @@ const DetailHero = ({
   onEnrollClick,
   onShareClick 
 }) => {
+  const [isCopied, setIsCopied] = useState(false);
+  
   const {
     title,
     description,
@@ -70,8 +70,14 @@ const DetailHero = ({
         shareButton.onClick();
       }
       
-      // 복사 성공 알림 (선택사항)
-      alert("링크가 클립보드에 복사되었습니다!");
+      // 복사 성공 상태로 변경
+      setIsCopied(true);
+      
+      // 2초 후 원래 상태로 복원
+      setTimeout(() => {
+        setIsCopied(false);
+      }, 2000);
+      
     } catch (err) {
       console.error("링크 복사 실패:", err);
       // 폴백: 구식 브라우저 지원
@@ -81,7 +87,14 @@ const DetailHero = ({
       textArea.select();
       document.execCommand("copy");
       document.body.removeChild(textArea);
-      alert("링크가 클립보드에 복사되었습니다!");
+      
+      // 복사 성공 상태로 변경
+      setIsCopied(true);
+      
+      // 2초 후 원래 상태로 복원
+      setTimeout(() => {
+        setIsCopied(false);
+      }, 2000);
     }
   };
 
@@ -137,14 +150,25 @@ const DetailHero = ({
                     {ctaButton.text}
                   </Button>
                 )}
-                <IconButton 
-                  size="xl" 
-                  color="secondary" 
-                  className="cta-share"
-                  onClick={handleShareClick}
-                >
-                  <LinkOutlineIcon size="sm" />
-                </IconButton>
+                {isCopied ? (
+                  <Button 
+                    size="xl" 
+                    color="secondary" 
+                    className="cta-share"
+                    disabled
+                  >
+                    복사됨
+                  </Button>
+                ) : (
+                  <IconButton 
+                    size="xl" 
+                    color="secondary" 
+                    className="cta-share"
+                    onClick={handleShareClick}
+                  >
+                    <LinkOutlineIcon />
+                  </IconButton>
+                )}
               </div>
               <div className="course-info-detail">
                 {courseInfo.map((info, index) => (
