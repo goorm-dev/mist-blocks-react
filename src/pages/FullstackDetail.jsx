@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../components/NavBar/NavBar';
 import FooterFull from '../components/FooterFull/FooterFull';
 import DetailHero from '../components/DetailHero/DetailHero';
-import AccordionFaq from '../components/AccordionFaq/AccordionFaq';
+// import AccordionFaq from '../components/AccordionFaq/AccordionFaq';
 import './FullstackDetail.css';
 import { useTheme } from '@vapor-ui/core';
 
@@ -21,7 +21,7 @@ function FullstackDetail() {
       <Navbar isDarkMode={appearance === 'dark'} toggleDarkMode={() => setTheme({appearance: appearance === 'dark' ? 'light' : 'dark'})} />
       <main>
         <DetailHero />
-        <AccordionFaq />
+        {/* <AccordionFaq /> */}
       </main>
       <FooterFull />
     </>
