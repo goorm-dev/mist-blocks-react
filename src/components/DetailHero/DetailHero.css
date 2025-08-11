@@ -22,7 +22,7 @@
   justify-content: flex-start;
   gap: var(--vapor-size-space-400);
 }
-.course-info {
+.detail-course-info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -30,7 +30,7 @@
   gap: var(--vapor-size-space-300);
   width: 100%;
 }
-.course-text {
+.detail-course-text {
   display: flex;
   flex-direction: column;
   gap: var(--vapor-size-space-150);
