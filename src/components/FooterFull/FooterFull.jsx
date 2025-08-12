@@ -62,7 +62,7 @@ const FooterFull = () => {
         </div>
         <div className="footer-bottom-content">
           <div className="footer-info-text">
-            <Text as="p" typography="body2" foreground="normal">{'kt cloud TECH UP은 kt cloud가 만든 차세대 인재 양성을 위한 기술 교육 전문 브랜드입니다.'}</Text>
+            <Text as="p" typography="body2" foreground="normal">{'TECH UP은 kt cloud가 만든 차세대 인재 양성을 위한 기술 교육 전문 브랜드입니다.'}</Text>
             <Text as="p" typography="body2" foreground="normal">{'Copyright© 2025 kt cloud corp. All rights reserved.'}</Text>
           </div>
           {/* 소셜 미디어 아이콘 */}
