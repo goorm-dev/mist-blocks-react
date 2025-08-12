@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import HeroSection4 from '../components/Hero_4/HeroSection4';
-import GridSection1 from '../components/Grid_1/GridSection1';
-import AccordionFaq from '../components/AccordionFaq/AccordionFaq';
+// import GridSection1 from '../components/Grid_1/GridSection1';
+// import AccordionFaq from '../components/AccordionFaq/AccordionFaq';
 import FooterFull from '../components/FooterFull/FooterFull';
 import Navbar from '../components/NavBar/NavBar';
 import CourseSectionNew from '../components/CourseSectionNew/CourseSectionNew';
@@ -24,8 +24,8 @@ function Home() {
       <HeroSection4 />
       <CourseSectionNew />
       <SpecialProfile />
-      <GridSection1 />
-      <AccordionFaq />
+      {/* <GridSection1 />
+      <AccordionFaq /> */}
       <FooterFull />
     </main>
   )

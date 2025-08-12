@@ -217,7 +217,7 @@ const CourseSectionNew = ({
       id: 'tech-infra',
       title: '테크 인프라 / 혁신 기술 트랙',
       description: '클라우드부터 AI·보안까지, 인프라와 미래 기술 중심의 테크 트랙',
-      hasSlider: true,
+      hasSlider: false,
       courses: [
         {
           id: 4,

@@ -85,24 +85,25 @@
 /* Individual Card Slider */
 .slider-track-individual {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  /* grid-template-columns: repeat(4, 1fr); */
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--vapor-size-space-300);
   transition: transform 0.3s ease;
   width: 100%;
 }
 
 /* 1200px 이상에서 슬라이더 카드 고정 너비 */
-@media (min-width: 1201px) {
+/* @media (min-width: 1200px) {
   .slider-track-individual {
     grid-template-columns: repeat(4, 364px);
     justify-content: flex-start;
-  }
+  } */
   
   /* 1200px 이상에서는 확실히 overflow 숨김 */
-  .slider-wrapper {
+  /* .slider-wrapper {
     overflow: hidden !important;
   }
-}
+} */
 
 /* ============================================
  * 개별 카드 스타일은 CourseCardItem 컴포넌트에서 관리
