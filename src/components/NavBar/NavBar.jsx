@@ -59,7 +59,7 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
             <img
               alt="Logo"
               src={isDarkMode ? logoDark : logoLight}
-              className="h-7 w-auto"
+              className="h-9 w-auto"
             />
           </Link>
         </div>

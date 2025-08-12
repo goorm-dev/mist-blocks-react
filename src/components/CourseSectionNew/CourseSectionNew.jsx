@@ -166,7 +166,7 @@ import CourseCardItem from '../CourseCard/CourseCardItem';
  */
 
 const CourseSectionNew = ({
-  title = "케이티클라우드 테크업\n전체 테크 프로그램 소개",
+  title = "개발부터 제품 운영까지,\n전체 교육 프로그램",
   onCtaClick,
   trackCategories = [
     {
