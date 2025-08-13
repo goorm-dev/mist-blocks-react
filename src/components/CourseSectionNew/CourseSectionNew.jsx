@@ -483,8 +483,8 @@ const CourseSectionNew = ({
       <div key={track.id} className="track-category">
         <div className="track-header">
           <div className="track-text">
-            <Text typography="heading3" className="track-title">{track.title}</Text>
-            <Text typography="heading6" className="track-description">{track.description}</Text>
+            <Text typography="heading3" foreground="normal" className="track-title">{track.title}</Text>
+            <Text typography="heading6" foreground="hint-darker" className="track-description">{track.description}</Text>
           </div>
           {showSlider && (
             <div className="course-control">

@@ -32,12 +32,10 @@
 }
 
 .track-title {
-  color: var(--vapor-color-foreground-normal);
   margin: 0;
 }
 
 .track-description {
-  color: var(--vapor-color-foreground-hint-darker);
   margin: 0;
 }
 
