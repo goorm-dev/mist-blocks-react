@@ -177,7 +177,7 @@ const CourseSectionNew = ({
       courses: [
         {
           id: 1,
-          name: "풀스택",
+          name: "kt cloud 풀스택",
           period: "2024.03.15 (월) - 2024.06.15 (목)",
           status: "모집 중",
           statusType: "open",
@@ -189,7 +189,7 @@ const CourseSectionNew = ({
         },
         {
           id: 2,
-          name: "프론트엔드",
+          name: "kt cloud 프론트엔드",
           period: "2024.04.01 (월) - 2024.07.01 (목)",
           status: "모집 중",
           statusType: "open",
@@ -201,7 +201,7 @@ const CourseSectionNew = ({
         },
         {
           id: 3,
-          name: "백엔드",
+          name: "kt cloud 백엔드",
           period: "2024.05.01 (월) - 2024.08.01 (목)",
           status: "모집 마감",
           statusType: "close",
@@ -221,7 +221,7 @@ const CourseSectionNew = ({
       courses: [
         {
           id: 4,
-          name: "클라우드 네이티브",
+          name: "kt cloud 클라우드 네이티브",
           period: "2024.03.20 (수) - 2024.06.20 (목)",
           status: "모집 중",
           statusType: "open",
@@ -233,7 +233,7 @@ const CourseSectionNew = ({
         },
         {
           id: 5,
-          name: "클라우드 인프라",
+          name: "kt cloud 클라우드 인프라",
           period: "2024.04.15 (월) - 2024.07.15 (월)",
           status: "모집 중",
           statusType: "open",
@@ -245,7 +245,7 @@ const CourseSectionNew = ({
         },
         {
           id: 6,
-          name: "생성형 AI",
+          name: "kt cloud 생성형 AI",
           period: "2024.05.10 (금) - 2024.08.10 (토)",
           status: "모집 중",
           statusType: "open",
@@ -257,7 +257,7 @@ const CourseSectionNew = ({
         },
         {
           id: 7,
-          name: "사이버 보안",
+          name: "kt cloud 사이버 보안",
           period: "2024.06.01 (토) - 2024.09.01 (일)",
           status: "모집 마감",
           statusType: "close",
@@ -277,7 +277,7 @@ const CourseSectionNew = ({
       courses: [
         {
           id: 8,
-          name: "프로덕트 디자인",
+          name: "kt cloud 프로덕트 디자인",
           period: "2024.03.25 (월) - 2024.06.25 (화)",
           status: "모집 중",
           statusType: "open",
@@ -289,7 +289,7 @@ const CourseSectionNew = ({
         },
         {
           id: 9,
-          name: "프로젝트 매니지먼트",
+          name: "kt cloud 프로젝트 매니지먼트",
           period: "2024.04.10 (수) - 2024.07.10 (수)",
           status: "모집 중",
           statusType: "open",

@@ -26,15 +26,15 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import logoLight from '../../assets/logo_ktc_light.svg'
 import logoDark from '../../assets/logo_ktc_dark.svg'
 const products = [
-  { name: '풀스택', description: '프로그램 간단한 설명', href: '/fullstack', icon: ChartPieIcon },
-  { name: '프론트엔드', description: '프로그램 간단한 설명', href: '#', icon: CursorArrowRaysIcon },
-  { name: '백엔드', description: '프로그램 간단한 설명', href: '#', icon: FingerPrintIcon },
-  { name: '클라우드 네이티브', description: '프로그램 간단한 설명', href: '#', icon: SquaresPlusIcon },
-  { name: '클라우드 인프라', description: '프로그램 간단한 설명', href: '#', icon: ArrowPathIcon },
-  { name: '생성형 AI', description: '프로그램 간단한 설명', href: '#', icon: ChartPieIcon },
-  { name: '사이버 보안', description: '프로그램 간단한 설명', href: '#', icon: CursorArrowRaysIcon },
-  { name: '프로덕트 디자인', description: '프로그램 간단한 설명', href: '#', icon: FingerPrintIcon },
-  { name: '프로젝트 매니지먼트', description: '프로그램 간단한 설명', href: '#', icon: SquaresPlusIcon },
+  { name: 'kt cloud 풀스택', description: '프로그램 간단한 설명', href: '/fullstack', icon: ChartPieIcon },
+  { name: 'kt cloud 프론트엔드', description: '프로그램 간단한 설명', href: '#', icon: CursorArrowRaysIcon },
+  { name: 'kt cloud 백엔드', description: '프로그램 간단한 설명', href: '#', icon: FingerPrintIcon },
+  { name: 'kt cloud 클라우드 네이티브', description: '프로그램 간단한 설명', href: '#', icon: SquaresPlusIcon },
+  { name: 'kt cloud 클라우드 인프라', description: '프로그램 간단한 설명', href: '#', icon: ArrowPathIcon },
+  { name: 'kt cloud 생성형 AI', description: '프로그램 간단한 설명', href: '#', icon: ChartPieIcon },
+  { name: 'kt cloud 사이버 보안', description: '프로그램 간단한 설명', href: '#', icon: CursorArrowRaysIcon },
+  { name: 'kt cloud 프로덕트 디자인', description: '프로그램 간단한 설명', href: '#', icon: FingerPrintIcon },
+  { name: 'kt cloud 프로젝트 매니지먼트', description: '프로그램 간단한 설명', href: '#', icon: SquaresPlusIcon },
 ]
 
 const mainMenuItems = [
