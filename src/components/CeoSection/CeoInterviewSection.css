@@ -77,7 +77,6 @@
 }
 .play-icon:hover {
   transform: translate(-50%, -50%) scale(1.1);
-  filter: brightness(1.2);
 }
 .video-description-wrapper {
   z-index: 5;
@@ -177,10 +176,10 @@
   border-radius: var(--vapor-size-borderRadius-600);
   padding: var(--vapor-size-space-300);
   z-index: 2;
-  animation: overlayFadeIn 0.4s ease-out;
+  animation: overlayFadeIn 0.5s ease-in-out;
 }
 .video-thumb-overlay.closing {
-  animation: overlayFadeOut 0.3s ease-in forwards;
+  animation: overlayFadeOut 0.5s ease-in-out forwards;
 }
 .overlay-description {
   display: block;
@@ -190,21 +189,18 @@
 @keyframes overlayFadeIn {
   from {
     opacity: 0;
-    transform: scale(0.95);
   }
   to {
     opacity: 1;
-    transform: scale(1);
   }
 }
+
 @keyframes overlayFadeOut {
   from {
     opacity: 1;
-    transform: scale(1);
   }
   to {
     opacity: 0;
-    transform: scale(0.95);
   }
 }
 .video-thumb.is-open .video-action-plus {
