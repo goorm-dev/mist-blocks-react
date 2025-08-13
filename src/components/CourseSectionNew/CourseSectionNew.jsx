@@ -289,7 +289,7 @@ const CourseSectionNew = ({
         },
         {
           id: 9,
-          name: "kt cloud 프로젝트 매니지먼트",
+          name: "kt cloud 프로덕트 매니지먼트",
           period: "2024.04.10 (수) - 2024.07.10 (수)",
           status: "모집 중",
           statusType: "open",

@@ -104,7 +104,7 @@ dotlottie-wc {
     border: 1px solid var(--vapor-color-border-normal);
 }
 .course-common:hover {
-    border-color: var(--ktc-tech-up-blue);
+    border-color: var(--ktc-tech-up-red);
     transition: all 0.3s ease;
 }
 .early-text {

@@ -29,7 +29,7 @@
   --sunpillar-clr-4: var(--sunpillar-4);
   --sunpillar-clr-5: var(--sunpillar-5);
   --sunpillar-clr-6: var(--sunpillar-6);
-  --ktc-tech-up-blue: #ec1c24;
+  --ktc-tech-up-red: #ec1c24;
   --ktc-tech-up-fullstack: #0e75e2;
   --ktc-tech-up-cybersecurity: #ec3550;
   --ktc-tech-up-frontend: #28c864;
@@ -101,14 +101,14 @@ svg {
   vertical-align: middle;
 }
 .open-badge {
-  background: var(--ktc-tech-up-blue) !important;
-  color: var(--vapor-color-white) !important;
-  border: none !important;
+  background: var(--ktc-tech-up-red);
+  color: var(--vapor-color-white);
+  border: none;
 }
 .close-badge {
-  background: var(--vapor-color-background-secondary) !important;
-  color: var(--vaporcolor-foreground-hint-darker) !important;
-  border: none !important;
+  background: var(--vapor-color-background-secondary);
+  color: var(--vaporcolor-foreground-hint-darker);
+  border: none;
 }
 
 /* Responsive container breakpoints */

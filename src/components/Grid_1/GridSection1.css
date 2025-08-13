@@ -14,7 +14,7 @@
     transition: transform 0.3s ease;
 }
 .card-ui:hover {
-    border-color: var(--ktc-tech-up-blue);
+    border-color: var(--ktc-tech-up-red);
     transition: all 0.3s ease;
 }
 .card-type1,

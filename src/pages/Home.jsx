@@ -8,6 +8,7 @@ import CourseSectionNew from '../components/CourseSectionNew/CourseSectionNew';
 import { useTheme } from '@vapor-ui/core';
 import SpecialProfile from '../components/SpecialProfile/SpecialProfile';
 import CeoInterviewSection from '../components/CeoSection/CeoInterviewSection';
+import PreBannerSection from '../components/PreBanner/PreBannerSection';
 
 function Home() {
   const { setTheme, appearance } = useTheme();
@@ -24,6 +25,7 @@ function Home() {
       <Navbar isDarkMode={appearance === 'dark'} toggleDarkMode={() => setTheme({appearance: appearance === 'dark' ? 'light' : 'dark'})} />
       <HeroSection4 />
       <CeoInterviewSection />
+      <PreBannerSection />
       <CourseSectionNew />
       <SpecialProfile />
       {/* <GridSection1 />
