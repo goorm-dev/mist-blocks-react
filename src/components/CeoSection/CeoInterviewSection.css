@@ -174,7 +174,7 @@
   backdrop-filter: blur(2rem) saturate(180%);
   -webkit-backdrop-filter: blur(2rem) saturate(180%);
   border-radius: var(--vapor-size-borderRadius-600);
-  padding: var(--vapor-size-space-300);
+  padding: var(--vapor-size-space-400);
   z-index: 2;
   animation: overlayFadeIn 0.5s ease-in-out;
 }

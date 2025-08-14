@@ -313,9 +313,10 @@
   }
   .pc-card{
     aspect-ratio: 1 / 1;
+    height: 100%;
   }
   .pc-avatar-content .avatar {
-    width: 66%;
+    width: 72%;
   }
 }
 
@@ -323,13 +324,8 @@
   .special-profile-section {
     padding: var(--vapor-size-space-600) 0;
   }
-  
   .special-profile-section .title {
     margin-bottom: var(--vapor-size-space-600);
     text-align: left;
-  }
-  
-  .pc-avatar-content .avatar {
-    width: 66%;
   }
 }
