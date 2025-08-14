@@ -34,7 +34,7 @@ const products = [
   { name: 'kt cloud 생성형 AI', description: '프로그램 간단한 설명', href: '#', icon: ChartPieIcon },
   { name: 'kt cloud 사이버 보안', description: '프로그램 간단한 설명', href: '#', icon: CursorArrowRaysIcon },
   { name: 'kt cloud 프로덕트 디자인', description: '프로그램 간단한 설명', href: '#', icon: FingerPrintIcon },
-  { name: 'kt cloud 프로젝트 매니지먼트', description: '프로그램 간단한 설명', href: '#', icon: SquaresPlusIcon },
+  { name: 'kt cloud 프로덕트 매니지먼트', description: '프로그램 간단한 설명', href: '#', icon: SquaresPlusIcon },
 ]
 
 const mainMenuItems = [

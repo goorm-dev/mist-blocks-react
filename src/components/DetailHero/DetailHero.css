@@ -57,7 +57,7 @@
   width: 100%;
 }
 .cta-enroll {
-  background-color: var(--ktc-tech-up-blue);
+  background-color: var(--ktc-tech-up-red);
 }
 .cta-share svg {
   width: var(--vapor-size-dimension-300);

@@ -24,8 +24,8 @@ function Home() {
     <main>
       <Navbar isDarkMode={appearance === 'dark'} toggleDarkMode={() => setTheme({appearance: appearance === 'dark' ? 'light' : 'dark'})} />
       <HeroSection4 />
-      <CeoInterviewSection />
       <PreBannerSection />
+      <CeoInterviewSection />
       <CourseSectionNew />
       <SpecialProfile />
       {/* <GridSection1 />

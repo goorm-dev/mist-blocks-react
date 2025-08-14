@@ -11,8 +11,29 @@
     border-top: .0625rem solid var(--vapor-color-border-normal);
 }
 .footer-info-column {
-    flex: 0 0 35%;
+    flex: 0 0 25%;
     margin-right: var(--vapor-size-space-600);
+}
+
+/* 푸터 로고 스타일 */
+.footer-logo {
+    margin-bottom: var(--vapor-size-space-400);
+}
+
+.footer-logo-link {
+    display: inline-block;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.footer-logo-link:hover {
+    opacity: 0.8;
+}
+
+.footer-logo-img {
+    height: 2rem;
+    width: auto;
+    max-width: 100%;
 }
 .footer-section {
     margin-bottom: var(--vapor-size-space-500);
@@ -54,17 +75,17 @@
     color: var(--vapor-color-blue-600);
 }
 .footer-links-column {
-    flex: 0 0 45%;
+    flex: 0 0 60%;
 }
 .footer-links-wrapper {
     display: flex;
     justify-content: space-between;
 }
 .footer-links-block {
-    flex: 0 0 48%;
+    flex: 0 0 33.33%;
 }
 .footer-top-button {
-    flex: 0 0 15%;
+    flex: 0 0 10%;
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
@@ -102,6 +123,14 @@
         max-width: 1172px !important;
     }
 }
+@media (max-width: 1200px) {
+    .footer-info-column {
+        flex: 0 0 20%;
+    }
+    .footer-links-column {
+        flex: 0 0 65%;
+    }
+}
 @media (max-width: 992px) {
     .footer-content {
     flex-direction: column;
@@ -119,12 +148,19 @@
     }
 }
 @media (max-width: 768px) {
-        .footer-links-wrapper {
-        flex-direction: row;
+    .footer-section {
+        margin-bottom: var(--vapor-size-space-400);
+    }
+    .footer-info-column, 
+    .footer-links-column {
+        margin-bottom: var(--vapor-size-space-400);
+    }
+    .footer-links-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
     }
     .footer-links-block {
-        flex: 0 0 50%;
-        margin-bottom: var(--vapor-size-space-500);
+        margin-bottom: var(--vapor-size-space-400);
     }
     .footer-bottom-content {
         flex-direction: column;
@@ -140,5 +176,18 @@
 @media (max-width: 576px) {
     .footer-top-button {
         margin-top: var(--vapor-size-space-000);
+    }
+    .footer-links-wrapper {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .footer-section {
+        margin-bottom: var(--vapor-size-space-300);
+    }
+    .footer-info-column, 
+    .footer-links-column {
+        margin-bottom: var(--vapor-size-space-300);
+    }
+    .footer-links-block {
+        margin-bottom: var(--vapor-size-space-300);
     }
 } 
