@@ -16,7 +16,7 @@ const PreBannerSection = () => {
   };
 
   return (
-    <section className="content-section pre-banner-section">
+    <section className="pre-banner-section">
       <div className="container">
         <div className="pre-content-wrapper">
             <div className="pre-text-content">

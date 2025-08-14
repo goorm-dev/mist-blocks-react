@@ -60,19 +60,19 @@ const HeroSection3 = () => {
   const templateData = {
     mainTitle: "메인 타이틀을<br />최대 30자<br />이내로 입력하세요",
     videoSrc: "",
-    videoPoster: "/landing_skeleton/source/img-default-hero-left.png",
-    mobileImageSrc: "/landing_skeleton/source/img-default-hero-left.png",
+    videoPoster: "src/assets/img-default.png",
+    mobileImageSrc: "src/assets/img-default.png",
     cards: [
       {
-        label: "라벨1",
-        title: "서브 타이틀1",
-        description: "설명을 입력하세요.",
+        label: "혁신의 시작",
+        title: "기술로 세상을 바꾸는 힘",
+        description: "kt cloud는 산업 혁신을 이끌며<br />최고의 기술과 함께 성장해왔습니다.",
         imageSrc: "{{image_source_1}}"
       },
       {
-        label: "라벨2",
-        title: "서브 타이틀2",
-        description: "설명을 입력하세요.",
+        label: "세상을 키우는 약속",
+        title: "인재 중심의 기술 가치",
+        description: "최고의 인재가 세상을 성장시킬 때까지,<br />kt cloud의 노력은 계속될 것입니다.",
         imageSrc: "{{image_source_2}}"
       }
     ]
@@ -97,6 +97,19 @@ const HeroSection3 = () => {
     if (!title) return null;
     
     const parts = title.split('<br />');
+    return parts.map((part, index) => (
+      <React.Fragment key={index}>
+        {part}
+        {index < parts.length - 1 && <br />}
+      </React.Fragment>
+    ));
+  };
+
+  // description에 br 태그를 JSX로 변환하는 함수
+  const renderDescriptionWithBreaks = (description) => {
+    if (!description) return null;
+    
+    const parts = description.split('<br />');
     return parts.map((part, index) => (
       <React.Fragment key={index}>
         {part}
@@ -148,7 +161,7 @@ const HeroSection3 = () => {
                 <div className="hero-card-overlay"></div>
                 <div className="hero-card-content">
                   <div className="hero-card-subtitle">
-                    <Text typography="subtitle2" foreground="hint">
+                    <Text typography="subtitle1" foreground="hint">
                       {card.label}
                     </Text>
                   </div>
@@ -159,7 +172,7 @@ const HeroSection3 = () => {
                   </div>
                   <div className="hero-card-description">
                     <Text typography="body2" foreground="normal">
-                      {card.description}
+                      {renderDescriptionWithBreaks(card.description)}
                     </Text>
                   </div>
                 </div>

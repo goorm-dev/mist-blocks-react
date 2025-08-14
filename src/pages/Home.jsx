@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import HeroSection4 from '../components/Hero_4/HeroSection4';
-// import GridSection1 from '../components/Grid_1/GridSection1';
-// import AccordionFaq from '../components/AccordionFaq/AccordionFaq';
+import HeroSection3 from '../components/Hero_3/HeroSection3';
 import FooterFull from '../components/FooterFull/FooterFull';
 import Navbar from '../components/NavBar/NavBar';
 import CourseSectionNew from '../components/CourseSectionNew/CourseSectionNew';
@@ -23,13 +21,11 @@ function Home() {
   return (
     <main>
       <Navbar isDarkMode={appearance === 'dark'} toggleDarkMode={() => setTheme({appearance: appearance === 'dark' ? 'light' : 'dark'})} />
-      <HeroSection4 />
+      <HeroSection3 />
       <PreBannerSection />
       <CeoInterviewSection />
       <CourseSectionNew />
       <SpecialProfile />
-      {/* <GridSection1 />
-      <AccordionFaq /> */}
       <FooterFull />
     </main>
   )

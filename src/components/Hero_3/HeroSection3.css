@@ -1,6 +1,6 @@
 .hero-section {
     background-color: var(--vapor-color-background-normal);
-    padding-bottom: var(--vapor-size-space-800);
+    padding-bottom: var(--vapor-size-space-300);
     display: -webkit-box;
     display: flex;
     -webkit-box-pack: center;
@@ -182,6 +182,9 @@
     }
 }
 @media (max-width: 768px) {
+    .hero-section {
+        padding-bottom: var(--vapor-size-space-200);
+    }
     .hero-title {
         left: var(--vapor-size-space-400);
         bottom: var(--vapor-size-space-400);
@@ -195,7 +198,7 @@
 }
 @media (max-width: 576px) {
     .hero-section {
-        padding-bottom: var(--vapor-size-space-600);
+        padding-bottom: var(--vapor-size-space-200);
     }
     .hero-title {
         left: var(--vapor-size-space-300);
