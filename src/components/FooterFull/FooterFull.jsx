@@ -77,15 +77,6 @@ const FooterFull = ({ logoUrl = "https://tech.ktcloud.com" }) => {
                 </a>
               </div>
             </div>
-            {/* <div className="footer-section footer-section-vertical">
-              <Text typography="subtitle1" className="footer-title" foreground="hint">{'고객센터'}</Text>
-              <Text typography="body1" className="footer-text" foreground="normal">{'고객센터 설명'}</Text>
-              <a href="https://ktcloud-techup.channel.io" className="footer-link-chat"><DiscussionIcon style={{ width: '20px', height: '20px', color: 'inherit' }} /><Text typography="heading6" foreground="inherit">채팅 상담 바로가기</Text></a>
-            </div>
-            <div className="footer-section footer-section-vertical">
-              <Text typography="subtitle1" className="footer-title" foreground="hint">{'운영시간'}</Text>
-              <Text typography="body1" className="footer-text" foreground="normal">{'운영시간 설명'}</Text>
-            </div> */}
           </div>
           <div className="footer-links-column">
             <div className="footer-links-wrapper">
@@ -124,8 +115,11 @@ const FooterFull = ({ logoUrl = "https://tech.ktcloud.com" }) => {
         </div>
         <div className="footer-bottom-content">
           <div className="footer-info-text">
-            <Text as="p" typography="body2" foreground="normal">{'TECH UP은 kt cloud가 만든 차세대 인재 양성을 위한 기술 교육 전문 브랜드입니다.'}</Text>
-            <Text as="p" typography="body2" foreground="normal">{'Copyright© 2025 kt cloud corp. All rights reserved.'}</Text>
+            <Text as="p" typography="body2" foreground="normal">{'고객센터 ㅣ 평일 10:30 - 17:00 (휴게 시간 12:00 - 13:30, 주말 및 공휴일 휴무)'}</Text>
+            <div className="footer-info-text-copyright">
+              <Text as="p" typography="body2" foreground="hint">{'TECH UP은 kt cloud가 만든 차세대 인재 양성을 위한 기술 교육 전문 브랜드입니다.'}</Text>
+              <Text as="p" typography="body2" foreground="hint">{'Copyright© 2025 kt cloud corp. All rights reserved.'}</Text>
+            </div>
           </div>
           {/* 소셜 미디어 아이콘 */}
           <div className="social-icons">

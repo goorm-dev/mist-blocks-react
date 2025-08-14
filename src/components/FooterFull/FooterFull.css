@@ -99,6 +99,11 @@
 .footer-info-text {
     display: flex;
     flex-direction: column;
+    gap: var(--vapor-size-space-200);
+}
+.footer-info-text-copyright {
+    display: flex;
+    flex-direction: column;
     gap: var(--vapor-size-space-050);
 }
 .social-icons {

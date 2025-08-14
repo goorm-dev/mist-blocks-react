@@ -1,7 +1,7 @@
 .pre-content-wrapper {
   background: var(--vapor-color-background-secondary);
   border-radius: var(--vapor-size-borderRadius-600);
-  padding: var(--vapor-size-space-400) var(--vapor-size-space-500);
+  padding: var(--vapor-size-space-400);
   display: flex;
   flex-direction: row;
   align-items: center;
