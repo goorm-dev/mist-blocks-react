@@ -62,17 +62,6 @@ const CeoInterviewSection = () => {
     }
   }, [isVideoPlaying]);
 
-  // 반응형 타이포그래피 결정
-  const getResponsiveTypography = () => {
-    if (typeof window !== 'undefined') {
-      const width = window.innerWidth;
-      if (width <= 992) return "heading2"; // 32px
-      if (width <= 1200) return "heading1"; // 38px
-      return "display4"; // 48px
-    }
-    return "display4";
-  };
-
   // 비디오 재생 관련 함수들
   const handlePlayIconClick = () => {
     if (templateData.videoSrc) {
@@ -114,9 +103,9 @@ const CeoInterviewSection = () => {
         <div className="interview-content-wrapper grid grid-cols-12">
           <div className="text-content-area col-span-7">
             <div className="text-wrapper">
-              <Text typography={getResponsiveTypography()} foreground="normal" className="interview-title">
-                두려움을 넘어,<br />
-                기술로 향하는 여정
+              <Text typography="heading2" foreground="normal" className="interview-title">
+                두려움을 넘어, 기술로 향하는 여정 <br />
+                두려움을 넘어, 기술로 향하는 여정
               </Text>
               <Text typography="heading5" foreground="hint-darker" className="interview-description">
                 코딩 교육 1위가 만든 차별화된 교육 방식. <br />
@@ -151,8 +140,8 @@ const CeoInterviewSection = () => {
                 </video>
               ) : (
                 <div className="play-icon" onClick={handlePlayIconClick}>
-                  <svg width="72" height="72" viewBox="0 0 72 72" fill="white" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M36 0C16.12 0 0 16.12 0 36C0 55.88 16.12 72 36 72C55.88 72 72 55.88 72 36C72 16.12 55.88 0 36 0ZM27.63 51.14V20.86L50.53 36L27.63 51.14Z" fill="white"/>
+                  <svg className="play-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 0C5.37333 0 0 5.37333 0 12C0 18.6267 5.37333 24 12 24C18.6267 24 24 18.6267 24 12C24 5.37333 18.6267 0 12 0ZM9.21 17.0467V6.95333L16.8433 12L9.21 17.0467Z" fill="white"/>
                   </svg>
                 </div>
               )}

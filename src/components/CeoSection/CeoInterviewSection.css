@@ -78,6 +78,10 @@
 .play-icon:hover {
   transform: translate(-50%, -50%) scale(1.1);
 }
+.play-icon-svg {
+  width: 4.5rem;
+  height: 4.5rem;
+}
 .video-description-wrapper {
   z-index: 5;
   cursor: pointer;
@@ -215,10 +219,6 @@
 .video-thumb.is-open .description-plus {
   background-color: #2B2D36;
 }
-.play-icon-svg {
-  width: var(--vapor-size-dimension-300);
-  height: var(--vapor-size-dimension-300);
-}
 
 @media (max-width: 1200px) {
   .text-content-area {
@@ -267,5 +267,13 @@
   }
   .interview-description br {
     display: none;
+  }
+  .play-icon {
+    width: var(--vapor-size-dimension-800);
+    height: var(--vapor-size-dimension-800);
+  }
+  .play-icon-svg {
+    width: var(--vapor-size-dimension-800);
+    height: var(--vapor-size-dimension-800);
   }
 }
