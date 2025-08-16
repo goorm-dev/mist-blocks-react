@@ -199,7 +199,7 @@ const CourseCardItem = ({ course, onCtaClick }) => {
             </div>
             <div className="badge-container">
               {course.tags && course.tags.map((tag, index) => (
-                <Badge key={index} size="md" color="primary">
+                <Badge key={index} size="md" color="danger">
                   {tag}
                 </Badge>
               ))}

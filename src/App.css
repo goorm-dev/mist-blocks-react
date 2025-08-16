@@ -84,6 +84,12 @@
   margin-right: auto;
   margin-left: auto;
 }
+
+* {
+  word-break: keep-all;
+  word-wrap: break-word;
+  white-space: pre-line;
+}
 .content-section {
   padding: var(--vapor-size-space-800) 0;
 }
