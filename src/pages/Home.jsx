@@ -20,16 +20,18 @@ function Home() {
   };
 
   return (
-    <main>
+    <>
       <Navbar isDarkMode={appearance === 'dark'} toggleDarkMode={() => setTheme({appearance: appearance === 'dark' ? 'light' : 'dark'})} />
-      <HeroSection3 />
-      <PreBannerSection />
-      <CourseSectionNew />
-      <CeoInterviewSection />
-      <ProjectCultureSection />
-      <SpecialProfile />
+      <main>
+        <HeroSection3 />
+        <PreBannerSection />
+        <CourseSectionNew />
+        <CeoInterviewSection />
+        <ProjectCultureSection />
+        <SpecialProfile />
+      </main>
       <FooterFull />
-    </main>
+    </>
   )
 }
 
