@@ -27,21 +27,21 @@ import logoLight from '../../assets/logo_ktc_light.svg'
 import logoDark from '../../assets/logo_ktc_dark.svg'
 
 const webDevelopment = [
-  { name: 'kt cloud 풀스택', description: '프로그램 간단한 설명', href: '/fullstack', icon: ChartPieIcon },
-  { name: 'kt cloud 프론트엔드', description: '프로그램 간단한 설명', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'kt cloud 백엔드', description: '프로그램 간단한 설명', href: '#', icon: FingerPrintIcon },
+  { name: 'kt cloud 풀스택', description: 'React, Node, Spring 기반 웹 서비스 전 과정 경험', href: '/fullstack', icon: ChartPieIcon },
+  { name: 'kt cloud 프론트엔드', description: 'UI 설계부터 인터렉션까지 최신 프론트 기술 학습', href: '#', icon: CursorArrowRaysIcon },
+  { name: 'kt cloud 백엔드', description: '서버, DB, 보안, API까지 실무형 백엔드 기술 학습', href: '#', icon: FingerPrintIcon },
 ]
 
 const infrastructureInnovation = [
-  { name: 'kt cloud 생성형 AI', description: '프로그램 간단한 설명', href: '#', icon: ChartPieIcon },
-  { name: 'kt cloud 사이버 보안', description: '프로그램 간단한 설명', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'kt cloud 클라우드 인프라', description: '프로그램 간단한 설명', href: '#', icon: ArrowPathIcon },
-  { name: 'kt cloud 클라우드 네이티브', description: '프로그램 간단한 설명', href: '#', icon: SquaresPlusIcon },
+  { name: 'kt cloud 생성형 AI', description: 'LLM 기반 생성형 AI의 원리와 실제 구현 방식 경험', href: '#', icon: ChartPieIcon },
+  { name: 'kt cloud 사이버 보안', description: '침투 테스트, 위협 분석으로 실전 보안 역량 강화', href: '#', icon: CursorArrowRaysIcon },
+  { name: 'kt cloud 클라우드 인프라', description: 'IaC, 모니터링, 보안으로 클라우드 운영 자동화', href: '#', icon: ArrowPathIcon },
+  { name: 'kt cloud 클라우드 네이티브', description: '컨테이너, Kubernetes 기반 마이크로서비스 설계', href: '#', icon: SquaresPlusIcon },
 ]
 
 const productExpert = [
-  { name: 'kt cloud 프로덕트 디자인', description: '프로그램 간단한 설명', href: '#', icon: FingerPrintIcon },
-  { name: 'kt cloud 프로덕트 매니지먼트', description: '프로그램 간단한 설명', href: '#', icon: SquaresPlusIcon },
+  { name: 'kt cloud 프로덕트 디자인', description: 'UX 리서치부터 UI, 디자인 시스템까지 실무 적용', href: '#', icon: FingerPrintIcon },
+  { name: 'kt cloud 프로덕트 매니지먼트', description: '애자일 기획과 협업으로 프로젝트 운영 전 과정 경험', href: '#', icon: SquaresPlusIcon },
 ]
 
 const mainMenuItems = [
@@ -109,7 +109,7 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
                         className="group relative flex items-center gap-x-3 p-3 text-sm/6 hover:bg-[var(--vapor-color-gray-400)]/16"
                       >
                         <div className="flex size-10 flex-none items-center justify-center bg-[var(--vapor-color-background-normal-darker)] group-hover:bg-[var(--vapor-color-background-normal)]">
-                          <dropdownItem.icon aria-hidden="true" className="size-5 text-[var(--vapor-color-foreground-normal-lighter)] group-hover:text-[var(--vapor-color-background-primary)]" />
+                          <dropdownItem.icon aria-hidden="true" className="size-5 text-[var(--vapor-color-foreground-normal-lighter)] group-hover:text-[var(--vapor-color-background-danger)]" />
                         </div>
                         <div className="flex-auto">
                           <Link to={dropdownItem.href} className="block font-semibold text-[var(--vapor-color-foreground-normal)]">

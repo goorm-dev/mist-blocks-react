@@ -25,10 +25,10 @@ function Home() {
       <main>
         <HeroSection3 />
         <PreBannerSection />
-        <CourseSectionNew />
         <CeoInterviewSection />
         <ProjectCultureSection />
         <SpecialProfile />
+        <CourseSectionNew />
       </main>
       <FooterFull />
     </>
