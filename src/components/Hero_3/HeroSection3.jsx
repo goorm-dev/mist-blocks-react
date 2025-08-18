@@ -58,7 +58,7 @@ const HeroSection3 = () => {
 
   // 템플릿 변수들
   const templateData = {
-    mainTitle: "메인 타이틀을<br />최대 30자<br />이내로 입력하세요",
+    mainTitle: "세상에 없던<br />완성형 교육의 시작",
     videoSrc: "",
     videoPoster: "src/assets/img-default.png",
     mobileImageSrc: "src/assets/img-default.png",

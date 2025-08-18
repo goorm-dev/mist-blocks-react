@@ -88,7 +88,6 @@
 * {
   word-break: keep-all;
   word-wrap: break-word;
-  white-space: pre-line;
 }
 .content-section {
   padding: var(--vapor-size-space-800) 0;
@@ -133,6 +132,12 @@ svg {
   .container-md,
   .container-sm {
     max-width: 720px;
+  }
+}
+/* Small devices (768px and down) */
+@media (max-width: 768px) {
+  .content-hero-section {
+    padding-top: 6.25rem;
   }
 }
 /* Large devices (992px and up) */

@@ -7,9 +7,9 @@ import { LinkOutlineIcon } from '@vapor-ui/icons';
 const defaultDetailHeroData = {
   title: "풀스택",
   description: "풀스택 개발 풀스택 개발 풀스택 개발 풀스택 개발 풀스택 개발",
-  tags: ["태그1", "태그2", "태그3", "태그4", "태그5"],
+  tags: ["태그1", "태그2", "태그3", "태그4"],
   ctaButton: {
-    text: "풀스택 개발 지원하기",
+    text: "kt cloud 풀스택 지원하기",
     link: "/fullstack",
   },
   shareButton: {
@@ -18,15 +18,15 @@ const defaultDetailHeroData = {
   courseInfo: [
     {
       label: "지원 일정",
-      value: "12.6 (금) - 12.22 (일)"
+      value: "25.8.28 (목) - 25.9.11 (목)"
     },
     {
       label: "교육 일정", 
-      value: "12.6 (금) - 12.22 (일)"
+      value: "25.9.23 (화) - 26.4.22 (수)"
     },
     {
       label: "모집 인원",
-      value: "54명"
+      value: "45명"
     },
     {
       label: "교육 방법",
