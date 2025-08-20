@@ -32,13 +32,13 @@ const DetailHero = ({
         };
       case 'contrast':
         return {
-          text: "kt cloud TECH UP 오픈 알림 신청하기",
+          text: "오픈 알림 신청하기",
           link: "https://gem.goorm.io/submissions/ktcloudtechup/openalarm",
           disabled: false
         };
       case 'open':
         return {
-          text: `kt cloud ${data.title} 지원하기`,
+          text: `${data.title} 지원하기`,
           link: `https://gem.goorm.io/submissions/ktcloudtechup/${data.keyword}`,
           disabled: false
         };

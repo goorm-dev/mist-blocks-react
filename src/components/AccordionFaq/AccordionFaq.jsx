@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Nav, Text, Card } from '@vapor-ui/core';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from "remark-gfm";
 import './AccordionFaq.css';
 
 import { FAQ_TABS, FAQ_DATA } from './AccordionFaq.constant';
+
+const MarkdownDisplay = ({ children }) => (
+  <ReactMarkdown remarkPlugins={[remarkGfm]}>{children}</ReactMarkdown>
+)
 
 const AccordionFaq = () => {
   const [activeTab, setActiveTab] = useState(FAQ_TABS[0].key);
@@ -53,7 +58,7 @@ const AccordionFaq = () => {
                   onClick={() => handleAccordionClick(idx)}
                   aria-expanded={openIndexes.includes(idx)}
                 >
-                  <Text typography="heading6" className="faq-question"><ReactMarkdown>{item.question}</ReactMarkdown></Text>
+                  <Text typography="heading6" className="faq-question"><MarkdownDisplay>{item.question}</MarkdownDisplay></Text>
                   <span className="faq-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                       <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -64,7 +69,7 @@ const AccordionFaq = () => {
               {openIndexes.includes(idx) && (
                 <Card.Body className="faq-card-body">
                   <div className="faq-answer">
-                    <ReactMarkdown>{item.answer}</ReactMarkdown>
+                    <MarkdownDisplay>{item.answer}</MarkdownDisplay>
                   </div>
                 </Card.Body>
               )}

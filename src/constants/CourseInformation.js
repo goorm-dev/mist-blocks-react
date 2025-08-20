@@ -66,7 +66,7 @@ export const COURSE_AREA_INFORMATION = {
 
 export const COURSE_INFORMATION = {
     [COURSE.FULLSTACK]: {
-        title: "풀스택",
+        title: "kt cloud 풀스택",
         description: "프론트엔드와 백엔드 모두 다루는 개발 전문가 과정",
         tags: ["태그1", "태그2", "태그3", "태그4"],
         startAt: new Date('2025-08-27T15:00:00.000Z'),
@@ -77,7 +77,7 @@ export const COURSE_INFORMATION = {
         recruitedPeopleAmount: 45,
     },
     [COURSE.FRONTEND]: {
-        title: "프론트엔드",
+        title: "kt cloud 프론트엔드",
         description: "최상의 사용자 경험을 구현하는 인터페이스 전문가 과정",
         tags: ["태그1", "태그2", "태그3", "태그4"],
         startAt: new Date('2025-06-27T15:00:00.000Z'),
@@ -88,7 +88,7 @@ export const COURSE_INFORMATION = {
         recruitedPeopleAmount: 45,
     },
     [COURSE.BACKEND]: {
-        title: "백엔드",
+        title: "kt cloud 백엔드",
         description: "서비스의 코어를 설계하는 개발 전문가 과정",
         tags: ["태그1", "태그2", "태그3", "태그4"],
         startAt: new Date('2025-08-27T15:00:00.000Z'),
@@ -99,7 +99,7 @@ export const COURSE_INFORMATION = {
         recruitedPeopleAmount: 45,
     },
     [COURSE.GEN_AI]: {
-        title: "생성형 AI",
+        title: "kt cloud 생성형 AI",
         description: "생성형 AI 혁신을 이끄는 글로벌 인재 과정",
         tags: ["태그1", "태그2", "태그3", "태그4"],
         startAt: new Date('2025-08-27T15:00:00.000Z'),
@@ -110,7 +110,7 @@ export const COURSE_INFORMATION = {
         recruitedPeopleAmount: 45,
     },
     [COURSE.INFORMATION_SECURITY]: {
-        title: "사이버 보안",
+        title: "kt cloud 사이버 보안",
         description: "데이터와 서비스를 수호하는 보안 전문가 과정",
         tags: ["태그1", "태그2", "태그3", "태그4"],
         startAt: new Date('2025-08-27T15:00:00.000Z'),
@@ -121,7 +121,7 @@ export const COURSE_INFORMATION = {
         recruitedPeopleAmount: 45,
     },
     [COURSE.CLOUD_NATIVE]: {
-        title: "클라우드 네이티브",
+        title: "kt cloud 클라우드 네이티브",
         description: "차세대 클라우드 아키텍처 전문가 과정",
         tags: ["태그1", "태그2", "태그3", "태그4"],
         startAt: new Date('2025-08-27T15:00:00.000Z'),
@@ -132,7 +132,7 @@ export const COURSE_INFORMATION = {
         recruitedPeopleAmount: 45,
     },
     [COURSE.CLOUD_INFRASTRUCTURE]: {
-        title: "클라우드 인프라",
+        title: "kt cloud 클라우드 인프라",
         description: "확장성과 안정성을 구축하는 인프라 전문가 과정",
         tags: ["태그1", "태그2", "태그3", "태그4"],
         startAt: new Date('2025-08-27T15:00:00.000Z'),
@@ -143,7 +143,7 @@ export const COURSE_INFORMATION = {
         recruitedPeopleAmount: 45,
     },
     [COURSE.PRODUCT_DESIGN]: {
-        title: "프로덕트 디자인",
+        title: "kt cloud 프로덕트 디자인",
         description: "사용자 중심 경험을 설계하는 디자인 전문가 과정",
         tags: ["태그1", "태그2", "태그3", "태그4"],
         startAt: new Date('2025-08-27T15:00:00.000Z'),
@@ -154,7 +154,7 @@ export const COURSE_INFORMATION = {
         recruitedPeopleAmount: 45,
     },
     [COURSE.PRODUCT_MANAGEMENT]: {
-        title: "프로덕트 매니지먼트",
+        title: "kt cloud 프로덕트 매니지먼트",
         description: "아이디어를 제품으로 구현해 비즈니스 임팩트를 만드는 전문가 과정",
         tags: ["태그1", "태그2", "태그3", "태그4"],
         startAt: new Date('2025-08-27T15:00:00.000Z'),
