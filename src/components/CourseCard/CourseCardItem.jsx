@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Text, Badge, Button } from '@vapor-ui/core';
 import { CalendarIcon } from '@vapor-ui/icons';
 import './CourseCard.css';
+import { formatPeriod, getRecruitmentStatus } from '../../utils/courseUtils';
 
 /**
  * CourseCardItem 컴포넌트
@@ -66,6 +67,9 @@ import './CourseCard.css';
  */
 
 const CourseCardItem = ({ course, onCtaClick }) => {
+  const period = formatPeriod(course.startAt, course.endAt);
+  const { status, statusType } = getRecruitmentStatus(course.startAt, course.endAt);
+
   /**
    * CTA 버튼 클릭 핸들러
    */
@@ -170,20 +174,20 @@ const CourseCardItem = ({ course, onCtaClick }) => {
   return (
     <div className="course-common">
       <div className="course-card">
-        <Link to={course.link} className="course-link">
+        <a href={course.link} className="course-link">
           <div className="course-thumb">
             <div className="course-status-badge">
-              {course.statusType === 'open' ? (
+              {statusType === 'open' ? (
                 <Badge size="lg" color="primary" className="open-badge">
-                  {course.status}
+                  {status}
                 </Badge>
-              ) : course.statusType === 'close' ? (
+              ) : statusType === 'close' ? (
                 <Badge size="lg" color="contrast" className="close-badge">
-                  {course.status}
+                  {status}
                 </Badge>
               ) : (
-                <Badge size="lg" color={course.statusType}>
-                  {course.status}
+                <Badge size="lg" color="contrast" className="contrast-badge">
+                  {status}
                 </Badge>
               )}
             </div>
@@ -194,7 +198,7 @@ const CourseCardItem = ({ course, onCtaClick }) => {
               <Text typography="heading5" className="course-name">{course.name}</Text>
               <Text typography="subtitle1" className="course-period">
                 <CalendarIcon />
-                <span>교육 일정 ㅣ {course.period}</span>
+                <span>교육 일정 ㅣ {period}</span>
               </Text>
             </div>
             <div className="badge-container">
@@ -205,7 +209,7 @@ const CourseCardItem = ({ course, onCtaClick }) => {
               ))}
             </div>
           </div>
-        </Link>
+        </a>
       </div>
       {course.showCtaButton && (
         <div className="course-action-container">

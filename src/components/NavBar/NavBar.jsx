@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import {
   Dialog,
   DialogPanel,
@@ -25,43 +24,56 @@ import {
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import logoLight from '../../assets/logo_ktc_light.svg'
 import logoDark from '../../assets/logo_ktc_dark.svg'
+import { COURSE_INFORMATION, COURSE_AREA_INFORMATION, COURSE } from '../../constants/CourseInformation'
 
-const webDevelopment = [
-  { name: 'kt cloud 풀스택', description: 'React, Node, Spring 기반 웹 서비스 전 과정 경험', href: '/fullstack', icon: ChartPieIcon },
-  { name: 'kt cloud 프론트엔드', description: 'UI 설계부터 인터렉션까지 최신 프론트 기술 학습', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'kt cloud 백엔드', description: '서버, DB, 보안, API까지 실무형 백엔드 기술 학습', href: '#', icon: FingerPrintIcon },
-]
+const COURSE_ICONS = {
+  [COURSE.FULLSTACK]: ChartPieIcon,
+  [COURSE.FRONTEND]: CursorArrowRaysIcon,
+  [COURSE.BACKEND]: FingerPrintIcon,
+  [COURSE.GEN_AI]: ChartPieIcon,
+  [COURSE.INFORMATION_SECURITY]: CursorArrowRaysIcon,
+  [COURSE.CLOUD_INFRASTRUCTURE]: ArrowPathIcon,
+  [COURSE.CLOUD_NATIVE]: SquaresPlusIcon,
+  [COURSE.PRODUCT_DESIGN]: FingerPrintIcon,
+  [COURSE.PRODUCT_MANAGEMENT]: SquaresPlusIcon,
+}
 
-const infrastructureInnovation = [
-  { name: 'kt cloud 생성형 AI', description: 'LLM 기반 생성형 AI의 원리와 실제 구현 방식 경험', href: '#', icon: ChartPieIcon },
-  { name: 'kt cloud 사이버 보안', description: '침투 테스트, 위협 분석으로 실전 보안 역량 강화', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'kt cloud 클라우드 인프라', description: 'IaC, 모니터링, 보안으로 클라우드 운영 자동화', href: '#', icon: ArrowPathIcon },
-  { name: 'kt cloud 클라우드 네이티브', description: '컨테이너, Kubernetes 기반 마이크로서비스 설계', href: '#', icon: SquaresPlusIcon },
-]
+const COURSE_DESCRIPTIONS = {
+  [COURSE.FULLSTACK]: 'React, Node, Spring 기반 웹 서비스 전 과정 경험',
+  [COURSE.FRONTEND]: 'UI 설계부터 인터렉션까지 최신 프론트 기술 학습',
+  [COURSE.BACKEND]: '서버, DB, 보안, API까지 실무형 백엔드 기술 학습',
+  [COURSE.GEN_AI]: 'LLM 기반 생성형 AI의 원리와 실제 구현 방식 경험',
+  [COURSE.INFORMATION_SECURITY]: '침투 테스트, 위협 분석으로 실전 보안 역량 강화',
+  [COURSE.CLOUD_INFRASTRUCTURE]: 'IaC, 모니터링, 보안으로 클라우드 운영 자동화',
+  [COURSE.CLOUD_NATIVE]: '컨테이너, Kubernetes 기반 마이크로서비스 설계',
+  [COURSE.PRODUCT_DESIGN]: 'UX 리서치부터 UI, 디자인 시스템까지 실무 적용',
+  [COURSE.PRODUCT_MANAGEMENT]: '애자일 기획과 협업으로 프로젝트 운영 전 과정 경험',
+}
 
-const productExpert = [
-  { name: 'kt cloud 프로덕트 디자인', description: 'UX 리서치부터 UI, 디자인 시스템까지 실무 적용', href: '#', icon: FingerPrintIcon },
-  { name: 'kt cloud 프로덕트 매니지먼트', description: '애자일 기획과 협업으로 프로젝트 운영 전 과정 경험', href: '#', icon: SquaresPlusIcon },
-]
+const createCourseDropdownItems = (courseTypes) => {
+  return courseTypes.map(courseType => ({
+    name: COURSE_INFORMATION[courseType].title,
+    description: COURSE_DESCRIPTIONS[courseType],
+    href: `/detail/${COURSE_INFORMATION[courseType].keyword}`,
+    icon: COURSE_ICONS[courseType]
+  }))
+}
 
 const mainMenuItems = [
   { 
-    name: '웹 개발', 
-    href: '#', 
+    name: COURSE_AREA_INFORMATION.WEB_DEVELOPMENT.title,
     isDropdown: true,
-    dropdownItems: webDevelopment 
+    dropdownItems: createCourseDropdownItems(COURSE_AREA_INFORMATION.WEB_DEVELOPMENT.courses)
   },
   { 
-    name: '인프라 / 혁신 기술', 
-    href: '#', 
+    name: COURSE_AREA_INFORMATION.INFRA_INNOVATION.title,
     isDropdown: true,
-    dropdownItems: infrastructureInnovation 
+    dropdownItems: createCourseDropdownItems(COURSE_AREA_INFORMATION.INFRA_INNOVATION.courses)
   },
   { 
-    name: '프로덕트 전문가', 
-    href: '#', 
+    name: COURSE_AREA_INFORMATION.PRODUCT_EXPERT.title,
     isDropdown: true,
-    dropdownItems: productExpert 
+    dropdownItems: createCourseDropdownItems(COURSE_AREA_INFORMATION.PRODUCT_EXPERT.courses)
   },
 ]
 
@@ -71,14 +83,14 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
     <header className="absolute inset-x-0 top-0 z-50">
       <nav aria-label="Global" className="container flex items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
-          <Link to="/" className="-m-1.5 p-1.5 transition-opacity hover:opacity-80">
+          <a href="/" className="-m-1.5 p-1.5 transition-opacity hover:opacity-80">
             <span className="sr-only">Your Company</span>
             <img
               alt="Logo"
               src={isDarkMode ? logoDark : logoLight}
               className="h-9 w-auto"
             />
-          </Link>
+          </a>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -112,10 +124,10 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
                           <dropdownItem.icon aria-hidden="true" className="size-5 text-[var(--vapor-color-foreground-normal-lighter)] group-hover:text-[var(--vapor-color-background-danger)]" />
                         </div>
                         <div className="flex-auto">
-                          <Link to={dropdownItem.href} className="block font-semibold text-[var(--vapor-color-foreground-normal)]">
+                          <a href={dropdownItem.href} className="block font-semibold text-[var(--vapor-color-foreground-normal)]">
                             {dropdownItem.name}
                             <span className="absolute inset-0" />
-                          </Link>
+                          </a>
                           <p className="text-[var(--vapor-color-foreground-normal-lighter)] text-xs">{dropdownItem.description}</p>
                         </div>
                       </div>
@@ -133,9 +145,9 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
           >
             {isDarkMode ? <SunIcon className="size-5 stroke-2" /> : <MoonIcon className="size-5 stroke-2" />}
           </button>
-          <Link to="#" className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 p-3 transition-[background-color]">
+          <a href="#" className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 p-3 transition-[background-color]">
             지원 확인
-          </Link>
+          </a>
         </div>
       </nav>
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
@@ -148,14 +160,13 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
             paddingBottom: 'calc(var(--spacing) * 6)'
           }}>
           <div className="flex items-center justify-between">
-            <Link to="/" className="-m-1.5 p-1.5 transition-opacity hover:opacity-80">
-              <span className="sr-only">Your Company</span>
+            <a href="/" className="-m-1.5 p-1.5 transition-opacity hover:opacity-80">
               <img
                 alt=""
                 src={isDarkMode ? logoDark : logoLight}
                 className="h-9 w-auto"
               />
-            </Link>
+            </a>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
@@ -178,9 +189,10 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
                       {item.dropdownItems.map((dropdownItem) => (
                         <DisclosureButton
                           key={dropdownItem.name}
-                          as={Link}
-                          to={dropdownItem.href}
+                          as="a"
+                          href={dropdownItem.href}
                           className="block py-2 pr-3 pl-6 text-sm/7 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16"
+                          onClick={() => setMobileMenuOpen(false)}
                         >
                           {dropdownItem.name}
                         </DisclosureButton>
@@ -190,12 +202,12 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
                 ))}
               </div>
               <div className="py-6">
-                <Link
-                  to="#"
+                <a
+                  href="#"
                   className="-mx-3 block px-3 py-2.5 text-base/7 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16"
                 >
                   지원 확인
-                </Link>
+                </a>
                 <button
                   onClick={toggleDarkMode}
                   className="-mx-3 block px-3 py-2.5 text-base/7 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 transition-[background-color]"

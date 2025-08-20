@@ -1,16 +1,20 @@
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-import './App.css'
-import Home from './pages/Home'
-import FullstackDetail from './pages/FullstackDetail'
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Home from "./pages/Home";
+import { Detail } from "./pages/Detail";
+
+import { COURSE_LIST, COURSE_INFORMATION } from "./constants/CourseInformation";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/fullstack" element={<FullstackDetail />} />
+      {COURSE_LIST.map((course) => (
+        <Route key={course} path={`/detail/${COURSE_INFORMATION[course].keyword}`} element={<Detail course={course} />} />
+      ))}
     </Routes>
-  )
+  );
 }
 
-export default App
+export default App;

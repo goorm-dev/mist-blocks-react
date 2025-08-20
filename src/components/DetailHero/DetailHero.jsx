@@ -3,40 +3,11 @@ import { Text, Button, Badge, IconButton } from '@vapor-ui/core';
 import './DetailHero.css';
 import { LinkOutlineIcon } from '@vapor-ui/icons';
 
-// 재사용 가능한 데이터 구조
-const defaultDetailHeroData = {
-  title: "풀스택",
-  description: "풀스택 개발 풀스택 개발 풀스택 개발 풀스택 개발 풀스택 개발",
-  tags: ["태그1", "태그2", "태그3", "태그4"],
-  ctaButton: {
-    text: "kt cloud 풀스택 지원하기",
-    link: "/fullstack",
-  },
-  shareButton: {
-    link: window.location.href,
-  },
-  courseInfo: [
-    {
-      label: "지원 일정",
-      value: "25.8.28 (목) - 25.9.11 (목)"
-    },
-    {
-      label: "교육 일정", 
-      value: "25.9.23 (화) - 26.4.22 (수)"
-    },
-    {
-      label: "모집 인원",
-      value: "45명"
-    },
-    {
-      label: "교육 방법",
-      value: "온라인 / 비대면 실시간"
-    }
-  ]
-};
+import { formatPeriod, getRecruitmentStatus } from '../../utils/courseUtils';
+
 
 const DetailHero = ({ 
-  data = defaultDetailHeroData,
+  data,
   onEnrollClick,
   onShareClick 
 }) => {
@@ -46,10 +17,60 @@ const DetailHero = ({
     title,
     description,
     tags,
-    ctaButton,
-    shareButton,
-    courseInfo
   } = data;
+
+  const { statusType } = getRecruitmentStatus(data.startAt, data.endAt);
+
+  const getCtaButtonConfig = (statusType) => {
+    console.log(statusType)
+    switch (statusType) {
+      case 'close':
+        return {
+          text: "모집이 마감되었습니다",
+          link: null,
+          disabled: true
+        };
+      case 'contrast':
+        return {
+          text: "kt cloud TECH UP 오픈 알림 신청하기",
+          link: "https://gem.goorm.io/submissions/ktcloudtechup/openalarm",
+          disabled: false
+        };
+      case 'open':
+        return {
+          text: `kt cloud ${data.title} 지원하기`,
+          link: `https://gem.goorm.io/submissions/ktcloudtechup/${data.keyword}`,
+          disabled: false
+        };
+    }
+  };
+
+  const ctaButton = getCtaButtonConfig(statusType);
+  
+  console.log(getCtaButtonConfig(statusType))
+
+  const shareButton = {
+     link: window.location.href,
+  }
+
+  const courseInfo = [
+      {
+        label: "지원 일정",
+        value: `${formatPeriod(data.startAt, data.endAt)}`
+      },
+      {
+        label: "교육 일정", 
+        value: `${formatPeriod(data.eventStartAt, data.eventEndAt)}`
+      },
+      {
+        label: "모집 인원",
+        value: `${data.recruitedPeopleAmount}명`
+      },
+      {
+        label: "교육 방법",
+        value: "온라인 / 비대면 실시간"
+      }
+  ]
 
   const handleEnrollClick = () => {
     if (onEnrollClick) {
@@ -127,7 +148,7 @@ const DetailHero = ({
                 </div>
               </div>
               <div className="cta-wrap">
-                {ctaButton.link ? (
+                {ctaButton.link && !ctaButton.disabled ? (
                   <a href={ctaButton.link} className="cta-enroll-link w-full">
                     <Button 
                       size="xl" 
@@ -142,32 +163,35 @@ const DetailHero = ({
                 ) : (
                   <Button 
                     size="xl" 
-                    color="primary" 
+                   color="primary" 
                     stretch="true" 
                     className="cta-enroll"
-                    onClick={handleEnrollClick}
+                    onClick={ctaButton.disabled ? undefined : handleEnrollClick}
+                    disabled={ctaButton.disabled}
                   >
                     {ctaButton.text}
                   </Button>
                 )}
-                {isCopied ? (
-                  <Button 
-                    size="xl" 
-                    color="secondary" 
-                    className="cta-share"
-                    disabled
-                  >
-                    복사됨
-                  </Button>
-                ) : (
-                  <IconButton 
-                    size="xl" 
-                    color="secondary" 
-                    className="cta-share"
-                    onClick={handleShareClick}
-                  >
-                    <LinkOutlineIcon />
-                  </IconButton>
+                {statusType === 'open' && (
+                  isCopied ? (
+                    <Button 
+                      size="xl" 
+                      color="secondary" 
+                      className="cta-share"
+                      disabled
+                    >
+                      복사됨
+                    </Button>
+                  ) : (
+                    <IconButton 
+                      size="xl" 
+                      color="secondary" 
+                      className="cta-share"
+                      onClick={handleShareClick}
+                    >
+                      <LinkOutlineIcon />
+                    </IconButton>
+                  )
                 )}
               </div>
               <div className="course-info-detail">

@@ -1,7 +1,39 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
+
 import { Text, Button } from '@vapor-ui/core';
 import { DiscussionIcon, InstagramIcon, YoutubeIcon, BlogIcon, ArrowUpOutlineIcon } from '@vapor-ui/icons';
 import './FooterFull.css';
+
+import { COURSE_INFORMATION, COURSE_AREA_INFORMATION, COURSE_AREA_LIST } from '../../constants/CourseInformation';
+
+const FooterCourseLink = ({ course }) => {
+  const { keyword } = COURSE_INFORMATION[course];
+  const hrefLink = `/detail/${keyword}`;
+
+  return (
+      <li key={course}>
+        <a href={hrefLink} className="footer-link">
+          <Text as="span" typography="heading6" foreground="inherit">{`kt cloud ${COURSE_INFORMATION[course].title}`}</Text>
+        </a>
+      </li>
+  )
+}
+
+const FooterCourseList = ({ area }) => {
+ const { title, courses } = COURSE_AREA_INFORMATION[area];
+
+ return (
+  <div className="footer-links-block footer-section-vertical">
+      <Text typography="subtitle1" className="footer-title" foreground="hint">{title}</Text>
+      <ul className="footer-links">
+        {courses.map((course) => (
+          <FooterCourseLink key={course} course={course} />
+        ))}
+      </ul>
+    </div>
+  )
+} 
 
 const FooterFull = ({ logoUrl = "https://tech.ktcloud.com" }) => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -80,30 +112,7 @@ const FooterFull = ({ logoUrl = "https://tech.ktcloud.com" }) => {
           </div>
           <div className="footer-links-column">
             <div className="footer-links-wrapper">
-              <div className="footer-links-block footer-section-vertical">
-                <Text typography="subtitle1" className="footer-title" foreground="hint">{'웹 개발'}</Text>
-                <ul className="footer-links">
-                  <li><a href="{{service1 link}}" className="footer-link"><Text as="span" typography="heading6" foreground="inherit">{'kt cloud 풀스택'}</Text></a></li>
-                  <li><a href="{{service2 link}}" className="footer-link"><Text as="span" typography="heading6" foreground="inherit">{'kt cloud 프론트엔드'}</Text></a></li>
-                  <li><a href="{{service3 link}}" className="footer-link"><Text as="span" typography="heading6" foreground="inherit">{'kt cloud 백엔드'}</Text></a></li>
-                </ul>
-              </div>
-              <div className="footer-links-block footer-section-vertical">
-                <Text typography="subtitle1" className="footer-title" foreground="hint">{'인프라 / 혁신 기술'}</Text>
-                <ul className="footer-links">
-                  <li><a href="{{external1 link}}" className="footer-link" target="_blank"><Text as="span" typography="heading6" foreground="inherit">{'kt cloud 생성형 AI'}</Text></a></li>
-                  <li><a href="{{external2 link}}" className="footer-link" target="_blank"><Text as="span" typography="heading6" foreground="inherit">{'kt cloud 사이버 보안'}</Text></a></li>
-                  <li><a href="{{external3 link}}" className="footer-link" target="_blank"><Text as="span" typography="heading6" foreground="inherit">{'kt cloud 클라우드 인프라'}</Text></a></li>
-                  <li><a href="{{external3 link}}" className="footer-link" target="_blank"><Text as="span" typography="heading6" foreground="inherit">{'kt cloud 클라우드 네이티브'}</Text></a></li>
-                </ul>
-              </div>
-              <div className="footer-links-block footer-section-vertical">
-                <Text typography="subtitle1" className="footer-title" foreground="hint">{'프로덕트 전문가'}</Text>
-                <ul className="footer-links">
-                  <li><a href="{{external1 link}}" className="footer-link" target="_blank"><Text as="span" typography="heading6" foreground="inherit">{'kt cloud 프로덕트 디자인'}</Text></a></li>
-                  <li><a href="{{external2 link}}" className="footer-link" target="_blank"><Text as="span" typography="heading6" foreground="inherit">{'kt cloud 프로덕트 매니지먼트'}</Text></a></li>
-                </ul>
-              </div>
+              {COURSE_AREA_LIST.map((area) => <FooterCourseList key={area} area={area} />)}
             </div>
           </div>
           <div className="footer-top-button">
@@ -138,5 +147,6 @@ const FooterFull = ({ logoUrl = "https://tech.ktcloud.com" }) => {
     </footer>
   );
 };
+
 
 export default FooterFull; 

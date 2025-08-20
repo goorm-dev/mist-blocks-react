@@ -1,0 +1,121 @@
+import { COURSE_INFORMATION, COURSE } from '../../constants/CourseInformation';
+
+export const COURSE_CARD_COURSES = [
+  {
+    id: 1,
+    name: COURSE_INFORMATION[COURSE.FULLSTACK].title,
+    startAt: COURSE_INFORMATION[COURSE.FULLSTACK].eventStartAt,
+    endAt: COURSE_INFORMATION[COURSE.FULLSTACK].eventEndAt,
+    tags: COURSE_INFORMATION[COURSE.FULLSTACK].tags,
+    thumbnailType: 'image',
+    imageSrc: "src/assets/img-default.png",
+    ctaButtonLabel: "신청하기",
+    ctaButtonLink: `/detail/${COURSE_INFORMATION[COURSE.FULLSTACK].keyword}`,
+    link: `/detail/${COURSE_INFORMATION[COURSE.FULLSTACK].keyword}`,
+    showCtaButton: true
+  },
+  {
+    id: 2,
+    name: COURSE_INFORMATION[COURSE.FRONTEND].title,
+    startAt: COURSE_INFORMATION[COURSE.FRONTEND].eventStartAt,
+    endAt: COURSE_INFORMATION[COURSE.FRONTEND].eventEndAt,
+    tags: COURSE_INFORMATION[COURSE.FRONTEND].tags,
+    thumbnailType: 'image',
+    imageSrc: "src/assets/img-default.png",
+    ctaButtonLabel: "신청하기",
+    ctaButtonLink: `/detail/${COURSE_INFORMATION[COURSE.FRONTEND].keyword}`,
+    link: `/detail/${COURSE_INFORMATION[COURSE.FRONTEND].keyword}`,
+    showCtaButton: true
+  },
+  {
+    id: 3,
+    name: COURSE_INFORMATION[COURSE.BACKEND].title,
+    startAt: COURSE_INFORMATION[COURSE.BACKEND].eventStartAt,
+    endAt: COURSE_INFORMATION[COURSE.BACKEND].eventEndAt,
+    tags: COURSE_INFORMATION[COURSE.BACKEND].tags,
+    thumbnailType: 'image',
+    imageSrc: "src/assets/img-default.png",
+    ctaButtonLabel: "신청하기",
+    ctaButtonLink: `/detail/${COURSE_INFORMATION[COURSE.BACKEND].keyword}`,
+    link: `/detail/${COURSE_INFORMATION[COURSE.BACKEND].keyword}`,
+    showCtaButton: true
+  },
+  {
+    id: 4,
+    name: COURSE_INFORMATION[COURSE.GEN_AI].title,
+    startAt: COURSE_INFORMATION[COURSE.GEN_AI].eventStartAt,
+    endAt: COURSE_INFORMATION[COURSE.GEN_AI].eventEndAt,
+    tags: COURSE_INFORMATION[COURSE.GEN_AI].tags,
+    thumbnailType: 'image',
+    imageSrc: "src/assets/img-default.png",
+    ctaButtonLabel: "신청하기",
+    ctaButtonLink: `/detail/${COURSE_INFORMATION[COURSE.GEN_AI].keyword}`,
+    link: `/detail/${COURSE_INFORMATION[COURSE.GEN_AI].keyword}`,
+    showCtaButton: true
+  },
+  {
+    id: 5,
+    name: COURSE_INFORMATION[COURSE.INFORMATION_SECURITY].title,
+    startAt: COURSE_INFORMATION[COURSE.INFORMATION_SECURITY].eventStartAt,
+    endAt: COURSE_INFORMATION[COURSE.INFORMATION_SECURITY].eventEndAt,
+    tags: COURSE_INFORMATION[COURSE.INFORMATION_SECURITY].tags,
+    thumbnailType: 'image',
+    imageSrc: "src/assets/img-default.png",
+    ctaButtonLabel: "신청하기",
+    ctaButtonLink: `/detail/${COURSE_INFORMATION[COURSE.INFORMATION_SECURITY].keyword}`,
+    link: `/detail/${COURSE_INFORMATION[COURSE.INFORMATION_SECURITY].keyword}`,
+    showCtaButton: true
+  },
+  {
+    id: 6,
+    name: COURSE_INFORMATION[COURSE.CLOUD_NATIVE].title,
+    startAt: COURSE_INFORMATION[COURSE.CLOUD_NATIVE].eventStartAt,
+    endAt: COURSE_INFORMATION[COURSE.CLOUD_NATIVE].eventEndAt,
+    tags: COURSE_INFORMATION[COURSE.CLOUD_NATIVE].tags,
+    thumbnailType: 'image',
+    imageSrc: "src/assets/img-default.png",
+    ctaButtonLabel: "신청하기",
+    ctaButtonLink: `/detail/${COURSE_INFORMATION[COURSE.CLOUD_NATIVE].keyword}`,
+    link: `/detail/${COURSE_INFORMATION[COURSE.CLOUD_NATIVE].keyword}`,
+    showCtaButton: true
+  },
+  {
+    id: 7,
+    name: COURSE_INFORMATION[COURSE.CLOUD_INFRASTRUCTURE].title,
+    startAt: COURSE_INFORMATION[COURSE.CLOUD_INFRASTRUCTURE].eventStartAt,
+    endAt: COURSE_INFORMATION[COURSE.CLOUD_INFRASTRUCTURE].eventEndAt,
+    tags: COURSE_INFORMATION[COURSE.CLOUD_INFRASTRUCTURE].tags,
+    thumbnailType: 'image',
+    imageSrc: "src/assets/img-default.png",
+    ctaButtonLabel: "신청하기",
+    ctaButtonLink: `/detail/${COURSE_INFORMATION[COURSE.CLOUD_INFRASTRUCTURE].keyword}`,
+    link: `/detail/${COURSE_INFORMATION[COURSE.CLOUD_INFRASTRUCTURE].keyword}`,
+    showCtaButton: true
+  },
+  {
+    id: 8,
+    name: COURSE_INFORMATION[COURSE.PRODUCT_DESIGN].title,
+    startAt: COURSE_INFORMATION[COURSE.PRODUCT_DESIGN].eventStartAt,
+    endAt: COURSE_INFORMATION[COURSE.PRODUCT_DESIGN].eventEndAt,
+    tags: COURSE_INFORMATION[COURSE.PRODUCT_DESIGN].tags,
+    thumbnailType: 'image',
+    imageSrc: "src/assets/img-default.png",
+    ctaButtonLabel: "신청하기",
+    ctaButtonLink: `/detail/${COURSE_INFORMATION[COURSE.PRODUCT_DESIGN].keyword}`,
+    link: `/detail/${COURSE_INFORMATION[COURSE.PRODUCT_DESIGN].keyword}`,
+    showCtaButton: true
+  },
+  {
+    id: 9,
+    name: COURSE_INFORMATION[COURSE.PRODUCT_MANAGEMENT].title,
+    startAt: COURSE_INFORMATION[COURSE.PRODUCT_MANAGEMENT].eventStartAt,
+    endAt: COURSE_INFORMATION[COURSE.PRODUCT_MANAGEMENT].eventEndAt,
+    tags: COURSE_INFORMATION[COURSE.PRODUCT_MANAGEMENT].tags,
+    thumbnailType: 'image',
+    imageSrc: "src/assets/img-default.png",
+    ctaButtonLabel: "신청하기",
+    ctaButtonLink: `/detail/${COURSE_INFORMATION[COURSE.PRODUCT_MANAGEMENT].path}`,
+    link: `/detail/${COURSE_INFORMATION[COURSE.PRODUCT_MANAGEMENT].path}`,
+    showCtaButton: true
+  }
+];

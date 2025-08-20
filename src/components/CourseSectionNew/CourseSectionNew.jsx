@@ -3,6 +3,7 @@ import './CourseSectionNew.css';
 import { Text, IconButton } from '@vapor-ui/core';
 import { ChevronLeftOutlineIcon, ChevronRightOutlineIcon } from '@vapor-ui/icons';
 import CourseCardItem from '../CourseCard/CourseCardItem';
+import { COURSE_TRACK_LIST } from './CourseSectionNew.constant';
 
 /**
  * CourseSectionNew 컴포넌트
@@ -168,140 +169,6 @@ import CourseCardItem from '../CourseCard/CourseCardItem';
 const CourseSectionNew = ({
   title = "개발부터 제품 운영까지,\n전체 교육 프로그램",
   onCtaClick,
-  trackCategories = [
-    {
-      id: 'web-dev',
-      title: '웹 개발 트랙',
-      description: '프론트엔드부터 백엔드까지, 웹 개발 전반을 실무로 익히는 실전 중심 트랙',
-      hasSlider: false,
-      courses: [
-        {
-          id: 1,
-          name: "kt cloud 풀스택",
-          period: "2024.03.15 (월) - 2024.06.15 (목)",
-          status: "모집 중",
-          statusType: "open",
-          tags: ["태그1", "태그2", "태그3", "태그4"],
-          thumbnailType: 'image',
-          imageSrc: "src/assets/img-default.png",
-          link: "/fullstack",
-          showCtaButton: false
-        },
-        {
-          id: 2,
-          name: "kt cloud 프론트엔드",
-          period: "2024.04.01 (월) - 2024.07.01 (목)",
-          status: "모집 중",
-          statusType: "open",
-          tags: ["태그1", "태그2", "태그3", "태그4"],
-          thumbnailType: 'image',
-          imageSrc: "src/assets/img-default.png",
-          link: "/frontend",
-          showCtaButton: false
-        },
-        {
-          id: 3,
-          name: "kt cloud 백엔드",
-          period: "2024.05.01 (월) - 2024.08.01 (목)",
-          status: "모집 마감",
-          statusType: "close",
-          tags: ["태그1", "태그2", "태그3", "태그4"],
-          thumbnailType: 'image',
-          imageSrc: "src/assets/img-default.png",
-          link: "/backend",
-          showCtaButton: false
-        }
-      ]
-    },
-    {
-      id: 'tech-infra',
-      title: '테크 인프라 / 혁신 기술 트랙',
-      description: '클라우드부터 AI·보안까지, 인프라와 미래 기술 중심의 테크 트랙',
-      hasSlider: false,
-      courses: [
-        {
-          id: 4,
-          name: "kt cloud 클라우드 네이티브",
-          period: "2024.03.20 (수) - 2024.06.20 (목)",
-          status: "모집 중",
-          statusType: "open",
-          tags: ["태그1", "태그2", "태그3", "태그4"],
-          thumbnailType: 'image',
-          imageSrc: "src/assets/img-default.png",
-          link: "/cloud",
-          showCtaButton: false
-        },
-        {
-          id: 5,
-          name: "kt cloud 클라우드 인프라",
-          period: "2024.04.15 (월) - 2024.07.15 (월)",
-          status: "모집 중",
-          statusType: "open",
-          tags: ["태그1", "태그2", "태그3", "태그4"],
-          thumbnailType: 'image',
-          imageSrc: "src/assets/img-default.png",
-          link: "/ai-ml",
-          showCtaButton: false
-        },
-        {
-          id: 6,
-          name: "kt cloud 생성형 AI",
-          period: "2024.05.10 (금) - 2024.08.10 (토)",
-          status: "모집 중",
-          statusType: "open",
-          tags: ["태그1", "태그2", "태그3", "태그4"],
-          thumbnailType: 'image',
-          imageSrc: "src/assets/img-default.png",
-          link: "/security",
-          showCtaButton: false
-        },
-        {
-          id: 7,
-          name: "kt cloud 사이버 보안",
-          period: "2024.06.01 (토) - 2024.09.01 (일)",
-          status: "모집 마감",
-          statusType: "close",
-          tags: ["태그1", "태그2", "태그3", "태그4"],
-          thumbnailType: 'image',
-          imageSrc: "src/assets/img-default.png",
-          link: "/data-engineer",
-          showCtaButton: false
-        }
-      ]
-    },
-    {
-      id: 'product',
-      title: '프로덕트 전문가 트랙',
-      description: '기획부터 설계까지, 디지털 프로덕트 전반을 경험하는 실무형 프로덕트 트랙',
-      hasSlider: false,
-      courses: [
-        {
-          id: 8,
-          name: "kt cloud 프로덕트 디자인",
-          period: "2024.03.25 (월) - 2024.06.25 (화)",
-          status: "모집 중",
-          statusType: "open",
-          tags: ["태그1", "태그2", "태그3", "태그4"],
-          thumbnailType: 'image',
-          imageSrc: "src/assets/img-default.png",
-          link: "/ux-ui",
-          showCtaButton: false
-        },
-        {
-          id: 9,
-          name: "kt cloud 프로덕트 매니지먼트",
-          period: "2024.04.10 (수) - 2024.07.10 (수)",
-          status: "모집 중",
-          statusType: "open",
-          tags: ["태그1", "태그2", "태그3", "태그4"],
-          thumbnailType: 'image',
-          imageSrc: "src/assets/img-default.png",
-          link: "/pm",
-          showCtaButton: false
-        }
-      ]
-    }
-  ]
 }) => {
   const [currentSlides, setCurrentSlides] = useState({}); // 각 트랙별 현재 슬라이드 인덱스
   const sliderRefs = useRef({}); // 슬라이더 참조
@@ -327,7 +194,7 @@ const CourseSectionNew = ({
       setCurrentSlides(prev => {
         const newSlides = { ...prev };
         Object.keys(sliderRefs.current).forEach(trackId => {
-          const track = trackCategories.find(t => t.id === trackId);
+          const track = COURSE_TRACK_LIST.find(t => t.id === trackId);
           if (track && track.hasSlider) {
             const totalCourses = track.courses.length;
             const coursesPerView = getCoursesPerView();
@@ -363,7 +230,7 @@ const CourseSectionNew = ({
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [trackCategories]);
+  }, []);
 
   /**
    * 반응형 화면 크기에 따른 보이는 카드 수 계산
@@ -390,7 +257,7 @@ const CourseSectionNew = ({
    * 슬라이더 이동 함수
    */
   const moveSlider = (trackId, direction) => {
-    const track = trackCategories.find(t => t.id === trackId);
+    const track = COURSE_TRACK_LIST.find(t => t.id === trackId);
     if (!track || !track.hasSlider) return;
 
     const totalCourses = track.courses.length;
@@ -451,7 +318,7 @@ const CourseSectionNew = ({
    * 버튼 disabled 상태 확인 함수
    */
   const isButtonDisabled = (trackId, direction) => {
-    const track = trackCategories.find(t => t.id === trackId);
+    const track = COURSE_TRACK_LIST.find(t => t.id === trackId);
     if (!track || !track.hasSlider) return true;
 
     const totalCourses = track.courses.length;
@@ -532,7 +399,7 @@ const CourseSectionNew = ({
       <div className="container">
         <Text typography="heading2" className="title">{title}</Text>
         <div className="track-group">
-          {trackCategories.map(track => renderTrackCategory(track))}
+          {COURSE_TRACK_LIST.map(track => renderTrackCategory(track))}
         </div>
       </div>
     </section>

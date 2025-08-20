@@ -2,7 +2,6 @@ import React from 'react';
 import { Text, Badge } from '@vapor-ui/core';
 import './ProjectCultureSection.css';
 
-const ProjectCultureSection = () => {
   const title = '조직 문화까지 체득하는\n대규모 팀 프로젝트';
   
   const projectCards = [
@@ -52,6 +51,7 @@ const ProjectCultureSection = () => {
     }
   ];
 
+const ProjectCultureSection = () => {
   return (
     <section className="content-section project-culture-section">
       <div className="container">
