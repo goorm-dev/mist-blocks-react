@@ -186,7 +186,7 @@ const CourseCardItem = ({ course, onCtaClick }) => {
                   {status}
                 </Badge>
               ) : (
-                <Badge size="lg" color="contrast" className="contrast-badge">
+                <Badge size="lg" color="contrast" className="pre-open-badge">
                   {status}
                 </Badge>
               )}

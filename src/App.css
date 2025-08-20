@@ -111,9 +111,9 @@ svg {
   color: var(--vapor-color-white);
   border: none;
 }
-.close-badge {
+.pre-open-badge, .close-badge {
   background: var(--vapor-color-background-secondary);
-  color: var(--vaporcolor-foreground-hint-darker);
+  color: var(--vapor-color-foreground-hint);
   border: none;
 }
 

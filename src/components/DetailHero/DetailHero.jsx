@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, Button, Badge, IconButton } from '@vapor-ui/core';
 import './DetailHero.css';
 import { LinkOutlineIcon } from '@vapor-ui/icons';
 
 import { formatPeriod, getRecruitmentStatus } from '../../utils/courseUtils';
-
 
 const DetailHero = ({ 
   data,
@@ -12,12 +11,46 @@ const DetailHero = ({
   onShareClick 
 }) => {
   const [isCopied, setIsCopied] = useState(false);
+  const [screenSize, setScreenSize] = useState('desktop');
   
   const {
     title,
     description,
     tags,
+    detailImageDesktop,
+    detailImageMobile
   } = data;
+
+  // 이미지 경로 디버깅
+  useEffect(() => {
+    console.log('DetailHero 이미지 정보:', {
+      title,
+      detailImageDesktop,
+      detailImageMobile,
+      data
+    });
+  }, [title, detailImageDesktop, detailImageMobile, data]);
+
+  // 화면 크기 감지
+  useEffect(() => {
+    const checkScreenSize = () => {
+      const width = window.innerWidth;
+      if (width <= 992) {
+        setScreenSize('mobile');
+      } else {
+        setScreenSize('desktop');
+      }
+    };
+
+    // 초기 체크
+    checkScreenSize();
+
+    // 리사이즈 이벤트 리스너
+    window.addEventListener('resize', checkScreenSize);
+
+    // 클린업
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
 
   const { statusType } = getRecruitmentStatus(data.startAt, data.endAt);
 
@@ -125,7 +158,26 @@ const DetailHero = ({
         <div className="detail-hero-wrap grid grid-cols-12">
           <div className="hero-left col-span-5">
             <div className="course-thumbnail">
-              {/* 썸네일 이미지가 들어갈 영역 */}
+              {/* PC용 이미지 (992px 초과) */}
+              <img 
+                src={detailImageDesktop} 
+                alt={`${title} 상세 이미지 (PC)`} 
+                className="course-thumbnail-image desktop-image"
+                onError={(e) => {
+                  console.error('PC 이미지 로드 실패:', detailImageDesktop);
+                  e.target.style.display = 'none';
+                }}
+              />
+              {/* 모바일용 이미지 (992px 이하) */}
+              <img 
+                src={detailImageMobile} 
+                alt={`${title} 상세 이미지 (모바일)`} 
+                className="course-thumbnail-image mobile-image"
+                onError={(e) => {
+                  console.error('모바일 이미지 로드 실패:', detailImageMobile);
+                  e.target.style.display = 'none';
+                }}
+              />
             </div>
           </div>
           <div className="hero-right col-span-7">

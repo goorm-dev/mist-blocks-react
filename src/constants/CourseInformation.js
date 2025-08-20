@@ -66,18 +66,21 @@ export const COURSE_AREA_INFORMATION = {
 
 export const COURSE_INFORMATION = {
     [COURSE.FULLSTACK]: {
-        title: "풀스택",
+        title: "kt cloud 풀스택",
         description: "프론트엔드와 백엔드 모두 다루는 개발 전문가 과정",
         tags: ["태그1", "태그2", "태그3", "태그4"],
-        startAt: new Date('2025-08-27T15:00:00.000Z'),
+        startAt: new Date('2025-08-20T15:00:00.000Z'),
         endAt: new Date('2025-09-11T14:59:59.999Z'),
         eventStartAt: new Date('2025-09-22T15:00:00.000Z'),
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'fullstack',
         recruitedPeopleAmount: 45,
+        imageSrc: "/assets/techup_thumb_fullstack.png",
+        detailImageDesktop: "/assets/techup_detail_pc_fullstack.png",
+        detailImageMobile: "/assets/techup_detail_mo_fullstack.png"
     },
     [COURSE.FRONTEND]: {
-        title: "프론트엔드",
+        title: "kt cloud 프론트엔드",
         description: "최상의 사용자 경험을 구현하는 인터페이스 전문가 과정",
         tags: ["태그1", "태그2", "태그3", "태그4"],
         startAt: new Date('2025-06-27T15:00:00.000Z'),
@@ -86,9 +89,12 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'frontend',
         recruitedPeopleAmount: 45,
+        imageSrc: "/assets/techup_thumb_frontend.png",
+        detailImageDesktop: "/assets/techup_detail_pc_frontend.png",
+        detailImageMobile: "/assets/techup_detail_mo_frontend.png"
     },
     [COURSE.BACKEND]: {
-        title: "백엔드",
+        title: "kt cloud 백엔드",
         description: "서비스의 코어를 설계하는 개발 전문가 과정",
         tags: ["태그1", "태그2", "태그3", "태그4"],
         startAt: new Date('2025-08-27T15:00:00.000Z'),
@@ -97,9 +103,12 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'backend',
         recruitedPeopleAmount: 45,
+        imageSrc: "/assets/techup_thumb_backend.png",
+        detailImageDesktop: "/assets/techup_detail_pc_backend.png",
+        detailImageMobile: "/assets/techup_detail_mo_backend.png"
     },
     [COURSE.GEN_AI]: {
-        title: "생성형 AI",
+        title: "kt cloud 생성형 AI",
         description: "생성형 AI 혁신을 이끄는 글로벌 인재 과정",
         tags: ["태그1", "태그2", "태그3", "태그4"],
         startAt: new Date('2025-08-27T15:00:00.000Z'),
@@ -108,9 +117,12 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'gen-ai',
         recruitedPeopleAmount: 45,
+        imageSrc: "/assets/techup_thumb_genai.png",
+        detailImageDesktop: "/assets/techup_detail_pc_genai.png",
+        detailImageMobile: "/assets/techup_detail_mo_genai.png"
     },
     [COURSE.INFORMATION_SECURITY]: {
-        title: "사이버 보안",
+        title: "kt cloud 사이버 보안",
         description: "데이터와 서비스를 수호하는 보안 전문가 과정",
         tags: ["태그1", "태그2", "태그3", "태그4"],
         startAt: new Date('2025-08-27T15:00:00.000Z'),
@@ -119,9 +131,12 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'information-security',
         recruitedPeopleAmount: 45,
+        imageSrc: "/assets/techup_thumb_security.png",
+        detailImageDesktop: "/assets/techup_detail_pc_security.png",
+        detailImageMobile: "/assets/techup_detail_mo_security.png"
     },
     [COURSE.CLOUD_NATIVE]: {
-        title: "클라우드 네이티브",
+        title: "kt cloud 클라우드 네이티브",
         description: "차세대 클라우드 아키텍처 전문가 과정",
         tags: ["태그1", "태그2", "태그3", "태그4"],
         startAt: new Date('2025-08-27T15:00:00.000Z'),
@@ -130,9 +145,12 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'cloud-native',
         recruitedPeopleAmount: 45,
+        imageSrc: "/assets/techup_thumb_cloudnative.png",
+        detailImageDesktop: "/assets/techup_detail_pc_cloudnative.png",
+        detailImageMobile: "/assets/techup_detail_mo_cloudnative.png"
     },
     [COURSE.CLOUD_INFRASTRUCTURE]: {
-        title: "클라우드 인프라",
+        title: "kt cloud 클라우드 인프라",
         description: "확장성과 안정성을 구축하는 인프라 전문가 과정",
         tags: ["태그1", "태그2", "태그3", "태그4"],
         startAt: new Date('2025-08-27T15:00:00.000Z'),
@@ -141,9 +159,12 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'cloud-infrastructure',
         recruitedPeopleAmount: 45,
+        imageSrc: "/assets/techup_thumb_cloudinfra.png",
+        detailImageDesktop: "/assets/techup_detail_pc_cloudinfra.png",
+        detailImageMobile: "/assets/techup_detail_mo_cloudinfra.png"
     },
     [COURSE.PRODUCT_DESIGN]: {
-        title: "프로덕트 디자인",
+        title: "kt cloud 프로덕트 디자인",
         description: "사용자 중심 경험을 설계하는 디자인 전문가 과정",
         tags: ["태그1", "태그2", "태그3", "태그4"],
         startAt: new Date('2025-08-27T15:00:00.000Z'),
@@ -152,9 +173,12 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'product-design',
         recruitedPeopleAmount: 45,
+        imageSrc: "/assets/techup_thumb_design.png",
+        detailImageDesktop: "/assets/techup_detail_pc_design.png",
+        detailImageMobile: "/assets/techup_detail_mo_design.png"
     },
     [COURSE.PRODUCT_MANAGEMENT]: {
-        title: "프로덕트 매니지먼트",
+        title: "kt cloud 프로덕트 매니지먼트",
         description: "아이디어를 제품으로 구현해 비즈니스 임팩트를 만드는 전문가 과정",
         tags: ["태그1", "태그2", "태그3", "태그4"],
         startAt: new Date('2025-08-27T15:00:00.000Z'),
@@ -163,5 +187,8 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         path: 'product-management',
         recruitedPeopleAmount: 45,
+        imageSrc: "/assets/techup_thumb_pm.png",
+        detailImageDesktop: "/assets/techup_detail_pc_pm.png",
+        detailImageMobile: "/assets/techup_detail_mo_pm.png"
     },
 }
