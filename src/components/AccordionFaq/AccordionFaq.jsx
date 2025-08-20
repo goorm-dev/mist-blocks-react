@@ -28,7 +28,7 @@ const AccordionFaq = () => {
   return (
     <section className="content-section faq-section">
       <div className="container">
-        <Text typography="heading2" className="title">FAQ</Text>
+        <Text typography="heading2" className="title">자주 묻는 질문</Text>
         {/* Vapor Nav 컴포넌트로 탭 네비게이션 */}
         <Nav.Root className="faq-nav" size="lg" shape="fill" aria-label="FAQ 카테고리 선택">
           <Nav.List className="faq-nav-list">
