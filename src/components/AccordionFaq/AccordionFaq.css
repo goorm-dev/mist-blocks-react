@@ -37,6 +37,47 @@
 .faq-card-body {
   border-top: 0.0625rem solid var(--vapor-color-border-normal);
 }
+.faq-answer ul {
+  list-style-type: disc;
+  padding-left: var(--vapor-size-space-300);
+  margin: var(--vapor-size-space-200) 0;
+}
+.faq-answer ul li {
+  margin-bottom: var(--vapor-size-space-100);
+  color: var(--vapor-color-foreground-normal);
+}
+.faq-answer ol {
+  list-style-type: decimal;
+  padding-left: var(--vapor-size-space-300);
+  margin: var(--vapor-size-space-200) 0;
+}
+.faq-answer ol li {
+  margin-bottom: var(--vapor-size-space-100);
+  color: var(--vapor-color-foreground-normal);
+}
+.faq-answer p {
+  margin: var(--vapor-size-space-200) 0;
+  color: var(--vapor-color-foreground-normal);
+  line-height: 1.6;
+}
+.faq-answer strong {
+  font-weight: 600;
+  color: var(--vapor-color-foreground-accent);
+}
+.faq-answer blockquote {
+  border-left: 0.25rem solid var(--vapor-color-border-accent);
+  padding-left: var(--vapor-size-space-250);
+  margin: var(--vapor-size-space-200) 0;
+  font-style: italic;
+  color: var(--vapor-color-foreground-muted);
+}
+.faq-answer a {
+  color: var(--ktc-tech-up-red);
+  transition: color 0.2s ease;
+}
+.faq-answer a:hover {
+  color: var(--vapor-color-white);
+}
 @media (max-width: 768px) {
   .faq-section .faq-nav {
     overflow-x: auto;
