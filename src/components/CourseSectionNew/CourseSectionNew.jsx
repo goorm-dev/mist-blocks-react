@@ -167,7 +167,7 @@ import { COURSE_TRACK_LIST } from './CourseSectionNew.constant';
  */
 
 const CourseSectionNew = ({
-  title = "개발부터 제품 운영까지,\n전체 교육 프로그램",
+  title = "개발부터 제품 운영까지,\n테크업 프로그램",
   onCtaClick,
 }) => {
   const [currentSlides, setCurrentSlides] = useState({}); // 각 트랙별 현재 슬라이드 인덱스
