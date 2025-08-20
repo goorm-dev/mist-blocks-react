@@ -1,8 +1,8 @@
 
 // FAQ 데이터 템플릿 (실제 데이터는 상위에서 props로 받아도 됨)
 export const FAQ_TABS = [
-    { key: 'recruit', label: '모집·선발' },
-    { key: 'training', label: '훈련·수강' },
+    { key: 'recruit', label: '모집 및 선발' },
+    { key: 'training', label: '훈련 및 수강' },
     { key: 'card', label: '국민내일배움카드' },
 ];
 

@@ -126,7 +126,7 @@ const FooterFull = ({ logoUrl = "https://tech.ktcloud.com" }) => {
           <div className="footer-info-text">
             <Text as="p" typography="body2" foreground="normal">{'고객센터 ㅣ 평일 10:30 - 17:00 (휴게 시간 12:00 - 13:30, 주말 및 공휴일 휴무)'}</Text>
             <div className="footer-info-text-copyright">
-              <Text as="p" typography="body2" foreground="hint">{'TECH UP은 kt cloud가 만든 차세대 인재 양성을 위한 기술 교육 전문 브랜드입니다.'}</Text>
+              <Text as="p" typography="body2" foreground="hint">{'TECH UP은 kt cloud가 만든 디지털 실무 인재 육성 프로그램 입니다.'}</Text>
               <Text as="p" typography="body2" foreground="hint">{'Copyright© 2025 kt cloud corp. All rights reserved.'}</Text>
             </div>
           </div>

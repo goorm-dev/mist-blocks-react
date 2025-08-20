@@ -58,7 +58,7 @@ const HeroSection3 = () => {
 
   // 템플릿 변수들
   const templateData = {
-    mainTitle: "세상에 없던<br />완성형 교육의 시작",
+    mainTitle: "내일의 인재,<br />kt cloud TECH UP에서<br />완성됩니다.",
     videoSrc: "",
     videoPoster: "src/assets/img-default.png",
     mobileImageSrc: "src/assets/img-default.png",
