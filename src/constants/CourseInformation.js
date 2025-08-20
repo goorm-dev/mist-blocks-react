@@ -69,7 +69,7 @@ export const COURSE_INFORMATION = {
         title: "kt cloud 풀스택",
         description: "프론트엔드와 백엔드 모두 다루는 개발 전문가 과정",
         tags: ["태그1", "태그2", "태그3", "태그4"],
-        startAt: new Date('2025-08-20T15:00:00.000Z'),
+        startAt: new Date('2025-08-28T15:00:00.000Z'),
         endAt: new Date('2025-09-11T14:59:59.999Z'),
         eventStartAt: new Date('2025-09-22T15:00:00.000Z'),
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),

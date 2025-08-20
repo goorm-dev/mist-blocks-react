@@ -37,28 +37,37 @@
 .faq-card-body {
   border-top: 0.0625rem solid var(--vapor-color-border-normal);
 }
+.faq-answer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vapor-size-space-100);
+}
 .faq-answer ul {
   list-style-type: disc;
-  padding-left: var(--vapor-size-space-300);
-  margin: var(--vapor-size-space-200) 0;
+  padding-left: var(--vapor-size-space-200);
+  /* margin: var(--vapor-size-space-200) 0; */
 }
 .faq-answer ul li {
-  margin-bottom: var(--vapor-size-space-100);
+  /* margin-bottom: var(--vapor-size-space-100); */
   color: var(--vapor-color-foreground-normal);
 }
 .faq-answer ol {
   list-style-type: decimal;
-  padding-left: var(--vapor-size-space-300);
-  margin: var(--vapor-size-space-200) 0;
+  padding-left: var(--vapor-size-space-200);
+  /* margin-bottom: var(--vapor-size-space-200); */
 }
 .faq-answer ol li {
-  margin-bottom: var(--vapor-size-space-100);
+  /* margin-bottom: var(--vapor-size-space-050); */
   color: var(--vapor-color-foreground-normal);
 }
 .faq-answer p {
-  margin: var(--vapor-size-space-200) 0;
+  /* margin-bottom: var(--vapor-size-space-050); */
   color: var(--vapor-color-foreground-normal);
   line-height: 1.6;
+}
+
+.faq-answer p:last-child {
+  margin-bottom: var(--vapor-size-space-000);
 }
 .faq-answer strong {
   font-weight: 600;
@@ -74,9 +83,15 @@
 .faq-answer a {
   color: var(--ktc-tech-up-red);
   transition: color 0.2s ease;
+  font-weight: var(--vapor-typography-fontWeight-500);
 }
 .faq-answer a:hover {
-  color: var(--vapor-color-white);
+  color: var(--ktc-tech-up-red);
+  filter: brightness(0.9);
+}
+hr {
+  margin: var(--vapor-size-space-200) 0;
+  border-color: var(--vapor-color-border-normal);
 }
 @media (max-width: 768px) {
   .faq-section .faq-nav {
