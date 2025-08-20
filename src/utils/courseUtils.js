@@ -18,5 +18,5 @@ export const formatPeriod = (startAt, endAt) => {
   const start = dayjs(startAt);
   const end = dayjs(endAt);
 
-  return `${start.format('YY.MM.DD (ddd)')} - ${end.format('YY.MM.DD (ddd)')}`;
+  return `${start.format('YY.M.DD (ddd)')} - ${end.format('YY.M.DD (ddd)')}`;
 };
