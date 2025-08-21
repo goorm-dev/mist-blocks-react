@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback, useMemo } from "react";
+import React, { useEffect, useRef, useCallback, useMemo, useState } from "react";
 import { Text, Button, Badge } from '@vapor-ui/core';
 import "./SpecialProfile.css";
 
@@ -44,6 +44,24 @@ const adjust = (
 const easeInOutCubic = (x) =>
   x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
 
+// 작은 화면 감지 훅 (768px 미만)
+const useIsSmallScreen = () => {
+  const [isSmall, setIsSmall] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsSmall(window.innerWidth < 768);
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
+  return isSmall;
+};
+
 // 개별 ProfileCard 컴포넌트
 const ProfileCard = ({
   // 사용자 정보 props
@@ -78,9 +96,15 @@ const ProfileCard = ({
   const wrapRef = useRef(null);
   const cardRef = useRef(null);
 
-  // 애니메이션 핸들러 메모이제이션
+  // 작은 화면 감지
+  const isSmallScreen = useIsSmallScreen();
+  
+  // 작은 화면에서는 tilt 효과를 강제로 비활성화
+  const shouldEnableTilt = enableTilt && !isSmallScreen;
+
+  // 애니메이션 핸들러 메모이제이션 (작은 화면에서는 비활성화)
   const animationHandlers = useMemo(() => {
-    if (!enableTilt) return null;
+    if (!shouldEnableTilt) return null;
 
     let rafId = null;
 
@@ -155,7 +179,7 @@ const ProfileCard = ({
         }
       },
     };
-  }, [enableTilt]);
+  }, [shouldEnableTilt]);
 
   // 마우스/터치 이벤트 핸들러들
   const handlePointerMove = useCallback(
@@ -227,9 +251,9 @@ const ProfileCard = ({
     [animationHandlers, mobileTiltSensitivity]
   );
 
-  // 이벤트 리스너 설정 및 초기화
+  // 이벤트 리스너 설정 및 초기화 (작은 화면에서는 완전히 차단)
   useEffect(() => {
-    if (!enableTilt || !animationHandlers) return;
+    if (!shouldEnableTilt || !animationHandlers) return;
 
     const card = cardRef.current;
     const wrap = wrapRef.current;
@@ -242,7 +266,7 @@ const ProfileCard = ({
     const deviceOrientationHandler = handleDeviceOrientation;
 
     const handleClick = () => {
-      if (!enableMobileTilt || location.protocol !== 'https:') return;
+      if (!enableMobileTilt || location.protocol !== 'https:' || isSmallScreen) return;
       if (typeof window.DeviceMotionEvent.requestPermission === 'function') {
         window.DeviceMotionEvent
           .requestPermission()
@@ -283,8 +307,9 @@ const ProfileCard = ({
       animationHandlers.cancelAnimation();
     };
   }, [
-    enableTilt,
+    shouldEnableTilt,
     enableMobileTilt,
+    isSmallScreen,
     animationHandlers,
     handlePointerMove,
     handlePointerEnter,
@@ -292,18 +317,41 @@ const ProfileCard = ({
     handleDeviceOrientation,
   ]);
 
-  // 카드 스타일 메모이제이션
+  // 카드 스타일 메모이제이션 (작은 화면에서는 안전한 스타일 적용)
   const cardStyle = useMemo(
-    () =>
-    ({
-      "--icon": iconUrl ? `url(${iconUrl})` : "none",
-      "--grain": grainUrl ? `url(${grainUrl})` : "none",
-      "--behind-gradient": showBehindGradient
-        ? (behindGradient ?? DEFAULT_BEHIND_GRADIENT)
-        : "none",
-      "--inner-gradient": innerGradient ?? DEFAULT_INNER_GRADIENT,
-    }),
-    [iconUrl, grainUrl, showBehindGradient, behindGradient, innerGradient]
+    () => {
+      const baseStyle = {
+        "--icon": iconUrl ? `url(${iconUrl})` : "none",
+        "--grain": grainUrl ? `url(${grainUrl})` : "none",
+        "--behind-gradient": (showBehindGradient && !isSmallScreen)
+          ? (behindGradient ?? DEFAULT_BEHIND_GRADIENT)
+          : "none",
+        "--inner-gradient": innerGradient ?? DEFAULT_INNER_GRADIENT,
+      };
+
+      // 작은 화면에서는 터치 스크롤 보장 및 transform 리셋
+      if (isSmallScreen) {
+        return {
+          ...baseStyle,
+          // CSS 변수 초기화로 transform 리셋
+          "--pointer-x": "50%",
+          "--pointer-y": "50%",
+          "--rotate-x": "0deg",
+          "--rotate-y": "0deg",
+          "--pointer-from-center": "0",
+          // 터치 스크롤 보장
+          touchAction: "auto",
+          userSelect: "auto",
+          cursor: "default",
+          // transform 강제 리셋
+          transform: "none",
+          perspective: "none",
+        };
+      }
+
+      return baseStyle;
+    },
+    [iconUrl, grainUrl, showBehindGradient, behindGradient, innerGradient, isSmallScreen]
   );
 
   // 연락처 버튼 클릭 핸들러
@@ -314,13 +362,13 @@ const ProfileCard = ({
   return (
     <div
       ref={wrapRef}
-      className={`pc-card-wrapper ${className}`.trim()}
+      className={`pc-card-wrapper ${isSmallScreen ? 'small-screen-static' : ''} ${className}`.trim()}
       style={cardStyle}
     >
       <section ref={cardRef} className="pc-card">
         <div className="pc-inside">
-          <div className="pc-shine" />
-          <div className="pc-glare" />
+          {!isSmallScreen && <div className="pc-shine" />}
+          {!isSmallScreen && <div className="pc-glare" />}
           
           {/* 아바타 콘텐츠 영역 */}
           <div className="pc-content pc-avatar-content">
