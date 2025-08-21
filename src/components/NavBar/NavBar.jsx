@@ -53,6 +53,7 @@ const COURSE_DESCRIPTIONS = {
 const createCourseDropdownItems = (courseTypes) => {
   return courseTypes.map(courseType => ({
     name: COURSE_INFORMATION[courseType].title,
+    navIconSrc: COURSE_INFORMATION[courseType].navIconSrc,
     description: COURSE_DESCRIPTIONS[courseType],
     href: `/detail/${COURSE_INFORMATION[courseType].keyword}`,
     icon: COURSE_ICONS[courseType]
@@ -120,9 +121,7 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
                         key={dropdownItem.name}
                         className="group relative flex items-center gap-x-3 p-3 text-sm/6 hover:bg-[var(--vapor-color-gray-400)]/16"
                       >
-                        <div className="flex size-10 flex-none items-center justify-center bg-[var(--vapor-color-background-normal-darker)] group-hover:bg-[var(--vapor-color-background-normal)]">
-                          <dropdownItem.icon aria-hidden="true" className="size-5 text-[var(--vapor-color-foreground-normal-lighter)] group-hover:text-[var(--vapor-color-background-danger)]" />
-                        </div>
+                         <img className="size-8" src={dropdownItem.navIconSrc} alt={dropdownItem.keyword} />  
                         <div className="flex-auto">
                           <a href={dropdownItem.href} className="block font-semibold text-[var(--vapor-color-foreground-normal)]">
                             {dropdownItem.name}

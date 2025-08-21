@@ -75,6 +75,7 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'fullstack',
         recruitedPeopleAmount: 45,
+        navIconSrc: "/assets/techup_nav_fullstack.png",
         imageSrc: "/assets/techup_thumb_fullstack.png",
         detailImageDesktop: "/assets/techup_detail_pc_fullstack.png",
         detailImageMobile: "/assets/techup_detail_mo_fullstack.png"
@@ -89,6 +90,7 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'frontend',
         recruitedPeopleAmount: 45,
+        navIconSrc: "/assets/techup_nav_frontend.png",
         imageSrc: "/assets/techup_thumb_frontend.png",
         detailImageDesktop: "/assets/techup_detail_pc_frontend.png",
         detailImageMobile: "/assets/techup_detail_mo_frontend.png"
@@ -103,6 +105,7 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'backend',
         recruitedPeopleAmount: 45,
+        navIconSrc: "/assets/techup_nav_backend.png",
         imageSrc: "/assets/techup_thumb_backend.png",
         detailImageDesktop: "/assets/techup_detail_pc_backend.png",
         detailImageMobile: "/assets/techup_detail_mo_backend.png"
@@ -117,6 +120,7 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'gen-ai',
         recruitedPeopleAmount: 45,
+        navIconSrc: "/assets/techup_nav_genai.png",
         imageSrc: "/assets/techup_thumb_genai.png",
         detailImageDesktop: "/assets/techup_detail_pc_genai.png",
         detailImageMobile: "/assets/techup_detail_mo_genai.png"
@@ -131,6 +135,7 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'information-security',
         recruitedPeopleAmount: 45,
+        navIconSrc: "/assets/techup_nav_security.png",
         imageSrc: "/assets/techup_thumb_security.png",
         detailImageDesktop: "/assets/techup_detail_pc_security.png",
         detailImageMobile: "/assets/techup_detail_mo_security.png"
@@ -145,6 +150,7 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'cloud-native',
         recruitedPeopleAmount: 45,
+        navIconSrc: "/assets/techup_nav_cloudnative.png",
         imageSrc: "/assets/techup_thumb_cloudnative.png",
         detailImageDesktop: "/assets/techup_detail_pc_cloudnative.png",
         detailImageMobile: "/assets/techup_detail_mo_cloudnative.png"
@@ -159,6 +165,7 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'cloud-infrastructure',
         recruitedPeopleAmount: 45,
+        navIconSrc: "/assets/techup_nav_cloudinfra.png",
         imageSrc: "/assets/techup_thumb_cloudinfra.png",
         detailImageDesktop: "/assets/techup_detail_pc_cloudinfra.png",
         detailImageMobile: "/assets/techup_detail_mo_cloudinfra.png"
@@ -173,6 +180,7 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'product-design',
         recruitedPeopleAmount: 45,
+        navIconSrc: "/assets/techup_nav_design.png",
         imageSrc: "/assets/techup_thumb_design.png",
         detailImageDesktop: "/assets/techup_detail_pc_design.png",
         detailImageMobile: "/assets/techup_detail_mo_design.png"
@@ -187,6 +195,7 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         path: 'product-management',
         recruitedPeopleAmount: 45,
+        navIconSrc: "/assets/techup_nav_pm.png",
         imageSrc: "/assets/techup_thumb_pm.png",
         detailImageDesktop: "/assets/techup_detail_pc_pm.png",
         detailImageMobile: "/assets/techup_detail_mo_pm.png"
