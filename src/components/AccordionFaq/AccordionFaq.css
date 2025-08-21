@@ -23,11 +23,13 @@
   color: var(--vapor-color-foreground-normal);
   font-weight: var(--vapor-typography-fontWeight-700);
   margin: 0;
+  text-align: left;
 }
 .faq-icon {
   transition: transform 0.3s;
   display: flex;
   align-items: center;
+  margin-left: var(--vapor-size-space-100);
 }
 .faq-toggle-btn[aria-expanded="true"] .faq-icon {
   transform: rotate(180deg);
