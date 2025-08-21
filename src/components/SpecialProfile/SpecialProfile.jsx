@@ -365,18 +365,47 @@ const ProfileCard = ({
       className={`pc-card-wrapper ${isSmallScreen ? 'small-screen-static' : ''} ${className}`.trim()}
       style={cardStyle}
     >
-      <section ref={cardRef} className="pc-card">
-        <div className="pc-inside">
+      <section 
+        ref={cardRef} 
+        className="pc-card"
+        style={isSmallScreen ? {
+          transform: "none",
+          perspective: "none",
+          backfaceVisibility: "visible"
+        } : {}}
+      >
+        <div 
+          className="pc-inside"
+          style={isSmallScreen ? {
+            transform: "none",
+            perspective: "none",
+            backfaceVisibility: "visible"
+          } : {}}
+        >
           {!isSmallScreen && <div className="pc-shine" />}
           {!isSmallScreen && <div className="pc-glare" />}
           
           {/* 아바타 콘텐츠 영역 */}
-          <div className="pc-content pc-avatar-content">
+          <div 
+            className="pc-content pc-avatar-content"
+            style={isSmallScreen ? {
+              transform: "none",
+              perspective: "none",
+              backfaceVisibility: "visible"
+            } : {}}
+          >
             <img
               className="avatar"
               src={avatarUrl}
               alt={`${name || "User"} avatar`}
-              loading="lazy"
+              loading={isSmallScreen ? "eager" : "lazy"}
+              style={isSmallScreen ? {
+                transform: "translateX(-50%)",
+                backfaceVisibility: "visible",
+                perspective: "none",
+                left: "50%",
+                position: "absolute"
+              } : {}}
               onError={(e) => {
                 const target = e.target;
                 target.style.display = "none";
