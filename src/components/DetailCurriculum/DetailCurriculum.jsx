@@ -32,7 +32,7 @@ const DetailCurriculum = ({ course }) => {
                     aria-expanded={openIndexes.includes(idx)}
                   >
                     <div className="curriculum-question-container">
-                      <span className="curriculum-week">Week {item.week}</span>
+                      <span className="curriculum-week">{item.week}개월</span>
                       <Text typography="heading6" className="curriculum-title">{item.title}</Text>
                     </div>
                     <span className="curriculum-icon">
@@ -90,7 +90,7 @@ const DetailCurriculum = ({ course }) => {
                     aria-expanded={openIndexes.includes(idx + 4)}
                   >
                     <div className="curriculum-question-container">
-                      <span className="curriculum-week">Week {item.week}</span>
+                      <span className="curriculum-week">{item.week}개월</span>
                       <Text typography="heading6" className="curriculum-title">{item.title}</Text>
                     </div>
                     <span className="curriculum-icon">
