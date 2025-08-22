@@ -8,7 +8,7 @@ const PreBannerSection = () => {
     subtitle: '사전 설명회 참석하고 에어팟 프로 받자!',
     schedule: '25.9.4 (목) 19:00, ZOOM',
     buttonText: 'LIVE 신청하기',
-    buttonLink: ''
+    buttonLink: 'https://gem.goorm.io/spaces/space_68760419fd5f865c3926eb2d/courses/course_68a70354d1bc229bd95af294/submissions/submission_68a6fc86d1bc229bd95ae9a0'
   };
 
   const handleApplyClick = () => {
