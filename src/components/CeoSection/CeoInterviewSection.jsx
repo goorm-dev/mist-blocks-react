@@ -108,7 +108,7 @@ const CeoInterviewSection = () => {
                 두려움을 넘어, 기술로 향하는 여정
               </Text>
               <Text typography="heading5" foreground="hint-darker" className="interview-description">
-                코딩 교육 1위가 만든 차별화된 교육 방식. <br />
+                지금, 테크업 부트캠프에 탑승하세요. <br />
                 지금, 테크업 부트캠프에 탑승하세요.
               </Text>
             </div>
