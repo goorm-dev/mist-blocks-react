@@ -13,6 +13,7 @@ import DetailCurriculum from '../../components/DetailCurriculum/DetailCurriculum
 import DetailBenefit from '../../components/DetailBenefit/DetailBenefit';
 import DetailLearningPlace from '../../components/DetailLearningPlace/DetailLearningPlace';
 import DetailRecruitmentProcess from '../../components/DetailRecruitmentProcess/DetailRecruitmentProcess';
+import FloatingMenu from '../../components/FloatingMenu/FloatingMenu';
 
 import { COURSE, COURSE_INFORMATION } from '../../constants/CourseInformation';
 
@@ -42,6 +43,7 @@ function Detail({ course }) {
         <DetailRecruitmentProcess />
         <AccordionFaq />
       </main>
+      <FloatingMenu />
       <FooterFull />
     </>
   );

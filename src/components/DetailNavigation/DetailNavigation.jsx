@@ -154,7 +154,7 @@ const DetailNavigation = ({
         <div className="detail-navigation-wrap">
           <nav className="navigation-inner">
             <div 
-              className={`navigation-menu-wrapper ${scrollable.canScrollLeft ? 'show-left-indicator' : ''} ${scrollable.canScrollRight ? 'show-right-indicator' : ''}`}
+              className="navigation-menu-wrapper"
             >
               <div 
                 ref={navigationMenuRef}

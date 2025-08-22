@@ -85,7 +85,7 @@ export const COURSE_INFORMATION = {
         description: "최상의 사용 경험을 구현하는 인터페이스 전문가 과정",
         tags: ["React", "디자인 시스템", "웹 성능", "UI 설계"],
         startAt: new Date('2025-08-27T15:00:00.000Z'),
-        endAt: new Date('2025-07-11T14:59:59.999Z'),
+        endAt: new Date('2025-09-11T14:59:59.999Z'),
         eventStartAt: new Date('2025-09-22T15:00:00.000Z'),
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'frontend',
