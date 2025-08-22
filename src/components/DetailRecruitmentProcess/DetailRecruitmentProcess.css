@@ -108,18 +108,16 @@
   }
 
   .process-header {
-    padding-left: 0;
+    padding-left: 164px;
     width: 100%;
   }
 
   .process-item {
-    flex-direction: column;
     gap: var(--vapor-size-space-300);
   }
 
   .process-item-header {
-    width: 100%;
-    margin-bottom: var(--vapor-size-space-200);
+    width: 140px;
   }
 
   .process-content {
@@ -134,7 +132,6 @@
 /* Small Mobile (576px 이하) */
 @media (max-width: 576px) {
   .process-content {
-    flex-direction: column;
     gap: var(--vapor-size-space-300);
   }
 
@@ -152,4 +149,86 @@
     width: 100%;
     padding-left: 0;
   }
+}
+
+/* Mobile Tab Navigation (575px 미만) */
+@media (max-width: 574px) {
+  .process-content-wrapper {
+    display: none;
+  }
+}
+
+@media (min-width: 575px) {
+  .mobile-process-wrapper {
+    display: none;
+  }
+}
+
+.process-nav-list {
+  width: 100%;
+  justify-content: center;
+}
+
+.process-nav-item {
+  flex: 1;
+}
+
+.process-nav-link {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+/* Override Vapor UI Nav styles for our specific use case */
+.process-nav button[aria-current="page"],
+.process-nav button[aria-selected="true"] {
+  color: var(--ktc-tech-up-red);
+  border-color: var(--ktc-tech-up-red);
+}
+
+/* Mobile Process Items */
+.mobile-process-wrapper {
+  width: 100%;
+}
+
+.mobile-process-items {
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-process-item {
+  display: flex;
+  align-items: start;
+  gap: var(--vapor-size-space-200);
+  padding: var(--vapor-size-space-300) 0;
+  border-bottom: 1px solid var(--vapor-color-border-normal);
+}
+
+.mobile-process-item-last {
+  border-bottom: none;
+}
+
+.mobile-process-header {
+  width: 140px;
+  display: flex;
+  align-items: center;
+  gap: var(--vapor-size-space-200);
+}
+
+.mobile-process-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vapor-size-space-050);
 }
