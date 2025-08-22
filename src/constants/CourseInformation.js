@@ -68,7 +68,7 @@ export const COURSE_INFORMATION = {
     [COURSE.FULLSTACK]: {
         title: "kt cloud 풀스택",
         description: "프론트엔드와 백엔드 모두 다루는 개발 전문가 과정",
-        tags: ["React", "Java & Spring", "알고리즘", "실전 프로젝트"],
+        tags: ["React", "Java", "Spring", "아키텍처 설계"],
         startAt: new Date('2025-08-28T15:00:00.000Z'),
         endAt: new Date('2025-09-11T14:59:59.999Z'),
         eventStartAt: new Date('2025-09-22T15:00:00.000Z'),
@@ -83,7 +83,7 @@ export const COURSE_INFORMATION = {
     [COURSE.FRONTEND]: {
         title: "kt cloud 프론트엔드",
         description: "최상의 사용 경험을 구현하는 인터페이스 전문가 과정",
-        tags: ["React", "알고리즘 & 문제 해결력", "웹 성능 최적화", "코드 품질 & 협업"],
+        tags: ["React", "디자인 시스템", "웹 성능", "UI 설계"],
         startAt: new Date('2025-06-27T15:00:00.000Z'),
         endAt: new Date('2025-07-11T14:59:59.999Z'),
         eventStartAt: new Date('2025-09-22T15:00:00.000Z'),
@@ -98,7 +98,7 @@ export const COURSE_INFORMATION = {
     [COURSE.BACKEND]: {
         title: "kt cloud 백엔드",
         description: "서비스의 코어를 설계하는 개발 전문가 과정",
-        tags: ["Java & Spring Boot", "RESTful API", "데이터베이스 & ORM", "성능 최적화"],
+        tags: ["Java", "Spring Boot", "데이터베이스", "성능 최적화"],
         startAt: new Date('2025-08-27T15:00:00.000Z'),
         endAt: new Date('2025-09-11T14:59:59.999Z'),
         eventStartAt: new Date('2025-09-22T15:00:00.000Z'),
@@ -113,7 +113,7 @@ export const COURSE_INFORMATION = {
     [COURSE.GEN_AI]: {
         title: "kt cloud 생성형 AI",
         description: "생성형 AI 혁신을 이끄는 글로벌 인재 과정",
-        tags: ["모델 API 활용", "커스텀 RAG", "LLM fine-tuning", "AI 서비스화"],
+        tags: ["LLM 성능", "커스텀 RAG", "LLM fine-tuning", "AI 서비스"],
         startAt: new Date('2025-08-27T15:00:00.000Z'),
         endAt: new Date('2025-09-11T14:59:59.999Z'),
         eventStartAt: new Date('2025-09-22T15:00:00.000Z'),
@@ -128,12 +128,12 @@ export const COURSE_INFORMATION = {
     [COURSE.INFORMATION_SECURITY]: {
         title: "kt cloud 사이버 보안",
         description: "데이터와 서비스를 수호하는 보안 전문가 과정",
-        tags: ["네트워크보안", "위협 인텔리전스", "침해사고 대응", "모의해킹"],
+        tags: ["네트워크보안", "침해사고 대응", "모의해킹", "디지털포렌식"],
         startAt: new Date('2025-08-27T15:00:00.000Z'),
         endAt: new Date('2025-09-11T14:59:59.999Z'),
         eventStartAt: new Date('2025-09-22T15:00:00.000Z'),
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
-        keyword: 'information-security',
+        keyword: 'cybersecurity',
         recruitedPeopleAmount: 45,
         navIconSrc: "/assets/techup_nav_security.png",
         imageSrc: "/assets/techup_thumb_security.png",
@@ -143,7 +143,7 @@ export const COURSE_INFORMATION = {
     [COURSE.CLOUD_NATIVE]: {
         title: "kt cloud 클라우드 네이티브",
         description: "차세대 클라우드 아키텍처 전문가 과정",
-        tags: ["Docker & Kubernetes", "CI/CD", "Service Mesh", "마이크로서비스"],
+        tags: ["Docker", "Kubernetes", "CI/CD", "모니터링", "로그 관리"],
         startAt: new Date('2025-08-27T15:00:00.000Z'),
         endAt: new Date('2025-09-11T14:59:59.999Z'),
         eventStartAt: new Date('2025-09-22T15:00:00.000Z'),
@@ -158,12 +158,12 @@ export const COURSE_INFORMATION = {
     [COURSE.CLOUD_INFRASTRUCTURE]: {
         title: "kt cloud 클라우드 인프라",
         description: "확장성과 안정성을 구축하는 인프라 전문가 과정",
-        tags: ["Azure 클라우드", "IaC", "고가용성 & 재해 복구", "비용 최적화"],
+        tags: ["클라우드 운영", "IaC", "비용 최적화", "운영 자동화"],
         startAt: new Date('2025-08-27T15:00:00.000Z'),
         endAt: new Date('2025-09-11T14:59:59.999Z'),
         eventStartAt: new Date('2025-09-22T15:00:00.000Z'),
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
-        keyword: 'cloud-infrastructure',
+        keyword: 'cloud-infra',
         recruitedPeopleAmount: 45,
         navIconSrc: "/assets/techup_nav_cloudinfra.png",
         imageSrc: "/assets/techup_thumb_cloudinfra.png",
@@ -173,7 +173,7 @@ export const COURSE_INFORMATION = {
     [COURSE.PRODUCT_DESIGN]: {
         title: "kt cloud 프로덕트 디자인",
         description: "사용자 중심 경험을 설계하는 디자인 전문가 과정",
-        tags: ["Figma", "UX 리서치", "디자인 시스템", "React 협업"],
+        tags: ["사용자 경험", "UX 리서치", "디자인 시스템", "Figma"],
         startAt: new Date('2025-08-27T15:00:00.000Z'),
         endAt: new Date('2025-09-11T14:59:59.999Z'),
         eventStartAt: new Date('2025-09-22T15:00:00.000Z'),
@@ -188,7 +188,7 @@ export const COURSE_INFORMATION = {
     [COURSE.PRODUCT_MANAGEMENT]: {
         title: "kt cloud 프로덕트 매니지먼트",
         description: "아이디어를 제품으로 비즈니스 임팩트를 만드는 과정",
-        tags: ["데이터 분석", "고객 중심 사고", "로드맵 수립", "MVP 기획"],
+        tags: ["데이터 분석", "고객 중심 사고", "제품 설계", "로드맵 수립"],
         startAt: new Date('2025-08-27T15:00:00.000Z'),
         endAt: new Date('2025-09-11T14:59:59.999Z'),
         eventStartAt: new Date('2025-09-22T15:00:00.000Z'),

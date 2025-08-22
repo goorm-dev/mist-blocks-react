@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useCallback, useMemo, useState } from "react";
-import { Text, Button, Badge } from '@vapor-ui/core';
+import { useEffect, useRef, useCallback, useMemo, useState } from "react";
+import { Text } from '@vapor-ui/core';
 import "./SpecialProfile.css";
+import { MENTOR_PROFILES } from "./SpecialProfile.constant";
 
 /**
  * ProfileCard 컴포넌트
@@ -65,13 +66,11 @@ const useIsSmallScreen = () => {
 // 개별 ProfileCard 컴포넌트
 const ProfileCard = ({
   // 사용자 정보 props
-  name = "Javi A. Torres",
-  title = "Software Engineer",
-  stack = "#AI, #Data, #ML",
-  experience = ["Google", "Microsoft", "Apple"],
-  contactText = "Contact Me",
+  name = "이름",
+  title = "타이틀",
+  description = "내용",
+  position = "소속",
   avatarUrl = "/path/to/avatar.jpg",
-  miniAvatarUrl,
   showUserInfo = true,
   
   // 스타일링 props
@@ -88,9 +87,6 @@ const ProfileCard = ({
   behindGradient,
   innerGradient,
   showBehindGradient = true,
-  
-  // 이벤트 핸들러
-  onContactClick,
 }) => {
   // Refs
   const wrapRef = useRef(null);
@@ -354,11 +350,6 @@ const ProfileCard = ({
     [iconUrl, grainUrl, showBehindGradient, behindGradient, innerGradient, isSmallScreen]
   );
 
-  // 연락처 버튼 클릭 핸들러
-  const handleContactClick = useCallback(() => {
-    onContactClick?.();
-  }, [onContactClick]);
-
   return (
     <div
       ref={wrapRef}
@@ -385,69 +376,30 @@ const ProfileCard = ({
           {!isSmallScreen && <div className="pc-shine" />}
           {!isSmallScreen && <div className="pc-glare" />}
           
-          {/* 아바타 콘텐츠 영역 */}
-          <div 
-            className="pc-content pc-avatar-content"
-            style={isSmallScreen ? {
-              transform: "none",
-              perspective: "none",
-              backfaceVisibility: "visible"
-            } : {}}
-          >
-            <img
-              className="avatar"
-              src={avatarUrl}
-              alt={`${name || "User"} avatar`}
-              loading={isSmallScreen ? "eager" : "lazy"}
-              style={isSmallScreen ? {
-                transform: "translateX(-50%)",
-                backfaceVisibility: "visible",
-                perspective: "none",
-                left: "50%",
-                position: "absolute"
-              } : {}}
-              onError={(e) => {
-                const target = e.target;
-                target.style.display = "none";
-              }}
-            />
-            
-            {/* 사용자 정보 표시 */}
-            {showUserInfo && (
-              <div className="pc-user-info">
-                  <div className="pc-user-details">
-                    <div className="pc-user-text">
-                      <div className="pc-stack-badges">
-                        {stack.split(',').map((tag, index) => (
-                          <Badge key={index} color="hint" size="sm" square="square" className="stack-badge">
-                            {tag.trim()}
-                          </Badge>
-                        ))}
-                      </div>
-                      <div className="pc-experience">
-                        {Array.isArray(experience) && experience.length > 0 ? (
-                          experience.map((exp, index) => (
-                            <Text key={index} typography="body2" className="experience-item" foreground="accent">
-                              {exp}
-                            </Text>
-                          ))
-                        ) : (
-                          <Text typography="body2" className="experience-item" foreground="accent">
-                            경력 없음
-                          </Text>
-                        )}
-                      </div>
-                    </div>
+          {/* 사용자 정보 표시 */}
+          {showUserInfo && (
+            <div className="pc-user-info">
+              <div className="pc-user-text">
+                <div className="pc-title">
+                  <Text typography="body2" className="profile-content-title" foreground="normal">{title}</Text>
+                </div>
+                <div className="pc-description">
+                  <Text typography="body2" className="profile-content-description" foreground="normal">{description}</Text>
                 </div>
               </div>
-            )}
-          </div>
+            </div>
+          )}
           
           {/* 프로필 상세 정보 */}
           <div className="pc-content">
             <div className="pc-details">
-              <Text typography="heading2" className="profile-name">{name}</Text>
-              <Text typography="body1" className="profile-title">{title}</Text>
+              <div className="pc-avatar-container">
+                <img className="pc-avatar-image" src={avatarUrl} alt={name} />
+              </div>
+              <div className="pc-profile-info">
+                <Text typography="heading5" foreground="normal">{name}</Text>
+                <Text typography="subtitle1" foreground="normal">{position}</Text>
+              </div>
             </div>
           </div>
         </div>
@@ -461,192 +413,29 @@ const ProfileCard = ({
  * 
  * 여러 ProfileCard를 그리드 형태로 표시하는 컴포넌트입니다.
  * CourseCard와 유사한 구조로 여러 프로필을 관리합니다.
- * 
- * @example
- * // 기본 사용
- * <SpecialProfile />
- * 
- * // 커스텀 데이터로 사용
- * <SpecialProfile 
- *   title="팀 멤버"
- *   profiles={[
- *     {
- *       id: 1,
- *       name: "Javi A. Torres",
- *       title: "Software Engineer",
- *       stack: "#AI, #Data, #ML",
- *       experience: ["전) NCSOFT Data Scientist/Analyst", "전) Netmarble Data Scientist/Analyst"],
- *       avatarUrl: "/path/to/avatar.jpg",
- *       iconUrl: "src/assets/iconpattern.png",
- *       grainUrl: "src/assets/grain.webp"
- *     }
- *   ]}
- * />
  */
 const SpecialProfile = ({ 
   title = "기술과 경험을 전할\n멘토 라인업",
-  profiles = [
-    {
-      id: 1,
-      name: "제이슨",
-      title: "구름",
-      stack: "#AI, #Data, #ML",
-      experience: ["전) NCSOFT Data Scientist/Analyst", "전) Netmarble Data Scientist/Analyst"],
-      avatarUrl: "src/assets/person.png",
-      iconUrl: "src/assets/iconpattern.png",
-      grainUrl: "src/assets/grain.webp",
-      showUserInfo: true,
-      enableTilt: true,
-      enableMobileTilt: true,
-      mobileTiltSensitivity: 5,
-      onContactClick: () => console.log('Contact clicked')
-    },
-    {
-      id: 2,
-      name: "제이슨",
-      title: "구름",
-      stack: "#UX, #Design, #Figma",
-      experience: ["전) Figma Senior Designer", "전) Adobe Creative Director"],
-      avatarUrl: "src/assets/person.png",
-      iconUrl: "src/assets/iconpattern.png",
-      grainUrl: "src/assets/grain.webp",
-      showUserInfo: true,
-      enableTilt: true,
-      enableMobileTilt: false,
-      mobileTiltSensitivity: 5,
-      onContactClick: () => console.log('Sarah contacted')
-    },
-    {
-      id: 3,
-      name: "제이슨",
-      title: "구름",
-      stack: "#Product, #Strategy, #Growth",
-      experience: ["전) Amazon Product Manager", "전) Netflix Senior PM"],
-      avatarUrl: "src/assets/person.png",
-      iconUrl: "src/assets/iconpattern.png",
-      grainUrl: "src/assets/grain.webp",
-      showUserInfo: true,
-      enableTilt: true,
-      enableMobileTilt: false,
-      mobileTiltSensitivity: 5,
-      onContactClick: () => console.log('Mike contacted')
-    },
-    {
-      id: 4,
-      name: "제이슨",
-      title: "구름",
-      stack: "#Product, #Strategy, #Growth",
-      experience: ["전) Amazon Product Manager", "전) Netflix Senior PM"],
-      avatarUrl: "src/assets/person.png",
-      iconUrl: "src/assets/iconpattern.png",
-      grainUrl: "src/assets/grain.webp",
-      showUserInfo: true,
-      enableTilt: true,
-      enableMobileTilt: false,
-      mobileTiltSensitivity: 5,
-      onContactClick: () => console.log('Mike contacted')
-    },
-    {
-      id: 5,
-      name: "제이슨",
-      title: "구름",
-      stack: "#Product, #Strategy, #Growth",
-      experience: ["전) Amazon Product Manager", "전) Netflix Senior PM"],
-      avatarUrl: "src/assets/person.png",
-      iconUrl: "src/assets/iconpattern.png",
-      grainUrl: "src/assets/grain.webp",
-      showUserInfo: true,
-      enableTilt: true,
-      enableMobileTilt: false,
-      mobileTiltSensitivity: 5,
-      onContactClick: () => console.log('Mike contacted')
-    },
-    {
-      id: 6,
-      name: "제이슨",
-      title: "구름",
-      stack: "#Product, #Strategy, #Growth",
-      experience: ["전) Amazon Product Manager", "전) Netflix Senior PM"],
-      avatarUrl: "src/assets/person.png",
-      iconUrl: "src/assets/iconpattern.png",
-      grainUrl: "src/assets/grain.webp",
-      showUserInfo: true,
-      enableTilt: true,
-      enableMobileTilt: false,
-      mobileTiltSensitivity: 5,
-      onContactClick: () => console.log('Mike contacted')
-    },
-    {
-      id: 7,
-      name: "제이슨",
-      title: "구름",
-      stack: "#Product, #Strategy, #Growth",
-      experience: ["전) Amazon Product Manager", "전) Netflix Senior PM"],
-      avatarUrl: "src/assets/person.png",
-      iconUrl: "src/assets/iconpattern.png",
-      grainUrl: "src/assets/grain.webp",
-      showUserInfo: true,
-      enableTilt: true,
-      enableMobileTilt: false,
-      mobileTiltSensitivity: 5,
-      onContactClick: () => console.log('Mike contacted')
-    },
-    {
-      id: 8,
-      name: "제이슨",
-      title: "구름",
-      stack: "#Product, #Strategy, #Growth",
-      experience: ["전) Amazon Product Manager", "전) Netflix Senior PM"],
-      avatarUrl: "src/assets/person.png",
-      iconUrl: "src/assets/iconpattern.png",
-      grainUrl: "src/assets/grain.webp",
-      showUserInfo: true,
-      enableTilt: true,
-      enableMobileTilt: false,
-      mobileTiltSensitivity: 5,
-      onContactClick: () => console.log('Mike contacted')
-    },
-    {
-      id: 9,
-      name: "제이슨",
-      title: "구름",
-      stack: "#Product, #Strategy, #Growth",
-      experience: ["전) Amazon Product Manager", "전) Netflix Senior PM"],
-      avatarUrl: "src/assets/person.png",
-      iconUrl: "src/assets/iconpattern.png",
-      grainUrl: "src/assets/grain.webp",
-      showUserInfo: true,
-      enableTilt: true,
-      enableMobileTilt: false,
-      mobileTiltSensitivity: 5,
-      onContactClick: () => console.log('Mike contacted')
-    },
-  ]
 }) => {
-  const handleContactClick = (profileId) => {
-    console.log(`Contact clicked for profile ${profileId}`);
-  };
-
   return (
     <section className="content-section special-profile-section">
       <div className="container">
         <Text typography="heading2" className="title">{title}</Text>
         <div className="profile-cards-grid">
-          {profiles.map((profile) => (
+          {MENTOR_PROFILES.filter(profile => profile.name !== "이름").map((profile, index) => (
             <ProfileCard
-              key={profile.id}
+              key={index}
               name={profile.name}
               title={profile.title}
-              stack={profile.stack}
-              experience={profile.experience}
+              description={profile.description}
+              position={profile.position}
               avatarUrl={profile.avatarUrl}
-              iconUrl={profile.iconUrl}
-              grainUrl={profile.grainUrl}
-              showUserInfo={profile.showUserInfo}
-              enableTilt={profile.enableTilt}
-              enableMobileTilt={profile.enableMobileTilt}
-              mobileTiltSensitivity={profile.mobileTiltSensitivity}
-              onContactClick={() => handleContactClick(profile.id)}
+              iconUrl="src/assets/iconpattern.png"
+              grainUrl="src/assets/grain.webp"
+              showUserInfo={true}
+              enableTilt={true}
+              enableMobileTilt={false}
+              mobileTiltSensitivity={5}
             />
           ))}
         </div>
@@ -657,5 +446,3 @@ const SpecialProfile = ({
 
 export { ProfileCard };
 export default SpecialProfile;
-
-
