@@ -60,8 +60,8 @@ const HeroSection3 = () => {
   const templateData = {
     mainTitle: "내일의 인재,<br />kt cloud TECH UP에서<br />완성됩니다.",
     videoSrc: "",
-    videoPoster: "public/assets/techup_main.png",
-    mobileImageSrc: "public/assets/techup_main.png",
+    videoPoster: screenSize === 'mobile' || screenSize === 'tablet' ? "public/assets/techup_main_mo.png" : "public/assets/techup_main.png",
+    mobileImageSrc: screenSize === 'mobile' || screenSize === 'tablet' ? "public/assets/techup_main_mo.png" : "public/assets/techup_main.png",
     cards: [
       {
         label: "혁신의 시작",

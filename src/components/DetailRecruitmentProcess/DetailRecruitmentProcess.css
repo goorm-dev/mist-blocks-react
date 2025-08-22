@@ -1,0 +1,217 @@
+/* DetailRecruitmentProcess Section */
+.detail-recruitment-process-section {
+  padding-top: var(--vapor-size-space-800);
+  padding-bottom: var(--vapor-size-space-800);
+  background-color: var(--vapor-color-background-normal);
+}
+
+.detail-recruitment-process-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--vapor-size-space-400);
+  width: 100%;
+  max-width: 1172px;
+  margin: 0 auto;
+  padding-left: var(--vapor-size-space-200);
+  padding-right: var(--vapor-size-space-200);
+}
+
+.section-inner {
+  width: 100%;
+  max-width: 1140px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--vapor-size-space-700);
+}
+
+/* Section Title */
+.section-title {
+  width: 100%;
+}
+
+.section-title .text-element {
+  line-height: var(--vapor-typography-lineHeight-500);
+  font-size: var(--vapor-typography-fontSize-700);
+  font-weight: var(--vapor-typography-fontWeight-700);
+}
+
+/* Process Content */
+.process-content-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--vapor-size-space-0);
+}
+
+/* Process Header */
+.process-header {
+  padding-left: 180px;
+  display: flex;
+  width: 100%;
+  gap: var(--vapor-size-space-200);
+}
+
+.stage-header {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--vapor-size-space-200);
+  background-color: var(--vapor-color-background-normal-darker);
+  text-align: center;
+}
+
+/* Process Items */
+.process-items {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Process Item */
+.process-item {
+  display: flex;
+  align-items: flex-start;
+  padding-top: var(--vapor-size-space-400);
+  padding-bottom: var(--vapor-size-space-400);
+  border-bottom: 1px solid var(--vapor-color-border-normal);
+}
+
+.process-item-last {
+  border-bottom: none;
+}
+
+.process-item-header {
+  width: 180px;
+  display: flex;
+  align-items: center;
+  gap: var(--vapor-size-space-200);
+  flex-shrink: 0;
+}
+
+.process-number .number-text {
+  color: var(--ktc-tech-up-red);
+  font-weight: var(--vapor-typography-fontWeight-500);
+}
+
+.process-title .title-text {
+  color: var(--vapor-color-foreground-normal);
+  font-weight: var(--vapor-typography-fontWeight-500);
+}
+
+.process-content {
+  display: flex;
+  flex: 1;
+  gap: var(--vapor-size-space-200);
+  width: 100%;
+}
+
+.stage-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--vapor-size-space-050);
+}
+
+.stage-date {
+  font-weight: var(--vapor-typography-fontWeight-500);
+}
+
+.stage-description {
+  color: var(--vapor-color-foreground-hint);
+}
+
+/* Responsive Design */
+/* Tablet (992px 이하) */
+@media (max-width: 992px) {
+  .detail-recruitment-process-section {
+    padding-top: var(--vapor-size-space-700);
+    padding-bottom: var(--vapor-size-space-700);
+  }
+
+  .section-inner {
+    gap: var(--vapor-size-space-600);
+  }
+}
+
+/* Mobile (768px 이하) */
+@media (max-width: 768px) {
+  .detail-recruitment-process-section {
+    padding-top: var(--vapor-size-space-600);
+    padding-bottom: var(--vapor-size-space-600);
+  }
+
+  .detail-recruitment-process-wrap {
+    gap: var(--vapor-size-space-300);
+  }
+
+  .section-inner {
+    gap: var(--vapor-size-space-500);
+  }
+
+  .process-header {
+    padding-left: 0;
+    width: 100%;
+  }
+
+  .process-item {
+    flex-direction: column;
+    gap: var(--vapor-size-space-300);
+  }
+
+  .process-item-header {
+    width: 100%;
+    margin-bottom: var(--vapor-size-space-200);
+  }
+
+  .process-content {
+    width: 100%;
+  }
+  
+  .stage-info {
+    padding: 0 var(--vapor-size-space-100);
+  }
+}
+
+/* Small Mobile (576px 이하) */
+@media (max-width: 576px) {
+  .detail-recruitment-process-wrap {
+    padding-left: var(--vapor-size-space-150);
+    padding-right: var(--vapor-size-space-150);
+  }
+
+  .process-content {
+    flex-direction: column;
+    gap: var(--vapor-size-space-300);
+  }
+
+  .stage-info {
+    width: 100%;
+    padding: 0;
+  }
+
+  .stage-header {
+    padding: var(--vapor-size-space-150);
+  }
+  
+  /* 스테이지 헤더와 콘텐츠 일치시키기 */
+  .process-header {
+    width: 100%;
+    padding-left: 0;
+  }
+}
+
+/* Large Screens (1440px 이상) */
+@media (min-width: 1440px) {
+  .detail-recruitment-process-wrap {
+    max-width: 1440px;
+  }
+
+  .section-inner {
+    max-width: 1200px;
+  }
+}

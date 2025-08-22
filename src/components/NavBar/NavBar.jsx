@@ -38,23 +38,13 @@ const COURSE_ICONS = {
   [COURSE.PRODUCT_MANAGEMENT]: SquaresPlusIcon,
 }
 
-const COURSE_DESCRIPTIONS = {
-  [COURSE.FULLSTACK]: 'React, Node, Spring 기반 웹 서비스 전 과정 경험',
-  [COURSE.FRONTEND]: 'UI 설계부터 인터렉션까지 최신 프론트 기술 학습',
-  [COURSE.BACKEND]: '서버, DB, 보안, API까지 실무형 백엔드 기술 학습',
-  [COURSE.GEN_AI]: 'LLM 기반 생성형 AI의 원리와 실제 구현 방식 경험',
-  [COURSE.INFORMATION_SECURITY]: '침투 테스트, 위협 분석으로 실전 보안 역량 강화',
-  [COURSE.CLOUD_INFRASTRUCTURE]: 'IaC, 모니터링, 보안으로 클라우드 운영 자동화',
-  [COURSE.CLOUD_NATIVE]: '컨테이너, Kubernetes 기반 마이크로서비스 설계',
-  [COURSE.PRODUCT_DESIGN]: 'UX 리서치부터 UI, 디자인 시스템까지 실무 적용',
-  [COURSE.PRODUCT_MANAGEMENT]: '애자일 기획과 협업으로 프로젝트 운영 전 과정 경험',
-}
+// COURSE_DESCRIPTIONS 제거 - COURSE_INFORMATION에서 직접 description 사용
 
 const createCourseDropdownItems = (courseTypes) => {
   return courseTypes.map(courseType => ({
     name: COURSE_INFORMATION[courseType].title,
     navIconSrc: COURSE_INFORMATION[courseType].navIconSrc,
-    description: COURSE_DESCRIPTIONS[courseType],
+    description: COURSE_INFORMATION[courseType].description,
     href: `/detail/${COURSE_INFORMATION[courseType].keyword}`,
     icon: COURSE_ICONS[courseType]
   }))
@@ -121,7 +111,9 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
                         key={dropdownItem.name}
                         className="group relative flex items-center gap-x-3 p-3 text-sm/6 hover:bg-[var(--vapor-color-gray-400)]/16"
                       >
-                         <img className="size-8" src={dropdownItem.navIconSrc} alt={dropdownItem.keyword} />  
+                        <div className="flex size-10 flex-none items-center justify-center bg-[var(--vapor-color-background-normal-darker)] group-hover:bg-[var(--vapor-color-background-normal)]">
+                        <img className="size-8" src={dropdownItem.navIconSrc} alt={dropdownItem.keyword} />  
+                        </div>
                         <div className="flex-auto">
                           <a href={dropdownItem.href} className="block font-semibold text-[var(--vapor-color-foreground-normal)]">
                             {dropdownItem.name}

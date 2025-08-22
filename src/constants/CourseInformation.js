@@ -82,7 +82,7 @@ export const COURSE_INFORMATION = {
     },
     [COURSE.FRONTEND]: {
         title: "kt cloud 프론트엔드",
-        description: "최상의 사용자 경험을 구현하는 인터페이스 전문가 과정",
+        description: "최상의 사용 경험을 구현하는 인터페이스 전문가 과정",
         tags: ["태그1", "태그2", "태그3", "태그4"],
         startAt: new Date('2025-06-27T15:00:00.000Z'),
         endAt: new Date('2025-07-11T14:59:59.999Z'),
@@ -187,7 +187,7 @@ export const COURSE_INFORMATION = {
     },
     [COURSE.PRODUCT_MANAGEMENT]: {
         title: "kt cloud 프로덕트 매니지먼트",
-        description: "아이디어를 제품으로 구현해 비즈니스 임팩트를 만드는 전문가 과정",
+        description: "아이디어를 제품으로 비즈니스 임팩트를 만드는 과정",
         tags: ["태그1", "태그2", "태그3", "태그4"],
         startAt: new Date('2025-08-27T15:00:00.000Z'),
         endAt: new Date('2025-09-11T14:59:59.999Z'),

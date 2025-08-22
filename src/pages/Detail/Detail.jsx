@@ -5,6 +5,14 @@ import AccordionFaq from '../../components/AccordionFaq/AccordionFaq';
 import { useTheme } from '@vapor-ui/core';
 import ProjectCultureSection from '../../components/ProjectCulture/ProjectCultureSection';
 import PreBannerSection from '../../components/PreBanner/PreBannerSection';
+import DetailLearnCation from '../../components/DetailLearnCation/DetailLearnCation';
+import DetailNavigation from '../../components/DetailNavigation/DetailNavigation';
+import DetailIntroduceCourse from '../../components/DetailIntroduceCourse/DetailIntroduceCourse';
+import DetailCarrierSupport from '../../components/DetailCarrierSupport/DetailCarrierSupport';
+import DetailCurriculum from '../../components/DetailCurriculum/DetailCurriculum';
+import DetailBenefit from '../../components/DetailBenefit/DetailBenefit';
+import DetailLearningPlace from '../../components/DetailLearningPlace/DetailLearningPlace';
+import DetailRecruitmentProcess from '../../components/DetailRecruitmentProcess/DetailRecruitmentProcess';
 
 import { COURSE, COURSE_INFORMATION } from '../../constants/CourseInformation';
 
@@ -23,7 +31,15 @@ function Detail({ course }) {
       <main>
         <DetailHero data={courseData} />
         <PreBannerSection />
+        <DetailNavigation />
+        <DetailIntroduceCourse course={course} />
+        <DetailLearnCation />
+        <DetailLearningPlace/>
         <ProjectCultureSection />
+        <DetailCurriculum course={course} />
+        <DetailCarrierSupport />
+        <DetailBenefit />
+        <DetailRecruitmentProcess />
         <AccordionFaq />
       </main>
       <FooterFull />
