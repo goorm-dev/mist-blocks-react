@@ -18,6 +18,11 @@
   height: 100%;
   object-fit: cover;
 }
+
+.normal-text {
+  color: #E8E8EE;
+}
+
 .desktop-image {
   display: block;
 }
@@ -223,11 +228,6 @@
   color: var(--vapor-color-foreground-accent);
 }
 
-.core-message-text {
-  color: var(--vapor-color-foreground-accent);
-  line-height: var(--vapor-typography-lineHeight-500);
-}
-
 .highlight-brace {
   color: var(--ktc-tech-up-red);
   font-weight: bold;
@@ -300,11 +300,6 @@
     padding-top: var(--vapor-size-space-700);
     padding-bottom: var(--vapor-size-space-700);
   }
-
-  .core-message-text {
-    font-size: var(--vapor-typography-fontSize-600);
-    line-height: var(--vapor-typography-lineHeight-400);
-  }
 }
 
 /* 모바일 (768px 이하) */
@@ -336,11 +331,6 @@
     padding: var(--vapor-size-space-200);
     width: 100%;
     height: auto;
-  }
-
-  .core-message-text {
-    font-size: var(--vapor-typography-fontSize-500);
-    line-height: var(--vapor-typography-lineHeight-400);
   }
 
   .value-title {

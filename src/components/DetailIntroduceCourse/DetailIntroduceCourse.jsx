@@ -79,19 +79,46 @@ const DetailIntroduceCourse = ({
         return (
           <React.Fragment key={index}>
             <span className="highlight-brace">{'{'}</span>
-            <span className="highlight-keyword">
-              {part.content.split(/\n{1,}/).map((line, lineIndex) => (
-                <React.Fragment key={lineIndex}>
-                  {line}
-                  {lineIndex < part.content.split(/\n{1,}/).length - 1 && (
-                    <>
-                      <br />
-                      {/* 빈 문자열인 경우 추가 줄바꿈 적용 */}
-                      {line === "" && <br />}
-                    </>
-                  )}
-                </React.Fragment>
-              ))}
+            <span className="normal-text">
+              {(() => {
+                const lines = part.content.split('\n');
+                
+                // 연속된 줄바꿈을 확인하기 위한 처리
+                const elements = [];
+                let consecutiveNewlines = 0;
+                
+                for (let i = 0; i < lines.length; i++) {
+                  const line = lines[i];
+                  
+                  // 현재 라인이 빈 문자열이면 연속된 줄바꿈 카운트 증가
+                  if (line === "") {
+                    consecutiveNewlines++;
+                    // 마지막 라인이 아니면 계속 진행
+                    if (i < lines.length - 1) {
+                      continue;
+                    }
+                  }
+                  
+                  // 이전 라인이 있고 연속된 줄바꿈이 있으면 <br/> 추가
+                  if (i > 0) {
+                    // 일반적인 줄바꿈은 무조건 하나 추가
+                    elements.push(<br key={`br-keyword-${i}-1`} />);
+                    
+                    // 연속된 줄바꿈이 있으면 추가 <br/> 삽입
+                    for (let j = 0; j < consecutiveNewlines; j++) {
+                      elements.push(<br key={`br-keyword-${i}-${j+2}`} />);
+                    }
+                  }
+                  
+                  // 현재 라인이 빈 문자열이 아닌 경우에만 내용 추가
+                  if (line !== "") {
+                    elements.push(<React.Fragment key={`line-keyword-${i}`}>{line}</React.Fragment>);
+                    consecutiveNewlines = 0;
+                  }
+                }
+                
+                return elements;
+              })()}
             </span>
             <span className="highlight-brace">{'}'}</span>
           </React.Fragment>
@@ -100,18 +127,45 @@ const DetailIntroduceCourse = ({
         // 일반 텍스트에서 줄바꿈 처리 - 이중 줄바꿈(\n\n) 지원
         return (
           <span key={index} className="normal-text">
-            {part.content.split(/\n{1,}/).map((line, lineIndex) => (
-              <React.Fragment key={lineIndex}>
-                {line}
-                {lineIndex < part.content.split(/\n{1,}/).length - 1 && (
-                  <>
-                    <br />
-                    {/* 빈 문자열인 경우 추가 줄바꿈 적용 */}
-                    {line === "" && <br />}
-                  </>
-                )}
-              </React.Fragment>
-            ))}
+            {(() => {
+              const lines = part.content.split('\n');
+              
+              // 연속된 줄바꿈을 확인하기 위한 처리
+              const elements = [];
+              let consecutiveNewlines = 0;
+              
+              for (let i = 0; i < lines.length; i++) {
+                const line = lines[i];
+                
+                // 현재 라인이 빈 문자열이면 연속된 줄바꿈 카운트 증가
+                if (line === "") {
+                  consecutiveNewlines++;
+                  // 마지막 라인이 아니면 계속 진행
+                  if (i < lines.length - 1) {
+                    continue;
+                  }
+                }
+                
+                // 이전 라인이 있고 연속된 줄바꿈이 있으면 <br/> 추가
+                if (i > 0) {
+                  // 일반적인 줄바꿈은 무조건 하나 추가
+                  elements.push(<br key={`br-normal-${i}-1`} />);
+                  
+                  // 연속된 줄바꿈이 있으면 추가 <br/> 삽입
+                  for (let j = 0; j < consecutiveNewlines; j++) {
+                    elements.push(<br key={`br-normal-${i}-${j+2}`} />);
+                  }
+                }
+                
+                // 현재 라인이 빈 문자열이 아닌 경우에만 내용 추가
+                if (line !== "") {
+                  elements.push(<React.Fragment key={`line-normal-${i}`}>{line}</React.Fragment>);
+                  consecutiveNewlines = 0;
+                }
+              }
+              
+              return elements;
+            })()}
           </span>
         );
       }
@@ -123,18 +177,47 @@ const DetailIntroduceCourse = ({
       <div className="container" >
             {/* 메인 타이틀 */}
               <Text typography="heading2" foreground="normal" className="title">
-                {title.split(/\n{1,}/).map((line, index) => (
-                  <React.Fragment key={index}>
-                    {line}
-                    {index < title.split(/\n{1,}/).length - 1 && (
-                      <>
-                        <br />
-                        {/* 빈 문자열인 경우 추가 줄바꿈 적용 */}
-                        {line === "" && <br />}
-                      </>
-                    )}
-                  </React.Fragment>
-                ))}
+                {(() => {
+                  // 줄바꿈을 기준으로 텍스트를 분리
+                  const lines = title.split('\n');
+                  
+                  // 연속된 줄바꿈을 확인하기 위한 변수
+                  let consecutiveNewlines = 0;
+                  const elements = [];
+                  
+                  // 각 라인을 처리
+                  for (let i = 0; i < lines.length; i++) {
+                    const line = lines[i];
+                    
+                    // 현재 라인이 빈 문자열이면 연속된 줄바꿈 카운트 증가
+                    if (line === "") {
+                      consecutiveNewlines++;
+                      // 마지막 라인이 아니면 계속 진행
+                      if (i < lines.length - 1) {
+                        continue;
+                      }
+                    }
+                    
+                    // 이전 라인이 있고 연속된 줄바꿈이 있으면 <br/> 추가
+                    if (i > 0) {
+                      // 일반적인 줄바꿈은 무조건 하나 추가
+                      elements.push(<br key={`br-${i}-1`} />);
+                      
+                      // 연속된 줄바꿈이 있으면 추가 <br/> 삽입
+                      for (let j = 0; j < consecutiveNewlines; j++) {
+                        elements.push(<br key={`br-${i}-${j+2}`} />);
+                      }
+                    }
+                    
+                    // 현재 라인이 빈 문자열이 아닌 경우에만 내용 추가
+                    if (line !== "") {
+                      elements.push(<React.Fragment key={`line-${i}`}>{line}</React.Fragment>);
+                      consecutiveNewlines = 0;
+                    }
+                  }
+                  
+                  return elements;
+                })()}
               </Text>
 
             {/* 콘텐츠 그리드 */}
@@ -161,7 +244,7 @@ const DetailIntroduceCourse = ({
                       <Text typography="heading5" foreground="normal" className="value-title">
                         {valueTitle}
                       </Text>
-                      <Text typography="body2" foreground="hint" className="value-description">
+                      <Text typography="body2" foreground="normal-lighter" className="value-description">
                         {valueDescription}
                       </Text>
                     </div>

@@ -7,12 +7,12 @@ const ProcessItem = ({ number, title, firstStageDate, firstStageDescription, sec
     <div className={`process-item ${isLastItem ? 'process-item-last' : ''}`}>
       <div className="process-item-header">
         <div className="process-number">
-          <Text typography="body1" foreground="accent" className="number-text">
+          <Text typography="heading6" foreground="accent" className="number-text">
             {number.padStart(2, '0')}
           </Text>
         </div>
         <div className="process-title">
-          <Text typography="body1" foreground="normal" className="title-text">
+          <Text typography="heading6" foreground="normal" className="title-text">
             {title}
           </Text>
         </div>
@@ -20,21 +20,21 @@ const ProcessItem = ({ number, title, firstStageDate, firstStageDescription, sec
       
       <div className="process-content">
         <div className="stage-info first-stage">
-          <Text typography="subtitle1" foreground="normal" className="stage-date">
+          <Text typography="heading6" foreground="normal" className="stage-date">
             {firstStageDate}
           </Text>
           {firstStageDescription && (
-            <Text typography="subtitle2" foreground="hint" className="stage-description">
+            <Text typography="subtitle1" foreground="hint" className="stage-description">
               {firstStageDescription}
             </Text>
           )}
         </div>
         <div className="stage-info second-stage">
-          <Text typography="subtitle1" foreground="normal" className="stage-date">
+          <Text typography="heading6" foreground="normal" className="stage-date">
             {secondStageDate}
           </Text>
           {secondStageDescription && (
-            <Text typography="subtitle2" foreground="hint" className="stage-description">
+            <Text typography="subtitle1" foreground="hint" className="stage-description">
               {secondStageDescription}
             </Text>
           )}
@@ -92,10 +92,10 @@ const DetailRecruitmentProcess = () => {
               {/* 헤더 - 1차/2차 라벨 */}
               <div className="process-header">
                 <div className="stage-header first-stage">
-                  <Text typography="caption" foreground="hint">1차</Text>
+                  <Text typography="subtitle1" foreground="hint">1차</Text>
                 </div>
                 <div className="stage-header second-stage">
-                  <Text typography="caption" foreground="hint">2차</Text>
+                  <Text typography="subtitle1" foreground="hint">2차</Text>
                 </div>
               </div>
 
