@@ -34,11 +34,11 @@ function Detail({ course }) {
         <DetailNavigation />
         <DetailIntroduceCourse course={course} />
         <DetailLearnCation />
-        <DetailLearningPlace/>
         <ProjectCultureSection />
         <DetailCurriculum course={course} />
         <DetailCarrierSupport />
         <DetailBenefit />
+        <DetailLearningPlace/>
         <DetailRecruitmentProcess />
         <AccordionFaq />
       </main>

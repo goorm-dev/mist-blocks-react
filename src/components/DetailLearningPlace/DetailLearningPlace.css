@@ -7,39 +7,29 @@
 }
 
 .learning-place-slider-container {
-  width: 100%;
+  width: 100vw; /* Full viewport width */
   display: flex;
-  flex-direction: column;
-  gap: var(--vapor-size-space-300);
-  position: relative;
   overflow: hidden;
-}
-
-.learning-place-slider-wrapper {
-  width: 100%;
-  display: flex;
+  padding: var(--vapor-size-space-700) 0 var(--vapor-size-space-300) 0;
 }
 
 /* 슬라이더 공통 스타일 */
 .learning-place-slider {
   display: flex;
-  gap: var(--vapor-size-space-300);
   will-change: transform;
   backface-visibility: hidden; /* 애니메이션 성능 개선 */
   flex-shrink: 0;
-  width: 100%;
+  box-sizing: border-box;
 }
 
 /* 원본 슬라이더의 애니메이션 */
 .learning-place-slider.original {
-  animation: 10s linear infinite normal none running moveSlider;
-  animation-play-state: paused;
+  animation: 20s linear infinite moveSlider;
 }
 
 /* 복제 슬라이더의 애니메이션 */
 .learning-place-slider.clone {
-  animation: 10s linear infinite moveSliderClone;
-  animation-play-state: paused;
+  animation: 20s linear infinite moveSliderClone;
 }
 
 /* 무한 스크롤 애니메이션 */
@@ -59,12 +49,12 @@
 }
 
 @keyframes moveSliderClone {
-  0% {
-      transform: translateX(0);
-  }
-  100% {
-      transform: translateX(-100%);
-  }
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-200%);
+    }
 }
 
 .learning-place-slide {
@@ -72,6 +62,7 @@
   height: 218px;
   will-change: transform;
   backface-visibility: hidden;
+  margin-right: var(--vapor-size-space-300);
 }
 
 .learning-place-image {
@@ -86,27 +77,128 @@
   font-size: var(--vapor-typography-fontSize-md);
   font-weight: var(--vapor-typography-fontWeight-700);
   line-height: 26px;
+  margin-top: var(--vapor-size-space-300);
+}
+
+.learning-places-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--vapor-size-space-300);
+}
+
+.learning-place-card {
+  flex: 1 1 calc(50% - var(--vapor-size-space-300));
+  min-width: 280px;
+  background: var(--vapor-color-background-normal-darker, #F7F7FA);
+  border: 1px solid var(--vapor-color-border-normal, #E1E1E8);
+  border-radius: var(--vapor-size-borderRadius-300);
+  padding: var(--vapor-size-space-300);
+  display: flex;
+  flex-direction: column;
+  gap: var(--vapor-size-space-100);
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.learning-place-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: var(--ktc-tech-up-red);
+}
+
+.learning-place-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 40px 40px 0;
+  border-color: transparent var(--ktc-tech-up-red) transparent transparent;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.learning-place-card:hover::after {
+  opacity: 1;
+}
+
+.learning-place-card-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.learning-place-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--vapor-size-space-300);
+}
+.learning-place-card-title {
+  font-size: var(--vapor-typography-fontSize-xl);
+  font-weight: var(--vapor-typography-fontWeight-700);
+  line-height: 1.5;
+  color: var(--vapor-color-foreground-normal, #2B2D36);
+}
+
+.learning-place-card-description {
+  font-size: var(--vapor-typography-fontSize-md);
+  font-weight: var(--vapor-typography-fontWeight-500);
+  line-height: 1.5;
+  color: var(--vapor-color-foreground-normal-lighter, #525463);
 }
 
 /* 반응형 디자인 */
+@media (max-width: 1440px) {
+  .learning-place-slider-wrapper {
+    padding-left: calc((100vw - 1172px) / 2); /* Align with container on medium screens */
+  }
+  
+  .learning-places-container {
+    margin-top: var(--vapor-size-space-400);
+    margin-bottom: var(--vapor-size-space-400);
+  }
+}
+
 @media (max-width: 1200px) {
   .learning-place-content {
     max-width: 100%;
   }
   
   .learning-place-slide {
-    width: 320px;
+    flex: 0 0 320px;
     height: 180px;
+  }
+  
+  .learning-place-slider-wrapper {
+    height: 180px;
+    padding-left: calc((100vw - 940px) / 2); /* Align with container on smaller screens */
+  }
+}
+
+@media (max-width: 992px) {
+  .learning-place-slider-wrapper {
+    padding-left: calc((100vw - 720px) / 2); /* Align with container on tablet screens */
+  }
+  
+  .learning-places-container {
+    gap: var(--vapor-size-space-200);
+  }
+  
+  .learning-place-card-title {
+    font-size: var(--vapor-typography-fontSize-lg);
   }
 }
 
 @media (max-width: 768px) {
-  .learning-place-slider {
-    height: 180px;
+  .learning-place-slider-wrapper {
+    height: 160px;
+    padding-left: 20px; /* Match container padding */
   }
   
   .learning-place-slide {
-    width: 280px;
+    flex: 0 0 280px;
     height: 160px;
   }
   
@@ -114,15 +206,62 @@
     font-size: var(--vapor-typography-fontSize-xl);
     line-height: 36px;
   }
+  
+  .learning-places-container {
+    flex-direction: column;
+  }
+  
+  .learning-place-card {
+    flex: 1 1 100%;
+    min-width: 100%;
+    padding: var(--vapor-size-space-300);
+  }
+  
+  .learning-place-card::after {
+    border-width: 0 30px 30px 0;
+  }
+  
+  .learning-place-card-title {
+    font-size: var(--vapor-typography-fontSize-lg);
+  }
+  
+  .learning-place-card-description {
+    font-size: var(--vapor-typography-fontSize-sm);
+  }
+}
+
+@media (max-width: 576px) {
+  .learning-place-slider-wrapper {
+    padding-left: 16px; /* Match container padding for small screens */
+  }
+  
+  .learning-places-container {
+    margin-top: var(--vapor-size-space-300);
+    margin-bottom: var(--vapor-size-space-300);
+    gap: var(--vapor-size-space-200);
+  }
+  
+  .learning-place-card {
+    padding: var(--vapor-size-space-250);
+  }
+  
+  .learning-place-card-icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .learning-place-card-header {
+    gap: var(--vapor-size-space-200);
+  }
 }
 
 @media (max-width: 480px) {
-  .learning-place-slider {
-    height: 150px;
+  .learning-place-slider-wrapper {
+    height: 140px;
   }
   
   .learning-place-slide {
-    width: 240px;
+    flex: 0 0 240px;
     height: 140px;
   }
   
