@@ -12,7 +12,7 @@ const CeoInterviewSection = () => {
 
   // 템플릿 변수들
   const templateData = {
-    videoSrc: "https://statics.goorm.io/ktb/ktb_main_jeju.mp4",
+    videoSrc: "",
     videoPoster: "src/assets/interview-poster.png",
   };
 
