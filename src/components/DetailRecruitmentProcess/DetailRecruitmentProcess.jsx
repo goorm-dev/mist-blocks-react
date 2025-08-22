@@ -83,7 +83,6 @@ const DetailRecruitmentProcess = () => {
   return (
     <section className="content-section detail-recruitment-process-section" id="recruitment-process">
       <div className="container">
-        <div className="detail-recruitment-process-wrap">
           <div className="section-inner">
             {/* 메인 타이틀 */}
             <div className="section-title">
@@ -122,7 +121,6 @@ const DetailRecruitmentProcess = () => {
             </div>
           </div>
         </div>
-      </div>
     </section>
   );
 };

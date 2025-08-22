@@ -12,9 +12,9 @@ const DetailLearningPlace = () => {
   ];
 
   return (
-    <section className="learning-place-section">
-      <div className="learning-place-container">
-        <div className="learning-place-content">
+    <section className="content-section">
+      <div className="container">
+      <div className="section-inner">
           <Text typography='heading2'>몰입과 협업이 공존하는<br/>열린 학습 공간</Text>
           <div className="learning-place-slider-container">
             <div className="learning-place-slider-wrapper">
@@ -42,8 +42,8 @@ const DetailLearningPlace = () => {
             </div>
             <div className="learning-place-caption">구름 스퀘어 강남 / 메타버스 환경</div>
           </div>
-        </div>
-      </div>
+          </div>
+          </div>
     </section>
   );
 };

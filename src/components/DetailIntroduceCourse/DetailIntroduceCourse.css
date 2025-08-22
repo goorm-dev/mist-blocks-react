@@ -140,19 +140,6 @@
   padding-bottom: var(--vapor-size-space-800);
 }
 
-.detail-introduce-course-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--vapor-size-space-400);
-  width: 100%;
-  max-width: 1172px;
-  margin: 0 auto;
-  padding-left: var(--vapor-size-space-200);
-  padding-right: var(--vapor-size-space-200);
-}
-
 .section-inner {
   width: 100%;
   max-width: 1140px;
@@ -349,10 +336,6 @@
     padding-bottom: var(--vapor-size-space-600);
   }
 
-  .detail-introduce-course-wrap {
-    gap: var(--vapor-size-space-300);
-  }
-
   .section-inner {
     gap: var(--vapor-size-space-500);
   }
@@ -387,10 +370,6 @@
 
 /* 소형 모바일 (576px 이하) */
 @media (max-width: 576px) {
-  .detail-introduce-course-wrap {
-    padding-left: var(--vapor-size-space-150);
-    padding-right: var(--vapor-size-space-150);
-  }
 
   .content-card {
     padding: var(--vapor-size-space-200);
@@ -407,10 +386,6 @@
 
 /* 대형 화면 최적화 (1440px 이상) */
 @media (min-width: 1440px) {
-  .detail-introduce-course-wrap {
-    max-width: 1440px;
-  }
-
   .section-inner {
     max-width: 1200px;
   }

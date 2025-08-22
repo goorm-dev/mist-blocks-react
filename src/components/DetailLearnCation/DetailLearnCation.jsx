@@ -39,9 +39,8 @@ const DetailLearnCation = () => {
   };
 
   return (
-    <section className="content-section learn-cation-section">
+    <section className="content-section">
       <div className="container">
-        <div className="learn-cation-wrap">
           <div className="section-inner">
             {/* 메인 타이틀 */}
             <div className="section-title">
@@ -88,7 +87,6 @@ const DetailLearnCation = () => {
             </div>
           </div>
         </div>
-      </div>
     </section>
   );
 };

@@ -17,7 +17,8 @@ const DetailCurriculum = ({ course }) => {
   return (
     <section className="content-section curriculum-section" id="curriculum">
       <div className="container">
-        <Text typography="heading2" className="title">단계별 학습 설계로<br/>탄탄하게 쌓는 커리큘럼</Text>  
+        <div className='section-inner'>
+        <Text typography="heading2">단계별 학습 설계로<br/>탄탄하게 쌓는 커리큘럼</Text>  
         {/* 커리큘럼 아코디언 */}
         <div className="curriculum-content">
           {curriculumData.length > 0 ? (
@@ -144,6 +145,7 @@ const DetailCurriculum = ({ course }) => {
               해당 과정의 커리큘럼 정보가 없습니다.
             </Text>
           )}
+        </div>
         </div>
       </div>
     </section>

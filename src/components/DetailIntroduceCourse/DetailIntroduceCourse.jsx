@@ -90,9 +90,8 @@ const DetailIntroduceCourse = ({
   };
 
   return (
-    <section className={`content-section detail-introduce-course-section ${className}`.trim()} id="introduce">
+    <section className={`content-section ${className}`.trim()} id="introduce">
       <div className="container" >
-        <div className="detail-introduce-course-wrap">
           <div className="section-inner">
             {/* 메인 타이틀 */}
             <div className="section-title">
@@ -166,7 +165,6 @@ const DetailIntroduceCourse = ({
             </div>
           </div>
         </div>
-      </div>
     </section>
   );
 };

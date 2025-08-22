@@ -1,6 +1,5 @@
 .curriculum-section .title {
   color: var(--vapor-color-foreground-normal);
-  margin-bottom: var(--vapor-size-space-700);
 }
 
 .curriculum-section .subtitle {
@@ -11,11 +10,13 @@
 .curriculum-section .curriculum-content {
   display: flex;
   flex-direction: column;
+  width: 100%;
   gap: var(--vapor-size-space-200);
 }
 
 .curriculum-grid {
   display: flex;
+  width: 100%;
   gap: var(--vapor-size-space-300);
 }
 
