@@ -45,7 +45,7 @@
 /* 무한 스크롤 애니메이션 */
 @keyframes moveSlider {
     0% {
-        transform: translateX(0%);
+        transform: translateX(0);
     }
     50% {
         transform: translateX(-100%);
@@ -60,10 +60,10 @@
 
 @keyframes moveSliderClone {
   0% {
-      transform: translateX(0%);
+      transform: translateX(0);
   }
   100% {
-      transform: translateX(-200%);
+      transform: translateX(-100%);
   }
 }
 

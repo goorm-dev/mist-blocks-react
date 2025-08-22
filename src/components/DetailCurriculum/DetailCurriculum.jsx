@@ -9,9 +9,14 @@ const DetailCurriculum = ({ course }) => {
   const curriculumData = CURRICULUM_DATA[course] ?? [];
   
   const handleAccordionClick = (idx) => {
-    setOpenIndexes((prev) =>
-      prev.includes(idx) ? prev.filter((i) => i !== idx) : [idx]
-    ); // 하나만 열리게
+    // Check if the card is not already open
+    if (!openIndexes.includes(idx)) {
+      setOpenIndexes([idx]); // 하나만 열리게
+      setActiveIndex(`${idx}-0`); // Set the first item in this curriculum as active
+    } else {
+      // If closing, just remove from open indexes
+      setOpenIndexes([]);
+    }
   };
 
   return (
