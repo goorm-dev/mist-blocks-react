@@ -5,7 +5,7 @@ import './PreBannerSection.css';
 const PreBannerSection = () => {
   const bannerData = {
     title: 'TECH UP 사전 온라인 설명회',
-    subtitle: '사전 설명회 참석하고 에어팟 프로 받자!',
+    subtitle: '사전설명회, 단순한 설명이 아닙니다. 커리어와 혜택의 출발점입니다.<br /> 상세 이벤트는 지원서에서 확인해주세요.',
     schedule: '25.9.4 (목) 19:00, ZOOM',
     buttonText: 'LIVE 신청하기',
     buttonLink: 'https://gem.goorm.io/spaces/space_68760419fd5f865c3926eb2d/courses/course_68a70354d1bc229bd95af294/submissions/submission_68a6fc86d1bc229bd95ae9a0'
@@ -22,7 +22,12 @@ const PreBannerSection = () => {
             <div className="pre-text-content">
               <div className="pre-text-wrapper">
                 <Text typography="heading3" foreground="normal" className="pre-banner-title">{bannerData.title}</Text>
-                <Text typography="heading6" foreground="normal" className="pre-banner-subtitle">{bannerData.subtitle}</Text>
+                <Text 
+                  typography="heading6" 
+                  foreground="normal-lighter" 
+                  className="pre-banner-subtitle"
+                  dangerouslySetInnerHTML={{ __html: bannerData.subtitle }}
+                />
               </div>
               <Text typography="heading6" foreground="hint-darker" className="pre-banner-schedule">{bannerData.schedule}</Text>
             </div>
