@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Text } from '@vapor-ui/core';
 import './DetailLearnCation.css';
 
@@ -32,22 +32,32 @@ const LEARN_CATION_CARDS = [
 
 const DetailLearnCation = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  // 윈도우 사이즈 변경 감지
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // 이미지 hover 이벤트 핸들러
   const handleImageHover = (index) => {
-    setActiveIndex(index);
+    if (!isMobile) {
+      setActiveIndex(index);
+    }
   };
 
   return (
     <section className="content-section">
       <div className="container">
-          <div className="section-inner">
             {/* 메인 타이틀 */}
-            <div className="section-title">
-              <Text typography="heading2" foreground="normal">
+              <Text typography="heading2" foreground="normal" className='title'>
                 배우고, 쉬고, 연결되는<br/>TECH UP 런케이션
               </Text>
-            </div>
             
             {/* 런케이션 이미지 그리드 */}
             <div className="learn-cation-grid">
@@ -65,7 +75,7 @@ const DetailLearnCation = () => {
                       className="main-image"
                     />
                   </div>
-                  {activeIndex === index && (
+                  {(isMobile || activeIndex === index) && (
                     <div className="card-content">
                       <div className="card-text">
                         <Text typography="heading3" foreground="accent">
@@ -85,7 +95,6 @@ const DetailLearnCation = () => {
                 </div>
               ))}
             </div>
-          </div>
         </div>
     </section>
   );

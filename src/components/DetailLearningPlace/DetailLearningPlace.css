@@ -24,12 +24,12 @@
 
 /* 원본 슬라이더의 애니메이션 */
 .learning-place-slider.original {
-  animation: 20s linear infinite moveSlider;
+  animation: 60s linear infinite moveSlider;
 }
 
 /* 복제 슬라이더의 애니메이션 */
 .learning-place-slider.clone {
-  animation: 20s linear infinite moveSliderClone;
+  animation: 60s linear infinite moveSliderClone;
 }
 
 /* 무한 스크롤 애니메이션 */
@@ -100,7 +100,7 @@
   position: relative;
   overflow: hidden;
 }
-
+/* 
 .learning-place-card:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   border-color: var(--ktc-tech-up-red);
@@ -122,7 +122,7 @@
 
 .learning-place-card:hover::after {
   opacity: 1;
-}
+} */
 
 .learning-place-card-content {
   display: flex;
@@ -133,31 +133,19 @@
 .learning-place-card-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: var(--vapor-size-space-300);
 }
-.learning-place-card-title {
-  font-size: var(--vapor-typography-fontSize-xl);
-  font-weight: var(--vapor-typography-fontWeight-700);
-  line-height: 1.5;
-  color: var(--vapor-color-foreground-normal, #2B2D36);
-}
 
-.learning-place-card-description {
-  font-size: var(--vapor-typography-fontSize-md);
-  font-weight: var(--vapor-typography-fontWeight-500);
-  line-height: 1.5;
-  color: var(--vapor-color-foreground-normal-lighter, #525463);
+.learning-place-card-link {
+  cursor: pointer;
+  color: var(--ktc-tech-up-red);
 }
 
 /* 반응형 디자인 */
 @media (max-width: 1440px) {
   .learning-place-slider-wrapper {
     padding-left: calc((100vw - 1172px) / 2); /* Align with container on medium screens */
-  }
-  
-  .learning-places-container {
-    margin-top: var(--vapor-size-space-400);
-    margin-bottom: var(--vapor-size-space-400);
   }
 }
 
@@ -180,14 +168,6 @@
 @media (max-width: 992px) {
   .learning-place-slider-wrapper {
     padding-left: calc((100vw - 720px) / 2); /* Align with container on tablet screens */
-  }
-  
-  .learning-places-container {
-    gap: var(--vapor-size-space-200);
-  }
-  
-  .learning-place-card-title {
-    font-size: var(--vapor-typography-fontSize-lg);
   }
 }
 
@@ -220,14 +200,7 @@
   .learning-place-card::after {
     border-width: 0 30px 30px 0;
   }
-  
-  .learning-place-card-title {
-    font-size: var(--vapor-typography-fontSize-lg);
-  }
-  
-  .learning-place-card-description {
-    font-size: var(--vapor-typography-fontSize-sm);
-  }
+
 }
 
 @media (max-width: 576px) {
@@ -263,11 +236,6 @@
   .learning-place-slide {
     flex: 0 0 240px;
     height: 140px;
-  }
-  
-  .learning-place-title {
-    font-size: var(--vapor-typography-fontSize-lg);
-    line-height: 28px;
   }
   
   .learning-place-caption {

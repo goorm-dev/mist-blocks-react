@@ -5,14 +5,16 @@ import { Text } from '@vapor-ui/core';
 const DetailLearningPlace = () => {
   // 이미지 배열 - 실제 이미지 경로로 변경해야 함
   const images = [
-    "https://placehold.co/384x218",
-    "https://placehold.co/384x218",
-    "https://placehold.co/384x218",
-    "https://placehold.co/384x218",
+    "/assets/techup_learning_place_01.jpg",
+    "/assets/techup_learning_place_02.jpg",
+    "/assets/techup_learning_place_03.jpg",
+    "/assets/techup_learning_place_04.jpg",
+    "/assets/techup_learning_place_05.jpg",
+    "/assets/techup_learning_place_06.jpg"
   ];
 
   return (
-    <section className="content-section">
+    <section className="content-section" id="benefit">
       <div className="container">
           <Text typography='heading2'>몰입과 협업이 공존하는<br/>열린 학습 공간</Text>
       </div>
@@ -46,24 +48,27 @@ const DetailLearningPlace = () => {
           {/* 구름스퀘어 강남 카드 */}
           <div className="learning-place-card">
             <div className="learning-place-card-header">
-              <div className="learning-place-card-title">구름스퀘어 강남</div>
+              <Text typography='heading5' foreground='normal'>구름스퀘어 강남</Text>
+              <a target='_blank' href="https://map.naver.com/p/entry/place/1318967756?placePath=%2Fhome">
+                <Text as="span" typography='heading6' className="learning-place-card-link">위치 확인</Text>
+              </a>
             </div>
             <div className="learning-place-card-content">
-              <div className="learning-place-card-description">
-                서울특별시 강남구 테헤란로 142 (역삼동) 아크플레이스 2층
-              </div>
+              <Text typography='body1' foreground='normal-lighter'>
+                구름스퀘어 강남의 쾌적한 공간에서 팀원들과 직접 협업하며 실무와 같은 프로젝트 경험을 쌓을 수 있습니다. 대면 소통을 통해 커뮤니케이션과 팀워크 역량을 자연스럽게 키울 수 있습니다.
+              </Text>
             </div>
           </div>
           
           {/* TECH UP 메타버스 카드 */}
           <div className="learning-place-card">
             <div className="learning-place-card-header">
-              <div className="learning-place-card-title">TECH UP 메타버스</div>
+              <Text typography='heading5' foreground='normal'>TECH UP 메타버스</Text>
             </div>
             <div className="learning-place-card-content">
-              <div className="learning-place-card-description">
-                온라인 실시간 메타버스 강의실에서 학습합니다.
-              </div>
+              <Text typography='body1' foreground='normal-lighter'>
+                대회 가상현실 기반의 메타버스 환경에서 시간과 장소 제약 없이 몰입감 있는 학습과 협업을 경험할 수 있습니다. 실제와 유사한 협업 과정을 온라인에서도 생생하게 체험할 수 있습니다.
+              </Text>
             </div>
           </div>
         </div>

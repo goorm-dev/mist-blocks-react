@@ -417,7 +417,7 @@ const ProfileCard = ({
 
 // 애니메이션 설정
 const SCROLL_CONFIG = {
-  SPEED: 15, // 픽셀/초 (속도 조정 - 더 천천히 이동)
+  SPEED: 80, // 픽셀/초 (속도 조정 - 더 천천히 이동)
   GAP: 24,   // 카드 간격 (px)
   OFFSET: 76, // 두 번째 열 시작점 오프셋 (px)
 };
@@ -440,7 +440,7 @@ const SpecialProfile = ({
   const secondRowDuration = calculateDuration(secondRow);
 
   return (
-    <section className="content-section special-profile-section">
+    <section className="content-section">
       <div className="container">
         <Text typography="heading2" className="title">{title}</Text>
         

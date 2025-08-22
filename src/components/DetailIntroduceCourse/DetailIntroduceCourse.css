@@ -140,25 +140,6 @@
   padding-bottom: var(--vapor-size-space-800);
 }
 
-.section-inner {
-  width: 100%;
-  max-width: 1140px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: var(--vapor-size-space-700);
-}
-
-/* 섹션 타이틀 */
-.section-title {
-  width: 100%;
-}
-
-.section-title .text-element {
-  line-height: var(--vapor-typography-lineHeight-500);
-}
-
 /* 콘텐츠 그리드 */
 .content-grid {
   width: 100%;
@@ -208,12 +189,18 @@
 
 /* 핵심 메시지 카드 */
 .core-message-card {
-  background-image: url('/assets/techup_introduce_background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
   border-radius: var(--vapor-size-border-radius-600) var(--vapor-size-border-radius-600) 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 호버 시에만 텍스트가 보이는 효과가 있는 경우를 대비한 기본 스타일 */
+.core-message-card .core-card-content {
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 
@@ -259,17 +246,12 @@
 .value-content {
   display: flex;
   flex-direction: column;
-  gap: var(--vapor-size-space-100);
+  gap: var(--vapor-size-space-050);
   width: 100%;
 }
 
 .value-title {
   line-height: var(--vapor-typography-lineHeight-400);
-}
-
-.value-description {
-  line-height: var(--vapor-typography-lineHeight-300);
-  white-space: pre-line;
 }
 
 /* 추천 대상 카드 */
@@ -319,10 +301,6 @@
     padding-bottom: var(--vapor-size-space-700);
   }
 
-  .section-inner {
-    gap: var(--vapor-size-space-600);
-  }
-
   .core-message-text {
     font-size: var(--vapor-typography-fontSize-600);
     line-height: var(--vapor-typography-lineHeight-400);
@@ -336,10 +314,6 @@
     padding-bottom: var(--vapor-size-space-600);
   }
 
-  .section-inner {
-    gap: var(--vapor-size-space-500);
-  }
-
   .content-grid {
     flex-direction: column;
   }
@@ -347,6 +321,21 @@
   .content-card {
     padding: var(--vapor-size-space-250);
     gap: var(--vapor-size-space-200);
+  }
+
+  /* 768px 이하에서는 코어 메시지 카드 내의 모든 텍스트를 항상 표시 */
+  .core-message-card .core-card-content {
+    opacity: 1;
+    visibility: visible;
+    position: static;
+    max-height: none;
+    overflow: visible;
+    transform: none;
+    transition: none;
+    background: rgba(0, 0, 0, 0.5); /* 배경 이미지 위에 텍스트가 잘 보이도록 약간의 배경 처리 */
+    padding: var(--vapor-size-space-200);
+    width: 100%;
+    height: auto;
   }
 
   .core-message-text {
@@ -381,12 +370,5 @@
 
   .audience-bullet {
     margin-top: 8px;
-  }
-}
-
-/* 대형 화면 최적화 (1440px 이상) */
-@media (min-width: 1440px) {
-  .section-inner {
-    max-width: 1200px;
   }
 }

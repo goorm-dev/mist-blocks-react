@@ -5,29 +5,6 @@
   background-color: var(--vapor-color-background-normal);
 }
 
-.section-inner {
-  width: 100%;
-  max-width: 1140px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: var(--vapor-size-space-700);
-  padding-top: var(--vapor-size-space-600);
-  padding-bottom: var(--vapor-size-space-600);
-}
-
-/* Section Title */
-.section-title {
-  width: 100%;
-}
-
-.section-title .text-element {
-  line-height: var(--vapor-typography-lineHeight-500);
-  font-size: var(--vapor-typography-fontSize-700);
-  font-weight: var(--vapor-typography-fontWeight-700);
-}
-
 /* Learn Cation Grid */
 .learn-cation-grid {
   width: 100%;
@@ -105,10 +82,6 @@
     padding-bottom: var(--vapor-size-space-700);
   }
 
-  .section-inner {
-    gap: var(--vapor-size-space-600);
-  }
-
   .learn-cation-main-card.active {
     flex: 3 1 0;
   }
@@ -119,10 +92,6 @@
   .learn-cation-section {
     padding-top: var(--vapor-size-space-600);
     padding-bottom: var(--vapor-size-space-600);
-  }
-
-  .section-inner {
-    gap: var(--vapor-size-space-500);
   }
 
   .learn-cation-grid {
@@ -137,6 +106,18 @@
     height: auto;
     min-height: 300px;
   }
+  
+  /* 모바일에서는 모든 카드의 내용이 항상 표시되도록 설정 */
+  .card-content {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* 모바일에서 모든 카드가 확장된 상태로 표시되도록 설정 */
+  .learn-cation-main-card {
+    width: 100%;
+    flex: 1;
+  }
 }
 
 /* Small Mobile (576px tX) */
@@ -147,12 +128,5 @@
 
   .card-content {
     padding: var(--vapor-size-space-300);
-  }
-}
-
-/* Large Screens (1440px t�) */
-@media (min-width: 1440px) {
-  .section-inner {
-    max-width: 1200px;
   }
 }

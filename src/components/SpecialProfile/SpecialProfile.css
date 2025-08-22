@@ -6,13 +6,6 @@
   width: 384px;
   flex-shrink: 0;
 }
-  
-/* ProfileCard 컨테이너 레이아웃 */
-.special-profile-section .container {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
 
 /* 무한 스크롤 래퍼 */
 .infinite-scroll-wrapper {
@@ -397,12 +390,6 @@
   }
 }
 
-/* Special Profile Section Styles */
-.special-profile-section {
-  padding: var(--vapor-size-space-800) 0;
-  overflow: hidden;
-}
-
 /* Responsive Design */
 
 @media (max-width: 1200px) {
@@ -470,14 +457,6 @@
 }
 
 @media (max-width: 576px) {
-  .special-profile-section {
-    padding: var(--vapor-size-space-600) 0;
-  }
-  .special-profile-section .title {
-    margin-bottom: var(--vapor-size-space-600);
-    text-align: left;
-  }
-
   .infinite-scroll-wrapper {
     min-height: 450px;
   }

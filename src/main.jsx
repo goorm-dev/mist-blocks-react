@@ -5,6 +5,7 @@ import App from './App.jsx'
 import './App.css'
 import '@vapor-ui/core/styles.css'; 
 import { createThemeConfig, ThemeProvider } from '@vapor-ui/core';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop.jsx'
 
 
 export const themeConfig = createThemeConfig({
@@ -18,6 +19,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider config={themeConfig}>
       <BrowserRouter>
+        <ScrollToTop />
         <App />
       </BrowserRouter>
     </ThemeProvider>

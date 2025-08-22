@@ -354,13 +354,9 @@ const DetailBenefit = () => {
   return (
     <section className="content-section detail-benefit-section" id="benefit">
       <div className="container">
-          <div className="section-inner">
-            {/* 메인 타이틀 */}
-            <div className="section-title">
-              <Text typography="heading2" foreground="normal">
+              <Text typography="heading2" foreground="normal" className="title">
                 학습을 돕는 지원부터<br/>성장을 이끄는 혜택까지
               </Text>
-            </div>
 
             {/* 혜택 그리드 */}
             <div className="benefit-grid">
@@ -374,7 +370,6 @@ const DetailBenefit = () => {
               ))}
             </div>
           </div>
-        </div>
     </section>
   );
 };

@@ -2,6 +2,20 @@ import React from 'react';
 import { Text } from '@vapor-ui/core';
 import './DetailIntroduceCourse.css';
 import { COURSE_CONTENT } from './DetailIntroduceCourse.constant';
+import { COURSE } from '../../constants/CourseInformation';
+
+// 각 과정별 배경 이미지 매핑
+const COURSE_BACKGROUND_IMAGES = {
+  [COURSE.CLOUD_NATIVE]: 'techup_introduce_bg_cloudnative.png',
+  [COURSE.CLOUD_INFRASTRUCTURE]: 'techup_introduce_bg_cloudinfra.png',
+  [COURSE.INFORMATION_SECURITY]: 'techup_introduce_bg_security.png',
+  [COURSE.FULLSTACK]: 'techup_introduce_bg_fullstack.png',
+  [COURSE.BACKEND]: 'techup_introduce_bg_backend.png',
+  [COURSE.FRONTEND]: 'techup_introduce_bg_frontend.png',
+  [COURSE.GEN_AI]: 'techup_introduce_bg_genai.png',
+  [COURSE.PRODUCT_DESIGN]: 'techup_introduce_bg_design.png',
+  [COURSE.PRODUCT_MANAGEMENT]: 'techup_introduce_bg_pm.png',
+};
 
 const DetailIntroduceCourse = ({ 
   course,
@@ -15,6 +29,9 @@ const DetailIntroduceCourse = ({
     console.warn(`Course content not found for: ${course}`);
     return null;
   }
+  
+  // 과정에 맞는 배경 이미지 가져오기
+  const backgroundImage = COURSE_BACKGROUND_IMAGES[course];
 
   const {
     title,
@@ -63,10 +80,16 @@ const DetailIntroduceCourse = ({
           <React.Fragment key={index}>
             <span className="highlight-brace">{'{'}</span>
             <span className="highlight-keyword">
-              {part.content.split('\n').map((line, lineIndex) => (
+              {part.content.split(/\n{1,}/).map((line, lineIndex) => (
                 <React.Fragment key={lineIndex}>
                   {line}
-                  {lineIndex < part.content.split('\n').length - 1 && <br />}
+                  {lineIndex < part.content.split(/\n{1,}/).length - 1 && (
+                    <>
+                      <br />
+                      {/* 빈 문자열인 경우 추가 줄바꿈 적용 */}
+                      {line === "" && <br />}
+                    </>
+                  )}
                 </React.Fragment>
               ))}
             </span>
@@ -74,13 +97,19 @@ const DetailIntroduceCourse = ({
           </React.Fragment>
         );
       } else {
-        // 일반 텍스트에서 줄바꿈 처리
+        // 일반 텍스트에서 줄바꿈 처리 - 이중 줄바꿈(\n\n) 지원
         return (
           <span key={index} className="normal-text">
-            {part.content.split('\n').map((line, lineIndex) => (
+            {part.content.split(/\n{1,}/).map((line, lineIndex) => (
               <React.Fragment key={lineIndex}>
                 {line}
-                {lineIndex < part.content.split('\n').length - 1 && <br />}
+                {lineIndex < part.content.split(/\n{1,}/).length - 1 && (
+                  <>
+                    <br />
+                    {/* 빈 문자열인 경우 추가 줄바꿈 적용 */}
+                    {line === "" && <br />}
+                  </>
+                )}
               </React.Fragment>
             ))}
           </span>
@@ -92,28 +121,31 @@ const DetailIntroduceCourse = ({
   return (
     <section className={`content-section ${className}`.trim()} id="introduce">
       <div className="container" >
-          <div className="section-inner">
             {/* 메인 타이틀 */}
-            <div className="section-title">
-              <Text typography="heading2" foreground="normal">
-                {title.split('\n').map((line, index) => (
+              <Text typography="heading2" foreground="normal" className="title">
+                {title.split(/\n{1,}/).map((line, index) => (
                   <React.Fragment key={index}>
                     {line}
-                    {index < title.split('\n').length - 1 && <br />}
+                    {index < title.split(/\n{1,}/).length - 1 && (
+                      <>
+                        <br />
+                        {/* 빈 문자열인 경우 추가 줄바꿈 적용 */}
+                        {line === "" && <br />}
+                      </>
+                    )}
                   </React.Fragment>
                 ))}
               </Text>
-            </div>
 
             {/* 콘텐츠 그리드 */}
             <div className="content-grid">
               {/* 핵심 메시지 섹션 */}
-              <div className="content-card core-message-card">
-                <div className="card-header">
-                  <Text typography="subtitle1" foreground="accent" className="card-label">
-                    이 교육이 특별한 이유
-                  </Text>
-                </div>
+              <div 
+                className="content-card core-message-card"
+                style={{ 
+                  backgroundImage: `url('/assets/${backgroundImage}')`
+                }}
+              >
                 <div className="core-card-content">
                   <Text typography="heading2" foreground="accent" className="core-message-text">
                     {parseMessage(coreMessage)}
@@ -124,17 +156,12 @@ const DetailIntroduceCourse = ({
               <div className='content-grid-right'>
                 {/* 가치 증명 섹션 */}
                 <div className="content-card value-proposition-card">
-                  <div className="card-header">
-                    <Text typography="subtitle1" foreground="primary" className="card-label">
-                      검증된 결과
-                    </Text>
-                  </div>
                   <div className="core-card-content">
                     <div className="value-content">
                       <Text typography="heading5" foreground="normal" className="value-title">
                         {valueTitle}
                       </Text>
-                      <Text typography="body1" foreground="hint" className="value-description">
+                      <Text typography="body2" foreground="hint" className="value-description">
                         {valueDescription}
                       </Text>
                     </div>
@@ -153,7 +180,7 @@ const DetailIntroduceCourse = ({
                       {targetAudience.map((audience, index) => (
                         <div key={index} className="target-audience-item">
                           <div className="audience-bullet"></div>
-                          <Text typography="body1" foreground="normal" className="audience-text">
+                          <Text typography="body" foreground="normal" className="audience-text">
                             {audience}
                           </Text>
                         </div>
@@ -163,7 +190,6 @@ const DetailIntroduceCourse = ({
                 </div>
               </div>
             </div>
-          </div>
         </div>
     </section>
   );

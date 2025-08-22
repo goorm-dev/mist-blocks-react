@@ -81,15 +81,11 @@ const DetailRecruitmentProcess = () => {
   ];
 
   return (
-    <section className="content-section detail-recruitment-process-section" id="recruitment-process">
+    <section className="content-section detail-recruitment-process-section" id="faq">
       <div className="container">
-          <div className="section-inner">
-            {/* 메인 타이틀 */}
-            <div className="section-title">
-              <Text typography="heading2" foreground="normal">
+              <Text typography="heading2" foreground="normal" className="title">
                 지원에서 합류까지<br/>한눈에 확인하는 과정
               </Text>
-            </div>
 
             {/* 프로세스 콘텐츠 */}
             <div className="process-content-wrapper">
@@ -119,7 +115,6 @@ const DetailRecruitmentProcess = () => {
                 ))}
               </div>
             </div>
-          </div>
         </div>
     </section>
   );

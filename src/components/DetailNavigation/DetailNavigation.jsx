@@ -22,93 +22,49 @@ const DetailNavigation = ({
   // 섹션 배열 결정
   const navigationSections = sections.length > 0 ? sections : defaultSections;
   
-  // 스크롤 및 클릭 관련 상태
-  const [isUserScrolling, setIsUserScrolling] = useState(false); // 사용자가 스크롤하는지 표시
-  const [isClickNavigation, setIsClickNavigation] = useState(false); // 클릭에 의한 네비게이션인지 표시
-  const scrollTimeout = useRef(null);
-  const clickTimeout = useRef(null); // 클릭 타임아웃 추적용
-  
   // 사용자 선택 혹은 기본값으로 초기화
   const initialActiveSection = propActiveSection || (navigationSections[0] ? navigationSections[0].id : 'introduce');
   const [activeSection, setActiveSection] = useState(initialActiveSection);
-
-  console.log(activeSection);
-
   // 스크롤 감지용 효과 처리
+  const navigationRef = useRef(null);
+  
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 100;
-      setScrolled(isScrolled);
+      if (navigationRef.current) {
+        // 네비게이션 요소가 맨 위에 도달했는지 확인
+        const rect = navigationRef.current.getBoundingClientRect();
+        const isAtTop = rect.top <= 0;
+        setScrolled(isAtTop);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
+    // 초기 상태 확인
+    handleScroll();
+    
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   
-  // 사용자 스크롤 감지
-  useEffect(() => {
-    const handleUserScroll = () => {
-      // 네비게이션 클릭 이후 스크롤 중이면 무시
-      if (isClickNavigation) return;
-      
-      setIsUserScrolling(true);
-      
-      // 이전 타이머 취소
-      if (scrollTimeout.current) {
-        clearTimeout(scrollTimeout.current);
-      }
-      
-      // 0.2초 후 스크롤 종료 확인
-      scrollTimeout.current = setTimeout(() => {
-        setIsUserScrolling(false);
-      }, 200);
-    };
-    
-    window.addEventListener('scroll', handleUserScroll);
-    
-    return () => {
-      window.removeEventListener('scroll', handleUserScroll);
-      if (scrollTimeout.current) {
-        clearTimeout(scrollTimeout.current);
-      }
-      if (clickTimeout.current) {
-        clearTimeout(clickTimeout.current);
-      }
-    };
-  }, [isClickNavigation]);
-
   // Intersection Observer를 사용하여 화면에 보이는 섹션 감지
   useEffect(() => {
     const sectionIds = navigationSections.map(section => section.id);
     
     const observer = new IntersectionObserver(
       (entries) => {
-        // 클릭 후 스크롤 중에는 Intersection Observer가 작동하지 않도록
-        if (isClickNavigation) return;
-        
-        // 현재 관찰되는 모든 섹션들의 ID
-        const currentEntryIds = entries.map(entry => entry.target.id);
-        
-        // 현재 액티브 섹션이 관찰 섹션에 포함되어 있는지 확인
-        const activeIsObserved = currentEntryIds.includes(activeSection);
-        
         // 보이는 섹션들만 필터링
         const visibleEntries = entries.filter(entry => entry.isIntersecting);
         
-        // 보이는 섹션이 있을 경우
         if (visibleEntries.length > 0) {
-          // 가장 먼저 나타나는 섹션 (상단에 가까운 섹션)
-          const topVisibleSection = visibleEntries
+          // 가장 상단에 위치한 섹션을 Active로 설정
+          const topSection = visibleEntries
             .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
           
-          const sectionId = topVisibleSection.target.id;
+          const sectionId = topSection.target.id;
           if (sectionIds.includes(sectionId)) {
             setActiveSection(sectionId);
           }
-        } else if (activeIsObserved && entries.length > 0) {
-          // 현재 보이는 섹션이 없고 액티브 섹션이 관찰 대상일 경우 리셋
-          setActiveSection(initialActiveSection);
         }
+        // ID에 부합하는 요소가 없으면 현재 상태 유지 (아무것도 하지 않음)
       },
       {
         rootMargin: '-15% 0px -75% 0px', // 상단 15%, 하단 75% 여백으로 감지 영역 조정
@@ -125,7 +81,7 @@ const DetailNavigation = ({
     });
 
     return () => observer.disconnect();
-  }, [navigationSections, isClickNavigation]);
+  }, [navigationSections]);
 
   // props로 전달된 activeSection 변경 시 적용
   useEffect(() => {
@@ -138,19 +94,6 @@ const DetailNavigation = ({
   const handleSectionClick = (sectionId) => {
     // 클릭한 섹션을 활성화로 설정
     setActiveSection(sectionId);
-    
-    // 클릭 후 스크롤 중임을 표시
-    setIsClickNavigation(true);
-    
-    // 이전 타이머가 있으면 취소
-    if (clickTimeout.current) {
-      clearTimeout(clickTimeout.current);
-    }
-    
-    // 1초 후에 다시 스크롤 감지 활성화
-    clickTimeout.current = setTimeout(() => {
-      setIsClickNavigation(false);
-    }, 1000);
     
     if (onSectionClick) {
       onSectionClick(sectionId);
@@ -167,23 +110,69 @@ const DetailNavigation = ({
     }
   };
 
+  // 네비게이션 메뉴 참조
+  const navigationMenuRef = useRef(null);
+  
+  // 스크롤 상태 감지
+  const [scrollable, setScrollable] = useState({
+    canScrollLeft: false,
+    canScrollRight: false
+  });
+
+  // 스크롤 여부 확인
+  const checkScrollable = () => {
+    if (navigationMenuRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = navigationMenuRef.current;
+      setScrollable({
+        canScrollLeft: scrollLeft > 0,
+        canScrollRight: scrollLeft < scrollWidth - clientWidth - 1
+      });
+    }
+  };
+
+  // 스크롤 이벤트 처리
+  useEffect(() => {
+    const menuElement = navigationMenuRef.current;
+    if (menuElement) {
+      checkScrollable();
+      menuElement.addEventListener('scroll', checkScrollable);
+      window.addEventListener('resize', checkScrollable);
+      
+      return () => {
+        menuElement.removeEventListener('scroll', checkScrollable);
+        window.removeEventListener('resize', checkScrollable);
+      };
+    }
+  }, []);
+  
   return (
-    <section className={`detail-navigation-section ${scrolled ? 'scrolled' : ''} ${className}`.trim()}>
+    <section 
+      ref={navigationRef}
+      className={`detail-navigation-section ${scrolled ? 'scrolled' : ''} ${className}`.trim()}
+    >
       <div className="container">
         <div className="detail-navigation-wrap">
           <nav className="navigation-inner">
-            <div className="navigation-menu">
-              {navigationSections.map((section) => (
-                <button
-                  key={section.id}
-                  onClick={() => handleSectionClick(section.id)}
-                  className={`navigation-item ${activeSection === section.id ? 'active' : ''}`}
-                >
-                  <Text typography='heading6' className='text-inherit'>
-                    {section.label}
-                  </Text>
-                </button>
-              ))}
+            <div 
+              className={`navigation-menu-wrapper ${scrollable.canScrollLeft ? 'show-left-indicator' : ''} ${scrollable.canScrollRight ? 'show-right-indicator' : ''}`}
+            >
+              <div 
+                ref={navigationMenuRef}
+                className="navigation-menu"
+                onScroll={checkScrollable}
+              >
+                {navigationSections.map((section) => (
+                  <button
+                    key={section.id}
+                    onClick={() => handleSectionClick(section.id)}
+                    className={`navigation-item ${activeSection === section.id ? 'active' : ''}`}
+                  >
+                    <Text typography='heading6' className='text-inherit'>
+                      {section.label}
+                    </Text>
+                  </button>
+                ))}
+              </div>
             </div>
           </nav>
         </div>

@@ -193,15 +193,13 @@ const TESTIMONIAL_DATA = {
 
 const DetailCarrierSupport = () => {
   return (
-    <section className="content-section detail-carrier-support" id="carrier_support">
+    <section className="content-section" id="carrier_support">
       <div className="container">
         <div className="content-wrapper">
           {/* 섹션 제목 */}
-          <div className="section-title">
-            <Text typography="heading2" foreground="normal">
+            <Text typography="heading2" foreground="normal" className="title">
               목표를 현실로 만드는<br/>맞춤형 커리어 지원
             </Text>
-          </div>
           
           {/* 캐리어 지원 그리드 */}
           <div className="career-grid">
