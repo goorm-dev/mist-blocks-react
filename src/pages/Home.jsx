@@ -6,6 +6,7 @@ import { useTheme } from '@vapor-ui/core';
 import SpecialProfile from '../components/SpecialProfile/SpecialProfile';
 import CeoInterviewSection from '../components/CeoSection/CeoInterviewSection';
 import PreBannerSection from '../components/PreBanner/PreBannerSection';
+import DetailLearnCation from '../components/DetailLearnCation/DetailLearnCation';
 import ProjectCultureSection from '../components/ProjectCulture/ProjectCultureSection';
 
 function Home() {
@@ -20,6 +21,7 @@ function Home() {
         <HeroSection3 />
         <PreBannerSection />
         <CeoInterviewSection />
+        <DetailLearnCation />
         <ProjectCultureSection />
         <SpecialProfile />
         <CourseSectionNew />

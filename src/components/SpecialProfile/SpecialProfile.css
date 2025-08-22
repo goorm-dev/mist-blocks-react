@@ -3,19 +3,108 @@
   transform: translate3d(0, 0, 0.1px);
   position: relative;
   touch-action: none;
+  width: 384px;
+  flex-shrink: 0;
 }
   
-/* ProfileCard 컨테이너 그리드 레이아웃 */
+/* ProfileCard 컨테이너 레이아웃 */
 .special-profile-section .container {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
-.profile-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+/* 무한 스크롤 래퍼 */
+.infinite-scroll-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 650px;
+  overflow: hidden;
+}
+
+/* 그라디언트 마스크 */
+.gradient-left {
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(90deg, var(--vapor-color-background-normal) 0%, rgba(255, 255, 255, 0) 100%);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.gradient-right {
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(270deg, var(--vapor-color-background-normal) 0%, rgba(255, 255, 255, 0) 100%);
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* 스크롤 컨테이너 */
+.scroll-container {
+  display: flex;
+  flex-direction: column;
   gap: var(--vapor-size-space-300);
-  align-items: start;
+  width: 100%;
+  min-height: 600px;
+  overflow: hidden;
+}
+
+/* 스크롤 로우 공통 스타일 */
+.scroll-row {
+  display: flex;
+  gap: 24px;
+  will-change: transform;
+  min-height: 280px;
+}
+
+/* 두 번째 로우 오프셋 */
+.scroll-row-offset {
+  transform: translateX(-76px);
+}
+
+/* 무한 스크롤 애니메이션 - 왼쪽으로 이동 */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* 무한 스크롤 애니메이션 - 오른쪽으로 이동 */
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* 방향별 애니메이션 적용 */
+.first-row {
+  animation: scrollLeft var(--duration) linear infinite;
+}
+
+.second-row {
+  animation: scrollRight var(--duration) linear infinite;
+}
+
+/* 반대 방향으로 스크롤하는 애니메이션 */
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 /* .pc-card-wrapper::before {
@@ -201,7 +290,6 @@
   }
   
   .pc-title {
-    margin-bottom: var(--vapor-size-space-100);
     width: 100%;
   }
   
@@ -251,7 +339,6 @@
   position: relative;
   /* transform: translate3d(calc(var(--pointer-from-left) * -6px + 3px), calc(var(--pointer-from-top) * -6px + 3px), 0.1px) !important; */
   z-index: 5;
-  mix-blend-mode: luminosity;
 }
   
 .pc-details {
@@ -271,13 +358,13 @@
   position: relative;
   background: linear-gradient(90deg, #FF512F 0%, #DD2476 100%);
   overflow: hidden;
-  border-radius: 32px;
+  border-radius: 100%;
   margin-right: 12px;
 }
 
 .pc-avatar-image {
   left: 0;
-  top: 0;
+  top: 2px;
   position: absolute;
   border-radius: 100%;
 }
@@ -313,40 +400,72 @@
 /* Special Profile Section Styles */
 .special-profile-section {
   padding: var(--vapor-size-space-800) 0;
+  overflow: hidden;
 }
 
 /* Responsive Design */
 
 @media (max-width: 1200px) {
-  .profile-cards-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .scroll-container {
+    gap: var(--vapor-size-space-300);
   }
-  .pc-card{
-    height: 27rem;
-    aspect-ratio: unset;
-  }
+  
   .pc-avatar-content .avatar {
     width: 72%;
+  }
+  
+  .infinite-scroll-wrapper {
+    min-height: 650px;
   }
 }
 @media (max-width: 992px) {
   .pc-avatar-content .avatar {
     width: 92%;
   }
+  
+  .infinite-scroll-wrapper {
+    min-height: 600px;
+  }
+  
+  .pc-card {
+    height: 24rem;
+  }
 }
   
   /* Extra small devices (below 480px) */
 @media (max-width: 768px) {
-  .profile-cards-grid {
-    grid-template-columns: 1fr;
-    gap: var(--vapor-size-space-200);
+  .scroll-container {
+    gap: var(--vapor-size-space-300);
+    min-height: 500px;
   }
-  .pc-card{
-    aspect-ratio: 1 / 1;
-    height: 100%;
+  
+  .pc-card {
+    aspect-ratio: unset;
+    min-height: 220px;
+    height: 22rem;
   }
+
+  .gradient-left,
+  .gradient-right {
+    width: 70px;
+  }
+  
   .pc-avatar-content .avatar {
     width: 72%;
+  }
+  
+  .scroll-row-offset {
+    transform: translateX(-40px);
+  }
+  
+  .infinite-scroll-wrapper {
+    min-height: 500px;
+  }
+
+  .pc-details {
+    bottom: var(--vapor-size-space-250);
+    left: var(--vapor-size-space-250);
+    right: var(--vapor-size-space-250);
   }
 }
 
@@ -357,5 +476,22 @@
   .special-profile-section .title {
     margin-bottom: var(--vapor-size-space-600);
     text-align: left;
+  }
+
+  .infinite-scroll-wrapper {
+    min-height: 450px;
+  }
+  
+  .scroll-row-offset {
+    transform: translateX(-30px);
+  }
+  
+  .pc-avatar-container {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .scroll-container {
+    min-height: 450px;
   }
 }

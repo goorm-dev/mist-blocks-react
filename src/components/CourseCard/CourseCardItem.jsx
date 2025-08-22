@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Text, Badge, Button } from '@vapor-ui/core';
 import { CalendarIcon } from '@vapor-ui/icons';
@@ -174,7 +173,7 @@ const CourseCardItem = ({ course, onCtaClick }) => {
   return (
     <div className="course-common">
       <div className="course-card">
-        <a href={course.link} className="course-link">
+        <Link to={course.link} className="course-link">
           <div className="course-thumb">
             <div className="course-status-badge">
               {statusType === 'open' ? (
@@ -209,7 +208,7 @@ const CourseCardItem = ({ course, onCtaClick }) => {
               ))}
             </div>
           </div>
-        </a>
+        </Link>
       </div>
       {course.showCtaButton && (
         <div className="course-action-container">

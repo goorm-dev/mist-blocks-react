@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom';
 import {
   Dialog,
   DialogPanel,
@@ -115,10 +116,10 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
                         <img className="size-8" src={dropdownItem.navIconSrc} alt={dropdownItem.keyword} />  
                         </div>
                         <div className="flex-auto">
-                          <a href={dropdownItem.href} className="block font-semibold text-[var(--vapor-color-foreground-normal)]">
+                          <Link to={dropdownItem.href} className="block font-semibold text-[var(--vapor-color-foreground-normal)]">
                             {dropdownItem.name}
                             <span className="absolute inset-0" />
-                          </a>
+                          </Link>
                           <p className="text-[var(--vapor-color-foreground-normal-lighter)] text-xs">{dropdownItem.description}</p>
                         </div>
                       </div>

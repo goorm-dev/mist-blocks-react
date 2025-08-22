@@ -13,9 +13,9 @@ const FooterCourseLink = ({ course }) => {
 
   return (
       <li key={course}>
-        <a href={hrefLink} className="footer-link">
+        <Link to={hrefLink} className="footer-link">
           <Text as="span" typography="heading6" foreground="inherit">{COURSE_INFORMATION[course].title}</Text>
-        </a>
+        </Link>
       </li>
   )
 }

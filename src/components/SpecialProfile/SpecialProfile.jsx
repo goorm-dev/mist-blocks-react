@@ -411,33 +411,96 @@ const ProfileCard = ({
 /**
  * SpecialProfile 컴포넌트
  * 
- * 여러 ProfileCard를 그리드 형태로 표시하는 컴포넌트입니다.
- * CourseCard와 유사한 구조로 여러 프로필을 관리합니다.
+ * 여러 ProfileCard를 2열로 무한 스크롤 애니메이션과 함께 표시하는 컴포넌트입니다.
+ * DetailLearningPlace의 MoveSlider와 유사한 방식으로 좌에서 우로 이동하는 애니메이션을 적용합니다.
  */
+
+// 애니메이션 설정
+const SCROLL_CONFIG = {
+  SPEED: 15, // 픽셀/초 (속도 조정 - 더 천천히 이동)
+  GAP: 24,   // 카드 간격 (px)
+  OFFSET: 76, // 두 번째 열 시작점 오프셋 (px)
+};
+
 const SpecialProfile = ({ 
   title = "기술과 경험을 전할\n멘토 라인업",
 }) => {
+  // 데이터 분할
+  const firstRow = MENTOR_PROFILES.filter((_, index) => index % 2 === 0);
+  const secondRow = MENTOR_PROFILES.filter((_, index) => index % 2 === 1);
+  
+  // 애니메이션 지속시간 계산 - 동일한 속도로 무한 스크롤을 구현하기 위함
+  const calculateDuration = (items) => {
+    const CARD_WIDTH = 384; // 카드의 대략적인 너비 (원래 값으로 복원)
+    const totalWidth = items.length * (CARD_WIDTH + SCROLL_CONFIG.GAP);
+    return totalWidth / SCROLL_CONFIG.SPEED;
+  };
+
+  const firstRowDuration = calculateDuration(firstRow);
+  const secondRowDuration = calculateDuration(secondRow);
+
   return (
     <section className="content-section special-profile-section">
       <div className="container">
         <Text typography="heading2" className="title">{title}</Text>
-        <div className="profile-cards-grid">
-          {MENTOR_PROFILES.filter(profile => profile.name !== "이름").map((profile, index) => (
-            <ProfileCard
-              key={index}
-              name={profile.name}
-              title={profile.title}
-              description={profile.description}
-              position={profile.position}
-              avatarUrl={profile.avatarUrl}
-              iconUrl="src/assets/iconpattern.png"
-              grainUrl="src/assets/grain.webp"
-              showUserInfo={true}
-              enableTilt={true}
-              enableMobileTilt={false}
-              mobileTiltSensitivity={5}
-            />
-          ))}
+        
+        <div className="infinite-scroll-wrapper">
+          {/* 좌측 그라디언트 */}
+          <div className="gradient-left" />
+          
+          {/* 스크롤 컨테이너 */}
+          <div className="scroll-container">
+            {/* 첫 번째 열 */}
+            <div 
+              className="scroll-row first-row" 
+              style={{ '--duration': `${firstRowDuration}s` }}
+            >
+              {/* 카드들을 2배로 복제하여 무한 스크롤 구현 */}
+              {[...firstRow, ...firstRow].map((profile, index) => (
+                <ProfileCard
+                  key={`first-${index}`}
+                  name={profile.name}
+                  title={profile.title}
+                  description={profile.description}
+                  position={profile.position}
+                  avatarUrl={profile.avatarUrl}
+                  iconUrl="src/assets/iconpattern.png"
+                  grainUrl="src/assets/grain.webp"
+                  showUserInfo={true}
+                  enableTilt={true}
+                  enableMobileTilt={false}
+                  mobileTiltSensitivity={5}
+                />
+              ))}
+            </div>
+            
+            {/* 두 번째 열 - 반대 방향으로 이동 */}
+            <div 
+              className="scroll-row second-row scroll-row-offset"
+              style={{ '--duration': `${secondRowDuration}s` }}
+            >
+              {/* 오른쪽으로 이동하기 위해 동일한 배열을 둘 번 사용 */}
+              {[...secondRow, ...secondRow].map((profile, index) => (
+                <ProfileCard
+                  key={`second-${index}`}
+                  name={profile.name}
+                  title={profile.title}
+                  description={profile.description}
+                  position={profile.position}
+                  avatarUrl={profile.avatarUrl}
+                  iconUrl="src/assets/iconpattern.png"
+                  grainUrl="src/assets/grain.webp"
+                  showUserInfo={true}
+                  enableTilt={true}
+                  enableMobileTilt={false}
+                  mobileTiltSensitivity={5}
+                />
+              ))}
+            </div>
+          </div>
+          
+          {/* 우측 그라디언트 */}
+          <div className="gradient-right" />
         </div>
       </div>
     </section>
