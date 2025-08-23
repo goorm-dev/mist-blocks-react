@@ -45,6 +45,7 @@
 :root.vapor-light-theme {
   --ktc-background-gradient: linear-gradient(145deg,#FFFFFFcc 0%,#F7F7FA88 100%);
   --ktc-text-gradient: linear-gradient(to bottom, var(--vapor-color-foreground-normal), var(--vapor-color-foreground-secondary));
+  --ktc-tech-up-glass: rgba(108, 110, 126, 0.10);
 }
 
 :root.vapor-dark-theme {
@@ -69,6 +70,7 @@
   --vapor-color-border-hint: #737785;
   --ktc-background-gradient: linear-gradient(145deg,#3236408c 0%,#62667344 100%);
   --ktc-text-gradient: linear-gradient(to bottom, var(--vapor-color-foreground-normal), var(--vapor-color-foreground-secondary));
+  --ktc-tech-up-glass: rgba(255, 255, 255, 0.08);
 }
 
 /* Global styles */

@@ -189,6 +189,7 @@
   
   .learning-places-container {
     flex-direction: column;
+    gap: var(--vapor-size-space-200);
   }
   
   .learning-place-card {
@@ -209,8 +210,6 @@
   }
   
   .learning-places-container {
-    margin-top: var(--vapor-size-space-300);
-    margin-bottom: var(--vapor-size-space-300);
     gap: var(--vapor-size-space-200);
   }
   

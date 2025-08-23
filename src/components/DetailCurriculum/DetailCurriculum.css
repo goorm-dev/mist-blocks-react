@@ -178,16 +178,12 @@
 
 /* 반응형 디자인을 위한 미디어 쿼리 */
 @media (max-width: 768px) {
+  .curriculum-column {
+    gap: var(--vapor-size-space-200);
+  }
+
   .curriculum-grid {
     flex-direction: column;
-  }
-  
-  .curriculum-toggle-btn {
-    padding: var(--vapor-size-space-200) var(--vapor-size-space-200);
-  }
-  
-  .curriculum-card-body {
-    padding-left: var(--vapor-size-space-200);
-    padding-right: var(--vapor-size-space-200);
+    gap: var(--vapor-size-space-200);
   }
 }

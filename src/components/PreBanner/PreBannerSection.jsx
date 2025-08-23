@@ -29,7 +29,7 @@ const PreBannerSection = () => {
                   dangerouslySetInnerHTML={{ __html: bannerData.subtitle }}
                 />
               </div>
-              <Text typography="heading6" foreground="hint-darker" className="pre-banner-schedule">{bannerData.schedule}</Text>
+              <Text typography="heading6" foreground="normal" className="pre-banner-schedule">{bannerData.schedule}</Text>
             </div>
             <Button
               color="primary"

@@ -8,11 +8,12 @@ import PreBannerSection from '../../components/PreBanner/PreBannerSection';
 import DetailLearnCation from '../../components/DetailLearnCation/DetailLearnCation';
 import DetailNavigation from '../../components/DetailNavigation/DetailNavigation';
 import DetailIntroduceCourse from '../../components/DetailIntroduceCourse/DetailIntroduceCourse';
-import DetailCarrierSupport from '../../components/DetailCarrierSupport/DetailCarrierSupport';
+// import DetailCarrierSupport from '../../components/DetailCarrierSupport/DetailCarrierSupport';
 import DetailCurriculum from '../../components/DetailCurriculum/DetailCurriculum';
 import DetailBenefit from '../../components/DetailBenefit/DetailBenefit';
 import DetailLearningPlace from '../../components/DetailLearningPlace/DetailLearningPlace';
 import DetailRecruitmentProcess from '../../components/DetailRecruitmentProcess/DetailRecruitmentProcess';
+import DetailCareer from '../../components/DetailCareer/DetailCareer';
 import FloatingMenu from '../../components/FloatingMenu/FloatingMenu';
 
 import { COURSE, COURSE_INFORMATION } from '../../constants/CourseInformation';
@@ -37,7 +38,8 @@ function Detail({ course }) {
         <DetailLearnCation />
         <ProjectCultureSection />
         <DetailCurriculum course={course} />
-        <DetailCarrierSupport />
+        {/* <DetailCarrierSupport /> */}
+        <DetailCareer />
         <DetailBenefit />
         <DetailLearningPlace/>
         <DetailRecruitmentProcess />

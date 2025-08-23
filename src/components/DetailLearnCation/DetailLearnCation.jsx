@@ -81,12 +81,12 @@ const DetailLearnCation = () => {
                         <Text typography="heading3" foreground="accent">
                           <span dangerouslySetInnerHTML={{ __html: card.title }} />
                         </Text>
-                        <Text typography="body1" foreground="accent">
+                        <Text typography="body1" foreground="accent" className='learn-cation-description'>
                           <span dangerouslySetInnerHTML={{ __html: card.description }} />
                         </Text>
                       </div>
                       {card.caption && (
-                        <Text typography="caption" foreground="accent">
+                        <Text typography="caption" foreground="accent" className='learn-cation-caption'>
                           {card.caption}
                         </Text>
                       )}
