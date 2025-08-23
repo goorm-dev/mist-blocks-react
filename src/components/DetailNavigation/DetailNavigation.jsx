@@ -151,30 +151,22 @@ const DetailNavigation = ({
       className={`detail-navigation-section ${scrolled ? 'scrolled' : ''} ${className}`.trim()}
     >
       <div className="container">
-        <div className="detail-navigation-wrap">
-          <nav className="navigation-inner">
-            <div 
-              className="navigation-menu-wrapper"
+        <div 
+          ref={navigationMenuRef}
+          className="navigation-menu"
+          onScroll={checkScrollable}
+        >
+          {navigationSections.map((section) => (
+            <button
+              key={section.id}
+              onClick={() => handleSectionClick(section.id)}
+              className={`navigation-item ${activeSection === section.id ? 'active' : ''}`}
             >
-              <div 
-                ref={navigationMenuRef}
-                className="navigation-menu"
-                onScroll={checkScrollable}
-              >
-                {navigationSections.map((section) => (
-                  <button
-                    key={section.id}
-                    onClick={() => handleSectionClick(section.id)}
-                    className={`navigation-item ${activeSection === section.id ? 'active' : ''}`}
-                  >
-                    <Text typography='heading6' className='text-inherit'>
-                      {section.label}
-                    </Text>
-                  </button>
-                ))}
-              </div>
-            </div>
-          </nav>
+              <Text typography='heading6' className='text-inherit'>
+                {section.label}
+              </Text>
+            </button>
+          ))}
         </div>
       </div>
     </section>

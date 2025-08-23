@@ -59,7 +59,7 @@
 
 .learning-place-slide {
   flex: 0 0 384px;
-  height: 218px;
+  aspect-ratio: 16 / 9;
   will-change: transform;
   backface-visibility: hidden;
   margin-right: var(--vapor-size-space-300);
@@ -69,7 +69,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: var(--vapor-size-borderRadius-400);
 }
 
 .learning-place-caption {

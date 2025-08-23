@@ -1,4 +1,4 @@
-/* DetailNavigation 0� ��| */
+/* DetailNavigation 컴포넌트 */
 .detail-navigation-section {
   position: sticky;
   top: 0;
@@ -10,48 +10,16 @@
 
 
 .detail-navigation-section.scrolled {
-  box-shadow: var(--vapor-shadow-200);
-  backdrop-filter: blur(8px);
-  background-color: var(--vapor-color-background-normal);
+  backdrop-filter: blur(1.5rem);
+  -webkit-backdrop-filter: blur(1.5rem); /* Safari 지원 */
+  background-color: rgba(var(--vapor-color-background-normal), 0.8); /* 반투명 배경 */
   left: 0;
   right: 0;
   transition: all 0.3s ease-in-out;
   margin-left: calc(-50vw + 50%);
-}
-
-/* 스크롤된 상태에서 내비게이션 래퍼 전체 너비 사용 */
-.detail-navigation-section.scrolled .detail-navigation-wrap {
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.detail-navigation-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 1172px;
-  margin: 0 auto;
-}
-
-.navigation-inner {
-  width: 100%;
-  max-width: 1140px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* 스크롤 영역 래퍼 */
-.navigation-menu-wrapper {
-  position: relative;
-  width: 100%;
-  overflow: hidden; /* 내부 스크롤 영역을 위한 설정 */
-}
-
-/* 스크롤 상태일 때 영역 래퍼 가로 펼치기 */
-.detail-navigation-section.scrolled .navigation-menu-wrapper {
-  width: 100%;
+  /* backdrop-filter 작동을 위한 필수 속성들 */
+  transform: translateZ(0); /* 하드웨어 가속 활성화 */
+  will-change: backdrop-filter; /* 성능 최적화 */
 }
 
 /* 스크롤 상태에서 좌측 그라디언트 위치 조정 */
@@ -67,21 +35,14 @@
 /* 네비게이션 메뉴 */
 .navigation-menu {
   display: flex;
-  align-items: center;
-  gap: var(--vapor-size-space-200);
+  gap: var(--vapor-size-space-300);
   flex: 1;
   overflow-x: auto;
   scrollbar-width: none; /* Firefox에서 스크롤바 숨김 */
   -ms-overflow-style: none; /* IE에서 스크롤바 숨김 */
   white-space: nowrap;
   scroll-behavior: smooth;
-}
-
-/* 스크롤 상태일 때 네비게이션 메뉴 조정 */
-.detail-navigation-section.scrolled .navigation-menu {
-  padding: 0;
-  margin: 0 auto;
-  height: 100%;
+  width: 100%;
 }
 
 /* 스크롤 상태일 때 네비게이션 아이템 조정 */
@@ -99,8 +60,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: var(--vapor-size-space-300) var(--vapor-size-space-050);
-  border-radius: var(--vapor-size-border-radius-400);
+  padding: var(--vapor-size-space-200) var(--vapor-size-space-050);
   transition: all 0.3s ease;
   position: relative;
   display: flex;
@@ -110,6 +70,7 @@
   gap: var(--vapor-size-space-100);
   white-space: nowrap; /* 텍스트 줄바꿈 방지 */
   flex-shrink: 0; /* 추가: 항목이 줄어들지 않고 원래 크기 유지 */
+  border-bottom: 2px solid transparent; /* 기본 투명한 하단 보더 */
 }
 
 .navigation-item.active,
@@ -118,31 +79,7 @@
   background-color: transparent;
   position: relative;
   color: var(--ktc-tech-up-red);
-  border-bottom: 2px solid var(--ktc-tech-up-red);
-}
-
-.navigation-item.active::after,
-.navigation-item:hover::after,
-.navigation-item:focus::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 1px;
-  background-color: var(--vapor-color-primary-500);
-  animation: slideIn 0.3s ease-in-out;
-}
-
-@keyframes slideIn {
-  from {
-    width: 0;
-    left: 50%;
-  }
-  to {
-    width: 100%;
-    left: 0;
-  }
+  border-bottom: 2px solid var(--ktc-tech-up-red); /* hover/active 시 빨간색 하단 보더 */
 }
 
 /* 네비게이션 아이템 텍스트 */
@@ -178,16 +115,6 @@
 }
 
 @media (max-width: 768px) {
-  .navigation-inner {
-    flex-direction: column;
-    gap: var(--vapor-size-space-200);
-    align-items: stretch;
-  }
-
-  .navigation-menu-wrapper {
-    width: 100%;
-  }
-
   .navigation-menu {
     width: 100%;
   }
@@ -206,16 +133,6 @@
 @media (max-width: 576px) {
   .navigation-item.active::after {
     bottom: var(--vapor-size-space-150);
-  }
-}
-
-@media (min-width: 1440px) {
-  .detail-navigation-wrap {
-    max-width: 1440px;
-  }
-
-  .navigation-inner {
-    max-width: 1200px;
   }
 }
 

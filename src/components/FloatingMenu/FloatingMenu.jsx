@@ -242,7 +242,7 @@ const FloatingMenu = ({
                     </IconButton>
           {buttonConfig.link && !buttonConfig.disabled ? (
             <a href={buttonConfig.link} className="apply-button-link w-full">
-              <button className="apply-button" onClick={onApplyClick}>
+              <button className="techup-apply-button" onClick={onApplyClick}>
                 <Text typography="heading6" className="button-text">
                   {buttonConfig.text}
                 </Text>
