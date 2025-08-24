@@ -1,0 +1,332 @@
+import { useState, useEffect } from 'react';
+import { Text, Button, IconButton } from '@vapor-ui/core';
+import { LinkOutlineIcon } from '@vapor-ui/icons';
+import { COURSE, COURSE_INFORMATION } from '../../constants/CourseInformation';
+import './OpenAlert.css';
+
+const OpenAlert = ({ 
+  courseType = COURSE.FULLSTACK,
+  onApplyClick,
+  onNotificationClick,
+  className = ''
+}) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [currentTime, setCurrentTime] = useState(new Date());
+  const [isCopied, setIsCopied] = useState(false);
+  const shareLink = typeof window !== 'undefined' ? window.location.href : '';
+
+  // 실시간 시간 업데이트 (1초마다)
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  // 스크롤 이벤트 감지 및 표시 상태 관리
+  useEffect(() => {
+    let alertShownOnScroll = false;
+    
+    const handleScroll = () => {
+      if (window.scrollY > 200 && !alertShownOnScroll) {
+        setIsVisible(true);
+        alertShownOnScroll = true;
+      }
+    };
+
+    // 스크롤 이벤트 리스너 추가
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // 초기 상태는 숨김
+    setIsVisible(false);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  // 코스 정보 가져오기
+  const courseInfo = COURSE_INFORMATION[courseType];
+  if (!courseInfo) {
+    console.warn(`Course information not found for: ${courseType}`);
+    return null;
+  }
+
+  // 상태 계산 함수들
+  const getCourseStatus = () => {
+    const now = currentTime;
+    const startAt = new Date(courseInfo.startAt);
+    const endAt = new Date(courseInfo.endAt);
+    
+    if (now < startAt) return 'beforeOpen';
+    if (now >= startAt && now <= endAt) return 'open';
+    return 'closed';
+  };
+
+  const getDaysLeft = (targetDate) => {
+    const now = currentTime;
+    const diff = Math.ceil((targetDate - now) / (1000 * 60 * 60 * 24));
+    return Math.max(0, diff);
+  };
+
+  const getTimeLeft = (targetDate) => {
+    const now = currentTime;
+    const diff = targetDate - now;
+    
+    if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    
+    return {
+      days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+      minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
+      seconds: Math.floor((diff % (1000 * 60)) / 1000)
+    };
+  };
+
+  // 계산된 값들
+  const status = getCourseStatus();
+  const courseTitle = courseInfo.title.replace('kt cloud ', '');
+  const daysLeft = getDaysLeft(new Date(courseInfo.startAt));
+  const timeLeft = getTimeLeft(new Date(courseInfo.endAt));
+  
+  // 코스별 지원 버튼 텍스트 생성
+  const getApplyButtonText = () => {
+    const courseMap = {
+      [COURSE.FULLSTACK]: '풀스택',
+      [COURSE.FRONTEND]: '프론트엔드',
+      [COURSE.BACKEND]: '백엔드',
+      [COURSE.GEN_AI]: '생성형 AI',
+      [COURSE.INFORMATION_SECURITY]: '사이버 보안',
+      [COURSE.CLOUD_NATIVE]: '클라우드 네이티브',
+      [COURSE.CLOUD_INFRASTRUCTURE]: '클라우드 인프라',
+      [COURSE.PRODUCT_DESIGN]: '프로덕트 디자인',
+      [COURSE.PRODUCT_MANAGEMENT]: '프로덕트 매니지먼트'
+    };
+    
+    return `${courseMap[courseType] || courseTitle} 지원하기`;
+  };
+  
+  // 상태에 따른 버튼 설정
+  const getButtonConfig = () => {
+    switch (status) {
+      case 'beforeOpen':
+        return {
+          text: '오픈 알림 신청하기',
+          disabled: false,
+          link: null
+        };
+      case 'open':
+        return {
+          text: getApplyButtonText(),
+          disabled: false,
+          link: courseInfo.applyLink || null
+        };
+      case 'closed':
+        return {
+          text: '모집 마감',
+          disabled: true,
+          link: null
+        };
+      default:
+        return {
+          text: '오픈 알림 신청하기',
+          disabled: false,
+          link: null
+        };
+    }
+  };
+
+  const buttonConfig = getButtonConfig();
+
+  // 공유 링크 복사 처리
+  const handleShareClick = async () => {
+    try {
+      await navigator.clipboard.writeText(shareLink);
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy link:', err);
+    }
+  };
+
+  // 모집 예정 레이아웃
+  const renderBeforeOpen = () => (
+    <div className="open-alert-style">
+              <div className="alert-text">
+          <div id="pre-notification-container">
+            <Text typography="heading6" className="open-alert-text-pre">
+              TECH UP 모집 오픈
+            </Text>
+            <Text typography="heading6" className="days-left">
+              D-{daysLeft}
+            </Text>
+            <Text typography="heading6" className="notification-description">
+              오픈 알림 신청하시면 가장 먼저 오픈 소식을 알려드려요.
+            </Text>
+          </div>
+        </div>
+      <div className="cta-button-container">
+        {isCopied ? (
+          <Button 
+            size="xl" 
+            color="secondary" 
+            className="copy-button"
+            disabled
+          >
+            복사됨
+          </Button>
+        ) : (
+          <IconButton 
+            size="xl" 
+            color="secondary" 
+            className="copy-button"
+            onClick={handleShareClick}
+          >
+            <LinkOutlineIcon />
+          </IconButton>
+        )}
+        <Button
+          size="xl"
+          color="primary"
+          className="cta-button"
+          onClick={onNotificationClick}
+          disabled={buttonConfig.disabled}
+        >
+          {buttonConfig.text}
+        </Button>
+      </div>
+    </div>
+  );
+
+  // 모집 중 레이아웃
+  const renderOpen = () => (
+    <div className="open-alert-style">
+      <div className="alert-text">
+        <div id="application-container" className="alert-text-wrapper">
+          <Text typography="heading6" className="open-alert-text">
+            TECH UP에 지금 합류하세요.
+          </Text>
+          <Text typography="heading6" className="time-alert-text">
+            <span className="flip-clock">
+              지원 마감까지
+              <span className="time-text">
+                <span className="digit">{String(timeLeft.days).padStart(2, '0')}</span>일{' '}
+                <span className="digit">{String(timeLeft.hours).padStart(2, '0')}</span>시간{' '}
+                <span className="digit">{String(timeLeft.minutes).padStart(2, '0')}</span>분{' '}
+                <span className="digit">{String(timeLeft.seconds).padStart(2, '0')}</span>초
+              </span>
+              남았습니다.
+            </span>
+          </Text>
+        </div>
+      </div>
+      <div className="cta-button-container">
+        {isCopied ? (
+          <Button 
+            size="xl" 
+            color="secondary" 
+            className="copy-button"
+            disabled
+          >
+            복사됨
+          </Button>
+        ) : (
+          <IconButton 
+            size="xl" 
+            color="secondary" 
+            className="copy-button"
+            onClick={handleShareClick}
+          >
+            <LinkOutlineIcon />
+          </IconButton>
+        )}
+        {buttonConfig.link && !buttonConfig.disabled ? (
+          <a href={buttonConfig.link} className="apply-button-link w-full">
+            <Button
+              size="xl"
+              color="primary"
+              className="cta-button"
+              onClick={onApplyClick}
+            >
+              {buttonConfig.text}
+            </Button>
+          </a>
+        ) : (
+          <Button
+            size="xl"
+            color="primary"
+            className="cta-button"
+            onClick={onApplyClick}
+            disabled={buttonConfig.disabled}
+          >
+            {buttonConfig.text}
+          </Button>
+        )}
+      </div>
+    </div>
+  );
+
+  // 모집 마감 레이아웃
+  const renderClosed = () => (
+    <div className="open-alert-style">
+      <div className="alert-text">
+        <Text typography="heading6" className="open-alert-text">
+          TECH UP 모집이 종료되었습니다.
+        </Text>
+      </div>
+      <div className="cta-button-container">
+        {isCopied ? (
+          <Button 
+            size="xl" 
+            color="secondary" 
+            className="copy-button"
+            disabled
+          >
+            복사됨
+          </Button>
+        ) : (
+          <IconButton 
+            size="xl" 
+            color="secondary" 
+            className="copy-button"
+            onClick={handleShareClick}
+          >
+            <LinkOutlineIcon />
+          </IconButton>
+        )}
+        <Button
+          size="xl"
+          color="primary"
+          className="cta-button"
+          disabled={buttonConfig.disabled}
+        >
+          {buttonConfig.text}
+        </Button>
+      </div>
+    </div>
+  );
+
+  const renderContent = () => {
+    switch (status) {
+      case 'beforeOpen':
+        return renderBeforeOpen();
+      case 'open':
+        return renderOpen();
+      case 'closed':
+        return renderClosed();
+      default:
+        return renderBeforeOpen();
+    }
+  };
+
+  if (!isVisible) return null;
+
+  return (
+    <div className={`open-alert ${isVisible ? 'show' : ''} ${className}`.trim()}>
+      {renderContent()}
+    </div>
+  );
+};
+
+export default OpenAlert;

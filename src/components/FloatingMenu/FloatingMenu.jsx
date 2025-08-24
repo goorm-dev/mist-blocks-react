@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { IconButton, Text } from '@vapor-ui/core';
+import { IconButton, Text, Button } from '@vapor-ui/core';
 import { COURSE, COURSE_INFORMATION } from '../../constants/CourseInformation';
 import './FloatingMenu.css';
 import { LinkOutlineIcon } from '@vapor-ui/icons';
@@ -176,7 +176,7 @@ const FloatingMenu = ({
           <div className="mobile-text-content">
             <div className="title-row">
               <Text typography="heading6">
-                kt cloud TECH UP 모집 오픈
+                TECH UP 모집 오픈
               </Text>
               <Text typography="heading6" className="days-left">
                 D-{daysLeft}
@@ -194,14 +194,21 @@ const FloatingMenu = ({
             </IconButton>
             {buttonConfig.link && !buttonConfig.disabled ? (
               <a href={buttonConfig.link} className="apply-button-link w-full">
-                <button className="apply-button mobile" onClick={onApplyClick}>
+                <Button 
+                  size="xl"
+                  color="primary"
+                  className="apply-button mobile" 
+                  onClick={onApplyClick}
+                >
                   <Text typography="heading6" className="button-text">
                     {buttonConfig.text}
                   </Text>
-                </button>
+                </Button>
               </a>
             ) : (
-              <button 
+              <Button 
+                size="xl"
+                color="primary"
                 className={`apply-button mobile${buttonConfig.disabled ? ' disabled' : ''}`}
                 onClick={onApplyClick}
                 disabled={buttonConfig.disabled}
@@ -209,7 +216,7 @@ const FloatingMenu = ({
                 <Text typography="heading6" className="button-text">
                   {buttonConfig.text}
                 </Text>
-              </button>
+              </Button>
             )}
           </div>
         </div>
@@ -221,13 +228,13 @@ const FloatingMenu = ({
         <div className="menu-text-content">
           <div className="title-row">
               <Text typography="heading6">
-                kt cloud TECH UP 모집 오픈
+                TECH UP 모집 오픈
               </Text>
             <Text typography="heading6" className="days-left">
               D-{daysLeft}
             </Text>
           </div>
-          <Text typography="body2" className="description">
+          <Text typography="body1" className="description">
             모집 오픈 알림을 신청하세요.
           </Text>
         </div>
@@ -242,14 +249,21 @@ const FloatingMenu = ({
                     </IconButton>
           {buttonConfig.link && !buttonConfig.disabled ? (
             <a href={buttonConfig.link} className="apply-button-link w-full">
-              <button className="techup-apply-button" onClick={onApplyClick}>
+              <Button 
+                size="xl"
+                color="primary"
+                className="techup-apply-button" 
+                onClick={onApplyClick}
+              >
                 <Text typography="heading6" className="button-text">
                   {buttonConfig.text}
                 </Text>
-              </button>
+              </Button>
             </a>
           ) : (
-            <button 
+            <Button 
+              size="xl"
+              color="primary"
               className={`apply-button${buttonConfig.disabled ? ' disabled' : ''}`}
               onClick={onApplyClick}
               disabled={buttonConfig.disabled}
@@ -257,7 +271,7 @@ const FloatingMenu = ({
               <Text typography="heading6" className="button-text">
                 {buttonConfig.text}
               </Text>
-            </button>
+            </Button>
           )}
         </div>
       </div>
@@ -290,14 +304,21 @@ const FloatingMenu = ({
             </IconButton>
             {buttonConfig.link && !buttonConfig.disabled ? (
               <a href={buttonConfig.link} className="apply-button-link w-full">
-                <button className="apply-button mobile" onClick={onApplyClick}>
+                <Button 
+                  size="xl"
+                  color="primary"
+                  className="apply-button mobile" 
+                  onClick={onApplyClick}
+                >
                   <Text typography="heading6" className="button-text">
                     {buttonConfig.text}
                   </Text>
-                </button>
+                </Button>
               </a>
             ) : (
-              <button 
+              <Button 
+                size="xl"
+                color="primary"
                 className={`apply-button mobile${buttonConfig.disabled ? ' disabled' : ''}`}
                 onClick={onApplyClick}
                 disabled={buttonConfig.disabled}
@@ -305,7 +326,7 @@ const FloatingMenu = ({
                 <Text typography="heading6" className="button-text">
                   {buttonConfig.text}
                 </Text>
-              </button>
+              </Button>
             )}
           </div>
         </div>
@@ -317,7 +338,7 @@ const FloatingMenu = ({
         <div className="menu-text-content">
           <div className="title-row">
             <Text typography="heading6">
-              kt cloud TECH UP에 지금 합류하세요.
+              TECH UP에 지금 합류하세요.
             </Text>
           </div>
           <div className="countdown-row">
@@ -340,14 +361,21 @@ const FloatingMenu = ({
           </IconButton>
           {buttonConfig.link && !buttonConfig.disabled ? (
             <a href={buttonConfig.link} className="apply-button-link w-full">
-              <button className="apply-button" onClick={onApplyClick}>
+              <Button 
+                size="xl"
+                color="primary"
+                className="apply-button" 
+                onClick={onApplyClick}
+              >
                 <Text typography="heading6" className="button-text">
                   {buttonConfig.text}
                 </Text>
-              </button>
+              </Button>
             </a>
           ) : (
-            <button 
+            <Button 
+              size="xl"
+              color="primary"
               className={`apply-button${buttonConfig.disabled ? ' disabled' : ''}`}
               onClick={onApplyClick}
               disabled={buttonConfig.disabled}
@@ -355,7 +383,7 @@ const FloatingMenu = ({
               <Text typography="heading6" className="button-text">
                 {buttonConfig.text}
               </Text>
-            </button>
+            </Button>
           )}
         </div>
       </div>
@@ -370,19 +398,21 @@ const FloatingMenu = ({
           <div className="mobile-text-content">
             <div className="title-row">
               <Text typography="heading6">
-                kt cloud TECH UP 모집이 종료되었습니다.
+                TECH UP 모집이 종료되었습니다.
               </Text>
             </div>
           </div>
           <div className="mobile-action-row">
-            <button 
+            <Button 
+              size="xl"
+              color="primary"
               className="apply-button mobile disabled"
               disabled
             >
               <Text typography="heading6" className="button-text">
                 {buttonConfig.text}
               </Text>
-            </button>
+            </Button>
           </div>
         </div>
       );
@@ -393,19 +423,21 @@ const FloatingMenu = ({
         <div className="menu-text-content">
           <div className="title-row">
             <Text typography="heading6">
-              kt cloud TECH UP 모집이 종료되었습니다.
+              TECH UP 모집이 종료되었습니다.
             </Text>
           </div>
         </div>
         <div className="menu-actions">
-          <button 
+          <Button 
+            size="xl"
+            color="primary"
             className="apply-button disabled"
             disabled
           >
             <Text typography="heading6" className="button-text">
               {buttonConfig.text}
             </Text>
-          </button>
+          </Button>
         </div>
       </div>
     );

@@ -14,7 +14,8 @@ import DetailBenefit from '../../components/DetailBenefit/DetailBenefit';
 import DetailLearningPlace from '../../components/DetailLearningPlace/DetailLearningPlace';
 import DetailRecruitmentProcess from '../../components/DetailRecruitmentProcess/DetailRecruitmentProcess';
 import DetailCareer from '../../components/DetailCareer/DetailCareer';
-import FloatingMenu from '../../components/FloatingMenu/FloatingMenu';
+// import FloatingMenu from '../../components/FloatingMenu/FloatingMenu';
+import OpenAlert from '../../components/OpenAlert/OpenAlert';
 
 import { COURSE, COURSE_INFORMATION } from '../../constants/CourseInformation';
 
@@ -45,7 +46,12 @@ function Detail({ course }) {
         <DetailRecruitmentProcess />
         <AccordionFaq />
       </main>
-      <FloatingMenu />
+      <OpenAlert 
+        courseType={course}
+        onApplyClick={() => console.log('지원하기 클릭')}
+        onNotificationClick={() => console.log('알림 신청 클릭')}
+      />
+      {/* <FloatingMenu /> */}
       <FooterFull />
     </>
   );

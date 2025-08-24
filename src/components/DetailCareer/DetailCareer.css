@@ -1,7 +1,6 @@
 .career-content-wrapper {
   position: relative;
 }
-
 .bf-career-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -11,7 +10,6 @@
   position: relative;
   z-index: 1;
 }
-
 .prism-background {
   position: absolute;
   top: 0;
@@ -25,12 +23,10 @@
   justify-content: center;
   opacity: 0.4;
 }
-
 /* .prism-background > div {
   width: 100% !important;
   height: 100% !important;
 } */
-
 .bf-career-card {
   background: var(--ktc-tech-up-glass);
   border: 1px solid var(--ktc-tech-up-glass);
@@ -42,23 +38,19 @@
   position: relative;
   z-index: 1;
 }
-
 .bf-career-card-content {
   display: flex;
   flex-direction: column;
   gap: var(--vapor-size-space-200);
   width: 100%;
 }
-
 .bf-career-card-title {
   margin-bottom: 0;
 }
-
 .bf-career-card-desc {
   margin-bottom: 0;
   opacity: 0.8;
 }
-
 .bf-career-card-icon {
   align-self: flex-end;
   background: var(--vapor-color-background-normal);
@@ -70,38 +62,30 @@
   justify-content: center;
   width: fit-content;
 }
-
 .bf-career-card-icon svg {
   color: var(--vapor-color-foreground-normal);
   width: 1.75rem;
   height: 1.75rem;
 }
-
 /* Grid positioning variants */
 .bf-career-card.is-tall {
   grid-area: 1 / 1 / span 2 / 1;
 }
-
 .bf-career-card.is-wide {
   grid-area: 1 / 2 / 1 / span 2;
 }
-
 .bf-career-card.is-regular:nth-child(3) {
   grid-area: 2 / 2 / 2 / 2;
 }
-
 .bf-career-card.is-regular:nth-child(4) {
   grid-area: 2 / 3 / 2 / 3;
 }
-
 .bf-career-card.is-wide:nth-child(5) {
   grid-area: 3 / 1 / 3 / span 2;
 }
-
 .bf-career-card.is-regular:nth-child(6) {
   grid-area: 3 / 3 / 3 / 3;
 }
-
 /* Responsive breakpoints - 기존 Vapor 디자인 시스템 규칙 사용 */
 @media (max-width: 1200px) {
     .bf-career-card-content{
@@ -114,49 +98,38 @@
 @media (max-width: 992px) {
   .bf-career-card {
     gap: var(--vapor-size-space-200);
-  }
-  
-    
+  }   
   .bf-career-grid {   
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--vapor-size-space-300);
     height: auto;
   }
-
   .bf-career-card-icon {
     align-self: flex-start;
   }
-
   .bf-career-card {
     flex-direction: column-reverse;
   }
-
   .bf-career-card.is-tall {
     grid-area: initial;
   }
-
   .bf-career-card.is-wide {
     grid-area: initial;
   }
-
   .bf-career-card.is-regular:nth-child(3) {
     grid-area: initial;
   }
-
   .bf-career-card.is-regular:nth-child(4) {
     grid-area: initial;
   }
-
   .bf-career-card.is-wide:nth-child(5) {
     grid-area: initial;
   }
-
   .bf-career-card.is-regular:nth-child(6) {
     grid-area: initial;
   }
 }
-
 @media (max-width: 768px) {
   .bf-career-grid {
     grid-template-columns: 1fr;
@@ -164,18 +137,15 @@
     height: auto;
     gap: var(--vapor-size-space-200);
   }
-  
   .bf-career-card.is-tall,
   .bf-career-card.is-wide,
   .bf-career-card.is-regular {
     grid-area: auto;
-  }
-  
+  }  
   .bf-career-section {
     padding: var(--vapor-size-space-600) 0;
   }
 }
-
 @media (max-width: 576px) { 
   .bf-career-card {
     padding: var(--vapor-size-space-300);

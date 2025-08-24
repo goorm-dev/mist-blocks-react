@@ -10,6 +10,7 @@
 }
 
 .floating-menu-container {
+  width: calc(100% - 12rem);
   max-width: 768px;
   margin: 0 auto;
   padding: var(--vapor-size-space-400);
@@ -94,13 +95,7 @@
 }
 
 .techup-apply-button {
-  height: 48px;
-  padding: 0 var(--vapor-size-space-600);
   background: var(--ktc-tech-up-red);
-  border: none;
-  border-radius: var(--vapor-size-radius-200);
-  cursor: pointer;
-  width: 100%;
 }
 
 .techup-apply-button.disabled {
