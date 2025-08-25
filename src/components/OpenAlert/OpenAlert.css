@@ -16,6 +16,17 @@
   }
 }
 
+@keyframes animation-alert-mobile {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .open-alert {
   position: fixed;
   left: 50%;
@@ -207,7 +218,13 @@
     border-radius: var(--vapor-size-borderRadius-000);
     background-color: var(--vapor-color-background-normal);
     border-top: 0.0625rem solid var(--vapor-color-border-normal);
-    animation: unset;
+    transform: translateY(100%); /* 모바일에서는 X축 변환 없이 Y축만 변경 */
+    left: 0; /* 모바일에서는 중앙 정렬 필요 없음 */
+  }
+
+  .open-alert.show {
+    animation: animation-alert-mobile 0.5s ease-out forwards; /* 모바일에서는 부드러운 등장만 */
+    transform: translateY(0);
   }
 }
 
