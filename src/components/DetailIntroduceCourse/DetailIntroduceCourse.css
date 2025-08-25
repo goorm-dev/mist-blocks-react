@@ -20,7 +20,7 @@
 }
 
 .normal-text {
-  color: #E8E8EE;
+  color: #d6d6d6;
 }
 
 .desktop-image {
@@ -127,6 +127,11 @@
 @media (max-width: 768px) {
   .course-info-detail {
     grid-template-columns: 1fr;
+  }
+  .core-message-text {
+    line-height: var(--vapor-typography-lineHeight-400);
+    letter-spacing: var(--vapor-typography-letterSpacing-300);
+    font-size: var(--vapor-typography-fontSize-400);
   }
 }
 @media (max-width: 576px) {
@@ -256,12 +261,8 @@
 .value-content {
   display: flex;
   flex-direction: column;
-  gap: var(--vapor-size-space-050);
+  gap: var(--vapor-size-space-100);
   width: 100%;
-}
-
-.value-title {
-  line-height: var(--vapor-typography-lineHeight-400);
 }
 
 /* 추천 대상 카드 */
@@ -298,7 +299,6 @@
 }
 
 .audience-text {
-  line-height: var(--vapor-typography-lineHeight-300);
   flex: 1;
 }
 

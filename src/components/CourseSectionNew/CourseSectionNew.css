@@ -138,6 +138,12 @@
     align-items: flex-start;
     gap: var(--vapor-size-space-200);
   }
+  .track-title {
+    font-size: var(--vapor-typography-fontSize-300);
+    font-weight: var(--vapor-typography-fontWeight-700);
+    line-height: var(--vapor-typography-lineHeight-300);
+    letter-spacing: var(--vapor-typography-letterSpacing-300);
+  }
   
   .course-control {
     align-self: flex-end;
@@ -166,7 +172,6 @@
   }
   
   .course-section-new .title {
-    margin-bottom: var(--vapor-size-space-600);
     text-align: left;
   }
   

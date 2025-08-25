@@ -173,3 +173,12 @@ svg {
     max-width: 1404px;
   }
 }
+
+@media (max-width: 576px) {
+  .title {
+    font-size: var(--vapor-typography-fontSize-400);
+    font-weight: var(--vapor-typography-fontWeight-700);
+    line-height: var(--vapor-typography-lineHeight-400);
+    margin-bottom: var(--vapor-size-space-500);
+  }
+}

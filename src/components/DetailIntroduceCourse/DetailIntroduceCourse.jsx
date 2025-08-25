@@ -241,10 +241,10 @@ const DetailIntroduceCourse = ({
                 <div className="content-card value-proposition-card">
                   <div className="core-card-content">
                     <div className="value-content">
-                      <Text typography="heading5" foreground="normal" className="value-title">
+                      <Text typography="heading4" foreground="normal" className="value-title">
                         {valueTitle}
                       </Text>
-                      <Text typography="body2" foreground="normal-lighter" className="value-description">
+                      <Text typography="body1" foreground="normal-lighter" className="value-description">
                         {valueDescription}
                       </Text>
                     </div>
@@ -263,7 +263,7 @@ const DetailIntroduceCourse = ({
                       {targetAudience.map((audience, index) => (
                         <div key={index} className="target-audience-item">
                           <div className="audience-bullet"></div>
-                          <Text typography="body" foreground="normal" className="audience-text">
+                          <Text typography="body1" foreground="normal" className="audience-text">
                             {audience}
                           </Text>
                         </div>

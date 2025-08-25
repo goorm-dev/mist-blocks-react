@@ -263,7 +263,7 @@
 }
 @media (max-width: 576px) {
   .interview-content-wrapper {
-    gap: var(--vapor-size-space-600);
+    gap: var(--vapor-size-space-500);
   }
   .interview-description br {
     display: none;
@@ -275,5 +275,10 @@
   .play-icon-svg {
     width: var(--vapor-size-dimension-800);
     height: var(--vapor-size-dimension-800);
+  }
+  .interview-title {
+    font-size: var(--vapor-typography-fontSize-400);
+    font-weight: var(--vapor-typography-fontWeight-700);
+    line-height: var(--vapor-typography-lineHeight-400);
   }
 }
