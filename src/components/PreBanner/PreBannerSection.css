@@ -23,6 +23,10 @@
   flex-direction: column;
   gap: var(--vapor-size-space-050);
 }
+
+.pre-banner-subtitle-mobile {
+  display: none;
+}
 .apply-button {
   background: var(--ktc-tech-up-red);
 }
@@ -39,5 +43,19 @@
   .pre-banner-title {
     font-size: var(--vapor-typography-fontSize-400);
     line-height: var(--vapor-typography-lineHeight-400); 
+  }
+}
+
+@media (max-width: 576px) {
+  .pre-banner-subtitle {
+    display: none;
+  }
+  
+  .pre-banner-subtitle-mobile {
+    display: block;
+  }
+
+  .pre-text-wrapper {
+    gap: var(--vapor-size-space-150);
   }
 }

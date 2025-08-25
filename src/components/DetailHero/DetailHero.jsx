@@ -183,7 +183,7 @@ const DetailHero = ({
           <div className="hero-right col-span-7">
             <div className="hero-right-wrap">
               <div className="detail-course-info">
-                <div className="detail-course-text">
+                <div className="detail-hero-course-text">
                   <Text typography="heading1" foreground="normal" className="course-title">
                     {title}
                   </Text>

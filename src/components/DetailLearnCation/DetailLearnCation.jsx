@@ -78,7 +78,7 @@ const DetailLearnCation = () => {
                   {(isMobile || activeIndex === index) && (
                     <div className="card-content">
                       <div className="card-text">
-                        <Text typography="heading3" foreground="accent">
+                        <Text typography="heading3" foreground="accent" className='learn-cation-title'>
                           <span dangerouslySetInnerHTML={{ __html: card.title }} />
                         </Text>
                         <Text typography="body1" foreground="accent" className='learn-cation-description'>

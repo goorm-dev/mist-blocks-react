@@ -116,14 +116,20 @@
   .learn-cation-main-card.active {
     flex: 1 1 auto;
     width: 100%;
-    height: auto;
+    height: 300px;
     min-height: 300px;
   }
-  
-  /* 모바일에서는 모든 카드의 내용이 항상 표시되도록 설정 */
+
   .card-content {
-    opacity: 1;
-    visibility: visible;
+    padding: var(--vapor-size-space-300);
+  }
+
+  .card-text {
+    gap: var(--vapor-size-space-100);
+  }
+
+  .learn-cation-main-card.active .image-overlay {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 100%, rgba(0, 0, 0, 0.4) 100%);
   }
   
   /* 모바일에서 모든 카드가 확장된 상태로 표시되도록 설정 */
@@ -136,10 +142,17 @@
 /* Small Mobile (576px tX) */
 @media (max-width: 576px) {
   .learn-cation-main-card {
+    height: 250px;
     min-height: 250px;
   }
 
   .card-content {
     padding: var(--vapor-size-space-300);
+  }
+  .learn-cation-title {
+    line-height: var(--vapor-typography-lineHeight-300);
+    letter-spacing: var(--vapor-typography-letterSpacing-200);
+    font-size: var(--vapor-typography-fontSize-300);
+    font-weight: var(--vapor-typography-fontWeight-700);
   }
 }

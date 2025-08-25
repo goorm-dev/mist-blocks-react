@@ -15,7 +15,7 @@ const DetailLearningPlace = () => {
   return (
     <section className="content-section" id="benefit">
       <div className="container">
-          <Text typography='heading2'>몰입과 협업이 공존하는<br/>열린 학습 공간</Text>
+          <Text typography='heading2' className='title'>몰입과 협업이 공존하는<br/>열린 학습 공간</Text>
       </div>
       {/* Full-width slider container outside of container constraints */}
       <div className="learning-place-slider-container">
@@ -47,7 +47,7 @@ const DetailLearningPlace = () => {
           {/* 구름스퀘어 강남 카드 */}
           <div className="learning-place-card">
             <div className="learning-place-card-header">
-              <Text typography='heading5' foreground='normal'>구름스퀘어 강남</Text>
+              <Text typography='heading4' foreground='normal'>구름스퀘어 강남</Text>
               <a target='_blank' href="https://map.naver.com/p/entry/place/1318967756?placePath=%2Fhome">
                 <Text as="span" typography='heading6' className="learning-place-card-link">위치 확인</Text>
               </a>
@@ -62,7 +62,7 @@ const DetailLearningPlace = () => {
           {/* TECH UP 메타버스 카드 */}
           <div className="learning-place-card">
             <div className="learning-place-card-header">
-              <Text typography='heading5' foreground='normal'>TECH UP 메타버스</Text>
+              <Text typography='heading4' foreground='normal'>TECH UP 메타버스</Text>
             </div>
             <div className="learning-place-card-content">
               <Text typography='body1' foreground='normal-lighter'>

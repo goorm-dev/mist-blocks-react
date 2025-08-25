@@ -10,7 +10,7 @@
   width: 100vw; /* Full viewport width */
   display: flex;
   overflow: hidden;
-  padding: var(--vapor-size-space-700) 0 var(--vapor-size-space-300) 0;
+  padding-bottom: var(--vapor-size-space-300);
 }
 
 /* 슬라이더 공통 스타일 */
@@ -155,12 +155,11 @@
   }
   
   .learning-place-slide {
-    flex: 0 0 320px;
-    height: 180px;
+    height: 12.5rem;
   }
   
   .learning-place-slider-wrapper {
-    height: 180px;
+    height: 12.5rem;
     padding-left: calc((100vw - 940px) / 2); /* Align with container on smaller screens */
   }
 }
@@ -173,13 +172,11 @@
 
 @media (max-width: 768px) {
   .learning-place-slider-wrapper {
-    height: 160px;
     padding-left: 20px; /* Match container padding */
   }
   
   .learning-place-slide {
-    flex: 0 0 280px;
-    height: 160px;
+    margin-right: var(--vapor-size-space-200);
   }
   
   .learning-place-title {
@@ -190,6 +187,10 @@
   .learning-places-container {
     flex-direction: column;
     gap: var(--vapor-size-space-200);
+  }
+
+  .learning-place-slider-container {
+    padding-bottom: var(--vapor-size-space-200);
   }
   
   .learning-place-card {
@@ -229,12 +230,11 @@
 
 @media (max-width: 480px) {
   .learning-place-slider-wrapper {
-    height: 140px;
+    height: 10rem;
   }
   
   .learning-place-slide {
-    flex: 0 0 240px;
-    height: 140px;
+    height: 10rem;
   }
   
   .learning-place-caption {
