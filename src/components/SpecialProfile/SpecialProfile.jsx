@@ -75,8 +75,8 @@ const ProfileCard = ({
   
   // 스타일링 props
   className = "",
-  iconUrl = "src/assets/iconpattern.png",
-  grainUrl = "src/assets/grain.webp",
+  iconUrl = "/assets/iconpattern.png",
+  grainUrl = "/assets/grain.webp",
   
   // 애니메이션 관련 props
   enableTilt = true,
@@ -464,8 +464,8 @@ const SpecialProfile = ({
                   description={profile.description}
                   position={profile.position}
                   avatarUrl={profile.avatarUrl}
-                  iconUrl="src/assets/iconpattern.png"
-                  grainUrl="src/assets/grain.webp"
+                  iconUrl="/assets/iconpattern.png"
+                  grainUrl="/assets/grain.webp"
                   showUserInfo={true}
                   enableTilt={true}
                   enableMobileTilt={false}
@@ -488,8 +488,8 @@ const SpecialProfile = ({
                   description={profile.description}
                   position={profile.position}
                   avatarUrl={profile.avatarUrl}
-                  iconUrl="src/assets/iconpattern.png"
-                  grainUrl="src/assets/grain.webp"
+                  iconUrl="/assets/iconpattern.png"
+                  grainUrl="/assets/grain.webp"
                   showUserInfo={true}
                   enableTilt={true}
                   enableMobileTilt={false}

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Text } from '@vapor-ui/core';
 import './DetailCareer.css';
 import Prism from '../Prism/Prism';

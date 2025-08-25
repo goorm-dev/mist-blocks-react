@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button, Text } from '@vapor-ui/core';
 import './PreBannerSection.css';
 
@@ -14,10 +13,10 @@ const PreBannerSection = () => {
   const handleApplyClick = () => {
     window.open(bannerData.buttonLink, '_blank');
   };
-
+ 
   return (
     <section className="pre-banner-section">
-      <div className="container">
+      <div className="container"> 
         <div className="pre-content-wrapper">
             <div className="pre-text-content">
               <div className="pre-text-wrapper">

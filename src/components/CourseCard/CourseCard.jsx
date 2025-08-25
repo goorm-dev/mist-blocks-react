@@ -1,4 +1,3 @@
-import React from 'react';
 import './CourseCard.css';
 import { Text } from '@vapor-ui/core';
 import CourseCardItem from './CourseCardItem';

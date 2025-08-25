@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 import { Text } from '@vapor-ui/core';
 import './DetailIntroduceCourse.css';
 import { COURSE_CONTENT } from './DetailIntroduceCourse.constant';
@@ -77,7 +77,7 @@ const DetailIntroduceCourse = ({
     return parts.map((part, index) => {
       if (part.type === 'keyword') {
         return (
-          <React.Fragment key={index}>
+          <Fragment key={index}>
             <span className="highlight-brace">{'{'}</span>
             <span className="normal-text">
               {(() => {
@@ -112,7 +112,7 @@ const DetailIntroduceCourse = ({
                   
                   // 현재 라인이 빈 문자열이 아닌 경우에만 내용 추가
                   if (line !== "") {
-                    elements.push(<React.Fragment key={`line-keyword-${i}`}>{line}</React.Fragment>);
+                    elements.push(<Fragment key={`line-keyword-${i}`}>{line}</Fragment>);
                     consecutiveNewlines = 0;
                   }
                 }
@@ -121,7 +121,7 @@ const DetailIntroduceCourse = ({
               })()}
             </span>
             <span className="highlight-brace">{'}'}</span>
-          </React.Fragment>
+          </Fragment>
         );
       } else {
         // 일반 텍스트에서 줄바꿈 처리 - 이중 줄바꿈(\n\n) 지원
@@ -159,7 +159,7 @@ const DetailIntroduceCourse = ({
                 
                 // 현재 라인이 빈 문자열이 아닌 경우에만 내용 추가
                 if (line !== "") {
-                  elements.push(<React.Fragment key={`line-normal-${i}`}>{line}</React.Fragment>);
+                  elements.push(<Fragment key={`line-normal-${i}`}>{line}</Fragment>);
                   consecutiveNewlines = 0;
                 }
               }
@@ -211,7 +211,7 @@ const DetailIntroduceCourse = ({
                     
                     // 현재 라인이 빈 문자열이 아닌 경우에만 내용 추가
                     if (line !== "") {
-                      elements.push(<React.Fragment key={`line-${i}`}>{line}</React.Fragment>);
+                      elements.push(<Fragment key={`line-${i}`}>{line}</Fragment>);
                       consecutiveNewlines = 0;
                     }
                   }

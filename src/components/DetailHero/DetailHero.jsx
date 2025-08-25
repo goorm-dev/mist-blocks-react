@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Text, Button, Badge, IconButton } from '@vapor-ui/core';
 import './DetailHero.css';
 import { LinkOutlineIcon } from '@vapor-ui/icons';

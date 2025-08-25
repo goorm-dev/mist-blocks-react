@@ -24,7 +24,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import logoLight from '../../assets/logo_ktc_light.svg'
-import logoDark from '../../assets/logo_ktc_dark.svg'
+const logoDark = "https://statics.goorm.io/ktcloud-techup/logo/techup_dark.svg"
 import { COURSE_INFORMATION, COURSE_AREA_INFORMATION, COURSE } from '../../constants/CourseInformation'
 
 const COURSE_ICONS = {
@@ -134,6 +134,7 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
           <button
             onClick={toggleDarkMode}
             className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 p-3 transition-[background-color]"
+            aria-label={isDarkMode ? "라이트 모드로 전환" : "다크 모드로 전환"}
           >
             {isDarkMode ? <SunIcon className="size-5 stroke-2" /> : <MoonIcon className="size-5 stroke-2" />}
           </button>
@@ -204,6 +205,7 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
                 <button
                   onClick={toggleDarkMode}
                   className="-mx-3 block px-3 py-2.5 text-base/7 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 transition-[background-color]"
+                  aria-label={isDarkMode ? "라이트 모드로 전환" : "다크 모드로 전환"}
                 >
                   {isDarkMode ? <SunIcon className="size-5 stroke-2" /> : <MoonIcon className="size-5 stroke-2" />}
                 </button>

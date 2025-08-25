@@ -102,7 +102,7 @@ const FooterFull = ({ logoUrl = "https://tech.ktcloud.com" }) => {
                   aria-label="KT Cloud Tech Up 홈페이지로 이동"
                 >
                   <img 
-                    src={isDarkTheme ? "/src/assets/logo_ktc_dark.svg" : "/src/assets/logo_ktc_light.svg"}
+                    src={isDarkTheme ? "https://statics.goorm.io/ktcloud-techup/logo/techup_dark.svg" : "/src/assets/logo_ktc_light.svg"}
                     alt="KT Cloud Tech Up"
                     className="footer-logo-img"
                   />

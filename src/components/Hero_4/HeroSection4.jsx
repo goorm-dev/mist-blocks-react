@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import { Text } from '@vapor-ui/core';
 import './HeroSection4.css';
 
@@ -73,10 +73,10 @@ const HeroSection4 = () => {
     
     const parts = title.split('<br />');
     return parts.map((part, index) => (
-      <React.Fragment key={index}>
+      <Fragment key={index}>
         {part}
         {index < parts.length - 1 && <br />}
-      </React.Fragment>
+      </Fragment>
     ));
   };
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import './DetailLearningPlace.css';
 import { Text } from '@vapor-ui/core';
 

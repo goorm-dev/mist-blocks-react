@@ -434,7 +434,7 @@
 
   .gradient-left,
   .gradient-right {
-    width: 70px;
+    width: 0px;
   }
   
   .pc-avatar-content .avatar {

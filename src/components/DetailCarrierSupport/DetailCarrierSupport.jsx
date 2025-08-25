@@ -1,6 +1,6 @@
-import React from 'react';
 import { Text } from '@vapor-ui/core';
 import './DetailCarrierSupport.css';
+import { Fragment } from 'react';
 
 // 아이콘 컴포넌트들
 const DocumentIcon = () => (
@@ -37,10 +37,10 @@ const renderTextWithBreaks = (text) => {
   if (!text) return null;
   
   return text.split('\n').map((line, index) => (
-    <React.Fragment key={index}>
+    <Fragment key={index}>
       {line}
       {index < text.split('\n').length - 1 && <br />}
-    </React.Fragment>
+    </Fragment>
   ));
 };
 

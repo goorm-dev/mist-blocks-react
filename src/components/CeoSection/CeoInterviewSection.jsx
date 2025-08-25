@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Text, Button } from '@vapor-ui/core';
 import { PlusOutlineIcon } from '@vapor-ui/icons';
 import './CeoInterviewSection.css';
@@ -151,6 +151,10 @@ const CeoInterviewSection = () => {
                 <div 
                   className={`video-thumb-overlay ${isClosing ? 'closing' : ''}`}
                   onClick={handleOverlayClose}
+                  id="video-overlay"
+                  role="dialog"
+                  aria-modal="true"
+                  aria-label="인터뷰 내용"
                 >
                   <div className="overlay-content">
                     <Text typography="heading5" foreground="accent" className="overlay-description">
@@ -160,11 +164,12 @@ const CeoInterviewSection = () => {
                 </div>
               )}
               
-              <div 
+              <button 
                 className="video-description-wrapper"
                 onClick={handlePlusClick}
                 aria-controls="video-overlay"
                 aria-expanded={isOverlayOpen}
+                aria-label="인터뷰 내용 보기"
               >
                 <div className="video-plus-wrapper">
                   <div className="description-plus is-1"></div>
@@ -173,7 +178,7 @@ const CeoInterviewSection = () => {
                 <div className="video-transcript">
                   <span className="video-action-plus-label">내용 보기</span>
                 </div>
-              </div>
+              </button>
             </div>
           </div>
         </div>
