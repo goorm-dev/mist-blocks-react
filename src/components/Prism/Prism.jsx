@@ -45,12 +45,24 @@ const Prism = ({
     const INERT = Math.max(0, Math.min(1, inertia || 0.12));
 
     const dpr = Math.min(2, window.devicePixelRatio || 1);
-    const renderer = new Renderer({
-      dpr,
-      alpha: transparent,
-      antialias: false,
-    });
+    let renderer;
+    try {
+      renderer = new Renderer({
+        dpr,
+        alpha: transparent,
+        antialias: false,
+      });
+    } catch (err) {
+      console.error('Prism renderer initialization failed:', err);
+      return; // Early exit if renderer initialization fails
+    }
+    
     const gl = renderer.gl;
+    if (!gl) {
+      console.error('WebGL context not available');
+      return;
+    }
+    
     gl.disable(gl.DEPTH_TEST);
     gl.disable(gl.CULL_FACE);
     gl.disable(gl.BLEND);
@@ -62,7 +74,12 @@ const Prism = ({
       height: "100%",
       display: "block",
     });
-    container.appendChild(gl.canvas);
+    if (gl.canvas) {
+      container.appendChild(gl.canvas);
+    } else {
+      console.error('Canvas element not available');
+      return;
+    }
 
     const vertex = /* glsl */ `
       attribute vec2 position;
