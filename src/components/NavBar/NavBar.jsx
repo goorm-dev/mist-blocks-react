@@ -75,14 +75,14 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
     <header className="absolute inset-x-0 top-0 z-50">
       <nav aria-label="Global" className="container flex items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
-          <a href="/" className="-m-1.5 p-1.5 transition-opacity hover:opacity-80">
+          <Link to="/" className="-m-1.5 p-1.5 transition-opacity hover:opacity-80">
             <span className="sr-only">Your Company</span>
             <img
               alt="Logo"
               src={isDarkMode ? logoDark : logoLight}
               className="h-9 w-auto"
             />
-          </a>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -137,7 +137,7 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
           >
             {isDarkMode ? <SunIcon className="size-5 stroke-2" /> : <MoonIcon className="size-5 stroke-2" />}
           </button>
-          <a href="#" className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 p-3 transition-[background-color]">
+          <a href="#" target='_blank' className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 p-3 transition-[background-color]">
             지원 확인
           </a>
         </div>
@@ -152,13 +152,13 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
             paddingBottom: 'calc(var(--spacing) * 6)'
           }}>
           <div className="flex items-center justify-between">
-            <a href="/" className="-m-1.5 p-1.5 transition-opacity hover:opacity-80">
+            <Link to="/" className="-m-1.5 p-1.5 transition-opacity hover:opacity-80">
               <img
                 alt=""
                 src={isDarkMode ? logoDark : logoLight}
                 className="h-9 w-auto"
               />
-            </a>
+            </Link>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
@@ -196,6 +196,7 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
               <div className="py-6">
                 <a
                   href="#"
+                  target='_blank'
                   className="-mx-3 block px-3 py-2.5 text-base/7 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16"
                 >
                   지원 확인
