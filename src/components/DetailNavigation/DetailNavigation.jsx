@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback, memo, useMemo } from 'react';
 import { Text } from '@vapor-ui/core';
 import './DetailNavigation.css';
 
-const DetailNavigation = ({ 
+const DetailNavigationComponent = ({ 
   sections = [],
   activeSection: propActiveSection = 'introduce',
   onSectionClick,
@@ -11,6 +11,8 @@ const DetailNavigation = ({
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
   const lastScrollY = useRef(0);
+  const scrollTimeout = useRef(null);
+  const scrollThreshold = 5; // 스크롤 변화량 임계값
   
   // 기본 섹션들 정의
   const defaultSections = [
@@ -30,39 +32,89 @@ const DetailNavigation = ({
   // 스크롤 감지용 효과 처리
   const navigationRef = useRef(null);
   
-  useEffect(() => {
-    const handleScroll = () => {
-      if (navigationRef.current) {
-        // 현재 스크롤 위치
-        const currentScrollY = window.scrollY;
-        
-        // 네비게이션 요소가 맨 위에 도달했는지 확인
-        const rect = navigationRef.current.getBoundingClientRect();
-        const isAtTop = rect.top <= 0;
-        setScrolled(isAtTop);
-
-        
-        // scrolled 상태일 때만 스크롤 방향에 따라 표시/숨김 처리
-        if (isAtTop) {
-          if (currentScrollY > lastScrollY.current) {
-            setVisible(false); // 아래로 스크롤 시 숨김
-          } else {
-            setVisible(true); // 위로 스크롤 시 표시
-          }
-        } else {
-          setVisible(true); // scrolled 상태가 아닐 때는 항상 표시
-        }
-        
-        // 현재 스크롤 위치 저장
-        lastScrollY.current = currentScrollY;
+  // 디바운스된 스크롤 핸들러 함수
+  const debounceScroll = useCallback((callback) => {
+    return function() {
+      if (scrollTimeout.current) {
+        cancelAnimationFrame(scrollTimeout.current);
       }
+      scrollTimeout.current = requestAnimationFrame(() => {
+        callback();
+      });
     };
+  }, []);
+
+  // 스크롤 상태 업데이트 함수
+  const updateScrollState = useCallback(() => {
+    if (!navigationRef.current) return;
+    
+    // 현재 스크롤 위치
+    const currentScrollY = window.scrollY;
+    const scrollDifference = Math.abs(currentScrollY - lastScrollY.current);
+    
+    // 네비게이션 요소가 맨 위에 도달했는지 확인
+    const rect = navigationRef.current.getBoundingClientRect();
+    const isAtTop = rect.top <= 0;
+    
+    // 임계값 이상 스크롤되었을 때만 상태 업데이트
+    if (scrollDifference > scrollThreshold) {
+      setScrolled(isAtTop);
+      
+      // scrolled 상태일 때만 스크롤 방향에 따라 표시/숨김 처리
+      if (isAtTop) {
+        if (currentScrollY > lastScrollY.current + scrollThreshold) {
+          setVisible(false); // 아래로 스크롤 시 숨김
+        } else if (currentScrollY < lastScrollY.current - scrollThreshold) {
+          setVisible(true); // 위로 스크롤 시 표시
+        }
+      } else {
+        setVisible(true); // scrolled 상태가 아닐 때는 항상 표시
+      }
+      
+      // 현재 스크롤 위치 저장
+      lastScrollY.current = currentScrollY;
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = debounceScroll(updateScrollState);
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     // 초기 상태 확인
-    handleScroll();
+    updateScrollState();
     
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeout.current) {
+        cancelAnimationFrame(scrollTimeout.current);
+      }
+    };
+  }, [debounceScroll, updateScrollState]);
+  
+  // Intersection Observer 콜백 디바운싱을 위한 상태 변수
+  const observerTimeout = useRef(null);
+  const lastActiveSectionUpdate = useRef(0);
+  const observerUpdateDelay = 100; // 업데이트 사이의 최소 지연시간(ms)
+  
+  // 섹션 변경 디바운스 함수
+  const debounceSectionChange = useCallback((sectionId, sectionIds) => {
+    const now = Date.now();
+    // 마지막 업데이트 이후 일정 시간이 지났을 때만 업데이트 수행
+    if (now - lastActiveSectionUpdate.current > observerUpdateDelay && sectionIds.includes(sectionId)) {
+      setActiveSection(sectionId);
+      lastActiveSectionUpdate.current = now;
+    } else {
+      // 디바운싱: 연속된 업데이트 요청 취소 및 새로운 요청 설정
+      if (observerTimeout.current) {
+        clearTimeout(observerTimeout.current);
+      }
+      observerTimeout.current = setTimeout(() => {
+        if (sectionIds.includes(sectionId)) {
+          setActiveSection(sectionId);
+          lastActiveSectionUpdate.current = Date.now();
+        }
+      }, observerUpdateDelay);
+    }
   }, []);
   
   // Intersection Observer를 사용하여 화면에 보이는 섹션 감지
@@ -80,9 +132,8 @@ const DetailNavigation = ({
             .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
           
           const sectionId = topSection.target.id;
-          if (sectionIds.includes(sectionId)) {
-            setActiveSection(sectionId);
-          }
+          // 디바운스된 섹션 변경 함수 호출
+          debounceSectionChange(sectionId, sectionIds);
         }
         // ID에 부합하는 요소가 없으면 현재 상태 유지 (아무것도 하지 않음)
       },
@@ -100,8 +151,13 @@ const DetailNavigation = ({
       }
     });
 
-    return () => observer.disconnect();
-  }, [navigationSections]);
+    return () => {
+      observer.disconnect();
+      if (observerTimeout.current) {
+        clearTimeout(observerTimeout.current);
+      }
+    };
+  }, [navigationSections, debounceSectionChange]);
 
   // props로 전달된 activeSection 변경 시 적용
   useEffect(() => {
@@ -132,6 +188,9 @@ const DetailNavigation = ({
 
   // 네비게이션 메뉴 참조
   const navigationMenuRef = useRef(null);
+  
+  // 네비게이션 섹션 메모이제이션
+  const memoizedSections = useMemo(() => navigationSections, [navigationSections]);
   
   // 스크롤 상태 감지
   const [, setScrollable] = useState({
@@ -169,7 +228,7 @@ const DetailNavigation = ({
     <section 
       ref={navigationRef}
       className={`detail-navigation-section ${scrolled ? 'scrolled' : ''} ${className}`.trim()}
-      style={scrolled ? { transform: visible ? 'translateY(0)' : 'translateY(-100%)', transition: 'transform 0.3s ease' } : {}}
+      style={scrolled ? { transform: visible ? 'translateY(0)' : 'translateY(-100%)' } : {}}
     >
       <div className="container">
         <div 
@@ -177,7 +236,7 @@ const DetailNavigation = ({
           className="navigation-menu"
           onScroll={checkScrollable}
         >
-          {navigationSections.map((section) => (
+          {memoizedSections.map((section) => (
             <button
               key={section.id}
               onClick={() => handleSectionClick(section.id)}
@@ -193,5 +252,8 @@ const DetailNavigation = ({
     </section>
   );
 };
+
+// Memoize the component to prevent unnecessary re-renders
+const DetailNavigation = memo(DetailNavigationComponent);
 
 export default DetailNavigation;
