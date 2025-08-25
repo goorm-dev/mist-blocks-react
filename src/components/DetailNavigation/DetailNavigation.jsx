@@ -9,6 +9,8 @@ const DetailNavigation = ({
   className = ""
 }) => {
   const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const lastScrollY = useRef(0);
   
   // 기본 섹션들 정의
   const defaultSections = [
@@ -31,14 +33,32 @@ const DetailNavigation = ({
   useEffect(() => {
     const handleScroll = () => {
       if (navigationRef.current) {
+        // 현재 스크롤 위치
+        const currentScrollY = window.scrollY;
+        
         // 네비게이션 요소가 맨 위에 도달했는지 확인
         const rect = navigationRef.current.getBoundingClientRect();
         const isAtTop = rect.top <= 0;
         setScrolled(isAtTop);
+
+        
+        // scrolled 상태일 때만 스크롤 방향에 따라 표시/숨김 처리
+        if (isAtTop) {
+          if (currentScrollY > lastScrollY.current) {
+            setVisible(false); // 아래로 스크롤 시 숨김
+          } else {
+            setVisible(true); // 위로 스크롤 시 표시
+          }
+        } else {
+          setVisible(true); // scrolled 상태가 아닐 때는 항상 표시
+        }
+        
+        // 현재 스크롤 위치 저장
+        lastScrollY.current = currentScrollY;
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     // 초기 상태 확인
     handleScroll();
     
@@ -114,7 +134,7 @@ const DetailNavigation = ({
   const navigationMenuRef = useRef(null);
   
   // 스크롤 상태 감지
-  const [scrollable, setScrollable] = useState({
+  const [, setScrollable] = useState({
     canScrollLeft: false,
     canScrollRight: false
   });
@@ -149,6 +169,7 @@ const DetailNavigation = ({
     <section 
       ref={navigationRef}
       className={`detail-navigation-section ${scrolled ? 'scrolled' : ''} ${className}`.trim()}
+      style={scrolled ? { transform: visible ? 'translateY(0)' : 'translateY(-100%)', transition: 'transform 0.3s ease' } : {}}
     >
       <div className="container">
         <div 

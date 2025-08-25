@@ -17,20 +17,21 @@
 }
 
 .open-alert {
-  display: none; /* 초기 상태는 숨김 */
   position: fixed;
   left: 50%;
   bottom: var(--vapor-size-space-300);
   z-index: 100;
   max-width: 48rem;
   width: calc(100% - 3rem);
-  transform: translateX(-50%);
-  transition: opacity 0.3s ease, bottom 0.2s;
+  transform: translateX(-50%) translateY(100%);
+  transition: opacity 0.4s ease-in-out, transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
   border-radius: var(--vapor-size-borderRadius-600);
   box-shadow: rgba(43, 45, 54, 0.08) 0px 0px 24px 0px;
   border: 0.0625rem solid rgba(255, 255, 255, 0.08);
-  opacity: 0; /* 초기 opacity는 0 */
+  opacity: 0;
   background: var(--vapor-color-background-normal);
+  will-change: transform, opacity;
+  pointer-events: none;
 }
 
 /* Enhanced backdrop filter support with feature detection */
@@ -50,9 +51,18 @@
 }
 
 .open-alert.show {
-  display: flex !important; /* 강제로 표시 */
+  display: flex;
   opacity: 1;
-  animation: 1s ease-out 0s 1 normal forwards running animation-alert;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+  animation: animation-alert 0.8s cubic-bezier(0.38, 1.25, 0.65, 1.25) forwards;
+}
+
+/* 사라짐 애니메이션 */
+.open-alert.hide {
+  opacity: 0;
+  transform: translateX(-50%) translateY(100%);
+  pointer-events: none;
 }
 
 .open-alert-style {
@@ -200,19 +210,19 @@
   }
 }
 
-/* Animation states */
-.open-alert.entering {
-  animation: animation-alert 1s ease-out forwards;
-}
-
-.open-alert.entered {
+/* Data 속성 기반 애니메이션 */
+.open-alert[data-state="visible"] {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  transition-duration: 0.5s;
 }
 
-.open-alert.exiting {
+.open-alert[data-state="hidden"] {
   opacity: 0;
   transform: translateX(-50%) translateY(100%);
+  transition-timing-function: cubic-bezier(0.22, 0, 0.36, 1);
+  transition-duration: 0.4s;
 }
 
 Focus states for accessibility

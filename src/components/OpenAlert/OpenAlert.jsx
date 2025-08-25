@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Text, Button, IconButton } from '@vapor-ui/core';
 import { LinkOutlineIcon } from '@vapor-ui/icons';
 import { COURSE, COURSE_INFORMATION } from '../../constants/CourseInformation';
@@ -22,35 +22,59 @@ const OpenAlert = ({
     return () => clearInterval(timer);
   }, []);
 
-  // 스크롤 이벤트 감지 및 표시 상태 관리
+  // Intersection Observer 참조 저장
+  const observerRef = useRef(null);
+  
+  // Intersection Observer 설정
   useEffect(() => {
-    let alertShownOnScroll = false;
-    
-    const handleScroll = () => {
-      if (window.scrollY > 200 && !alertShownOnScroll) {
-        setIsVisible(true);
-        alertShownOnScroll = true;
-      }
-    };
-
-    // 스크롤 이벤트 리스너 추가
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    
     // 초기 상태는 숨김
     setIsVisible(false);
-
+    
+    // Intersection Observer 콜백 함수
+    const observerCallback = (entries) => {
+      // cta-enroll 요소가 화면에 보이는지 여부에 따라 상태 변경
+      const isCtaVisible = entries[0].isIntersecting;
+      setIsVisible(!isCtaVisible); // 보이지 않을 때만 OpenAlert 표시
+    };
+    
+    // 페이지가 로드된 후에 Observer 초기화 함수
+    const initObserver = () => {
+      // DetailHero에 있는 버튼 클래스명이 정확히 'cta-enroll'임
+      const ctaElement = document.querySelector('.cta-enroll');
+      
+      if (ctaElement) {
+        // Observer 생성 및 설정
+        observerRef.current = new IntersectionObserver(observerCallback, {
+          threshold: 0.1, // 10% 이상 보이면 보이는 것으로 간주
+          rootMargin: '0px' // 뷰포트에 대한 마진 설정
+        });
+        
+        // 요소 관찰 시작
+        observerRef.current.observe(ctaElement);
+      } else {
+        // cta-enroll 요소가 없으면 항상 표시
+        setIsVisible(true);
+      }
+    };
+    
+    // DOM이 완전히 로드된 후에 초기화
+    if (document.readyState === 'complete') {
+      initObserver();
+    } else {
+      window.addEventListener('load', initObserver, { once: true });
+    }
+    
+    // 컴포넌트 언마운트 시 클린업
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+      window.removeEventListener('load', initObserver);
     };
   }, []);
 
   // 코스 정보 가져오기
   const courseInfo = COURSE_INFORMATION[courseType];
-  if (!courseInfo) {
-    console.warn(`Course information not found for: ${courseType}`);
-    return null;
-  }
-
   // 상태 계산 함수들
   const getCourseStatus = () => {
     const now = currentTime;
@@ -312,23 +336,28 @@ const OpenAlert = ({
 
   const renderContent = () => {
     switch (status) {
-      case 'beforeOpen':
-        return renderBeforeOpen();
       case 'open':
         return renderOpen();
       case 'closed':
         return renderClosed();
+      case 'beforeOpen':
       default:
         return renderBeforeOpen();
     }
   };
 
-  if (!isVisible) return null;
+
 
   return (
-    <div className={`open-alert ${isVisible ? 'show' : ''} ${className}`.trim()}>
-      {renderContent()}
-    </div>
+    <>
+      {isVisible && (
+        <div 
+          className={`open-alert show ${className}`.trim()}
+        >
+          {renderContent()}
+        </div>
+      )}
+    </>
   );
 };
 

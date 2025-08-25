@@ -3,18 +3,16 @@
   position: sticky;
   top: 0;
   z-index: 40;
-  transition: all 0.3s ease;
   width: 100%;
+  transition: transform 0.3s ease;
 }
 
 
 .detail-navigation-section.scrolled {
-  backdrop-filter: blur(1.5rem);
-  -webkit-backdrop-filter: blur(1.5rem); /* Safari 지원 */
-  background-color: rgba(var(--vapor-color-background-normal), 0.8); /* 반투명 배경 */
+  background-color: var(--vapor-color-background-normal);
+  border-bottom: 1px solid var(--vapor-color-border-normal);
   left: 0;
   right: 0;
-  transition: all 0.3s ease-in-out;
   margin-left: calc(-50vw + 50%);
   /* backdrop-filter 작동을 위한 필수 속성들 */
   transform: translateZ(0); /* 하드웨어 가속 활성화 */
@@ -142,10 +140,4 @@
 
 .navigation-item:focus:not(:focus-visible) {
   outline: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  .detail-navigation-section.scrolled {
-    background-color: var(--vapor-color-background-normal-alpha-95);
-  }
 }
