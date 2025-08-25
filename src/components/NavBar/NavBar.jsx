@@ -46,7 +46,7 @@ const createCourseDropdownItems = (courseTypes) => {
     name: COURSE_INFORMATION[courseType].title,
     navIconSrc: COURSE_INFORMATION[courseType].navIconSrc,
     description: COURSE_INFORMATION[courseType].description,
-    href: `/detail/${COURSE_INFORMATION[courseType].keyword}`,
+    href: `/${COURSE_INFORMATION[courseType].keyword}`,
     icon: COURSE_ICONS[courseType]
   }))
 }
@@ -137,7 +137,7 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
           >
             {isDarkMode ? <SunIcon className="size-5 stroke-2" /> : <MoonIcon className="size-5 stroke-2" />}
           </button>
-          <a href="#" target='_blank' className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 p-3 transition-[background-color]">
+          <a href="https://gem.goorm.io/spaces/space_68760419fd5f865c3926eb2d/submission-answers/verify" target='_blank' className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 p-3 transition-[background-color]">
             지원 확인
           </a>
         </div>
@@ -195,7 +195,7 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
               </div>
               <div className="py-6">
                 <a
-                  href="#"
+                  href="https://gem.goorm.io/spaces/space_68760419fd5f865c3926eb2d/submission-answers/verify"
                   target='_blank'
                   className="-mx-3 block px-3 py-2.5 text-base/7 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16"
                 >

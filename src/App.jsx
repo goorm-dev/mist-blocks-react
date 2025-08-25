@@ -11,7 +11,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       {COURSE_LIST.map((course) => (
-        <Route key={course} path={`/detail/${COURSE_INFORMATION[course].keyword}`} element={<Detail course={course} />} />
+        <Route key={course} path={`/${COURSE_INFORMATION[course].keyword}`} element={<Detail course={course} />} />
       ))}
     </Routes>
   );

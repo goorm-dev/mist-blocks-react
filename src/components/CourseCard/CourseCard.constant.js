@@ -10,8 +10,8 @@ export const COURSE_CARD_COURSES = [
     thumbnailType: 'image',
     imageSrc: COURSE_INFORMATION[COURSE.FULLSTACK].imageSrc,
     ctaButtonLabel: "신청하기",
-    ctaButtonLink: `/detail/${COURSE_INFORMATION[COURSE.FULLSTACK].keyword}`,
-    link: `/detail/${COURSE_INFORMATION[COURSE.FULLSTACK].keyword}`,
+    ctaButtonLink: `/${COURSE_INFORMATION[COURSE.FULLSTACK].keyword}`,
+    link: `/${COURSE_INFORMATION[COURSE.FULLSTACK].keyword}`,
     showCtaButton: true
   },
   {
@@ -23,8 +23,8 @@ export const COURSE_CARD_COURSES = [
     thumbnailType: 'image',
     imageSrc: COURSE_INFORMATION[COURSE.FRONTEND].imageSrc,
     ctaButtonLabel: "신청하기",
-    ctaButtonLink: `/detail/${COURSE_INFORMATION[COURSE.FRONTEND].keyword}`,
-    link: `/detail/${COURSE_INFORMATION[COURSE.FRONTEND].keyword}`,
+    ctaButtonLink: `/${COURSE_INFORMATION[COURSE.FRONTEND].keyword}`,
+    link: `/${COURSE_INFORMATION[COURSE.FRONTEND].keyword}`,
     showCtaButton: true
   },
   {
@@ -36,8 +36,8 @@ export const COURSE_CARD_COURSES = [
     thumbnailType: 'image',
     imageSrc: COURSE_INFORMATION[COURSE.BACKEND].imageSrc,
     ctaButtonLabel: "신청하기",
-    ctaButtonLink: `/detail/${COURSE_INFORMATION[COURSE.BACKEND].keyword}`,
-    link: `/detail/${COURSE_INFORMATION[COURSE.BACKEND].keyword}`,
+    ctaButtonLink: `/${COURSE_INFORMATION[COURSE.BACKEND].keyword}`,
+    link: `/${COURSE_INFORMATION[COURSE.BACKEND].keyword}`,
     showCtaButton: true
   },
   {
@@ -49,8 +49,8 @@ export const COURSE_CARD_COURSES = [
     thumbnailType: 'image',
     imageSrc: COURSE_INFORMATION[COURSE.GEN_AI].imageSrc,
     ctaButtonLabel: "신청하기",
-    ctaButtonLink: `/detail/${COURSE_INFORMATION[COURSE.GEN_AI].keyword}`,
-    link: `/detail/${COURSE_INFORMATION[COURSE.GEN_AI].keyword}`,
+    ctaButtonLink: `/${COURSE_INFORMATION[COURSE.GEN_AI].keyword}`,
+    link: `/${COURSE_INFORMATION[COURSE.GEN_AI].keyword}`,
     showCtaButton: true
   },
   {
@@ -62,8 +62,8 @@ export const COURSE_CARD_COURSES = [
     thumbnailType: 'image',
     imageSrc: COURSE_INFORMATION[COURSE.INFORMATION_SECURITY].imageSrc,
     ctaButtonLabel: "신청하기",
-    ctaButtonLink: `/detail/${COURSE_INFORMATION[COURSE.INFORMATION_SECURITY].keyword}`,
-    link: `/detail/${COURSE_INFORMATION[COURSE.INFORMATION_SECURITY].keyword}`,
+    ctaButtonLink: `/${COURSE_INFORMATION[COURSE.INFORMATION_SECURITY].keyword}`,
+    link: `/${COURSE_INFORMATION[COURSE.INFORMATION_SECURITY].keyword}`,
     showCtaButton: true
   },
   {
@@ -75,8 +75,8 @@ export const COURSE_CARD_COURSES = [
     thumbnailType: 'image',
     imageSrc: COURSE_INFORMATION[COURSE.CLOUD_NATIVE].imageSrc,
     ctaButtonLabel: "신청하기",
-    ctaButtonLink: `/detail/${COURSE_INFORMATION[COURSE.CLOUD_NATIVE].keyword}`,
-    link: `/detail/${COURSE_INFORMATION[COURSE.CLOUD_NATIVE].keyword}`,
+    ctaButtonLink: `/${COURSE_INFORMATION[COURSE.CLOUD_NATIVE].keyword}`,
+    link: `/${COURSE_INFORMATION[COURSE.CLOUD_NATIVE].keyword}`,
     showCtaButton: true
   },
   {
@@ -88,8 +88,8 @@ export const COURSE_CARD_COURSES = [
     thumbnailType: 'image',
     imageSrc: COURSE_INFORMATION[COURSE.CLOUD_INFRASTRUCTURE].imageSrc,
     ctaButtonLabel: "신청하기",
-    ctaButtonLink: `/detail/${COURSE_INFORMATION[COURSE.CLOUD_INFRASTRUCTURE].keyword}`,
-    link: `/detail/${COURSE_INFORMATION[COURSE.CLOUD_INFRASTRUCTURE].keyword}`,
+    ctaButtonLink: `/${COURSE_INFORMATION[COURSE.CLOUD_INFRASTRUCTURE].keyword}`,
+    link: `/${COURSE_INFORMATION[COURSE.CLOUD_INFRASTRUCTURE].keyword}`,
     showCtaButton: true
   },
   {
@@ -101,8 +101,8 @@ export const COURSE_CARD_COURSES = [
     thumbnailType: 'image',
     imageSrc: COURSE_INFORMATION[COURSE.PRODUCT_DESIGN].imageSrc,
     ctaButtonLabel: "신청하기",
-    ctaButtonLink: `/detail/${COURSE_INFORMATION[COURSE.PRODUCT_DESIGN].keyword}`,
-    link: `/detail/${COURSE_INFORMATION[COURSE.PRODUCT_DESIGN].keyword}`,
+    ctaButtonLink: `/${COURSE_INFORMATION[COURSE.PRODUCT_DESIGN].keyword}`,
+    link: `/${COURSE_INFORMATION[COURSE.PRODUCT_DESIGN].keyword}`,
     showCtaButton: true
   },
   {
@@ -114,8 +114,8 @@ export const COURSE_CARD_COURSES = [
     thumbnailType: 'image',
     imageSrc: COURSE_INFORMATION[COURSE.PRODUCT_MANAGEMENT].imageSrc,
     ctaButtonLabel: "신청하기",
-    ctaButtonLink: `/detail/${COURSE_INFORMATION[COURSE.PRODUCT_MANAGEMENT].path}`,
-    link: `/detail/${COURSE_INFORMATION[COURSE.PRODUCT_MANAGEMENT].path}`,
+    ctaButtonLink: `/${COURSE_INFORMATION[COURSE.PRODUCT_MANAGEMENT].path}`,
+    link: `/${COURSE_INFORMATION[COURSE.PRODUCT_MANAGEMENT].path}`,
     showCtaButton: true
   }
 ];

@@ -9,7 +9,7 @@ import { COURSE_INFORMATION, COURSE_AREA_INFORMATION, COURSE_AREA_LIST } from '.
 
 const FooterCourseLink = ({ course }) => {
   const { keyword } = COURSE_INFORMATION[course];
-  const hrefLink = `/detail/${keyword}`;
+  const hrefLink = `/${keyword}`;
 
   return (
       <li key={course}>

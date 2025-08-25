@@ -114,13 +114,13 @@ const OpenAlert = ({
         return {
           text: '오픈 알림 신청하기',
           disabled: false,
-          link: null
+          link: `https://gem.goorm.io/submissions/ktcloudtechup/openalarm`
         };
       case 'open':
         return {
           text: getApplyButtonText(),
           disabled: false,
-          link: courseInfo.applyLink || null
+          link: `https://gem.goorm.io/submissions/ktcloudtechup/${courseInfo.keyword}`
         };
       case 'closed':
         return {
@@ -132,7 +132,7 @@ const OpenAlert = ({
         return {
           text: '오픈 알림 신청하기',
           disabled: false,
-          link: null
+          link: `https://gem.goorm.io/submissions/ktcloudtechup/openalarm`
         };
     }
   };

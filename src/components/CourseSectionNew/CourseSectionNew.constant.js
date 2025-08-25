@@ -15,7 +15,7 @@ export const COURSE_TRACK_LIST = [
             tags: COURSE_INFORMATION[courseType].tags,
             thumbnailType: 'image',
             imageSrc: COURSE_INFORMATION[courseType].imageSrc,
-            link: `/detail/${COURSE_INFORMATION[courseType].keyword}`,
+            link: `/${COURSE_INFORMATION[courseType].keyword}`,
             showCtaButton: false
         }))
     },
@@ -32,7 +32,7 @@ export const COURSE_TRACK_LIST = [
             tags: COURSE_INFORMATION[courseType].tags,
             thumbnailType: 'image',
             imageSrc: COURSE_INFORMATION[courseType].imageSrc,
-            link: `/detail/${COURSE_INFORMATION[courseType].keyword}`,
+            link: `/${COURSE_INFORMATION[courseType].keyword}`,
             showCtaButton: false
         }))
     },
@@ -49,7 +49,7 @@ export const COURSE_TRACK_LIST = [
             tags: COURSE_INFORMATION[courseType].tags,
             thumbnailType: 'image',
             imageSrc: COURSE_INFORMATION[courseType].imageSrc,
-            link: `/detail/${COURSE_INFORMATION[courseType].keyword || COURSE_INFORMATION[courseType].path}`,
+            link: `/${COURSE_INFORMATION[courseType].keyword || COURSE_INFORMATION[courseType].path}`,
             showCtaButton: false
         }))
     }
