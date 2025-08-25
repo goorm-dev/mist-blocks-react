@@ -120,10 +120,10 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'gen-ai',
         recruitedPeopleAmount: 45,
-        navIconSrc: "/assets/techup_nav_genai.png",
-        imageSrc: "/assets/techup_thumb_genai.png",
-        detailImageDesktop: "/assets/techup_detail_pc_genai.png",
-        detailImageMobile: "/assets/techup_detail_mo_genai.png"
+        navIconSrc: "/assets/techup_nav_gen-ai.png",
+        imageSrc: "/assets/techup_thumb_gen-ai.png",
+        detailImageDesktop: "/assets/techup_detail_pc_gen-ai.png",
+        detailImageMobile: "/assets/techup_detail_mo_gen-ai.png"
     },
     [COURSE.INFORMATION_SECURITY]: {
         title: "kt cloud 사이버 보안",
@@ -135,10 +135,10 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'cybersecurity',
         recruitedPeopleAmount: 45,
-        navIconSrc: "/assets/techup_nav_security.png",
-        imageSrc: "/assets/techup_thumb_security.png",
-        detailImageDesktop: "/assets/techup_detail_pc_security.png",
-        detailImageMobile: "/assets/techup_detail_mo_security.png"
+        navIconSrc: "/assets/techup_nav_cybersecurity.png",
+        imageSrc: "/assets/techup_thumb_cybersecurity.png",
+        detailImageDesktop: "/assets/techup_detail_pc_cybersecurity.png",
+        detailImageMobile: "/assets/techup_detail_mo_cybersecurity.png"
     },
     [COURSE.CLOUD_NATIVE]: {
         title: "kt cloud 클라우드 네이티브",
@@ -150,10 +150,10 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'cloud-native',
         recruitedPeopleAmount: 45,
-        navIconSrc: "/assets/techup_nav_cloudnative.png",
-        imageSrc: "/assets/techup_thumb_cloudnative.png",
-        detailImageDesktop: "/assets/techup_detail_pc_cloudnative.png",
-        detailImageMobile: "/assets/techup_detail_mo_cloudnative.png"
+        navIconSrc: "/assets/techup_nav_cloud-native.png",
+        imageSrc: "/assets/techup_thumb_cloud-native.png",
+        detailImageDesktop: "/assets/techup_detail_pc_cloud-native.png",
+        detailImageMobile: "/assets/techup_detail_mo_cloud-native.png"
     },
     [COURSE.CLOUD_INFRASTRUCTURE]: {
         title: "kt cloud 클라우드 인프라",
@@ -165,10 +165,10 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'cloud-infra',
         recruitedPeopleAmount: 45,
-        navIconSrc: "/assets/techup_nav_cloudinfra.png",
-        imageSrc: "/assets/techup_thumb_cloudinfra.png",
-        detailImageDesktop: "/assets/techup_detail_pc_cloudinfra.png",
-        detailImageMobile: "/assets/techup_detail_mo_cloudinfra.png"
+        navIconSrc: "/assets/techup_nav_cloud-infra.png",
+        imageSrc: "/assets/techup_thumb_cloud-infra.png",
+        detailImageDesktop: "/assets/techup_detail_pc_cloud-infra.png",
+        detailImageMobile: "/assets/techup_detail_mo_cloud-infra.png"
     },
     [COURSE.PRODUCT_DESIGN]: {
         title: "kt cloud 프로덕트 디자인",
@@ -180,10 +180,10 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'product-design',
         recruitedPeopleAmount: 45,
-        navIconSrc: "/assets/techup_nav_design.png",
-        imageSrc: "/assets/techup_thumb_design.png",
-        detailImageDesktop: "/assets/techup_detail_pc_design.png",
-        detailImageMobile: "/assets/techup_detail_mo_design.png"
+        navIconSrc: "/assets/techup_nav_product-design.png",
+        imageSrc: "/assets/techup_thumb_product-design.png",
+        detailImageDesktop: "/assets/techup_detail_pc_product-design.png",
+        detailImageMobile: "/assets/techup_detail_mo_product-design.png"
     },
     [COURSE.PRODUCT_MANAGEMENT]: {
         title: "kt cloud 프로덕트 매니지먼트",
@@ -195,9 +195,9 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'product-management',
         recruitedPeopleAmount: 45,
-        navIconSrc: "/assets/techup_nav_pm.png",
-        imageSrc: "/assets/techup_thumb_pm.png",
-        detailImageDesktop: "/assets/techup_detail_pc_pm.png",
-        detailImageMobile: "/assets/techup_detail_mo_pm.png"
+        navIconSrc: "/assets/techup_nav_product-management.png",
+        imageSrc: "/assets/techup_thumb_product-management.png",
+        detailImageDesktop: "/assets/techup_detail_pc_product-management.png",
+        detailImageMobile: "/assets/techup_detail_mo_product-management.png"
     },
 }
