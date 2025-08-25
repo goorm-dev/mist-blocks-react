@@ -119,7 +119,7 @@ const DetailCurriculum = ({ course }) => {
                           </div>
                           <div className="curriculum-content-container">
                             <div className="curriculum-hover-container">
-                              <Text typography='body2' className='curriculum-content-title'>
+                              <Text typography='heading6' className='curriculum-content-title'>
                                 {typeof content === 'object' ? content.title : 
                                  content.includes(":") ? content.split(":")[0] : content}
                               </Text>

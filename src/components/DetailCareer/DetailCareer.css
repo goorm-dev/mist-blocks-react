@@ -41,7 +41,7 @@
 .bf-career-card-content {
   display: flex;
   flex-direction: column;
-  gap: var(--vapor-size-space-200);
+  gap: var(--vapor-size-space-100);
   width: 100%;
 }
 .bf-career-card-title {
