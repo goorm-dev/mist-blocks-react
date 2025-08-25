@@ -75,10 +75,10 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'fullstack',
         recruitedPeopleAmount: 45,
-        navIconSrc: "/assets/techup_nav_fullstack.png",
-        imageSrc: "/assets/techup_thumb_fullstack.png",
-        detailImageDesktop: "/assets/techup_detail_pc_fullstack.png",
-        detailImageMobile: "/assets/techup_detail_mo_fullstack.png"
+        navIconSrc: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/fullstack/techup_nav_fullstack.png",
+        imageSrc: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/fullstack/techup_thumb_fullstack.png",
+        detailImageDesktop: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/fullstack/techup_detail_pc_fullstack.png",
+        detailImageMobile: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/fullstack/techup_detail_mo_fullstack.png"
     },
     [COURSE.FRONTEND]: {
         title: "kt cloud 프론트엔드",
@@ -90,10 +90,10 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'frontend',
         recruitedPeopleAmount: 45,
-        navIconSrc: "/assets/techup_nav_frontend.png",
-        imageSrc: "/assets/techup_thumb_frontend.png",
-        detailImageDesktop: "/assets/techup_detail_pc_frontend.png",
-        detailImageMobile: "/assets/techup_detail_mo_frontend.png"
+        navIconSrc: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/frontend/techup_nav_frontend.png",
+        imageSrc: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/frontend/techup_thumb_frontend.png",
+        detailImageDesktop: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/frontend/techup_detail_pc_frontend.png",
+        detailImageMobile: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/frontend/techup_detail_mo_frontend.png"
     },
     [COURSE.BACKEND]: {
         title: "kt cloud 백엔드",
@@ -105,10 +105,10 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'backend',
         recruitedPeopleAmount: 45,
-        navIconSrc: "/assets/techup_nav_backend.png",
-        imageSrc: "/assets/techup_thumb_backend.png",
-        detailImageDesktop: "/assets/techup_detail_pc_backend.png",
-        detailImageMobile: "/assets/techup_detail_mo_backend.png"
+        navIconSrc: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/backend/techup_nav_backend.png",
+        imageSrc: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/backend/techup_thumb_backend.png",
+        detailImageDesktop: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/backend/techup_detail_pc_backend.png",
+        detailImageMobile: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/backend/techup_detail_mo_backend.png"
     },
     [COURSE.GEN_AI]: {
         title: "kt cloud 생성형 AI",
@@ -120,10 +120,10 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'gen-ai',
         recruitedPeopleAmount: 45,
-        navIconSrc: "/assets/techup_nav_gen-ai.png",
-        imageSrc: "/assets/techup_thumb_gen-ai.png",
-        detailImageDesktop: "/assets/techup_detail_pc_gen-ai.png",
-        detailImageMobile: "/assets/techup_detail_mo_gen-ai.png"
+        navIconSrc: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/gen-ai/techup_nav_gen-ai.png",
+        imageSrc: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/gen-ai/techup_thumb_gen-ai.png",
+        detailImageDesktop: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/gen-ai/techup_detail_pc_gen-ai.png",
+        detailImageMobile: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/gen-ai/techup_detail_mo_gen-ai.png"
     },
     [COURSE.INFORMATION_SECURITY]: {
         title: "kt cloud 사이버 보안",
@@ -135,10 +135,10 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'cybersecurity',
         recruitedPeopleAmount: 45,
-        navIconSrc: "/assets/techup_nav_cybersecurity.png",
-        imageSrc: "/assets/techup_thumb_cybersecurity.png",
-        detailImageDesktop: "/assets/techup_detail_pc_cybersecurity.png",
-        detailImageMobile: "/assets/techup_detail_mo_cybersecurity.png"
+        navIconSrc: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/cybersecurity/techup_nav_cybersecurity.png",
+        imageSrc: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/cybersecurity/techup_thumb_cybersecurity.png",
+        detailImageDesktop: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/cybersecurity/techup_detail_pc_cybersecurity.png",
+        detailImageMobile: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/cybersecurity/techup_detail_mo_cybersecurity.png"
     },
     [COURSE.CLOUD_NATIVE]: {
         title: "kt cloud 클라우드 네이티브",
@@ -150,10 +150,10 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'cloud-native',
         recruitedPeopleAmount: 45,
-        navIconSrc: "/assets/techup_nav_cloud-native.png",
-        imageSrc: "/assets/techup_thumb_cloud-native.png",
-        detailImageDesktop: "/assets/techup_detail_pc_cloud-native.png",
-        detailImageMobile: "/assets/techup_detail_mo_cloud-native.png"
+        navIconSrc: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/cloud-native/techup_nav_cloud-native.png",
+        imageSrc: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/cloud-native/techup_thumb_cloud-native.png",
+        detailImageDesktop: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/cloud-native/techup_detail_pc_cloud-native.png",
+        detailImageMobile: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/cloud-native/techup_detail_mo_cloud-native.png"
     },
     [COURSE.CLOUD_INFRASTRUCTURE]: {
         title: "kt cloud 클라우드 인프라",
@@ -165,10 +165,10 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'cloud-infra',
         recruitedPeopleAmount: 45,
-        navIconSrc: "/assets/techup_nav_cloud-infra.png",
-        imageSrc: "/assets/techup_thumb_cloud-infra.png",
-        detailImageDesktop: "/assets/techup_detail_pc_cloud-infra.png",
-        detailImageMobile: "/assets/techup_detail_mo_cloud-infra.png"
+        navIconSrc: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/cloud-infra/techup_nav_cloud-infra.png",
+        imageSrc: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/cloud-infra/techup_thumb_cloud-infra.png",
+        detailImageDesktop: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/cloud-infra/techup_detail_pc_cloud-infra.png",
+        detailImageMobile: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/cloud-infra/techup_detail_mo_cloud-infra.png"
     },
     [COURSE.PRODUCT_DESIGN]: {
         title: "kt cloud 프로덕트 디자인",
@@ -180,10 +180,10 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'product-design',
         recruitedPeopleAmount: 45,
-        navIconSrc: "/assets/techup_nav_product-design.png",
-        imageSrc: "/assets/techup_thumb_product-design.png",
-        detailImageDesktop: "/assets/techup_detail_pc_product-design.png",
-        detailImageMobile: "/assets/techup_detail_mo_product-design.png"
+        navIconSrc: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/product-design/techup_nav_product-design.png",
+        imageSrc: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/product-design/techup_thumb_product-design.png",
+        detailImageDesktop: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/product-design/techup_detail_pc_product-design.png",
+        detailImageMobile: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/product-design/techup_detail_mo_product-design.png"
     },
     [COURSE.PRODUCT_MANAGEMENT]: {
         title: "kt cloud 프로덕트 매니지먼트",
@@ -195,9 +195,9 @@ export const COURSE_INFORMATION = {
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
         keyword: 'product-management',
         recruitedPeopleAmount: 45,
-        navIconSrc: "/assets/techup_nav_product-management.png",
-        imageSrc: "/assets/techup_thumb_product-management.png",
-        detailImageDesktop: "/assets/techup_detail_pc_product-management.png",
-        detailImageMobile: "/assets/techup_detail_mo_product-management.png"
+        navIconSrc: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/product-management/techup_nav_product-management.png",
+        imageSrc: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/product-management/techup_thumb_product-management.png",
+        detailImageDesktop: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/product-management/techup_detail_pc_product-management.png",
+        detailImageMobile: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/product-management/techup_detail_mo_product-management.png"
     },
 }

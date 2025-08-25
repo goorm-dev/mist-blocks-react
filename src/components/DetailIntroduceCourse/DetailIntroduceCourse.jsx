@@ -30,8 +30,8 @@ const DetailIntroduceCourse = ({
     return null;
   }
   
-  // 과정에 맞는 배경 이미지 가져오기
-  const backgroundImage = COURSE_BACKGROUND_IMAGES[course];
+  // 과정에 맞는 배경 이미지 가져오기 - CDN URL 사용
+  const backgroundImageUrl = `https://statics.goorm.io/ktcloud-techup/landing/assets/course/${course.toLowerCase().replace('_', '-')}/techup_introduce_bg_${course.toLowerCase().replace('_', '-')}.png`;
 
   const {
     title,
@@ -223,12 +223,12 @@ const DetailIntroduceCourse = ({
             {/* 콘텐츠 그리드 */}
             <div className="content-grid">
               {/* 핵심 메시지 섹션 */}
-              <div 
-                className="content-card core-message-card"
-                style={{ 
-                  backgroundImage: `url('/assets/${backgroundImage}')`
-                }}
-              >
+              <div className="content-card core-message-card">
+                <img 
+                  src={backgroundImageUrl} 
+                  alt="과정 소개 배경 이미지" 
+                  className="core-message-background"
+                />
                 <div className="core-card-content">
                   <Text typography="heading2" foreground="accent" className="core-message-text">
                     {parseMessage(coreMessage)}

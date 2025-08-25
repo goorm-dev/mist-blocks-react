@@ -3,14 +3,14 @@ import './DetailLearningPlace.css';
 import { Text } from '@vapor-ui/core';
 
 const DetailLearningPlace = () => {
-  // 이미지 배열 - 실제 이미지 경로로 변경해야 함
+  // 이미지 배열 - CDN URL 적용
   const images = [
-    "/assets/techup_learning_place_01.png",
-    "/assets/techup_learning_place_02.png",
-    "/assets/techup_learning_place_03.png",
-    "/assets/techup_learning_place_04.png",
-    "/assets/techup_learning_place_05.png",
-    "/assets/techup_learning_place_06.png"
+    "https://statics.goorm.io/ktcloud-techup/landing/assets/learning-place/techup_learning_place_01.png",
+    "https://statics.goorm.io/ktcloud-techup/landing/assets/learning-place/techup_learning_place_02.png",
+    "https://statics.goorm.io/ktcloud-techup/landing/assets/learning-place/techup_learning_place_03.png",
+    "https://statics.goorm.io/ktcloud-techup/landing/assets/learning-place/techup_learning_place_04.png",
+    "https://statics.goorm.io/ktcloud-techup/landing/assets/learning-place/techup_learning_place_05.png",
+    "https://statics.goorm.io/ktcloud-techup/landing/assets/learning-place/techup_learning_place_06.png"
   ];
 
   return (

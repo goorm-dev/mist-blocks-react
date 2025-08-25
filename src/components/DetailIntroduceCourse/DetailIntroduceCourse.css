@@ -194,18 +194,28 @@
 
 /* 핵심 메시지 카드 */
 .core-message-card {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   position: relative;
   border-radius: var(--vapor-size-border-radius-600) var(--vapor-size-border-radius-600) 0 0;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+}
+
+.core-message-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
 
 /* 호버 시에만 텍스트가 보이는 효과가 있는 경우를 대비한 기본 스타일 */
 .core-message-card .core-card-content {
   transition: opacity 0.3s ease, transform 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
 
@@ -327,7 +337,6 @@
     overflow: visible;
     transform: none;
     transition: none;
-    background: rgba(0, 0, 0, 0.5); /* 배경 이미지 위에 텍스트가 잘 보이도록 약간의 배경 처리 */
     padding: var(--vapor-size-space-200);
     width: 100%;
     height: auto;
