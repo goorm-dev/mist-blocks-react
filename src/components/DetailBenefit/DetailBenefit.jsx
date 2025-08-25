@@ -288,62 +288,62 @@ const BenefitItem = ({ icon, title, description }) => {
         {
       icon: <OfflineClassroomIcon />,
       title: "오프라인 교육장",
-      description: "오프라인에서 협업하며 팀 프로젝트를 경험하세요."
+      description: "오프라인 협업으로 몰입도 200% 실전 같은 팀 프로젝트가 펼쳐집니다."
     },
     {
       icon: <MetaverseIcon />,
       title: "메타버스 교육장",
-      description: "가상현실 환경에서 몰입형 학습을 경험하세요."
+      description: "현실을 뛰어넘는 메타버스 기반 몰입형 학습 경험을 제공합니다."
     },
     {
       icon: <NetworkingIcon />,
       title: "네트워킹 파티",
-      description: "다양한 만남을 통해 든든한 네트워크를 만드세요."
+      description: "혼자가 아닌 연결의 힘으로 성장의 속도를 높이세요."
     },
     {
       icon: <OfficeTourIcon />,
       title: "kt cloud 오피스 투어",
-      description: "업무 환경을 체험하며 기업 문화를 엿볼 수 있어요."
+      description: "실제 업무 공간을 직접 둘러보고, 기업 문화를 가까이에서 느껴보세요."
     },
     {
       icon: <AWSIcon />,
-      title: "AWS 지원",
-      description: "실무 경험과 성장을 위해 AWS 비용을 지원합니다."
+      title: "AWS 인프라 지원",
+      description: "실무 프로젝트와 성장을 위해 AWS 비용을 지원합니다."
     },
     {
       icon: <AIToolIcon />,
       title: "생성형 AI 도구 지원",
-      description: "학습에 필요한 생성형 AI 도구를 지원합니다."
+      description: "AI와 함께라면 학습이 더 빠르고 똑똑해집니다."
     },
     {
       icon: <OnlineContentIcon />,
-      title: "온라인 콘텐츠 제공",
-      description: "체계적인 온라인 교육 콘텐츠를 제공받습니다."
+      title: "인프런 콘텐츠 제공",
+      description: "합격 시점부터 한 달 간 인프런 강의를 무제한으로 수강하실 수 있습니다."
     },
     {
       icon: <BookIcon />,
       title: "전문 서적 지원",
-      description: "개발, 디자인 등 필요한 전문 서적을 지원합니다."
+      description: "학습과 지식 성장을 위해 필요한 전문 서적을 지원합니다."
     },
     {
       icon: <CodingTestIcon />,
       title: "모의 코딩 테스트 지원",
-      description: "실력 향상을 위해 모의 코딩 테스트를 지원합니다."
+      description: "실전 같은 모의 테스트로 실력을 검증하고 한 단계 도약하세요."
     },
     {
       icon: <GrowthFundIcon />,
       title: "성장 격려금 제공",
-      description: "대회 수상 시 최대 100만원 제공합니다."
+      description: "대회 수상 시 성장 격려금으로 최대 100만원 제공합니다."
     },
     {
       icon: <TrainingFundIcon />,
       title: "훈련 장려금 제공",
-      description: "훈련과정 독려를 위해 소액의 장려금을 제공합니다."
+      description: "성장의 밑거름으로 월 최대 316,000원의 훈련장려금이 지급됩니다."
     },
     {
       icon: <MacbookIcon />,
       title: "학습용 맥북 대여",
-      description: "원활한 학습을 위해 맥북을 대여해 드립니다."
+      description: "최적의 환경에서 학습할 수 있도록 맥북을 제공합니다."
     }
   ];
 

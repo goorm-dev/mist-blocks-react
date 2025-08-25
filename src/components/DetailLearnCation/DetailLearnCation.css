@@ -47,8 +47,13 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0) 80%);
+  background: rgba(0, 0, 0, 0.6);
   z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.learn-cation-main-card.active .image-overlay {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
 .main-image {
