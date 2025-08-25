@@ -193,7 +193,7 @@ export const COURSE_INFORMATION = {
         endAt: new Date('2025-09-11T14:59:59.999Z'),
         eventStartAt: new Date('2025-09-22T15:00:00.000Z'),
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
-        path: 'product-management',
+        keyword: 'product-management',
         recruitedPeopleAmount: 45,
         navIconSrc: "/assets/techup_nav_pm.png",
         imageSrc: "/assets/techup_thumb_pm.png",
