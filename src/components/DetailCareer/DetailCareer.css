@@ -145,6 +145,11 @@
   .bf-career-section {
     padding: var(--vapor-size-space-600) 0;
   }
+  .bf-career-card-title {
+    line-height: var(--vapor-typography-lineHeight-200);
+    letter-spacing: var(--vapor-typography-letterSpacing-100);
+    font-size: var(--vapor-typography-fontSize-200);
+  }
 }
 @media (max-width: 576px) { 
   .bf-career-card {

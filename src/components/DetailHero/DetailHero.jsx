@@ -193,7 +193,7 @@ const DetailHero = ({
                 </div>
                 <div className="badge-wrap">
                   {tags.map((tag, index) => (
-                    <Badge key={index} size="md" color="hint">
+                    <Badge key={index} size="md" color="danger">
                       {tag}
                     </Badge>
                   ))}

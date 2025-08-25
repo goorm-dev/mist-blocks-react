@@ -95,11 +95,6 @@
   width: 100%;
 }
 
-.benefit-title {
-  font-weight: var(--vapor-typography-fontWeight-700);
-  line-height: var(--vapor-typography-lineHeight-400);
-}
-
 .benefit-description {
   color: var(--vapor-color-foreground-normal-lighter);
   transition: color 0.3s ease;
@@ -136,6 +131,11 @@
 
   .benefit-item {
     padding: var(--vapor-size-space-300);
+  }
+  .benefit-title {
+    line-height: var(--vapor-typography-lineHeight-200);
+    letter-spacing: var(--vapor-typography-letterSpacing-100);
+    font-size: var(--vapor-typography-fontSize-200);
   }
 }
 

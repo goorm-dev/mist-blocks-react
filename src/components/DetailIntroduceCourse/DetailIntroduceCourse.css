@@ -339,4 +339,10 @@
     border-radius: var(--vapor-size-borderRadius-600);
     border-top: 1px solid var(--vapor-color-border-normal);
   }
+
+  .value-title {
+    line-height: var(--vapor-typography-lineHeight-200);
+    letter-spacing: var(--vapor-typography-letterSpacing-100);
+    font-size: var(--vapor-typography-fontSize-200);
+  }
 }

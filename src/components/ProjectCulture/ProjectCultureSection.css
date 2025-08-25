@@ -110,4 +110,9 @@
   .project-grid-wrapper{
     gap: var(--vapor-size-space-200);
   }
+  .project-title {
+    line-height: var(--vapor-typography-lineHeight-200);
+    letter-spacing: var(--vapor-typography-letterSpacing-100);
+    font-size: var(--vapor-typography-fontSize-200);
+  }
 }

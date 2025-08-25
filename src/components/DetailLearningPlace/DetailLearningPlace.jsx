@@ -47,7 +47,7 @@ const DetailLearningPlace = () => {
           {/* 구름스퀘어 강남 카드 */}
           <div className="learning-place-card">
             <div className="learning-place-card-header">
-              <Text typography='heading4' foreground='normal'>구름스퀘어 강남</Text>
+              <Text typography='heading4' foreground='normal' className='learning-place-card-title'>구름스퀘어 강남</Text>
               <a target='_blank' href="https://map.naver.com/p/entry/place/1318967756?placePath=%2Fhome">
                 <Text as="span" typography='heading6' className="learning-place-card-link">위치 확인</Text>
               </a>
@@ -62,7 +62,7 @@ const DetailLearningPlace = () => {
           {/* TECH UP 메타버스 카드 */}
           <div className="learning-place-card">
             <div className="learning-place-card-header">
-              <Text typography='heading4' foreground='normal'>TECH UP 메타버스</Text>
+              <Text typography='heading4' foreground='normal' className='learning-place-card-title'>TECH UP 메타버스</Text>
             </div>
             <div className="learning-place-card-content">
               <Text typography='body1' foreground='normal-lighter'>

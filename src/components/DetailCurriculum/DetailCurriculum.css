@@ -53,15 +53,12 @@
 }
 
 .curriculum-week {
-  color: #EC1C24;
-  font-size: var(--vapor-typography-fontSize-xs);
-  font-weight: var(--vapor-typography-fontWeight-500);
+  color: var(--ktc-tech-up-red);
   margin-bottom: var(--vapor-size-space-050);
 }
 
 .curriculum-title {
-  color: var(--vapor-color-foreground-normal);
-  font-weight: var(--vapor-typography-fontWeight-500);
+  color: var(--vapor-color-foreground-normal);font-weight: var(--vapor-typography-fontWeight-500);
   margin: 0;
 }
 
