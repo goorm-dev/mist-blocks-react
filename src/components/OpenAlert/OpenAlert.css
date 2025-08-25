@@ -226,6 +226,25 @@
     animation: animation-alert-mobile 0.5s ease-out forwards; /* 모바일에서는 부드러운 등장만 */
     transform: translateY(0);
   }
+
+  /* Safe Area 하단 영역을 배경색으로 확실히 채우기 */
+  .open-alert::after {
+    content: '';
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: var(--safe-area-inset-bottom);
+    background-color: var(--vapor-color-background-normal);
+    z-index: 99;
+    width: 100%;
+  }
+
+  .open-alert-style {
+      border-radius: var(--vapor-size-borderRadius-000);
+      margin-bottom: var(--safe-area-inset-bottom);
+      flex-direction: column;
+  }
 }
 
 /* Data 속성 기반 애니메이션 */

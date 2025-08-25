@@ -40,6 +40,11 @@
   --ktc-tech-up-generative-ai: #ff6200;
   --ktc-tech-up-product-designer: #f413a9;
   --ktc-tech-up-pm: #974af0;
+  /* Safe area 변수 정의 */
+  --safe-area-inset-top: env(safe-area-inset-top, 0px);
+  --safe-area-inset-right: env(safe-area-inset-right, 0px);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-inset-left: env(safe-area-inset-left, 0px);
 }
 
 :root.vapor-light-theme {
