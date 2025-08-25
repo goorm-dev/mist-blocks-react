@@ -6,8 +6,6 @@ import './OpenAlert.css';
 
 const OpenAlert = ({ 
   courseType = COURSE.FULLSTACK,
-  onApplyClick,
-  onNotificationClick,
   className = ''
 }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -150,6 +148,13 @@ const OpenAlert = ({
     }
   };
 
+  const handleButtonClick = () => {
+    if (!buttonConfig.disabled && buttonConfig.link) {
+      window.open(buttonConfig.link, '_blank');
+    }
+  }
+
+
   // 모집 예정 레이아웃
   const renderBeforeOpen = () => (
     <div className="open-alert-style">
@@ -190,8 +195,8 @@ const OpenAlert = ({
           size="xl"
           color="primary"
           className="cta-button"
-          onClick={onNotificationClick}
           disabled={buttonConfig.disabled}
+          onClick={handleButtonClick}
         >
           {buttonConfig.text}
         </Button>
@@ -242,22 +247,20 @@ const OpenAlert = ({
           </IconButton>
         )}
         {buttonConfig.link && !buttonConfig.disabled ? (
-          <a href={buttonConfig.link} className="apply-button-link w-full">
-            <Button
-              size="xl"
-              color="primary"
-              className="cta-button"
-              onClick={onApplyClick}
-            >
-              {buttonConfig.text}
-            </Button>
-          </a>
+          <Button
+            size="xl"
+            color="primary"
+            className="cta-button"
+            disabled={buttonConfig.disabled}
+            onClick={handleButtonClick}
+          >
+            {buttonConfig.text}
+          </Button>
         ) : (
           <Button
             size="xl"
             color="primary"
             className="cta-button"
-            onClick={onApplyClick}
             disabled={buttonConfig.disabled}
           >
             {buttonConfig.text}

@@ -46,11 +46,7 @@ function Detail({ course }) {
         <DetailRecruitmentProcess />
         <AccordionFaq />
       </main>
-      <OpenAlert 
-        courseType={course}
-        onApplyClick={() => console.log('지원하기 클릭')}
-        onNotificationClick={() => console.log('알림 신청 클릭')}
-      />
+      <OpenAlert courseType={course} />
       {/* <FloatingMenu /> */}
       <FooterFull />
     </>

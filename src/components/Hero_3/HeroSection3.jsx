@@ -60,20 +60,20 @@ const HeroSection3 = () => {
   const templateData = {
     mainTitle: "내일의 인재,<br />kt cloud TECH UP에서<br />완성됩니다.",
     videoSrc: "",
-    videoPoster: screenSize === 'mobile' || screenSize === 'tablet' ? "public/assets/techup_main_mo.png" : "public/assets/techup_main.png",
-    mobileImageSrc: screenSize === 'mobile' || screenSize === 'tablet' ? "public/assets/techup_main_mo.png" : "public/assets/techup_main.png",
+    videoPoster: screenSize === 'mobile' || screenSize === 'tablet' ? "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_main_mo.png" : "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_main.png",
+    mobileImageSrc: screenSize === 'mobile' || screenSize === 'tablet' ? "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_main_mo.png" : "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_main.png",
     cards: [
       {
         label: "혁신의 시작",
         title: "기술로 세상을 바꾸는 힘",
         description: "kt cloud는 산업 혁신을 이끌며<br />최고의 기술과 함께 성장해왔습니다.",
-        imageSrc: "public/assets/techup_hero_1.png"
+        imageSrc: "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_hero_1.png"
       },
       {
         label: "세상을 키우는 약속",
         title: "인재 중심의 기술 가치",
         description: "최고의 인재가 세상을 성장시킬 때까지,<br />kt cloud의 노력은 계속될 것입니다.",
-        imageSrc: "public/assets/techup_hero_2.png"
+        imageSrc: "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_hero_2.png"
       }
     ]
   };
