@@ -9,7 +9,7 @@ const LEARN_CATION_CARDS = [
     id: 0,
     title: '우수 훈련생에게 주어지는<br/>제주에서의 특별한 경험',
     description: '학습(Learn)과 휴가(Vacation)<br/>집이 아닌 새로운 공간에서 학습과 휴가를 동시에 경험하세요.',
-    caption: '* 우수 훈련생 조건 - 직전 3개월 평균 출석율 100%',
+    caption: '* 우수 훈련생 조건 - 직전 3개월 평균 출석율 97%',
     image: 'https://statics.goorm.io/ktcloud-techup/landing/assets/learncation/techup_learncation_01.png',
     alt: '제주에서의 특별한 경험'
   },
