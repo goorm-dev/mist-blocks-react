@@ -107,11 +107,6 @@
 /* Responsive Design */
 /* Tablet (992px 이하) */
 @media (max-width: 992px) {
-  .detail-benefit-section {
-    padding-top: var(--vapor-size-space-700);
-    padding-bottom: var(--vapor-size-space-700);
-  }
-
   .benefit-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -119,11 +114,6 @@
 
 /* Mobile (768px 이하) */
 @media (max-width: 768px) {
-  .detail-benefit-section {
-    padding-top: var(--vapor-size-space-600);
-    padding-bottom: var(--vapor-size-space-600);
-  }
-
   .benefit-grid {
     grid-template-columns: repeat(1, 1fr);
     gap: var(--vapor-size-space-200);
