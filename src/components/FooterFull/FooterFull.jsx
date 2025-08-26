@@ -106,7 +106,7 @@ const FooterFull = ({ logoUrl = "https://tech.ktcloud.com" }) => {
                   aria-label="KT Cloud Tech Up 홈페이지로 이동"
                 >
                   <img 
-                    src={isDarkTheme ? "https://statics.goorm.io/ktcloud-techup/logo/techup_dark.svg" : "/src/assets/logo_ktc_light.svg"}
+                    src={isDarkTheme ? "https://statics.goorm.io/ktcloud-techup/logo/techup_dark.svg" : "https://statics.goorm.io/ktcloud-techup/logo/techup_light.svg"}
                     alt="KT Cloud Tech Up"
                     className="footer-logo-img"
                   />
@@ -151,7 +151,7 @@ const FooterFull = ({ logoUrl = "https://tech.ktcloud.com" }) => {
           <div className="footer-ktcloud-logo">
             <a href="https://www.ktcloud.com" target="_blank" className="footer-ktcloud-logo-link" aria-label="kt cloud 홈페이지 이동">
               <img 
-                src={isDarkTheme ? "/src/assets/logo_ktcloud_dark.svg" : "/src/assets/logo_ktcloud_light.svg"}
+                src={isDarkTheme ? "https://statics.goorm.io/ktcloud-techup/logo/ktcloud_dark.svg" : "https://statics.goorm.io/ktcloud-techup/logo/ktcloud_light.svg"}
                 alt="kt cloud"
                 style={{ height: 'var(--vapor-size-space-300)', width: 'auto' }}
               />

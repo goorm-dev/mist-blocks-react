@@ -13,7 +13,7 @@ const CeoInterviewSection = () => {
   // 템플릿 변수들
   const templateData = {
     videoSrc: "",
-    videoPoster: "src/assets/interview-poster.png",
+    videoPoster: "/assets/interview-poster.png",
   };
 
   const handlePlusClick = () => {

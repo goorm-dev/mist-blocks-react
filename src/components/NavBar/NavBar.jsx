@@ -23,7 +23,7 @@ import {
   MoonIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import logoLight from '../../assets/logo_ktc_light.svg'
+const logoLight = "https://statics.goorm.io/ktcloud-techup/logo/techup_light.svg"
 const logoDark = "https://statics.goorm.io/ktcloud-techup/logo/techup_dark.svg"
 import { COURSE_INFORMATION, COURSE_AREA_INFORMATION, COURSE } from '../../constants/CourseInformation'
 

@@ -14,8 +14,8 @@
   --rotate-y: 0deg;
   --background-x: 50%;
   --background-y: 50%;
-  --grain: src/assets/grain.webp;
-  --icon: src/assets/iconpattern.png;
+  --grain: /assets/grain.webp;
+  --icon: /assets/iconpattern.png;
   --behind-gradient: none;
   --inner-gradient: none;
   --sunpillar-1: hsl(2, 100%, 73%);

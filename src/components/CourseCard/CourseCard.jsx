@@ -117,7 +117,7 @@ const CourseCard = ({
       tags: ["태그1", "태그2", "태그3", "태그4"],
       // 썸네일 타입: Lottie 애니메이션
       thumbnailType: 'image',
-      imageSrc: "src/assets/img-default.png",
+      imageSrc: "/assets/img-default.png",
       ctaButtonLabel: "CTA Button",
       ctaButtonLink: "여기에 링크를 입력하세요",
       link: "/fullstack",

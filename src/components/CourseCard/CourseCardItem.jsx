@@ -165,7 +165,7 @@ const CourseCardItem = ({ course, onCtaClick }) => {
             alt="course-image" 
             onError={(e) => {
               e.target.onerror = null;
-              e.target.src = 'src/assets/img-default.png';
+              e.target.src = '/assets/img-default.png';
             }}
           />
         );
