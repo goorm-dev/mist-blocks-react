@@ -1,51 +1,37 @@
-/* Detail Process Section */
 .detail-process {
   padding: var(--vapor-size-space-800) 0;
 }
-
-/* Process Group */
 .process-group {
   display: flex;
   flex-direction: column;
-  gap: var(--vapor-size-space-700);
+  gap: var(--vapor-size-space-500);
 }
-
-/* Process Category */
 .process-category {
   display: flex;
   flex-direction: column;
-  gap: var(--vapor-size-space-600);
+  gap: var(--vapor-size-space-300);
 }
-
-/* Process Header */
-.process-header {
+.stage-header-wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: var(--vapor-size-space-200);
+  padding-left: 11.25rem;
 }
-
 .process-text {
   display: flex;
   flex-direction: column;
   gap: var(--vapor-size-space-100);
 }
-
-/* Process 1: Lightning Pass */
-.process1-label {
+.process-header-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vapor-size-space-000);
+}
+.process-label {
   margin: 0;
   color: var(--vapor-color-foreground-hint-darker);
 }
-
-.process1-title {
-  margin: 0;
-  color: var(--vapor-color-foreground-normal);
-  font-weight: var(--vapor-typography-fontWeight-700);
-  line-height: var(--vapor-typography-lineHeight-400);
-  font-size: var(--vapor-typography-fontSize-400);
-  letter-spacing: var(--vapor-typography-letterSpacing-300);
-}
-
-.process1-desc {
+.process-desc {
   margin: 0;
   color: var(--vapor-color-foreground-hint-darker);
   font-weight: var(--vapor-typography-fontWeight-500);
@@ -53,117 +39,57 @@
   font-size: var(--vapor-typography-fontSize-100);
   letter-spacing: var(--vapor-typography-letterSpacing-100);
 }
-
-/* Process 2: Portfolio Battle */
-.process2-label {
-  margin: 0;
-  color: var(--vapor-color-foreground-hint-darker);
-}
-
-.process2-title {
-  margin: 0;
-  color: var(--vapor-color-foreground-normal);
-  font-weight: var(--vapor-typography-fontWeight-700);
-  line-height: var(--vapor-typography-lineHeight-400);
-  font-size: var(--vapor-typography-fontSize-400);
-  letter-spacing: var(--vapor-typography-letterSpacing-300);
-}
-
-.process2-desc {
-  margin: 0;
-  color: var(--vapor-color-foreground-hint-darker);
-  font-weight: var(--vapor-typography-fontWeight-500);
-  line-height: var(--vapor-typography-lineHeight-100);
-  font-size: var(--vapor-typography-fontSize-100);
-  letter-spacing: var(--vapor-typography-letterSpacing-100);
-}
-
-/* Process 3: Hidden Gem */
-.process3-label {
-  margin: 0;
-  color: var(--vapor-color-foreground-hint-darker);
-}
-
-.process3-title {
-  margin: 0;
-  color: var(--vapor-color-foreground-normal);
-  font-weight: var(--vapor-typography-fontWeight-700);
-  line-height: var(--vapor-typography-lineHeight-400);
-  font-size: var(--vapor-typography-fontSize-400);
-  letter-spacing: var(--vapor-typography-letterSpacing-300);
-}
-
-.process3-desc {
-  margin: 0;
-  color: var(--vapor-color-foreground-hint-darker);
-  font-weight: var(--vapor-typography-fontWeight-500);
-  line-height: var(--vapor-typography-lineHeight-100);
-  font-size: var(--vapor-typography-fontSize-100);
-  letter-spacing: var(--vapor-typography-letterSpacing-100);
-}
-
-/* Process Process */
 .process-process {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-
-/* Process Step */
 .process-step {
   display: flex;
   align-items: flex-start;
   padding-top: var(--vapor-size-space-300);
-  padding-bottom: var(--vapor-size-space-400);
+  padding-bottom: var(--vapor-size-space-300);
   border-bottom: 1px solid var(--vapor-color-border-normal);
 }
-
+.process-step:first-child {
+  padding-top: var(--vapor-size-space-150);
+}
 .process-step:last-child {
   border-bottom: none;
 }
-
 .step-header {
   width: 180px;
   display: flex;
   align-items: center;
-  gap: var(--vapor-size-space-200);
+  gap: var(--vapor-size-space-100);
   flex-shrink: 0;
 }
-
-.step-number {
-  color: var(--vapor-color-foreground-accent);
+.step-number-text {
+  color: var(--ktc-tech-up-red);
   font-weight: var(--vapor-typography-fontWeight-500);
 }
-
 .step-title {
   color: var(--vapor-color-foreground-normal);
   font-weight: var(--vapor-typography-fontWeight-500);
 }
-
 .step-content {
   display: flex;
   flex-direction: column;
   gap: var(--vapor-size-space-050);
   flex: 1;
 }
-
 .step-date {
   font-weight: var(--vapor-typography-fontWeight-500);
   color: var(--vapor-color-foreground-normal);
 }
-
 .step-desc {
   color: var(--vapor-color-foreground-hint);
 }
-
-/* Process Notice */
 .process-notice {
   display: flex;
   flex-direction: column;
-  gap: var(--vapor-size-space-100);
-  margin-top: var(--vapor-size-space-600);
+  margin-top: var(--vapor-size-space-300);
 }
-
 /* Process Content (기존 Hidden Gem용) */
 .process-content-wrapper {
   width: 100%;
@@ -171,73 +97,62 @@
   flex-direction: column;
   gap: var(--vapor-size-space-0);
 }
-
 .stage-header {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: var(--vapor-size-space-200);
+  padding: 0.5625rem;
   background-color: var(--vapor-color-background-normal-darker);
   text-align: center;
+  border: none;
+  transition: all 0.2s ease;
 }
-
-/* Process Items */
 .process-items {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-
-/* Process Item */
 .process-item {
   display: flex;
   align-items: flex-start;
-  padding-top: var(--vapor-size-space-400);
-  padding-bottom: var(--vapor-size-space-400);
+  padding-top: var(--vapor-size-space-300);
+  padding-bottom: var(--vapor-size-space-300);
   border-bottom: 1px solid var(--vapor-color-border-normal);
 }
-
 .process-item-last {
   border-bottom: none;
 }
-
 .process-item-header {
   width: 180px;
   display: flex;
   align-items: center;
-  gap: var(--vapor-size-space-200);
+  gap: var(--vapor-size-space-100);
   flex-shrink: 0;
 }
-
 .process-number .number-text {
   color: var(--ktc-tech-up-red);
   font-weight: var(--vapor-typography-fontWeight-500);
 }
-
 .process-title .title-text {
   color: var(--vapor-color-foreground-normal);
   font-weight: var(--vapor-typography-fontWeight-500);
 }
-
 .process-content {
   display: flex;
   flex: 1;
   gap: var(--vapor-size-space-200);
   width: 100%;
 }
-
 .stage-info {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: var(--vapor-size-space-050);
 }
-
 .stage-date {
   font-weight: var(--vapor-typography-fontWeight-500);
 }
-
 .stage-description {
   color: var(--vapor-color-foreground-hint);
 }
@@ -247,98 +162,73 @@
   .detail-process {
     padding: var(--vapor-size-space-600) 0;
   }
-
-  .process-group {
-    gap: var(--vapor-size-space-600);
-  }
-
   .process-category {
-    gap: var(--vapor-size-space-500);
+    gap: var(--vapor-size-space-300);
   }
-
-  .process-header {
-    padding-left: 164px;
-    width: 100%;
-  }
-
   .process-item {
     gap: var(--vapor-size-space-300);
   }
-
   .process-item-header {
     width: 140px;
   }
-
   .process-content {
     width: 100%;
   }
-  
   .stage-info {
     padding: 0 var(--vapor-size-space-100);
   }
-
+  .stage-header-wrapper {
+    padding-left: var(--vapor-size-space-000);
+  }
   .step-header {
     width: 140px;
+  }
+  .process-notice {
+    margin-top: var(--vapor-size-space-200);
+  }
+  .process-content-wrapper {
+    display: none;
+  }
+  .mobile-process-wrapper {
+    display: block;
   }
 }
 
 /* Small Mobile (576px 이하) */
 @media (max-width: 576px) {
+  .process-title {
+    line-height: var(--vapor-typography-lineHeight-200);
+    letter-spacing: var(--vapor-typography-letterSpacing-100);
+    font-size: var(--vapor-typography-fontSize-200);
+  }
   .detail-process {
     padding: var(--vapor-size-space-500) 0;
   }
-
   .process-group {
     gap: var(--vapor-size-space-500);
   }
-
   .process-category {
-    gap: var(--vapor-size-space-400);
+    gap: var(--vapor-size-space-300);
   }
-
-  .process-header {
-    gap: var(--vapor-size-space-150);
-  }
-
   .process-text {
     gap: var(--vapor-size-space-075);
   }
-
   .process-content {
     gap: var(--vapor-size-space-300);
   }
-
   .stage-info {
     width: 100%;
     padding: 0;
   }
-
   .stage-header {
     padding: var(--vapor-size-space-150);
   }
-  
-  /* 스테이지 헤더와 콘텐츠 일치시키기 */
-  .process-header {
-    width: 100%;
-    padding-left: 0;
-  }
-
   .step-header {
     width: 120px;
     gap: var(--vapor-size-space-150);
   }
-}
-
-/* Mobile Tab Navigation (575px 미만) */
-@media (max-width: 574px) {
-  .process-content-wrapper {
-    display: none;
-  }
-}
-
-@media (min-width: 575px) {
-  .mobile-process-wrapper {
-    display: none;
+  .process-header-group {
+    gap: var(--vapor-size-space-050);
   }
 }
 
@@ -346,35 +236,23 @@
   width: 100%;
   justify-content: center;
 }
-
 .process-nav-item {
   flex: 1;
 }
-
 .process-nav-link {
   width: 100%;
   text-align: center;
   justify-content: center;
 }
-
-/* Override Vapor UI Nav styles for our specific use case */
-.process-nav button[aria-current="page"],
-.process-nav button[aria-selected="true"] {
-  color: var(--ktc-tech-up-red);
-  border-color: var(--ktc-tech-up-red);
-}
-
 /* Mobile Process Items */
 .mobile-process-wrapper {
   width: 100%;
 }
-
 .mobile-process-items {
   display: flex;
   flex-direction: column;
   animation: fadeIn 0.3s ease-in-out;
 }
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -385,7 +263,6 @@
     transform: translateY(0);
   }
 }
-
 .mobile-process-item {
   display: flex;
   align-items: start;
@@ -393,18 +270,15 @@
   padding: var(--vapor-size-space-300) 0;
   border-bottom: 1px solid var(--vapor-color-border-normal);
 }
-
 .mobile-process-item-last {
   border-bottom: none;
 }
-
 .mobile-process-header {
   width: 140px;
   display: flex;
   align-items: center;
   gap: var(--vapor-size-space-200);
 }
-
 .mobile-process-content {
   display: flex;
   flex-direction: column;

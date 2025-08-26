@@ -90,7 +90,7 @@ const DetailRecruitmentProcess = () => {
   useEffect(() => {
     // 원본 감지 함수
     const checkMobileOriginal = () => {
-      setIsMobile(window.innerWidth < 575);
+      setIsMobile(window.innerWidth < 769);
     };
     
     // 디바운스된 화면 크기 감지 함수
@@ -170,9 +170,11 @@ const DetailRecruitmentProcess = () => {
           <div className="process-category">
             <div className="process-header">
               <div className="process-text">
-                <Text typography="subtitle1" foreground="hint-darker" className="process1-label">트랙 1</Text>
-                <Text typography="heading3" foreground="normal" className="process1-title">Lightning Pass</Text>
-                <Text typography="heading6" foreground="hint-darker" className="process1-desc">
+                <div className="process-header-group">
+                  <Text typography="subtitle1" foreground="hint-darker" className="process-label">TRACK 1</Text>
+                  <Text typography="heading3" foreground="normal" className="process-title">Lightning Pass</Text>
+                </div>
+                <Text typography="heading6" foreground="hint-darker" className="process-desc">
                   준비된 지원자는 셀프 영상 인터뷰만으로 선발됩니다.
                 </Text>
               </div>
@@ -182,7 +184,7 @@ const DetailRecruitmentProcess = () => {
               <div className="process-step">
                 <div className="step-header">
                   <div className="step-number">
-                    <Text typography="heading6" foreground="accent">01</Text>
+                    <Text typography="heading6" foreground="primary" className="step-number-text">01</Text>
                   </div>
                   <div className="step-title">
                     <Text typography="heading6" foreground="normal">과정 지원</Text>
@@ -190,7 +192,7 @@ const DetailRecruitmentProcess = () => {
                 </div>
                 <div className="step-content">
                   <Text typography="heading6" foreground="normal" className="step-date">
-                    8/28(목) - 9/11(목)
+                    25.8.28 (목) - 25.9.11 (목)
                   </Text>
                   <Text typography="subtitle1" foreground="hint" className="step-desc">
                     지원서 및 고용24 수강신청
@@ -201,7 +203,7 @@ const DetailRecruitmentProcess = () => {
               <div className="process-step">
                 <div className="step-header">
                   <div className="step-number">
-                    <Text typography="heading6" foreground="accent">02</Text>
+                    <Text typography="heading6" foreground="primary" className="step-number-text">02</Text>
                   </div>
                   <div className="step-title">
                     <Text typography="heading6" foreground="normal">최종 합격</Text>
@@ -223,9 +225,11 @@ const DetailRecruitmentProcess = () => {
           <div className="process-category">
             <div className="process-header">
               <div className="process-text">
-                <Text typography="subtitle1" foreground="hint-darker" className="process2-label">트랙 2</Text>
-                <Text typography="heading3" foreground="normal" className="process2-title">Portfolio Battle</Text>
-                <Text typography="heading6" foreground="hint-darker" className="process2-desc">
+                <div className="process-header-group">
+                  <Text typography="subtitle1" foreground="hint-darker" className="process-label">TRACK 2</Text>
+                  <Text typography="heading3" foreground="normal" className="process-title">Portfolio Battle</Text>
+                </div>
+                <Text typography="heading6" foreground="hint-darker" className="process-desc">
                   프로젝트와 포트폴리오만으로 빠르게 선발할 수 있습니다.
                 </Text>
               </div>
@@ -235,7 +239,7 @@ const DetailRecruitmentProcess = () => {
               <div className="process-step">
                 <div className="step-header">
                   <div className="step-number">
-                    <Text typography="heading6" foreground="accent">01</Text>
+                    <Text typography="heading6" foreground="primary" className="step-number-text">01</Text>
                   </div>
                   <div className="step-title">
                     <Text typography="heading6" foreground="normal">과정 지원</Text>
@@ -243,7 +247,7 @@ const DetailRecruitmentProcess = () => {
                 </div>
                 <div className="step-content">
                   <Text typography="heading6" foreground="normal" className="step-date">
-                    8/28(목) - 9/11(목)
+                    25.8.28 (목) - 25.9.11 (목)
                   </Text>
                   <Text typography="subtitle1" foreground="hint" className="step-desc">
                     지원서 및 고용24 수강신청
@@ -254,7 +258,7 @@ const DetailRecruitmentProcess = () => {
               <div className="process-step">
                 <div className="step-header">
                   <div className="step-number">
-                    <Text typography="heading6" foreground="accent">02</Text>
+                    <Text typography="heading6" foreground="primary" className="step-number-text">02</Text>
                   </div>
                   <div className="step-title">
                     <Text typography="heading6" foreground="normal">최종 합격</Text>
@@ -276,9 +280,11 @@ const DetailRecruitmentProcess = () => {
           <div className="process-category">
             <div className="process-header">
               <div className="process-text">
-                <Text typography="subtitle1" foreground="hint-darker" className="process3-label">트랙 3</Text>
-                <Text typography="heading3" foreground="normal" className="process3-title">Hidden Gem</Text>
-                <Text typography="heading6" foreground="hint-darker" className="process3-desc">
+                <div className="process-header-group">
+                  <Text typography="subtitle1" foreground="hint-darker" className="process-label">TRACK 3</Text>
+                  <Text typography="heading3" foreground="normal" className="process-title">Hidden Gem</Text>
+                </div>
+                <Text typography="heading6" foreground="hint-darker" className="process-desc">
                   가능성을 지닌 지원자는 그룹 면접으로 협업, 인성을 확인합니다.
                 </Text>
               </div>
@@ -329,12 +335,12 @@ const DetailRecruitmentProcess = () => {
               </div>
             ) : (
               <div className="process-content-wrapper">
-                <div className="process-header">
+                <div className="stage-header-wrapper">
                   <div className="stage-header first-stage">
-                    <Text typography="subtitle1" foreground="hint">1차</Text>
+                    <Text typography="subtitle1" foreground="hint">1차 일정</Text>
                   </div>
                   <div className="stage-header second-stage">
-                    <Text typography="subtitle1" foreground="hint">2차</Text>
+                    <Text typography="subtitle1" foreground="hint">2차 일정</Text>
                   </div>
                 </div>
 
