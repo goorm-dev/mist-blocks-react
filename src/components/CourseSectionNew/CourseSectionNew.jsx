@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import './CourseSectionNew.css';
 import { Text, IconButton } from '@vapor-ui/core';
 import { ChevronLeftOutlineIcon, ChevronRightOutlineIcon } from '@vapor-ui/icons';
+import { debounce } from '../../utils/performanceUtils';
 import CourseCardItem from '../CourseCard/CourseCardItem';
 import { COURSE_TRACK_LIST } from './CourseSectionNew.constant';
 
@@ -174,10 +175,11 @@ const CourseSectionNew = ({
   const sliderRefs = useRef({}); // 슬라이더 참조
 
   /**
-   * 화면 크기 변경 시 슬라이더 위치 재조정
+   * 화면 크기 변경 시 슬라이더 위치 재조정 (디바운스 적용)
    */
   useEffect(() => {
-    const handleResize = () => {
+    // 원본 리사이즈 처리 함수
+    const handleResizeOriginal = () => {
       // 1200px 이하에서는 슬라이더를 리셋하고 그리드로 표시
       if (window.innerWidth <= 1200) {
         Object.keys(sliderRefs.current).forEach(trackId => {
@@ -227,8 +229,15 @@ const CourseSectionNew = ({
         return newSlides;
       });
     };
+    
+    // 디바운스 적용된 리사이즈 핸들러 (250ms 지연)
+    const handleResize = debounce(handleResizeOriginal, 250);
 
     window.addEventListener('resize', handleResize);
+    
+    // 초기 로드 시 1번 실행
+    handleResizeOriginal();
+    
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Text, Button, Badge, IconButton } from '@vapor-ui/core';
 import './DetailHero.css';
 import { LinkOutlineIcon } from '@vapor-ui/icons';
+import { debounce } from '../../utils/performanceUtils';
 
 import { formatPeriod, getRecruitmentStatus } from '../../utils/courseUtils';
 
@@ -33,7 +34,8 @@ const DetailHero = ({
 
   // 화면 크기 감지
   useEffect(() => {
-    const checkScreenSize = () => {
+    // 원본 크기 감지 함수
+    const checkScreenSizeOriginal = () => {
       const width = window.innerWidth;
       if (width <= 992) {
         setScreenSize('mobile');
@@ -41,9 +43,12 @@ const DetailHero = ({
         setScreenSize('desktop');
       }
     };
+    
+    // 디바운스 적용된 크기 감지 함수
+    const checkScreenSize = debounce(checkScreenSizeOriginal, 200);
 
     // 초기 체크
-    checkScreenSize();
+    checkScreenSizeOriginal();
 
     // 리사이즈 이벤트 리스너
     window.addEventListener('resize', checkScreenSize);

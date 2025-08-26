@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Text } from '@vapor-ui/core';
+import { debounce } from '../../utils/performanceUtils';
 import './DetailLearnCation.css';
 
 // 카드 데이터 상수화
@@ -36,10 +37,18 @@ const DetailLearnCation = () => {
 
   // 윈도우 사이즈 변경 감지
   useEffect(() => {
-    const handleResize = () => {
+    // 원본 리사이즈 처리 함수
+    const handleResizeOriginal = () => {
       setIsMobile(window.innerWidth < 768);
     };
+    
+    // 디바운스 적용된 함수
+    const handleResize = debounce(handleResizeOriginal, 200);
 
+    // 초기 상태 설정
+    handleResizeOriginal();
+    
+    // 이벤트 리스너 등록
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);

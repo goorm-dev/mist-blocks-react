@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Text, Nav } from '@vapor-ui/core';
+import { debounce } from '../../utils/performanceUtils';
 import './DetailRecruitmentProcess.css';
 
 // 탭 구성
@@ -87,11 +88,17 @@ const DetailRecruitmentProcess = () => {
   
   // 화면 크기 감지
   useEffect(() => {
-    const checkMobile = () => {
+    // 원본 감지 함수
+    const checkMobileOriginal = () => {
       setIsMobile(window.innerWidth < 575);
     };
     
-    checkMobile();
+    // 디바운스된 화면 크기 감지 함수
+    const checkMobile = debounce(checkMobileOriginal, 200);
+    
+    // 초기 실행
+    checkMobileOriginal();
+    
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);

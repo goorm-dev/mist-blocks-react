@@ -1,8 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 
+<<<<<<< HEAD
 import { Text, Button, Box } from '@vapor-ui/core';
 import { DiscussionIcon, InstagramIcon, YoutubeIcon, BlogIcon, ArrowUpOutlineIcon } from '@vapor-ui/icons';
+=======
+import { Text } from '@vapor-ui/core';
+import { YoutubeIcon, BlogIcon, ArrowUpOutlineIcon } from '@vapor-ui/icons';
+import { debounce } from '../../utils/performanceUtils';
+>>>>>>> 0bc439640f21a164e674bedbb953a3036cfefcfa
 import './FooterFull.css';
 
 import { COURSE_INFORMATION, COURSE_AREA_INFORMATION, COURSE_AREA_LIST } from '../../constants/CourseInformation';
@@ -40,7 +46,7 @@ const FooterFull = ({ logoUrl = "https://tech.ktcloud.com" }) => {
 
   useEffect(() => {
     // 테마 감지 함수
-    const detectTheme = () => {
+    const detectThemeOriginal = () => {
       // CSS 변수로 테마 확인
       const backgroundColor = getComputedStyle(document.documentElement)
         .getPropertyValue('--vapor-color-background-normal');
@@ -52,9 +58,12 @@ const FooterFull = ({ logoUrl = "https://tech.ktcloud.com" }) => {
       
       setIsDarkTheme(isDark);
     };
+    
+    // 디바운스된 테마 감지 함수
+    const detectTheme = debounce(detectThemeOriginal, 200);
 
     // 초기 테마 감지
-    detectTheme();
+    detectThemeOriginal();
 
     // 테마 변경 감지를 위한 MutationObserver
     const observer = new MutationObserver(detectTheme);
@@ -63,7 +72,7 @@ const FooterFull = ({ logoUrl = "https://tech.ktcloud.com" }) => {
       attributeFilter: ['style', 'class']
     });
 
-    // 윈도우 리사이즈 시에도 테마 재감지
+    // 윈도우 리사이즈 시에도 테마 재감지 (디바운스 적용)
     window.addEventListener('resize', detectTheme);
 
     return () => {
