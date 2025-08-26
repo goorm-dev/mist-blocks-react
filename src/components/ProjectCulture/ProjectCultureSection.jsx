@@ -53,7 +53,7 @@ import './ProjectCultureSection.css';
 
 const ProjectCultureSection = () => {
   return (
-    <section className="content-section">
+    <section className="content-section" id="curriculum">
       <div className="container">
         <Text typography="heading2" className="title">{title}</Text>
         <div className="project-grid-wrapper">

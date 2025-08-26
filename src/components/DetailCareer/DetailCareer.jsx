@@ -89,7 +89,7 @@ const careerData = [
 
 const DetailCareer = () => {
   return (
-    <section className="content-section career-section" id="career_support">
+    <section className="content-section" id="career_support">
       <div className="container">
         <Text typography="heading2" className="title">
           목표를 현실로 만드는{'\n'}맞춤형 커리어 지원

@@ -52,7 +52,7 @@ const DetailLearnCation = () => {
   };
 
   return (
-    <section className="content-section">
+    <section className="content-section" id="introduce">
       <div className="container">
             {/* 메인 타이틀 */}
               <Text typography="heading2" foreground="normal" className='title'>

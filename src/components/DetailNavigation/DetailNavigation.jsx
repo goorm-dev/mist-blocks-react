@@ -1,18 +1,7 @@
 import { useState, useEffect, useRef, useCallback, memo, useMemo } from 'react';
 import { Text } from '@vapor-ui/core';
+import { throttle, debounce, rafThrottle } from '../../utils/performanceUtils';
 import './DetailNavigation.css';
-
-// 스로틀링 함수 - 일정 시간 간격으로만 함수 실행을 허용
-function throttle(func, delay) {
-  let lastCall = 0;
-  return function(...args) {
-    const now = Date.now();
-    if (now - lastCall >= delay) {
-      lastCall = now;
-      return func.apply(this, args);
-    }
-  };
-};
 
 const DetailNavigationComponent = ({ 
   sections = [],
@@ -44,17 +33,9 @@ const DetailNavigationComponent = ({
   // 스크롤 감지용 효과 처리
   const navigationRef = useRef(null);
   
-  // 스크롤 핸들러 최적화 - throttle과 requestAnimationFrame 결합
+  // 스크롤 핸들러 최적화 - rafThrottle 사용
   const optimizedScrollHandler = useCallback((callback) => {
-    return throttle(function() {
-      if (!ticking.current) {
-        ticking.current = true;
-        requestAnimationFrame(() => {
-          callback();
-          ticking.current = false;
-        });
-      }
-    }, 100); // 100ms 간격으로 제한
+    return rafThrottle(callback, 100); // 100ms 간격으로 제한
   }, []);
 
   // 스크롤 상태 업데이트 함수
@@ -95,10 +76,21 @@ const DetailNavigationComponent = ({
     }
   }, [scrolled, visible]);
 
+  // 스크롤 이벤트 상태 디바운스 용도
+  const debouncedUpdateScrollOnIdle = useMemo(
+    () => debounce(updateScrollState, 150),
+    [updateScrollState]
+  );
+
   useEffect(() => {
+    // 스크롤 중 범용적인 상태 업데이트는 rafThrottle 사용
     const handleScroll = optimizedScrollHandler(updateScrollState);
+    // 스크롤 종료 후 디바운스된 상태 확인
+    const handleScrollEnd = () => debouncedUpdateScrollOnIdle();
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScrollEnd, { passive: true });
+    
     // 초기 상태 확인
     updateScrollState();
     
@@ -114,42 +106,65 @@ const DetailNavigationComponent = ({
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleScrollEnd);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, [optimizedScrollHandler, updateScrollState]);
+  }, [optimizedScrollHandler, updateScrollState, debouncedUpdateScrollOnIdle]);
   
   // Intersection Observer 콜백 디바운싱을 위한 상태 변수
   const observerTimeout = useRef(null);
   const lastActiveSectionUpdate = useRef(0);
   const observerUpdateDelay = 100; // 업데이트 사이의 최소 지연시간(ms)
   
-  // 섹션 변경 디바운스 함수
+  // 섹션 변경 함수 - utils의 debounce 활용
+  const debouncedSetActiveSection = useCallback(
+    debounce((sectionId) => {
+      setActiveSection(sectionId);
+      lastActiveSectionUpdate.current = Date.now();
+    }, observerUpdateDelay),
+    []
+  );
+
+  // 섹션 변경 처리 함수
   const debounceSectionChange = useCallback((sectionId, sectionIds) => {
     const now = Date.now();
     // 마지막 업데이트 이후 일정 시간이 지났을 때만 업데이트 수행
     if (now - lastActiveSectionUpdate.current > observerUpdateDelay && sectionIds.includes(sectionId)) {
       setActiveSection(sectionId);
       lastActiveSectionUpdate.current = now;
-    } else {
-      // 디바운싱: 연속된 업데이트 요청 취소 및 새로운 요청 설정
-      if (observerTimeout.current) {
-        clearTimeout(observerTimeout.current);
-      }
-      observerTimeout.current = setTimeout(() => {
-        if (sectionIds.includes(sectionId)) {
-          setActiveSection(sectionId);
-          lastActiveSectionUpdate.current = Date.now();
-        }
-      }, observerUpdateDelay);
+    } else if (sectionIds.includes(sectionId)) {
+      // 유틸리티의 debounce 함수 사용
+      debouncedSetActiveSection(sectionId);
     }
-  }, []);
+  }, [debouncedSetActiveSection]);
   
   // Intersection Observer를 사용하여 화면에 보이는 섹션 감지
   useEffect(() => {
     const sectionIds = navigationSections.map(section => section.id);
+    // 최근 클릭된 섹션 추적을 위한 변수
+    let lastClickedTime = 0;
+    let isUserScrolling = false;
+    const clickCooldown = 1000; // 클릭 후 스크롤 감지 무시 시간 (ms)
+
+    // 스크롤 이벤트 핸들러 - 사용자 스크롤 시작 감지
+    const handleUserScroll = () => {
+      const now = Date.now();
+      // 클릭 후 일정 시간이 지난 뒤에만 스크롤 감지
+      if (now - lastClickedTime > clickCooldown) {
+        isUserScrolling = true;
+      }
+    };
+
+    // 스크롤 이벤트 연결
+    window.addEventListener('scroll', handleUserScroll, { passive: true });
     
     const observer = new IntersectionObserver(
       (entries) => {
+        // 사용자가 클릭 상태에서 발생한 스크롤은 무시
+        if (!isUserScrolling && Date.now() - lastClickedTime < clickCooldown) {
+          return;
+        }
+
         // 보이는 섹션들만 필터링
         const visibleEntries = entries.filter(entry => entry.isIntersecting);
         
@@ -162,7 +177,6 @@ const DetailNavigationComponent = ({
           // 디바운스된 섹션 변경 함수 호출
           debounceSectionChange(sectionId, sectionIds);
         }
-        // ID에 부합하는 요소가 없으면 현재 상태 유지 (아무것도 하지 않음)
       },
       {
         rootMargin: '-15% 0px -75% 0px', // 상단 15%, 하단 75% 여백으로 감지 영역 조정
@@ -178,8 +192,27 @@ const DetailNavigationComponent = ({
       }
     });
 
+    // 클릭 및 스크롤 상태 업데이트
+    const updateClickState = (sectionId) => {
+      lastClickedTime = Date.now();
+      isUserScrolling = false;
+    };
+
+    // 클릭 이벤트 수신 함수
+    const handleMenuClick = () => updateClickState();
+    
+    // 메뉴 클립 감지 이벤트 리스너 추가
+    const menuElement = navigationMenuRef.current;
+    if (menuElement) {
+      menuElement.addEventListener('click', handleMenuClick);
+    }
+
     return () => {
       observer.disconnect();
+      window.removeEventListener('scroll', handleUserScroll);
+      if (menuElement) {
+        menuElement.removeEventListener('click', handleMenuClick);
+      }
       if (observerTimeout.current) {
         clearTimeout(observerTimeout.current);
       }
@@ -204,6 +237,10 @@ const DetailNavigationComponent = ({
       // 기본 스크롤 동작
       const element = document.getElementById(sectionId);
       if (element) {
+        // 클릭 상태에서는 다른 섹션으로의 자동 전환을 일정 시간 동안 방지
+        const clickTime = Date.now();
+        const lastClickedSection = sectionId;
+        
         const offsetTop = element.offsetTop - 100; // 네비게이션 바 높이만큼 오프셋
         window.scrollTo({
           top: offsetTop,
@@ -236,20 +273,35 @@ const DetailNavigationComponent = ({
     }
   };
 
-  // 스크롤 이벤트 처리
+  // 네비게이션 메뉴 스크롤 이벤트 처리 - throttle 적용
+  const throttledCheckScrollable = useMemo(
+    () => throttle(checkScrollable, 100),
+    []
+  );
+
+  // 화면 리사이즈 이벤트 처리 - debounce 적용
+  const debouncedCheckScrollable = useMemo(
+    () => debounce(checkScrollable, 200),
+    []
+  );
+
   useEffect(() => {
     const menuElement = navigationMenuRef.current;
     if (menuElement) {
+      // 초기 상태 확인
       checkScrollable();
-      menuElement.addEventListener('scroll', checkScrollable);
-      window.addEventListener('resize', checkScrollable);
+      
+      // 스크롤 이벤트는 throttle 적용
+      menuElement.addEventListener('scroll', throttledCheckScrollable);
+      // 리사이즈 이벤트는 debounce 적용
+      window.addEventListener('resize', debouncedCheckScrollable);
       
       return () => {
-        menuElement.removeEventListener('scroll', checkScrollable);
-        window.removeEventListener('resize', checkScrollable);
+        menuElement.removeEventListener('scroll', throttledCheckScrollable);
+        window.removeEventListener('resize', debouncedCheckScrollable);
       };
     }
-  }, []);
+  }, [throttledCheckScrollable, debouncedCheckScrollable]);
   
   return (
     <section 

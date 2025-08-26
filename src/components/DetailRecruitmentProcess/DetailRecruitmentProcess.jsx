@@ -152,7 +152,7 @@ const DetailRecruitmentProcess = () => {
   ];
 
   return (
-    <section className="content-section detail-recruitment-process-section" id="faq">
+    <section className="content-section" id="faq">
       <div className="container">
         <Text typography="heading2" foreground="normal" className="title">
           지원에서 합류까지<br/>한눈에 확인하는 과정

@@ -20,7 +20,7 @@ const DetailCurriculum = ({ course }) => {
   };
 
   return (
-    <section className="content-section curriculum-section" id="curriculum">
+    <section className="content-section" id="curriculum">
       <div className="container">
         <Text typography="heading2" foreground='normal' className="title">단계별 학습 설계로<br/>탄탄하게 쌓는 커리큘럼</Text>  
         {/* 커리큘럼 아코디언 */}
