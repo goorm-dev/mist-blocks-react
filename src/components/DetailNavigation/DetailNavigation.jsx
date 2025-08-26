@@ -2,6 +2,18 @@ import { useState, useEffect, useRef, useCallback, memo, useMemo } from 'react';
 import { Text } from '@vapor-ui/core';
 import './DetailNavigation.css';
 
+// 스로틀링 함수 - 일정 시간 간격으로만 함수 실행을 허용
+function throttle(func, delay) {
+  let lastCall = 0;
+  return function(...args) {
+    const now = Date.now();
+    if (now - lastCall >= delay) {
+      lastCall = now;
+      return func.apply(this, args);
+    }
+  };
+};
+
 const DetailNavigationComponent = ({ 
   sections = [],
   activeSection: propActiveSection = 'introduce',
@@ -11,8 +23,8 @@ const DetailNavigationComponent = ({
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
   const lastScrollY = useRef(0);
-  const scrollTimeout = useRef(null);
-  const scrollThreshold = 5; // 스크롤 변화량 임계값
+  const ticking = useRef(false); // rAF 최적화를 위한 플래그
+  const scrollThreshold = 10; // 스크롤 변화량 임계값 증가
   
   // 기본 섹션들 정의
   const defaultSections = [
@@ -32,16 +44,17 @@ const DetailNavigationComponent = ({
   // 스크롤 감지용 효과 처리
   const navigationRef = useRef(null);
   
-  // 디바운스된 스크롤 핸들러 함수
-  const debounceScroll = useCallback((callback) => {
-    return function() {
-      if (scrollTimeout.current) {
-        cancelAnimationFrame(scrollTimeout.current);
+  // 스크롤 핸들러 최적화 - throttle과 requestAnimationFrame 결합
+  const optimizedScrollHandler = useCallback((callback) => {
+    return throttle(function() {
+      if (!ticking.current) {
+        ticking.current = true;
+        requestAnimationFrame(() => {
+          callback();
+          ticking.current = false;
+        });
       }
-      scrollTimeout.current = requestAnimationFrame(() => {
-        callback();
-      });
-    };
+    }, 100); // 100ms 간격으로 제한
   }, []);
 
   // 스크롤 상태 업데이트 함수
@@ -56,40 +69,54 @@ const DetailNavigationComponent = ({
     const rect = navigationRef.current.getBoundingClientRect();
     const isAtTop = rect.top <= 0;
     
-    // 임계값 이상 스크롤되었을 때만 상태 업데이트
+    // 이전 상태와 비교하여 변화가 있을 때만 상태 업데이트
+    const wasScrolled = scrolled;
+    const newScrolled = isAtTop;
+    
+    // 최적화: 상태가 변경될 때만 업데이트
+    if (wasScrolled !== newScrolled) {
+      setScrolled(newScrolled);
+    }
+    
+    // 스크롤 방향에 따라 표시/숨김 처리 (임계값 이상일 때만)
     if (scrollDifference > scrollThreshold) {
-      setScrolled(isAtTop);
-      
-      // scrolled 상태일 때만 스크롤 방향에 따라 표시/숨김 처리
       if (isAtTop) {
         if (currentScrollY > lastScrollY.current + scrollThreshold) {
           setVisible(false); // 아래로 스크롤 시 숨김
         } else if (currentScrollY < lastScrollY.current - scrollThreshold) {
           setVisible(true); // 위로 스크롤 시 표시
         }
-      } else {
+      } else if (!visible) {
         setVisible(true); // scrolled 상태가 아닐 때는 항상 표시
       }
       
       // 현재 스크롤 위치 저장
       lastScrollY.current = currentScrollY;
     }
-  }, []);
+  }, [scrolled, visible]);
 
   useEffect(() => {
-    const handleScroll = debounceScroll(updateScrollState);
+    const handleScroll = optimizedScrollHandler(updateScrollState);
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     // 초기 상태 확인
     updateScrollState();
     
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (scrollTimeout.current) {
-        cancelAnimationFrame(scrollTimeout.current);
+    // 브라우저 탭 전환 시 상태 재설정을 위한 이벤트 리스너
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        // 탭이 다시 활성화되었을 때 상태 재확인
+        updateScrollState();
       }
     };
-  }, [debounceScroll, updateScrollState]);
+    
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [optimizedScrollHandler, updateScrollState]);
   
   // Intersection Observer 콜백 디바운싱을 위한 상태 변수
   const observerTimeout = useRef(null);
@@ -228,7 +255,11 @@ const DetailNavigationComponent = ({
     <section 
       ref={navigationRef}
       className={`detail-navigation-section ${scrolled ? 'scrolled' : ''} ${className}`.trim()}
-      style={scrolled ? { transform: visible ? 'translateY(0)' : 'translateY(-100%)' } : {}}
+      style={{
+        transform: scrolled ? (visible ? 'translateY(0)' : 'translateY(-100%)') : 'translateY(0)',
+        backfaceVisibility: 'hidden', // 렌더링 성능 향상
+        willChange: scrolled ? 'transform' : 'auto' // 애니메이션이 발생할 때만 will-change 적용
+      }}
     >
       <div className="container">
         <div 
