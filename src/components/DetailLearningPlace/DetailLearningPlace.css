@@ -22,16 +22,19 @@
   backface-visibility: hidden; /* 애니메이션 성능 개선 */
   flex-shrink: 0;
   box-sizing: border-box;
+  gap: var(--vapor-size-space-300);
 }
 
 /* 원본 슬라이더의 애니메이션 */
 .learning-place-slider.original {
   animation: 60s linear infinite moveSlider;
+  padding-right: var(--vapor-size-space-300);
 }
 
 /* 복제 슬라이더의 애니메이션 */
 .learning-place-slider.clone {
   animation: 60s linear infinite moveSliderClone;
+  padding-right: var(--vapor-size-space-300);
 }
 
 /* 무한 스크롤 애니메이션 */
@@ -60,11 +63,10 @@
 }
 
 .learning-place-slide {
-  flex: 0 0 384px;
+  height: 12rem;
   aspect-ratio: 16 / 9;
   will-change: transform;
   backface-visibility: hidden;
-  margin-right: var(--vapor-size-space-300);
 }
 
 .learning-place-image {
@@ -179,10 +181,6 @@
     max-width: 100%;
   }
   
-  .learning-place-slide {
-    height: 12.5rem;
-  }
-  
   .learning-place-slider-wrapper {
     height: 12.5rem;
     padding-left: calc((100vw - 940px) / 2); /* Align with container on smaller screens */
@@ -199,9 +197,21 @@
   .learning-place-slider-wrapper {
     padding-left: 20px; /* Match container padding */
   }
-  
-  .learning-place-slide {
-    margin-right: var(--vapor-size-space-200);
+
+  .learning-place-slider-container {
+    margin-bottom: var(--vapor-size-space-200);
+  }
+
+  .learning-place-slider.original {
+    padding-right: var(--vapor-size-space-200);
+  }
+
+  .learning-place-slider.clone {
+    padding-right: var(--vapor-size-space-200);
+  }
+
+  .learning-place-slider {
+    gap: var(--vapor-size-space-200);
   }
   
   .learning-place-title {
@@ -212,10 +222,6 @@
   .learning-places-container {
     flex-direction: column;
     gap: var(--vapor-size-space-200);
-  }
-
-  .learning-place-slider-container {
-    padding-bottom: var(--vapor-size-space-200);
   }
   
   .learning-place-card {

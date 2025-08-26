@@ -161,14 +161,40 @@ const OpenAlert = ({
 
   const buttonConfig = getButtonConfig();
 
-  // 공유 링크 복사 처리
+  // 공유 링크 복사 처리 (모바일 호환성 개선)
   const handleShareClick = async () => {
     try {
-      await navigator.clipboard.writeText(shareLink);
+      // 모바일에서 더 안정적인 복사 방법
+      if (navigator.clipboard && window.isSecureContext) {
+        // HTTPS 환경에서 clipboard API 사용
+        await navigator.clipboard.writeText(shareLink);
+      } else {
+        // 폴백: textarea를 통한 복사
+        const textArea = document.createElement('textarea');
+        textArea.value = shareLink;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        
+        try {
+          document.execCommand('copy');
+        } catch (err) {
+          console.error('execCommand copy failed:', err);
+        }
+        
+        document.body.removeChild(textArea);
+      }
+      
       setIsCopied(true);
       setTimeout(() => setIsCopied(false), 2000);
     } catch (err) {
       console.error('Failed to copy link:', err);
+      // 에러 발생 시에도 사용자에게 피드백 제공
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 2000);
     }
   };
 
@@ -198,7 +224,7 @@ const OpenAlert = ({
       <div className="cta-button-container">
         {isCopied ? (
           <Button 
-            size="lg" 
+            size="xl" 
             color="secondary" 
             className="copy-button"
             disabled
@@ -207,10 +233,11 @@ const OpenAlert = ({
           </Button>
         ) : (
           <IconButton 
-            size="lg" 
+            size="xl" 
             color="secondary" 
             className="copy-button"
             onClick={handleShareClick}
+            onTouchEnd={handleShareClick} // 모바일 터치 이벤트 추가
           >
             <LinkOutlineIcon />
           </IconButton>
@@ -253,7 +280,7 @@ const OpenAlert = ({
       <div className="cta-button-container">
         {isCopied ? (
           <Button 
-            size="lg" 
+            size="xl" 
             color="secondary" 
             className="copy-button"
             disabled
@@ -262,7 +289,7 @@ const OpenAlert = ({
           </Button>
         ) : (
           <IconButton 
-            size="lg" 
+            size="xl" 
             color="secondary" 
             className="copy-button"
             onClick={handleShareClick}
@@ -272,7 +299,7 @@ const OpenAlert = ({
         )}
         {buttonConfig.link && !buttonConfig.disabled ? (
           <Button
-            size="lg"
+            size="xl"
             color="primary"
             className="cta-button"
             disabled={buttonConfig.disabled}
@@ -282,7 +309,7 @@ const OpenAlert = ({
           </Button>
         ) : (
           <Button
-            size="lg"
+            size="xl"
             color="primary"
             className="cta-button"
             disabled={buttonConfig.disabled}
@@ -305,7 +332,7 @@ const OpenAlert = ({
       <div className="cta-button-container">
         {isCopied ? (
           <Button 
-            size="lg" 
+            size="xl" 
             color="secondary" 
             className="copy-button"
             disabled
@@ -314,7 +341,7 @@ const OpenAlert = ({
           </Button>
         ) : (
           <IconButton 
-            size="lg" 
+            size="xl" 
             color="secondary" 
             className="copy-button"
             onClick={handleShareClick}
@@ -323,7 +350,7 @@ const OpenAlert = ({
           </IconButton>
         )}
         <Button
-          size="lg"
+          size="xl"
           color="primary"
           className="cta-button"
           disabled={buttonConfig.disabled}

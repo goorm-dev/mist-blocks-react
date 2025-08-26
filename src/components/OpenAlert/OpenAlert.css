@@ -151,6 +151,13 @@
   height: var(--vapor-size-dimension-250);
 }
 
+/* 모바일 터치 영역 개선 */
+.copy-button {
+  min-height: 44px; /* iOS 권장 터치 영역 */
+  min-width: 44px;
+  touch-action: manipulation; /* 터치 최적화 */
+}
+
 .cta-button {
   border-radius: var(--vapor-size-borderRadius-400);
   background-color: var(--ktc-tech-up-red);

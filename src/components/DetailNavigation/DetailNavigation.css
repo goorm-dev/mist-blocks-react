@@ -143,6 +143,13 @@
   .navigation-item.active::after {
     bottom: var(--vapor-size-space-150);
   }
+  .detail-navigation-section.scrolled .navigation-item {
+    padding-top: var(--vapor-size-space-200);
+    padding-bottom: var(--vapor-size-space-200);
+  }
+  .navigation-menu {
+    gap: var(--vapor-size-space-200);
+  }
 }
 
 .navigation-item:focus-visible {
