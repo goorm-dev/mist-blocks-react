@@ -2,20 +2,7 @@ import { Fragment } from 'react';
 import { Text } from '@vapor-ui/core';
 import './DetailIntroduceCourse.css';
 import { COURSE_CONTENT } from './DetailIntroduceCourse.constant';
-import { COURSE } from '../../constants/CourseInformation';
-
-// 각 과정별 배경 이미지 매핑
-const COURSE_BACKGROUND_IMAGES = {
-  [COURSE.CLOUD_NATIVE]: 'techup_introduce_bg_cloudnative.png',
-  [COURSE.CLOUD_INFRASTRUCTURE]: 'techup_introduce_bg_cloudinfra.png',
-  [COURSE.INFORMATION_SECURITY]: 'techup_introduce_bg_security.png',
-  [COURSE.FULLSTACK]: 'techup_introduce_bg_fullstack.png',
-  [COURSE.BACKEND]: 'techup_introduce_bg_backend.png',
-  [COURSE.FRONTEND]: 'techup_introduce_bg_frontend.png',
-  [COURSE.GEN_AI]: 'techup_introduce_bg_genai.png',
-  [COURSE.PRODUCT_DESIGN]: 'techup_introduce_bg_design.png',
-  [COURSE.PRODUCT_MANAGEMENT]: 'techup_introduce_bg_pm.png',
-};
+import { COURSE_INFORMATION } from '../../constants/CourseInformation';
 
 const DetailIntroduceCourse = ({ 
   course,
@@ -23,6 +10,7 @@ const DetailIntroduceCourse = ({
 }) => {
   // 선택된 과정의 콘텐츠 가져오기
   const content = COURSE_CONTENT[course];
+  const courseInfo = COURSE_INFORMATION[course];
 
   // 콘텐츠가 없는 경우 처리
   if (!content) {
@@ -31,7 +19,7 @@ const DetailIntroduceCourse = ({
   }
   
   // 과정에 맞는 배경 이미지 가져오기 - CDN URL 사용
-  const backgroundImageUrl = `https://statics.goorm.io/ktcloud-techup/landing/assets/course/${course.toLowerCase().replace('_', '-')}/techup_introduce_bg_${course.toLowerCase().replace('_', '-')}.png`;
+  const backgroundImageUrl = `https://statics.goorm.io/ktcloud-techup/landing/assets/course/${courseInfo.keyword}/techup_introduce_bg_${courseInfo.keyword}.png`;
 
   const {
     title,
