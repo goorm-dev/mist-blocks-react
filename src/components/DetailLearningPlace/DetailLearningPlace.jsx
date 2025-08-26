@@ -16,10 +16,10 @@ const DetailLearningPlace = () => {
   return (
     <section className="content-section" id="benefit">
       <div className="container">
-          <Text typography='heading2' className='title'>몰입과 협업이 공존하는<br/>열린 학습 공간</Text>
-      </div>
-      {/* Full-width slider container outside of container constraints */}
-      <div className="learning-place-slider-container">
+        <Text typography='heading2' className='title'>몰입과 협업이 공존하는<br/>열린 학습 공간</Text>
+        
+        {/* 슬라이더 컨테이너 */}
+        <div className="learning-place-slider-container">
           {/* 좌측 그라디언트 */}
           <div className="learning-place-gradient-left" />
           
@@ -47,8 +47,7 @@ const DetailLearningPlace = () => {
           
           {/* 우측 그라디언트 */}
           <div className="learning-place-gradient-right" />
-      </div>
-      <div className="container">
+        </div>
 
         <div className="learning-places-container">
           {/* 구름스퀘어 강남 카드 */}

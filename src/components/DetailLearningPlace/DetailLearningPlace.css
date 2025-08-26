@@ -7,11 +7,12 @@
 }
 
 .learning-place-slider-container {
-  width: 100vw; /* Full viewport width */
+  width: 100%;
   display: flex;
   overflow: hidden;
-  padding-bottom: var(--vapor-size-space-300);
+  margin-bottom: var(--vapor-size-space-300);
   position: relative; /* 그라디언트 포지셔닝을 위해 필요 */
+  box-sizing: content-box;
 }
 
 /* 슬라이더 공통 스타일 */
