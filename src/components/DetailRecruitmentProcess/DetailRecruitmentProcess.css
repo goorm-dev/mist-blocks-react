@@ -1,17 +1,175 @@
-/* Process Content */
+/* Detail Process Section */
+.detail-process {
+  padding: var(--vapor-size-space-800) 0;
+}
+
+/* Process Group */
+.process-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vapor-size-space-700);
+}
+
+/* Process Category */
+.process-category {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vapor-size-space-600);
+}
+
+/* Process Header */
+.process-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vapor-size-space-200);
+}
+
+.process-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vapor-size-space-100);
+}
+
+/* Process 1: Lightning Pass */
+.process1-label {
+  margin: 0;
+  color: var(--vapor-color-foreground-hint-darker);
+}
+
+.process1-title {
+  margin: 0;
+  color: var(--vapor-color-foreground-normal);
+  font-weight: var(--vapor-typography-fontWeight-700);
+  line-height: var(--vapor-typography-lineHeight-400);
+  font-size: var(--vapor-typography-fontSize-400);
+  letter-spacing: var(--vapor-typography-letterSpacing-300);
+}
+
+.process1-desc {
+  margin: 0;
+  color: var(--vapor-color-foreground-hint-darker);
+  font-weight: var(--vapor-typography-fontWeight-500);
+  line-height: var(--vapor-typography-lineHeight-100);
+  font-size: var(--vapor-typography-fontSize-100);
+  letter-spacing: var(--vapor-typography-letterSpacing-100);
+}
+
+/* Process 2: Portfolio Battle */
+.process2-label {
+  margin: 0;
+  color: var(--vapor-color-foreground-hint-darker);
+}
+
+.process2-title {
+  margin: 0;
+  color: var(--vapor-color-foreground-normal);
+  font-weight: var(--vapor-typography-fontWeight-700);
+  line-height: var(--vapor-typography-lineHeight-400);
+  font-size: var(--vapor-typography-fontSize-400);
+  letter-spacing: var(--vapor-typography-letterSpacing-300);
+}
+
+.process2-desc {
+  margin: 0;
+  color: var(--vapor-color-foreground-hint-darker);
+  font-weight: var(--vapor-typography-fontWeight-500);
+  line-height: var(--vapor-typography-lineHeight-100);
+  font-size: var(--vapor-typography-fontSize-100);
+  letter-spacing: var(--vapor-typography-letterSpacing-100);
+}
+
+/* Process 3: Hidden Gem */
+.process3-label {
+  margin: 0;
+  color: var(--vapor-color-foreground-hint-darker);
+}
+
+.process3-title {
+  margin: 0;
+  color: var(--vapor-color-foreground-normal);
+  font-weight: var(--vapor-typography-fontWeight-700);
+  line-height: var(--vapor-typography-lineHeight-400);
+  font-size: var(--vapor-typography-fontSize-400);
+  letter-spacing: var(--vapor-typography-letterSpacing-300);
+}
+
+.process3-desc {
+  margin: 0;
+  color: var(--vapor-color-foreground-hint-darker);
+  font-weight: var(--vapor-typography-fontWeight-500);
+  line-height: var(--vapor-typography-lineHeight-100);
+  font-size: var(--vapor-typography-fontSize-100);
+  letter-spacing: var(--vapor-typography-letterSpacing-100);
+}
+
+/* Process Process */
+.process-process {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Process Step */
+.process-step {
+  display: flex;
+  align-items: flex-start;
+  padding-top: var(--vapor-size-space-300);
+  padding-bottom: var(--vapor-size-space-400);
+  border-bottom: 1px solid var(--vapor-color-border-normal);
+}
+
+.process-step:last-child {
+  border-bottom: none;
+}
+
+.step-header {
+  width: 180px;
+  display: flex;
+  align-items: center;
+  gap: var(--vapor-size-space-200);
+  flex-shrink: 0;
+}
+
+.step-number {
+  color: var(--vapor-color-foreground-accent);
+  font-weight: var(--vapor-typography-fontWeight-500);
+}
+
+.step-title {
+  color: var(--vapor-color-foreground-normal);
+  font-weight: var(--vapor-typography-fontWeight-500);
+}
+
+.step-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vapor-size-space-050);
+  flex: 1;
+}
+
+.step-date {
+  font-weight: var(--vapor-typography-fontWeight-500);
+  color: var(--vapor-color-foreground-normal);
+}
+
+.step-desc {
+  color: var(--vapor-color-foreground-hint);
+}
+
+/* Process Notice */
+.process-notice {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vapor-size-space-100);
+  margin-top: var(--vapor-size-space-600);
+}
+
+/* Process Content (기존 Hidden Gem용) */
 .process-content-wrapper {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: var(--vapor-size-space-0);
-}
-
-/* Process Header */
-.process-header {
-  padding-left: 180px;
-  display: flex;
-  width: 100%;
-  gap: var(--vapor-size-space-200);
 }
 
 .stage-header {
@@ -86,6 +244,18 @@
 
 /* Mobile (768px 이하) */
 @media (max-width: 768px) {
+  .detail-process {
+    padding: var(--vapor-size-space-600) 0;
+  }
+
+  .process-group {
+    gap: var(--vapor-size-space-600);
+  }
+
+  .process-category {
+    gap: var(--vapor-size-space-500);
+  }
+
   .process-header {
     padding-left: 164px;
     width: 100%;
@@ -106,10 +276,34 @@
   .stage-info {
     padding: 0 var(--vapor-size-space-100);
   }
+
+  .step-header {
+    width: 140px;
+  }
 }
 
 /* Small Mobile (576px 이하) */
 @media (max-width: 576px) {
+  .detail-process {
+    padding: var(--vapor-size-space-500) 0;
+  }
+
+  .process-group {
+    gap: var(--vapor-size-space-500);
+  }
+
+  .process-category {
+    gap: var(--vapor-size-space-400);
+  }
+
+  .process-header {
+    gap: var(--vapor-size-space-150);
+  }
+
+  .process-text {
+    gap: var(--vapor-size-space-075);
+  }
+
   .process-content {
     gap: var(--vapor-size-space-300);
   }
@@ -127,6 +321,11 @@
   .process-header {
     width: 100%;
     padding-left: 0;
+  }
+
+  .step-header {
+    width: 120px;
+    gap: var(--vapor-size-space-150);
   }
 }
 
