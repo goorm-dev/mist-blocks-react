@@ -201,7 +201,7 @@ const DetailHero = ({
               </div>
               <div className="cta-wrap">
                 {ctaButton.link && !ctaButton.disabled ? (
-                  <a href={ctaButton.link} className="cta-enroll-link w-full">
+                  <a target='_blank' href={ctaButton.link} className="cta-enroll-link w-full">
                     <Button 
                       size="xl" 
                       color="primary" 

@@ -69,6 +69,8 @@ const CourseCardItem = ({ course, onCtaClick }) => {
   const period = formatPeriod(course.eventStartAt, course.eventEndAt);
   const { status, statusType } = getRecruitmentStatus(course.eventStartAt, course.eventEndAt);
 
+  console.log({ period, eventStartAt: course.eventStartAt, eventEndAt: course.eventEndAt });
+
   /**
    * CTA 버튼 클릭 핸들러
    */

@@ -11,6 +11,7 @@
   display: flex;
   overflow: hidden;
   padding-bottom: var(--vapor-size-space-300);
+  position: relative; /* 그라디언트 포지셔닝을 위해 필요 */
 }
 
 /* 슬라이더 공통 스타일 */
@@ -142,6 +143,29 @@
   color: var(--ktc-tech-up-red);
 }
 
+/* 좌우 그라디언트 마스크 */
+.learning-place-gradient-left {
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(90deg, var(--vapor-color-background-normal) 0%, rgba(255, 255, 255, 0) 100%);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.learning-place-gradient-right {
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(270deg, var(--vapor-color-background-normal) 0%, rgba(255, 255, 255, 0) 100%);
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
 /* 반응형 디자인 */
 @media (max-width: 1440px) {
   .learning-place-slider-wrapper {
@@ -202,12 +226,18 @@
   .learning-place-card::after {
     border-width: 0 30px 30px 0;
   }
+
   .learning-place-card-title {
     line-height: var(--vapor-typography-lineHeight-200);
     letter-spacing: var(--vapor-typography-letterSpacing-100);
     font-size: var(--vapor-typography-fontSize-200);
   }
-
+  
+  /* 모바일에서 그라디언트 폭 조정 */
+  .learning-place-gradient-left,
+  .learning-place-gradient-right {
+    width: 60px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -230,6 +260,12 @@
   
   .learning-place-card-header {
     gap: var(--vapor-size-space-200);
+  }
+  
+  /* 작은 화면에서 그라디언트 폭 더 줄이기 */
+  .learning-place-gradient-left,
+  .learning-place-gradient-right {
+    width: 40px;
   }
 }
 

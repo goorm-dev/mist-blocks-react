@@ -9,7 +9,8 @@ const DetailLearningPlace = () => {
     "https://statics.goorm.io/ktcloud-techup/landing/assets/learning-place/techup_learning_place_03.png",
     "https://statics.goorm.io/ktcloud-techup/landing/assets/learning-place/techup_learning_place_04.png",
     "https://statics.goorm.io/ktcloud-techup/landing/assets/learning-place/techup_learning_place_05.png",
-    "https://statics.goorm.io/ktcloud-techup/landing/assets/learning-place/techup_learning_place_06.png"
+    "https://statics.goorm.io/ktcloud-techup/landing/assets/learning-place/techup_learning_place_06.png",
+    "https://statics.goorm.io/ktcloud-techup/landing/assets/learning-place/techup_learning_place_07.png"
   ];
 
   return (
@@ -19,6 +20,9 @@ const DetailLearningPlace = () => {
       </div>
       {/* Full-width slider container outside of container constraints */}
       <div className="learning-place-slider-container">
+          {/* 좌측 그라디언트 */}
+          <div className="learning-place-gradient-left" />
+          
           {/* 두 슬라이더를 부모 컨테이너 안에 위치시킵니다 */}
           <div className="learning-place-slider original">
             {images.map((image, index) => (
@@ -40,6 +44,9 @@ const DetailLearningPlace = () => {
               </div>
             ))}
           </div>
+          
+          {/* 우측 그라디언트 */}
+          <div className="learning-place-gradient-right" />
       </div>
       <div className="container">
 
