@@ -120,33 +120,33 @@ const DetailRecruitmentProcess = () => {
     {
       number: '1',
       title: '과정 지원',
-      firstStageDate: '25.8.28(목) - 25.9.4(목)',
+      firstStageDate: '25.8.28 (목) - 25.9.4 (목)',
       firstStageDescription: '지원서 및 고용24 수강신청',
-      secondStageDate: '25.9.5(목) - 25.9.11(목)',
+      secondStageDate: '25.9.5 (목) - 25.9.11 (목)',
       secondStageDescription: '지원서 및 고용24 수강신청'
     },
     {
       number: '2',
       title: '서류 합격',
-      firstStageDate: '25.9.5(금)',
+      firstStageDate: '25.9.5 (금)',
       firstStageDescription: null,
-      secondStageDate: '25.9.12(금)',
+      secondStageDate: '25.9.12 (금)',
       secondStageDescription: null
     },
     {
       number: '3',
       title: '면접',
-      firstStageDate: '25.9.8(월) - 25.9.9(화)',
+      firstStageDate: '25.9.8 (월) - 25.9.9 (화)',
       firstStageDescription: null,
-      secondStageDate: '25.9.15(월) - 25.9.16(화)',
+      secondStageDate: '25.9.15 (월) - 25.9.16 (화)',
       secondStageDescription: null
     },
     {
       number: '4',
       title: '최종 합격',
-      firstStageDate: '25.9.10(수)',
+      firstStageDate: '25.9.10 (수)',
       firstStageDescription: null,
-      secondStageDate: '25.9.17(수)',
+      secondStageDate: '25.9.17 (수)',
       secondStageDescription: null
     }
   ];
