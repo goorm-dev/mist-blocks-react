@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 
-import { Text, Button } from '@vapor-ui/core';
+import { Text, Button, Box } from '@vapor-ui/core';
 import { DiscussionIcon, InstagramIcon, YoutubeIcon, BlogIcon, ArrowUpOutlineIcon } from '@vapor-ui/icons';
 import './FooterFull.css';
 
@@ -108,6 +108,14 @@ const FooterFull = ({ logoUrl = "https://tech.ktcloud.com" }) => {
                   />
                 </a>
               </div>
+              <div className="social-icons">
+                <a href="https://www.youtube.com/@ktcloud" target="_blank" className="social-icon" aria-label="YouTube">
+                  <YoutubeIcon style={{ width: '20px', height: '20px', color: 'inherit' }} />
+                </a>
+                <a href="https://tech.ktcloud.com" target="_blank" className="social-icon" aria-label="Blog">
+                  <BlogIcon style={{ width: '20px', height: '20px', color: 'inherit' }} />
+                </a>
+              </div>
             </div>
           </div>
           <div className="footer-links-column">
@@ -124,22 +132,25 @@ const FooterFull = ({ logoUrl = "https://tech.ktcloud.com" }) => {
         </div>
         <div className="footer-bottom-content">
           <div className="footer-info-text">
-            <Text as="p" typography="body2" foreground="normal">{'고객센터 ㅣ 평일 10:30 - 17:00 (휴게 시간 12:00 - 13:30, 주말 및 공휴일 휴무)'}</Text>
+            <div className="footer-info-group">
+              <Link to={'https://vivid-thyme-ac6.notion.site/kt-cloud-TECH-UP-2479e3e335cc80dbb7fae14d3c6040d4'} className="footer-link" target="_blank" rel="noopener noreferrer">
+                <Text as="span" typography="subtitle1" foreground="secondary">{'개인정보처리방침'}</Text>
+              </Link>
+              <Text as="p" typography="subtitle1" foreground="secondary">{'고객센터 ㅣ 평일 10:30 - 17:00 (휴게 시간 12:00 - 13:30, 주말 및 공휴일 휴무)'}</Text>
+            </div>
             <div className="footer-info-text-copyright">
               <Text as="p" typography="body2" foreground="hint">{'TECH UP은 kt cloud가 만든 디지털 실무 인재 육성 프로그램 입니다.'}</Text>
               <Text as="p" typography="body2" foreground="hint">{'Copyright© 2025 kt cloud corp. All rights reserved.'}</Text>
             </div>
           </div>
-          {/* 소셜 미디어 아이콘 */}
-          <div className="social-icons">
-            {/* <a href="{{instagram link}}" target="_blank" className="social-icon" aria-label="Instagram">
-              <InstagramIcon style={{ width: '20px', height: '20px', color: 'inherit' }} />
-            </a> */}
-            <a href="https://www.youtube.com/@ktcloud" target="_blank" className="social-icon" aria-label="YouTube">
-              <YoutubeIcon style={{ width: '20px', height: '20px', color: 'inherit' }} />
-            </a>
-            <a href="https://tech.ktcloud.com" target="_blank" className="social-icon" aria-label="Blog">
-              <BlogIcon style={{ width: '20px', height: '20px', color: 'inherit' }} />
+          {/* KT Cloud 로고 */}
+          <div className="footer-ktcloud-logo">
+            <a href="https://www.ktcloud.com" target="_blank" className="footer-ktcloud-logo-link" aria-label="kt cloud 홈페이지 이동">
+              <img 
+                src={isDarkTheme ? "/src/assets/logo_ktcloud_dark.svg" : "/src/assets/logo_ktcloud_light.svg"}
+                alt="kt cloud"
+                style={{ height: 'var(--vapor-size-space-300)', width: 'auto' }}
+              />
             </a>
           </div>
         </div>

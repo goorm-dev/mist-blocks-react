@@ -17,7 +17,7 @@
 
 /* 푸터 로고 스타일 */
 .footer-logo {
-    margin-bottom: var(--vapor-size-space-400);
+    margin-bottom: var(--vapor-size-space-300);
 }
 
 .footer-logo-link {
@@ -99,7 +99,14 @@
 .footer-info-text {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: var(--vapor-size-space-200);
+}
+
+.footer-info-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 .footer-info-text-copyright {
     display: flex;
@@ -149,7 +156,10 @@
     .footer-top-button {
         flex: 0 0 100%;
         justify-content: flex-start;
-        margin-top: var(--vapor-size-space-400);
+        margin-top: var(--vapor-size-space-000);
+    }
+    .footer-logo{
+        margin-bottom: var(--vapor-size-space-200);
     }
 }
 @media (max-width: 768px) {
@@ -158,7 +168,7 @@
     }
     .footer-info-column, 
     .footer-links-column {
-        margin-bottom: var(--vapor-size-space-400);
+        margin-bottom: var(--vapor-size-space-500);
     }
     .footer-links-wrapper {
         display: grid;
@@ -172,10 +182,7 @@
         align-items: flex-start;
     }
     .footer-info-text {
-        margin-bottom: var(--vapor-size-space-300);
-    }
-    .social-icons {
-        margin-top: var(--vapor-size-space-300);
+        margin-bottom: var(--vapor-size-space-400);
     }
 }
 @media (max-width: 576px) {
@@ -186,10 +193,6 @@
         grid-template-columns: repeat(1, 1fr);
     }
     .footer-section {
-        margin-bottom: var(--vapor-size-space-300);
-    }
-    .footer-info-column, 
-    .footer-links-column {
         margin-bottom: var(--vapor-size-space-300);
     }
     .footer-links-block {
