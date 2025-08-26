@@ -114,10 +114,10 @@ const FooterFull = ({ logoUrl = "https://tech.ktcloud.com" }) => {
               </div>
               <div className="social-icons">
                 <a href="https://www.youtube.com/@ktcloud" target="_blank" className="social-icon" aria-label="YouTube">
-                  <YoutubeIcon style={{ width: '20px', height: '20px', color: 'inherit' }} />
+                  <YoutubeIcon style={{ width: '24px', height: '24px', color: 'inherit' }} />
                 </a>
                 <a href="https://tech.ktcloud.com" target="_blank" className="social-icon" aria-label="Blog">
-                  <BlogIcon style={{ width: '20px', height: '20px', color: 'inherit' }} />
+                  <BlogIcon style={{ width: '24px', height: '24px', color: 'inherit' }} />
                 </a>
               </div>
             </div>

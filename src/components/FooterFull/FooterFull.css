@@ -116,7 +116,7 @@
 .social-icons {
     display: flex;
     align-items: flex-start;
-    gap: var(--vapor-size-space-200);
+    gap: var(--vapor-size-space-250);
 }
 .social-icon {
     display: flex;
@@ -159,7 +159,7 @@
         margin-top: var(--vapor-size-space-000);
     }
     .footer-logo{
-        margin-bottom: var(--vapor-size-space-200);
+        margin-bottom: var(--vapor-size-space-300);
     }
 }
 @media (max-width: 768px) {
