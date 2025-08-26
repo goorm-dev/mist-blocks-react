@@ -1,14 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 
-<<<<<<< HEAD
-import { Text, Button, Box } from '@vapor-ui/core';
-import { DiscussionIcon, InstagramIcon, YoutubeIcon, BlogIcon, ArrowUpOutlineIcon } from '@vapor-ui/icons';
-=======
 import { Text } from '@vapor-ui/core';
 import { YoutubeIcon, BlogIcon, ArrowUpOutlineIcon } from '@vapor-ui/icons';
 import { debounce } from '../../utils/performanceUtils';
->>>>>>> 0bc439640f21a164e674bedbb953a3036cfefcfa
 import './FooterFull.css';
 
 import { COURSE_INFORMATION, COURSE_AREA_INFORMATION, COURSE_AREA_LIST } from '../../constants/CourseInformation';
