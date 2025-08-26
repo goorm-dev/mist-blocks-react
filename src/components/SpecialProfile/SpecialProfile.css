@@ -353,6 +353,8 @@
   overflow: hidden;
   border-radius: 100%;
   margin-right: 12px;
+  /* Avatar 그라디언트 추가 */
+  background: linear-gradient(90deg, #FF512F 0%, #DD2476 100%);
 }
 
 .pc-avatar-image {
@@ -360,6 +362,7 @@
   top: 2px;
   position: absolute;
   border-radius: 100%;
+  object-fit: cover;
 }
 
 .pc-profile-info {
