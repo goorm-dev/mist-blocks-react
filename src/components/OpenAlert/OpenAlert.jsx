@@ -198,7 +198,7 @@ const OpenAlert = ({
       <div className="cta-button-container">
         {isCopied ? (
           <Button 
-            size="xl" 
+            size="lg" 
             color="secondary" 
             className="copy-button"
             disabled
@@ -207,7 +207,7 @@ const OpenAlert = ({
           </Button>
         ) : (
           <IconButton 
-            size="xl" 
+            size="lg" 
             color="secondary" 
             className="copy-button"
             onClick={handleShareClick}
@@ -253,7 +253,7 @@ const OpenAlert = ({
       <div className="cta-button-container">
         {isCopied ? (
           <Button 
-            size="xl" 
+            size="lg" 
             color="secondary" 
             className="copy-button"
             disabled
@@ -262,7 +262,7 @@ const OpenAlert = ({
           </Button>
         ) : (
           <IconButton 
-            size="xl" 
+            size="lg" 
             color="secondary" 
             className="copy-button"
             onClick={handleShareClick}
@@ -272,7 +272,7 @@ const OpenAlert = ({
         )}
         {buttonConfig.link && !buttonConfig.disabled ? (
           <Button
-            size="xl"
+            size="lg"
             color="primary"
             className="cta-button"
             disabled={buttonConfig.disabled}
@@ -282,7 +282,7 @@ const OpenAlert = ({
           </Button>
         ) : (
           <Button
-            size="xl"
+            size="lg"
             color="primary"
             className="cta-button"
             disabled={buttonConfig.disabled}
@@ -305,7 +305,7 @@ const OpenAlert = ({
       <div className="cta-button-container">
         {isCopied ? (
           <Button 
-            size="xl" 
+            size="lg" 
             color="secondary" 
             className="copy-button"
             disabled
@@ -314,7 +314,7 @@ const OpenAlert = ({
           </Button>
         ) : (
           <IconButton 
-            size="xl" 
+            size="lg" 
             color="secondary" 
             className="copy-button"
             onClick={handleShareClick}
@@ -323,7 +323,7 @@ const OpenAlert = ({
           </IconButton>
         )}
         <Button
-          size="xl"
+          size="lg"
           color="primary"
           className="cta-button"
           disabled={buttonConfig.disabled}

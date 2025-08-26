@@ -19,7 +19,6 @@
   right: 0;
   margin-left: calc(-50vw + 50%);
   width: 100vw; /* 뷰포트 전체 너비 확보 */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 /* 숨겨진 상태 */
