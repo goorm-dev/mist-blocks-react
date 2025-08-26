@@ -129,7 +129,11 @@
   }
 
   .learn-cation-main-card.active .image-overlay {
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 100%, rgba(0, 0, 0, 0.4) 100%);
+    background: rgb(0 0 0 / 32%);
+  }
+
+  .image-overlay {
+    background: rgb(0 0 0 / 32%);
   }
   
   /* 모바일에서 모든 카드가 확장된 상태로 표시되도록 설정 */

@@ -95,7 +95,7 @@ const DetailLearnCation = () => {
                         </Text>
                       </div>
                       {card.caption && (
-                        <Text typography="caption" foreground="accent" className='learn-cation-caption'>
+                        <Text typography="body2" foreground="accent" className='learn-cation-caption'>
                           {card.caption}
                         </Text>
                       )}
