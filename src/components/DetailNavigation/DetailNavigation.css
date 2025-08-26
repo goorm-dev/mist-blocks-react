@@ -51,7 +51,6 @@
   -webkit-overflow-scrolling: touch; /* 모바일에서 부드러운 스크롤 */
   transform: translateZ(0); /* 하드웨어 가속 활성화 */
   will-change: scroll-position; /* 스크롤 애니메이션 성능 최적화 */
-  padding: 2px 0; /* 내용물이 잘리지 않도록 약간의 패딩 추가 */
 }
 
 /* 스크롤 상태일 때 네비게이션 아이템 조정 */
