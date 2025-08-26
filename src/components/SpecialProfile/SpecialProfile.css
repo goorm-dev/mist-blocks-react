@@ -349,12 +349,10 @@
   width: 56px;
   height: 56px;
   position: relative;
-  background-color: #dddde4;
+  background-color: #83838c;
   overflow: hidden;
   border-radius: 100%;
   margin-right: 12px;
-  /* Avatar 그라디언트 추가 */
-  background: linear-gradient(90deg, #FF512F 0%, #DD2476 100%);
 }
 
 .pc-avatar-image {
