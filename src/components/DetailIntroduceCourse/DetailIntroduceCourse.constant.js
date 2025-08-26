@@ -8,7 +8,7 @@ export const COURSE_CONTENT = {
         targetAudience: ["클라우드 네이티브 및 DevOps 엔지니어 지망생", "컨테이너 오케스트레이션(Kubernetes) 역량을 쌓고 싶은 개발자", "CI/CD 파이프라인 자동화를 배우고 싶은 시스템 엔지니어"]
     },
     [COURSE.CLOUD_INFRASTRUCTURE]: {
-        title: "안정적인 환경을 설계하고\n\n확장 가능한 기반을 만드는 길",
+        title: "안정적인 환경을 설계하고\n확장 가능한 기반을 만드는 길",
         coreMessage: "{국내 최고 수준의 클라우드 인프라}를 만든 기술 노하우를\n\n미래 클라우드 인프라 전문가에게\n전수합니다.",
         valueProposition: "국내 최대 민간 GPU 클라우드 인프라 운영 경험\nkt cloud는 국내 최대 규모의 민간 GPU 클라우드 인프라를 통해 대규모 연산과 안정적인 서비스 운영 노하우를 축적했습니다. 이 경험을 바탕으로 kt cloud와 Azure 환경을 모두 활용한 멀티 클라우드 운영 및 자동화 기술을 실무 중심으로 교육합니다.",
         targetAudience: ["클라우드 인프라 및 시스템 엔지니어 지망생", "인프라 자동화(IaC) 역량을 쌓고 싶은 개발자", "하이브리드/멀티 클라우드 환경에 관심 있는 IT 전문가"]
