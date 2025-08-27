@@ -12,8 +12,9 @@ const CeoInterviewSection = () => {
 
   // 템플릿 변수들
   const templateData = {
-    videoSrc: "",
+    videoSrc: "http://statics.goorm.io/ktcloud-techup/landing/assets/video/techup_ceo_interview.mp4",
     videoPoster: "/assets/interview-poster.png",
+    youtubeUrl: "", // 유튜브 링크 (미정)
   };
 
   const handlePlusClick = () => {
@@ -64,6 +65,19 @@ const CeoInterviewSection = () => {
 
   // 비디오 재생 관련 함수들
   const handlePlayIconClick = () => {
+    // 모바일 환경 체크 (768px 이하)
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) {
+      // 모바일에서는 유튜브 링크가 있을 때만 이동
+      if (templateData.youtubeUrl) {
+        window.open(templateData.youtubeUrl, '_blank');
+      }
+      // 유튜브 링크가 없으면 아무 액션 없음
+      return;
+    }
+
+    // 데스크톱에서는 기존 비디오 재생
     if (templateData.videoSrc) {
       setIsVideoPlaying(true);
       // 비디오 요소가 준비되면 자동 재생
