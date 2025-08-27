@@ -269,7 +269,7 @@ const DetailCareer = ({ course = COURSE.FRONTEND }) => {
                   <Text typography="heading4" foreground="normal">
                     {career.title}
                   </Text>
-                  <Text typography="heading6" foreground="normal-lighter">
+                  <Text typography="body1" foreground="normal-lighter">
                     {career.description}
                   </Text>
                 </div>
