@@ -161,7 +161,7 @@ const CeoInterviewSection = () => {
                   aria-label="kt cloud ceo interview"
                   title="kt cloud ceo interview"
                 >
-                  <source src={templateData.videoSrc} type="video/mp4" />
+                  <source src={templateData.videoSrc || null} type="video/mp4" />
                 </video>
               ) : (
                 <div className="play-icon" onClick={handlePlayIconClick}>

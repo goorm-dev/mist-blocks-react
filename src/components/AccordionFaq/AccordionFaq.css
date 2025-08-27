@@ -31,7 +31,7 @@
   align-items: center;
   margin-left: var(--vapor-size-space-100);
 }
-.faq-toggle-btn[aria-expanded="true"] .faq-icon {
+.faq-toggle-btn[aria-expanded='true'] .faq-icon {
   transform: rotate(180deg);
 }
 .faq-card-header {
@@ -75,7 +75,7 @@
 }
 .faq-answer strong {
   font-weight: 600;
-  color: var(--vapor-color-foreground-accent);
+  color: var(--vapor-color-foreground-norma);
 }
 .faq-answer blockquote {
   border-left: 0.25rem solid var(--vapor-color-border-accent);
@@ -123,4 +123,4 @@ hr {
     text-overflow: ellipsis;
     min-width: fit-content;
   }
-} 
+}

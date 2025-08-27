@@ -19,20 +19,21 @@ import DetailCareer from '../../components/DetailCareer/DetailCareer';
 import OpenAlert from '../../components/OpenAlert/OpenAlert';
 import { COURSE_INFORMATION } from '../../constants/CourseInformation';
 import { useInitializeChannelTalk } from '../../hooks/useInitializeChannelTalk';
-import { notFound } from 'next/navigation';
+import { notFound, useParams } from 'next/navigation';
 
 // 정적 내보내기 설정
 export const dynamic = 'force-static';
 
-export default function CourseDetailRoute({ params }) {
+export default function CourseDetailRoute() {
   const [course, setCourse] = useState(null);
   // Try to get theme context - will be handled by ThemeProviderFallback
   const { setTheme, appearance } = useTheme();
+  const { courseKeyword } = useParams();
 
   useEffect(() => {
     // Find the course from the keyword in URL params
     const foundCourse = Object.keys(COURSE_INFORMATION).find(
-      courseKey => COURSE_INFORMATION[courseKey].keyword === params.courseKeyword
+      courseKey => COURSE_INFORMATION[courseKey].keyword === courseKeyword
     );
 
     if (foundCourse) {
@@ -40,7 +41,7 @@ export default function CourseDetailRoute({ params }) {
     } else {
       notFound();
     }
-  }, [params.courseKeyword]);
+  }, [courseKeyword]);
 
   const handleToggleTheme = () => {
     setTheme({ appearance: appearance === 'dark' ? 'light' : 'dark' });
