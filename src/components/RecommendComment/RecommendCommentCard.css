@@ -36,29 +36,30 @@
   position: relative;
   background-blend-mode: color-dodge, normal, normal, normal;
   animation: glow-bg 12s linear infinite;
-  transition: transform 1s ease, border 0.3s ease;
+  transition: transform 1s ease, background-image 0.3s ease;
   transform: translate3d(0, 0, 0.1px) rotateX(0deg) rotateY(0deg);
   background-size: 100% 100%;
   background-position: 0 0, 0 0, 50% 50%, 0 0;
   overflow: hidden;
-  border: 1px solid transparent;
+  border: none;
 }
   
 .rc-card:hover,
 .rc-card.active {
-  transition: all 0.5s ease;
   background-image: radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y), hsla(266, 100%, 90%, var(--card-opacity)) 4%, hsla(266, 50%, 80%, calc(var(--card-opacity) * 0.75)) 10%, hsla(266, 25%, 70%, calc(var(--card-opacity) * 0.5)) 50%, hsla(266, 0%, 60%, 0) 100%), radial-gradient(35% 52% at 55% 20%, #00ffaac4 0%, #073aff00 100%), radial-gradient(100% 100% at 50% 50%, #00c1ffff 1%, #073aff00 76%), conic-gradient(from 124deg at 50% 50%, #c137ffff 0%, #07c6ffff 40%, #07c6ffff 60%, #c137ffff 100%);
-  border: none;
   position: relative;
 }
 
-/* Hologram border effect */
-.rc-card:hover::after,
-.rc-card.active::after {
+/* Hologram border effect - smoother transition like ProfileCard */
+.rc-card::before {
   content: '';
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   border-radius: var(--vapor-size-borderRadius-600);
+  box-shadow: 0 0 0 1px transparent;
   background: linear-gradient(
     calc(var(--bgrotate, 90deg) + var(--pointer-from-center, 0) * 45deg),
     #c137ff 0%, 
@@ -69,12 +70,18 @@
   );
   background-size: 300% 300%;
   animation: animateHologramBorder 6s linear infinite;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.8;
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   padding: 1px;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.rc-card:hover::before,
+.rc-card.active::before {
+  opacity: 0.8;
 }
 
 /* Inner content needs to remain above the border */
@@ -114,7 +121,7 @@
   transform: translate3d(0, 0, 0.01px);
   width: calc(100% - 2px);
   height: calc(100% - 2px);
-  border-radius: var(--vapor-size-borderRadius-600);
+  border-radius: calc(var(--vapor-size-borderRadius-600) - 1px);
   margin: 1px;
   z-index: 1;
 }
