@@ -95,7 +95,7 @@
 }
 hr {
   margin: var(--vapor-size-space-200) 0;
-  border-color: var(--vapor-color-border-normal);
+  border: 0.0625rem solid var(--vapor-color-border-normal);
 }
 @media (max-width: 768px) {
   .faq-section .faq-nav {
