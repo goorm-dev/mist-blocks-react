@@ -7,17 +7,12 @@ import remarkGfm from 'remark-gfm';
 import './AccordionFaq.css';
 
 import { FAQ_TABS, FAQ_DATA } from './AccordionFaq.constant';
-import Link from 'next/link';
 
 const MarkdownDisplay = ({ children }) => (
   <ReactMarkdown
     components={{
       link: ({ children, href }) => {
-        return (
-          <Link href={href}>
-            <a>{children}</a>
-          </Link>
-        );
+        return <a href={href}>{children}</a>;
       },
     }}
     remarkPlugins={[remarkGfm]}
