@@ -7,7 +7,7 @@ const navigationSections = [
   { id: 'introduce', label: '과정 소개' },
   { id: 'curriculum', label: '커리큘럼' },
   { id: 'career_support', label: '커리어 지원' },
-  { id: 'benefit', label: '혜택' },
+  { id: 'process', label: '지원 과정' },
   { id: 'faq', label: '자주 묻는 질문' }
 ];
 

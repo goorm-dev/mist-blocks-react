@@ -5,8 +5,8 @@ import './DetailRecruitmentProcess.css';
 
 // 탭 구성
 const PROCESS_TABS = [
-  { key: 'first', label: '1차' },
-  { key: 'second', label: '2차' }
+  { key: 'first', label: '1차 일정' },
+  { key: 'second', label: '2차 일정' }
 ];
 
 // 모바일용 프로세스 아이템 컴포넌트
@@ -159,7 +159,7 @@ const DetailRecruitmentProcess = () => {
   ];
 
   return (
-    <section className="content-section detail-process" id="faq">
+    <section className="content-section detail-process" id="process">
       <div className="container">
         <Text typography="heading2" foreground="normal" className="title">
           지원에서 합류까지<br/>한눈에 확인하는 과정
