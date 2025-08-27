@@ -44,7 +44,7 @@ export const MENTOR_PROFILES = [
         title: "디지털 기반을 설계하고 구축할 클라우드 건축가 모집",
         description:
             "kt cloud의 15년 이상 축적된 데이터센터 운영 노하우를 바탕으로 설계된 이 과정은 실무에 즉시 투입 가능한 인프라 전문가를 양성합니다. 가상화 기술, 네트워크 구성, 스토리지 최적화부터 인프라 자동화, 모니터링 시스템 구축까지 클라우드 인프라의 A부터 Z까지 마스터하게 됩니다. 고객의 비즈니스가 안정적으로 성장할 수 있는 토대를 마련하는 클라우드 인프라 전문가로 성장하길 기대합니다.",
-        course: COURSE.CLOUD_INFRA,
+        course: COURSE.CLOUD_INFRASTRUCTURE,
     },
     {
         name: "윤민상",
@@ -53,7 +53,7 @@ export const MENTOR_PROFILES = [
         title: "클라우드 컴퓨팅이 산업 혁신의 중심",
         description:
             "kt cloud의 인프라 과정은 멀티/하이브리드 클라우드 설계, 관리, 최적화에 이르기까지 체계적인 지식과 실무 경험을 제공합니다. 수료생들이 클라우드 인프라 분야에서 인정받는 전문가로 성장하길 기대합니다.",
-        course: COURSE.CLOUD_INFRA,
+        course: COURSE.CLOUD_INFRASTRUCTURE,
     },
     {
         name: "송재희",
