@@ -192,6 +192,7 @@
   .recommend-comment-flex {
     flex-direction: column;
     gap: var(--vapor-size-space-200);
+    margin-top: var(--vapor-size-space-500);
   }
   
   .recommend-comment-flex .rc-card-wrapper {
