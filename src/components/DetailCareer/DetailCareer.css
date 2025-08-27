@@ -199,3 +199,14 @@
     width: 100%;
   }
 }
+
+@media (max-width: 576px) {
+  .prism-background {
+    display: none;
+  }
+
+  .benefit-item {
+    background-color: var(--vapor-color-background-normal-darker);
+    border: 1px solid var(--vapor-color-border-normal);
+  }
+}

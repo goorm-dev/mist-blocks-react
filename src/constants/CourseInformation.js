@@ -64,6 +64,65 @@ export const COURSE_AREA_INFORMATION = {
     }
 }
 
+// 기본 OG 정보
+export const DEFAULT_OG_DATA = {
+    baseUrl: 'https://ktcloud-techup.com',
+    title: 'kt cloud TECH UP | 내일의 인재, TECH UP에서 완성됩니다',
+    description: 'kt cloud가 직접 만든 부트캠프 TECH UP. 클라우드, AI, 개발, 보안, 디자인까지 9개 실무 중심 교육으로 내일의 인재를 완성하세요. 국내 최대 인프라와 노하우를 경험하며 IT 전문가로 성장하세요.',
+    keywords: 'KT 클라우드, TECH UP, 클라우드 교육, AI 부트캠프, IT 실무 교육, 개발자 부트캠프',
+    image: 'https://statics.goorm.io/ktcloud-techup/landing/og-image.png',
+    type: 'website'
+};
+
+// 각 과정별 OG 데이터
+export const COURSE_OG_DATA = {
+    [COURSE.CLOUD_NATIVE]: {
+        title: '클라우드 네이티브 과정 | kt cloud TECH UP',
+        description: '전국 14개 데이터센터 운영 노하우를 기반으로 클라우드 환경 설계부터 자동화까지 배우는 실무 중심 교육. Docker, Kubernetes, CI/CD를 실습하며 DevOps 전문가로 성장하세요.',
+        keywords: '클라우드 네이티브, 도커, 쿠버네티스, DevOps, CI/CD, 클라우드 개발자, 클라우드 교육'
+    },
+    [COURSE.CLOUD_INFRASTRUCTURE]: {
+        title: '클라우드 인프라 과정 | kt cloud TECH UP',
+        description: '국내 최대 민간 GPU 클라우드 인프라 운영 경험을 바탕으로 멀티 클라우드 환경 구축부터 자동화까지 실습합니다. Azure까지 아우르는 인프라 전문가로 성장하세요.',
+        keywords: '클라우드 인프라, GPU 클라우드, 인프라 자동화, 멀티 클라우드, 시스템 엔지니어, 인프라 교육'
+    },
+    [COURSE.INFORMATION_SECURITY]: {
+        title: '사이버 보안 과정 | kt cloud TECH UP',
+        description: '국내 최초 공공 클라우드 보안 인증 \'상\' 등급을 획득한 kt cloud의 보안 아키텍처를 기반으로 한 실습 중심 교육. IAM, DevSecOps, 보안 자동화까지 한 번에 배우세요.',
+        keywords: '사이버 보안, 클라우드 보안, 공공 클라우드, 보안 인증, DevSecOps, 보안 전문가'
+    },
+    [COURSE.FULLSTACK]: {
+        title: '풀스택 과정 | kt cloud TECH UP',
+        description: '200여 종 솔루션 운영 경험을 담은 실무형 풀스택 교육. 프론트엔드부터 백엔드, 생성형 AI까지 프로젝트 실습으로 웹 서비스 개발 전 과정을 완성하세요.',
+        keywords: '풀스택 개발, PaaS-TA, 프론트엔드, 백엔드, 풀스택 교육, 풀스택 부트캠프'
+    },
+    [COURSE.BACKEND]: {
+        title: '백엔드 과정 | kt cloud TECH UP',
+        description: '월 가용성 99.95%를 달성한 운영 경험을 기반으로 대규모 트래픽을 처리하는 백엔드 시스템을 배우는 실습 중심 교육. Java Spring, MSA, 무중단 배포까지 마스터하세요.',
+        keywords: '백엔드 개발, Java Spring, MSA, 성능 튜닝, 백엔드 교육'
+    },
+    [COURSE.FRONTEND]: {
+        title: '프론트엔드 과정 | kt cloud TECH UP',
+        description: '전국 거점 CDN 구축 노하우를 바탕으로 웹·앱 로딩 속도를 최적화하는 프론트엔드 실습 교육. React, SSR, UI/UX 최적화를 배우고 실무 역량을 강화하세요.',
+        keywords: '프론트엔드 개발, React, CDN, UI/UX, 웹 개발, 프론트엔드 교육'
+    },
+    [COURSE.GEN_AI]: {
+        title: '생성형 AI 과정 | kt cloud TECH UP',
+        description: 'H100 GPU 기반 AI 파운드리 플랫폼을 활용한 생성형 AI 실습 교육. 프롬프트 엔지니어링, RAG, LLM 모델 활용까지 프로젝트 기반으로 AI 서비스 개발 역량을 완성하세요.',
+        keywords: '생성형 AI, LLM, 프롬프트 엔지니어링, AI 파운드리, AI 개발자, AI 교육'
+    },
+    [COURSE.PRODUCT_DESIGN]: {
+        title: '프로덕트 디자이너 과정 | kt cloud TECH UP',
+        description: '수십 가지 클라우드 상품의 UX 설계 경험을 담은 실무형 교육. 디자인 시스템 구축부터 데이터 기반 UI/UX 개선, 생성형 AI 활용까지 실전 중심으로 배웁니다.',
+        keywords: '프로덕트 디자이너, 디자인 시스템, UX/UI, 사용자 경험, 디자인 교육'
+    },
+    [COURSE.PRODUCT_MANAGEMENT]: {
+        title: '프로덕트 매니지먼트 과정 | kt cloud TECH UP',
+        description: '공공 클라우드 시장 점유율 42% 1위를 달성한 kt cloud의 PM 노하우를 기반으로 한 실무 중심 교육. 데이터 분석부터 애자일, 생성형 AI 활용까지 제품 개발 전 과정을 경험하세요.',
+        keywords: '프로덕트 매니저, PM, 애자일, 제품 기획, 시장 점유율, PM 교육'
+    }
+};
+
 export const COURSE_INFORMATION = {
     [COURSE.FULLSTACK]: {
         title: "kt cloud 풀스택",
