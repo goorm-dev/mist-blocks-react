@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect, Fragment } from 'react';
 import { Text } from '@vapor-ui/core';
 import './HeroSection4.css';
@@ -8,15 +10,17 @@ const HeroSection4 = () => {
   // 화면 크기 감지
   useEffect(() => {
     const checkScreenSize = () => {
-      const width = window.innerWidth;
-      if (width <= 576) {
-        setScreenSize('mobile');
-      } else if (width <= 768) {
-        setScreenSize('tablet');
-      } else if (width <= 992) {
-        setScreenSize('small-desktop');
-      } else {
-        setScreenSize('desktop');
+      if (typeof window !== 'undefined') {
+        const width = window.innerWidth;
+        if (width <= 576) {
+          setScreenSize('mobile');
+        } else if (width <= 768) {
+          setScreenSize('tablet');
+        } else if (width <= 992) {
+          setScreenSize('small-desktop');
+        } else {
+          setScreenSize('desktop');
+        }
       }
     };
 
@@ -24,48 +28,51 @@ const HeroSection4 = () => {
     checkScreenSize();
 
     // 리사이즈 이벤트 리스너
-    window.addEventListener('resize', checkScreenSize);
-
-    // 클린업
-    return () => window.removeEventListener('resize', checkScreenSize);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', checkScreenSize);
+      // 클린업
+      return () => window.removeEventListener('resize', checkScreenSize);
+    }
   }, []);
 
   // 비디오 자동 재생을 위한 useEffect
   useEffect(() => {
-    const video = document.querySelector('.hero-media-video');
-    if (video) {
-      video.play().catch(error => {
-        console.log('비디오 자동 재생 실패:', error);
-      });
+    if (typeof document !== 'undefined') {
+      const video = document.querySelector('.hero-media-video');
+      if (video) {
+        video.play().catch(error => {
+          console.log('비디오 자동 재생 실패:', error);
+        });
+      }
     }
   }, []);
 
   // 템플릿 변수들
   const templateData = {
-    mainTitle: "메인 타이틀을<br />최대 30자<br />이내로 입력하세요",
-    videoSrc: "",
-    videoPoster: "",
-    mobileImageSrc: ""
+    mainTitle: '메인 타이틀을<br />최대 30자<br />이내로 입력하세요',
+    videoSrc: '',
+    videoPoster: '',
+    mobileImageSrc: '',
   };
 
   // 반응형 타이포그래피 결정 함수
   const getResponsiveTypography = () => {
     switch (screenSize) {
       case 'mobile':
-        return "heading2"; // 576px 이하
+        return 'heading2'; // 576px 이하
       case 'tablet':
-        return "heading2"; // 768px 이하
+        return 'heading2'; // 768px 이하
       case 'small-desktop':
-        return "heading1"; // 992px 이하
+        return 'heading1'; // 992px 이하
       default:
-        return "display4"; // 992px 초과
+        return 'display4'; // 992px 초과
     }
   };
 
   // br 태그를 JSX로 변환하는 함수
-  const renderTitleWithBreaks = (title) => {
+  const renderTitleWithBreaks = title => {
     if (!title) return null;
-    
+
     const parts = title.split('<br />');
     return parts.map((part, index) => (
       <Fragment key={index}>
@@ -81,18 +88,22 @@ const HeroSection4 = () => {
         {/* 메인 미디어 블록 */}
         <div className="hero-media-block">
           <div className="hero-image-placeholder">
-            <video 
-              className="hero-media-video" 
-              autoPlay 
-              loop 
-              muted 
-              playsInline 
-              preload="metadata" 
+            <video
+              className="hero-media-video"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
               poster={templateData.videoPoster}
             >
               <source media="(min-width: 577px)" src={templateData.videoSrc} type="video/mp4" />
             </video>
-            <img src={templateData.mobileImageSrc} alt="hero-main-mobile" className="hero-media-image" />
+            <img
+              src={templateData.mobileImageSrc}
+              alt="hero-main-mobile"
+              className="hero-media-image"
+            />
           </div>
           <div className="hero-image-dim"></div>
           <h1 className="hero-title">
@@ -106,4 +117,4 @@ const HeroSection4 = () => {
   );
 };
 
-export default HeroSection4; 
+export default HeroSection4;

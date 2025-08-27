@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 import { Text, Nav } from '@vapor-ui/core';
 import { debounce } from '../../utils/performanceUtils';
@@ -6,7 +8,7 @@ import './DetailRecruitmentProcess.css';
 // 탭 구성
 const PROCESS_TABS = [
   { key: 'first', label: '1차 일정' },
-  { key: 'second', label: '2차 일정' }
+  { key: 'second', label: '2차 일정' },
 ];
 
 // 모바일용 프로세스 아이템 컴포넌트
@@ -25,7 +27,7 @@ const MobileProcessItem = ({ number, title, stageDate, stageDescription, isLastI
           </Text>
         </div>
       </div>
-      
+
       <div className="mobile-process-content">
         <Text typography="heading6" foreground="normal" className="stage-date">
           {stageDate}
@@ -38,9 +40,17 @@ const MobileProcessItem = ({ number, title, stageDate, stageDescription, isLastI
       </div>
     </div>
   );
-}
+};
 
-const ProcessItem = ({ number, title, firstStageDate, firstStageDescription, secondStageDate, secondStageDescription, isLastItem }) => {
+const ProcessItem = ({
+  number,
+  title,
+  firstStageDate,
+  firstStageDescription,
+  secondStageDate,
+  secondStageDescription,
+  isLastItem,
+}) => {
   return (
     <div className={`process-item ${isLastItem ? 'process-item-last' : ''}`}>
       <div className="process-item-header">
@@ -55,7 +65,7 @@ const ProcessItem = ({ number, title, firstStageDate, firstStageDescription, sec
           </Text>
         </div>
       </div>
-      
+
       <div className="process-content">
         <div className="stage-info first-stage">
           <Text typography="heading6" foreground="normal" className="stage-date">
@@ -85,44 +95,46 @@ const ProcessItem = ({ number, title, firstStageDate, firstStageDescription, sec
 const DetailRecruitmentProcess = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [activeTab, setActiveTab] = useState(PROCESS_TABS[0].key);
-  
+
   // 화면 크기 감지
   useEffect(() => {
     // 원본 감지 함수
     const checkMobileOriginal = () => {
-      setIsMobile(window.innerWidth < 769);
+      if (typeof window !== 'undefined') {
+        setIsMobile(window.innerWidth < 769);
+      }
     };
-    
+
     // 디바운스된 화면 크기 감지 함수
     const checkMobile = debounce(checkMobileOriginal, 200);
-    
+
     // 초기 실행
     checkMobileOriginal();
-    
+
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   // 탭 변경 핸들러
-  const handleTabClick = (tab) => {
+  const handleTabClick = tab => {
     setActiveTab(tab);
   };
 
   // 현재 활성 탭에 따른 데이터 필터링
-  const getActiveStageData = (item) => {
+  const getActiveStageData = item => {
     if (activeTab === 'first') {
       return {
         date: item.firstStageDate,
-        description: item.firstStageDescription
+        description: item.firstStageDescription,
       };
     } else {
       return {
         date: item.secondStageDate,
-        description: item.secondStageDescription
+        description: item.secondStageDescription,
       };
     }
   };
-  
+
   const processItems = [
     {
       number: '1',
@@ -130,7 +142,7 @@ const DetailRecruitmentProcess = () => {
       firstStageDate: '25.8.28 (목) - 25.9.4 (목)',
       firstStageDescription: '지원서 및 고용24 수강신청',
       secondStageDate: '25.9.5 (목) - 25.9.11 (목)',
-      secondStageDescription: '지원서 및 고용24 수강신청'
+      secondStageDescription: '지원서 및 고용24 수강신청',
     },
     {
       number: '2',
@@ -138,7 +150,7 @@ const DetailRecruitmentProcess = () => {
       firstStageDate: '25.9.5 (금)',
       firstStageDescription: null,
       secondStageDate: '25.9.12 (금)',
-      secondStageDescription: null
+      secondStageDescription: null,
     },
     {
       number: '3',
@@ -146,7 +158,7 @@ const DetailRecruitmentProcess = () => {
       firstStageDate: '25.9.8 (월) - 25.9.9 (화)',
       firstStageDescription: null,
       secondStageDate: '25.9.15 (월) - 25.9.16 (화)',
-      secondStageDescription: null
+      secondStageDescription: null,
     },
     {
       number: '4',
@@ -154,15 +166,17 @@ const DetailRecruitmentProcess = () => {
       firstStageDate: '25.9.10 (수)',
       firstStageDescription: null,
       secondStageDate: '25.9.17 (수)',
-      secondStageDescription: null
-    }
+      secondStageDescription: null,
+    },
   ];
 
   return (
     <section className="content-section detail-process" id="process">
       <div className="container">
         <Text typography="heading2" foreground="normal" className="title">
-          지원에서 합류까지<br/>한눈에 확인하는 과정
+          지원에서 합류까지
+          <br />
+          한눈에 확인하는 과정
         </Text>
 
         <div className="process-group">
@@ -171,23 +185,31 @@ const DetailRecruitmentProcess = () => {
             <div className="process-header">
               <div className="process-text">
                 <div className="process-header-group">
-                  <Text typography="subtitle1" foreground="hint-darker" className="process-label">TRACK 1</Text>
-                  <Text typography="heading3" foreground="normal" className="process-title">Lightning Pass</Text>
+                  <Text typography="subtitle1" foreground="hint-darker" className="process-label">
+                    TRACK 1
+                  </Text>
+                  <Text typography="heading3" foreground="normal" className="process-title">
+                    Lightning Pass
+                  </Text>
                 </div>
                 <Text typography="heading6" foreground="hint-darker" className="process-desc">
                   준비된 지원자는 셀프 영상 인터뷰만으로 선발됩니다.
                 </Text>
               </div>
             </div>
-            
+
             <div className="process-process">
               <div className="process-step">
                 <div className="step-header">
                   <div className="step-number">
-                    <Text typography="heading6" foreground="primary" className="step-number-text">01</Text>
+                    <Text typography="heading6" foreground="primary" className="step-number-text">
+                      01
+                    </Text>
                   </div>
                   <div className="step-title">
-                    <Text typography="heading6" foreground="normal">과정 지원</Text>
+                    <Text typography="heading6" foreground="normal">
+                      과정 지원
+                    </Text>
                   </div>
                 </div>
                 <div className="step-content">
@@ -199,14 +221,18 @@ const DetailRecruitmentProcess = () => {
                   </Text>
                 </div>
               </div>
-              
+
               <div className="process-step">
                 <div className="step-header">
                   <div className="step-number">
-                    <Text typography="heading6" foreground="primary" className="step-number-text">02</Text>
+                    <Text typography="heading6" foreground="primary" className="step-number-text">
+                      02
+                    </Text>
                   </div>
                   <div className="step-title">
-                    <Text typography="heading6" foreground="normal">최종 합격</Text>
+                    <Text typography="heading6" foreground="normal">
+                      최종 합격
+                    </Text>
                   </div>
                 </div>
                 <div className="step-content">
@@ -226,23 +252,31 @@ const DetailRecruitmentProcess = () => {
             <div className="process-header">
               <div className="process-text">
                 <div className="process-header-group">
-                  <Text typography="subtitle1" foreground="hint-darker" className="process-label">TRACK 2</Text>
-                  <Text typography="heading3" foreground="normal" className="process-title">Portfolio Battle</Text>
+                  <Text typography="subtitle1" foreground="hint-darker" className="process-label">
+                    TRACK 2
+                  </Text>
+                  <Text typography="heading3" foreground="normal" className="process-title">
+                    Portfolio Battle
+                  </Text>
                 </div>
                 <Text typography="heading6" foreground="hint-darker" className="process-desc">
                   프로젝트와 포트폴리오만으로 빠르게 선발할 수 있습니다.
                 </Text>
               </div>
             </div>
-            
+
             <div className="process-process">
               <div className="process-step">
                 <div className="step-header">
                   <div className="step-number">
-                    <Text typography="heading6" foreground="primary" className="step-number-text">01</Text>
+                    <Text typography="heading6" foreground="primary" className="step-number-text">
+                      01
+                    </Text>
                   </div>
                   <div className="step-title">
-                    <Text typography="heading6" foreground="normal">과정 지원</Text>
+                    <Text typography="heading6" foreground="normal">
+                      과정 지원
+                    </Text>
                   </div>
                 </div>
                 <div className="step-content">
@@ -254,14 +288,18 @@ const DetailRecruitmentProcess = () => {
                   </Text>
                 </div>
               </div>
-              
+
               <div className="process-step">
                 <div className="step-header">
                   <div className="step-number">
-                    <Text typography="heading6" foreground="primary" className="step-number-text">02</Text>
+                    <Text typography="heading6" foreground="primary" className="step-number-text">
+                      02
+                    </Text>
                   </div>
                   <div className="step-title">
-                    <Text typography="heading6" foreground="normal">최종 합격</Text>
+                    <Text typography="heading6" foreground="normal">
+                      최종 합격
+                    </Text>
                   </div>
                 </div>
                 <div className="step-content">
@@ -281,21 +319,25 @@ const DetailRecruitmentProcess = () => {
             <div className="process-header">
               <div className="process-text">
                 <div className="process-header-group">
-                  <Text typography="subtitle1" foreground="hint-darker" className="process-label">TRACK 3</Text>
-                  <Text typography="heading3" foreground="normal" className="process-title">Hidden Gem</Text>
+                  <Text typography="subtitle1" foreground="hint-darker" className="process-label">
+                    TRACK 3
+                  </Text>
+                  <Text typography="heading3" foreground="normal" className="process-title">
+                    Hidden Gem
+                  </Text>
                 </div>
                 <Text typography="heading6" foreground="hint-darker" className="process-desc">
                   가능성을 지닌 지원자는 그룹 면접으로 협업, 인성을 확인합니다.
                 </Text>
               </div>
             </div>
-            
+
             {/* 기존 Hidden Gem 프로세스 (1차/2차 구분) */}
             {isMobile ? (
               <div className="mobile-process-wrapper">
                 <Nav.Root size="lg" shape="fill" aria-label="지원 과정 단계 선택">
                   <Nav.List className="process-nav-list">
-                    {PROCESS_TABS.map((tab) => (
+                    {PROCESS_TABS.map(tab => (
                       <Nav.Item key={tab.key} className="process-nav-item">
                         <Nav.Link
                           as="button"
@@ -311,10 +353,10 @@ const DetailRecruitmentProcess = () => {
                     ))}
                   </Nav.List>
                 </Nav.Root>
-                
-                <div 
-                  className="mobile-process-items" 
-                  role="tabpanel" 
+
+                <div
+                  className="mobile-process-items"
+                  role="tabpanel"
                   id={`panel-${activeTab}`}
                   aria-labelledby={`tab-${activeTab}`}
                 >
@@ -337,10 +379,14 @@ const DetailRecruitmentProcess = () => {
               <div className="process-content-wrapper">
                 <div className="stage-header-wrapper">
                   <div className="stage-header first-stage">
-                    <Text typography="subtitle1" foreground="hint">1차 일정</Text>
+                    <Text typography="subtitle1" foreground="hint">
+                      1차 일정
+                    </Text>
                   </div>
                   <div className="stage-header second-stage">
-                    <Text typography="subtitle1" foreground="hint">2차 일정</Text>
+                    <Text typography="subtitle1" foreground="hint">
+                      2차 일정
+                    </Text>
                   </div>
                 </div>
 
@@ -369,7 +415,8 @@ const DetailRecruitmentProcess = () => {
             ※ Lightning Pass, Portfolio Battle 전형은 선착순으로 조기 마감될 수 있습니다.
           </Text>
           <Text typography="subtitle1" foreground="hint">
-            ※ Lightning Pass, Portfolio Battle 전형 지원자는 평가에 따라 Hidden Gem 면접 전형으로 이어서 진행될 수 있습니다.
+            ※ Lightning Pass, Portfolio Battle 전형 지원자는 평가에 따라 Hidden Gem 면접 전형으로
+            이어서 진행될 수 있습니다.
           </Text>
         </div>
       </div>

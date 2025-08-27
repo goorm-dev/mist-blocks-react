@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 import { Text, Button, Badge, IconButton } from '@vapor-ui/core';
 import './DetailHero.css';
@@ -6,34 +8,26 @@ import { debounce } from '../../utils/performanceUtils';
 
 import { formatPeriod, getRecruitmentStatus } from '../../utils/courseUtils';
 
-const DetailHero = ({ 
-  data,
-  onEnrollClick,
-  onShareClick 
-}) => {
+const DetailHero = ({ data, onEnrollClick, onShareClick }) => {
   const [isCopied, setIsCopied] = useState(false);
-  const [screenSize, setScreenSize] = useState('desktop');
-  
-  const {
-    title,
-    description,
-    tags,
-    detailImageDesktop,
-    detailImageMobile
-  } = data;
+  const [, setScreenSize] = useState('desktop');
+
+  const { title, description, tags, detailImageDesktop, detailImageMobile } = data;
 
   // 화면 크기 감지
   useEffect(() => {
     // 원본 크기 감지 함수
     const checkScreenSizeOriginal = () => {
-      const width = window.innerWidth;
-      if (width <= 992) {
-        setScreenSize('mobile');
-      } else {
-        setScreenSize('desktop');
+      if (typeof window !== 'undefined') {
+        const width = window.innerWidth;
+        if (width <= 992) {
+          setScreenSize('mobile');
+        } else {
+          setScreenSize('desktop');
+        }
       }
     };
-    
+
     // 디바운스 적용된 크기 감지 함수
     const checkScreenSize = debounce(checkScreenSizeOriginal, 200);
 
@@ -41,33 +35,34 @@ const DetailHero = ({
     checkScreenSizeOriginal();
 
     // 리사이즈 이벤트 리스너
-    window.addEventListener('resize', checkScreenSize);
-
-    // 클린업
-    return () => window.removeEventListener('resize', checkScreenSize);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', checkScreenSize);
+      // 클린업
+      return () => window.removeEventListener('resize', checkScreenSize);
+    }
   }, []);
 
   const { statusType } = getRecruitmentStatus(data.startAt, data.endAt);
 
-  const getCtaButtonConfig = (statusType) => {
+  const getCtaButtonConfig = statusType => {
     switch (statusType) {
       case 'close':
         return {
-          text: "모집이 마감되었습니다",
+          text: '모집이 마감되었습니다',
           link: null,
-          disabled: true
+          disabled: true,
         };
       case 'contrast':
         return {
-          text: "오픈 알림 신청하기",
-          link: "https://gem.goorm.io/submissions/ktcloudtechup/openalarm",
-          disabled: false
+          text: '오픈 알림 신청하기',
+          link: 'https://gem.goorm.io/submissions/ktcloudtechup/openalarm',
+          disabled: false,
         };
       case 'open':
         return {
           text: `${data.title} 지원하기`,
           link: `https://gem.goorm.io/submissions/ktcloudtechup/${data.keyword}`,
-          disabled: false
+          disabled: false,
         };
     }
   };
@@ -75,27 +70,27 @@ const DetailHero = ({
   const ctaButton = getCtaButtonConfig(statusType);
 
   const shareButton = {
-     link: window.location.href,
-  }
+    link: typeof window !== 'undefined' ? window.location.href : '',
+  };
 
   const courseInfo = [
-      {
-        label: "지원 일정",
-        value: `${formatPeriod(data.startAt, data.endAt)}`
-      },
-      {
-        label: "교육 일정", 
-        value: `${formatPeriod(data.eventStartAt, data.eventEndAt)}`
-      },
-      {
-        label: "모집 인원",
-        value: `${data.recruitedPeopleAmount}명`
-      },
-      {
-        label: "교육 방법",
-        value: "온라인 / 비대면 실시간"
-      }
-  ]
+    {
+      label: '지원 일정',
+      value: `${formatPeriod(data.startAt, data.endAt)}`,
+    },
+    {
+      label: '교육 일정',
+      value: `${formatPeriod(data.eventStartAt, data.eventEndAt)}`,
+    },
+    {
+      label: '모집 인원',
+      value: `${data.recruitedPeopleAmount}명`,
+    },
+    {
+      label: '교육 방법',
+      value: '온라인 / 비대면 실시간',
+    },
+  ];
 
   const handleEnrollClick = () => {
     if (onEnrollClick) {
@@ -109,34 +104,33 @@ const DetailHero = ({
     try {
       // 링크 복사
       await navigator.clipboard.writeText(shareButton.link);
-      
+
       if (onShareClick) {
         onShareClick();
       } else if (shareButton.onClick) {
         shareButton.onClick();
       }
-      
+
       // 복사 성공 상태로 변경
       setIsCopied(true);
-      
+
       // 2초 후 원래 상태로 복원
       setTimeout(() => {
         setIsCopied(false);
       }, 2000);
-      
     } catch (err) {
-      console.error("링크 복사 실패:", err);
+      console.error('링크 복사 실패:', err);
       // 폴백: 구식 브라우저 지원
-      const textArea = document.createElement("textarea");
+      const textArea = document.createElement('textarea');
       textArea.value = shareButton.link;
       document.body.appendChild(textArea);
       textArea.select();
-      document.execCommand("copy");
+      document.execCommand('copy');
       document.body.removeChild(textArea);
-      
+
       // 복사 성공 상태로 변경
       setIsCopied(true);
-      
+
       // 2초 후 원래 상태로 복원
       setTimeout(() => {
         setIsCopied(false);
@@ -151,21 +145,21 @@ const DetailHero = ({
           <div className="hero-left col-span-5">
             <div className="course-thumbnail">
               {/* PC용 이미지 (992px 초과) */}
-              <img 
-                src={detailImageDesktop} 
-                alt={`${title} 상세 이미지 (PC)`} 
+              <img
+                src={detailImageDesktop}
+                alt={`${title} 상세 이미지 (PC)`}
                 className="course-thumbnail-image desktop-image"
-                onError={(e) => {
+                onError={e => {
                   console.error('PC 이미지 로드 실패:', detailImageDesktop);
                   e.target.style.display = 'none';
                 }}
               />
               {/* 모바일용 이미지 (992px 이하) */}
-              <img 
-                src={detailImageMobile} 
-                alt={`${title} 상세 이미지 (모바일)`} 
+              <img
+                src={detailImageMobile}
+                alt={`${title} 상세 이미지 (모바일)`}
                 className="course-thumbnail-image mobile-image"
-                onError={(e) => {
+                onError={e => {
                   console.error('모바일 이미지 로드 실패:', detailImageMobile);
                   e.target.style.display = 'none';
                 }}
@@ -193,11 +187,11 @@ const DetailHero = ({
               </div>
               <div className="cta-wrap">
                 {ctaButton.link && !ctaButton.disabled ? (
-                  <a target='_blank' href={ctaButton.link} className="cta-enroll-link w-full">
-                    <Button 
-                      size="xl" 
-                      color="primary" 
-                      stretch="true" 
+                  <a target="_blank" href={ctaButton.link} className="cta-enroll-link w-full">
+                    <Button
+                      size="xl"
+                      color="primary"
+                      stretch="true"
                       className="cta-enroll"
                       onClick={handleEnrollClick}
                     >
@@ -205,10 +199,10 @@ const DetailHero = ({
                     </Button>
                   </a>
                 ) : (
-                  <Button 
-                    size="xl" 
-                   color="primary" 
-                    stretch="true" 
+                  <Button
+                    size="xl"
+                    color="primary"
+                    stretch="true"
                     className="cta-enroll"
                     onClick={ctaButton.disabled ? undefined : handleEnrollClick}
                     disabled={ctaButton.disabled}
@@ -216,27 +210,21 @@ const DetailHero = ({
                     {ctaButton.text}
                   </Button>
                 )}
-                {statusType === 'open' && (
-                  isCopied ? (
-                    <Button 
-                      size="xl" 
-                      color="secondary" 
-                      className="cta-share"
-                      disabled
-                    >
+                {statusType === 'open' &&
+                  (isCopied ? (
+                    <Button size="xl" color="secondary" className="cta-share" disabled>
                       복사됨
                     </Button>
                   ) : (
-                    <IconButton 
-                      size="xl" 
-                      color="secondary" 
+                    <IconButton
+                      size="xl"
+                      color="secondary"
                       className="cta-share"
                       onClick={handleShareClick}
                     >
                       <LinkOutlineIcon />
                     </IconButton>
-                  )
-                )}
+                  ))}
               </div>
               <div className="course-info-detail">
                 {courseInfo.map((info, index) => (

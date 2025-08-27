@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect, Fragment } from 'react';
 import { Text } from '@vapor-ui/core';
 import { debounce } from '../../utils/performanceUtils';
@@ -11,18 +13,20 @@ const HeroSection1 = () => {
   useEffect(() => {
     // 원본 크기 감지 함수
     const checkScreenSizeOriginal = () => {
-      const width = window.innerWidth;
-      if (width <= 576) {
-        setScreenSize('mobile');
-      } else if (width <= 768) {
-        setScreenSize('tablet');
-      } else if (width <= 992) {
-        setScreenSize('small-desktop');
-      } else {
-        setScreenSize('desktop');
+      if (typeof window !== 'undefined') {
+        const width = window.innerWidth;
+        if (width <= 576) {
+          setScreenSize('mobile');
+        } else if (width <= 768) {
+          setScreenSize('tablet');
+        } else if (width <= 992) {
+          setScreenSize('small-desktop');
+        } else {
+          setScreenSize('desktop');
+        }
       }
     };
-    
+
     // 디바운스 적용된 크기 감지 함수
     const checkScreenSize = debounce(checkScreenSizeOriginal, 200);
 
@@ -30,10 +34,11 @@ const HeroSection1 = () => {
     checkScreenSizeOriginal();
 
     // 리사이즈 이벤트 리스너
-    window.addEventListener('resize', checkScreenSize);
-
-    // 클린업
-    return () => window.removeEventListener('resize', checkScreenSize);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', checkScreenSize);
+      // 클린업
+      return () => window.removeEventListener('resize', checkScreenSize);
+    }
   }, []);
 
   // 비디오 자동 재생을 위한 useEffect
@@ -46,7 +51,7 @@ const HeroSection1 = () => {
     }
   }, []);
 
-  const handleCardHover = (index) => {
+  const handleCardHover = index => {
     setIsHovered(index);
     console.log(`🖱️ 카드 ${index + 1}에 호버되었습니다.`);
   };
@@ -58,52 +63,52 @@ const HeroSection1 = () => {
 
   // 템플릿 변수들
   const templateData = {
-    mainTitle: "메인 타이틀을<br />최대 30자<br />이내로 입력하세요",
-    videoSrc: "https://statics.goorm.io/ktb/ktb_main_jeju.mp4",
-    videoPoster: "/landing_skeleton/source/img-default-hero-left.png",
-    mobileImageSrc: "/landing_skeleton/source/img-default-hero-left.png",
-    rightImageSrc: "{{right_image_source}}",
-    rightImageMobileSrc: "/landing_skeleton/source/img-default-hero-right-2.png",
+    mainTitle: '메인 타이틀을<br />최대 30자<br />이내로 입력하세요',
+    videoSrc: 'https://statics.goorm.io/ktb/ktb_main_jeju.mp4',
+    videoPoster: '/landing_skeleton/source/img-default-hero-left.png',
+    mobileImageSrc: '/landing_skeleton/source/img-default-hero-left.png',
+    rightImageSrc: '{{right_image_source}}',
+    rightImageMobileSrc: '/landing_skeleton/source/img-default-hero-right-2.png',
     cards: [
       {
-        label: "라벨1",
-        title: "서브 타이틀1",
-        description: "설명을 입력하세요.",
-        imageSrc: "{{image_source_1}}"
+        label: '라벨1',
+        title: '서브 타이틀1',
+        description: '설명을 입력하세요.',
+        imageSrc: '{{image_source_1}}',
       },
       {
-        label: "라벨2",
-        title: "서브 타이틀2",
-        description: "설명을 입력하세요.",
-        imageSrc: "{{image_source_2}}"
+        label: '라벨2',
+        title: '서브 타이틀2',
+        description: '설명을 입력하세요.',
+        imageSrc: '{{image_source_2}}',
       },
       {
-        label: "라벨3",
-        title: "서브 타이틀3",
-        description: "설명을 입력하세요.",
-        imageSrc: "{{image_source_3}}"
-      }
-    ]
+        label: '라벨3',
+        title: '서브 타이틀3',
+        description: '설명을 입력하세요.',
+        imageSrc: '{{image_source_3}}',
+      },
+    ],
   };
 
   // 반응형 타이포그래피 결정 함수
   const getResponsiveTypography = () => {
     switch (screenSize) {
       case 'mobile':
-        return "heading2"; // 576px 이하
+        return 'heading2'; // 576px 이하
       case 'tablet':
-        return "heading2"; // 768px 이하
+        return 'heading2'; // 768px 이하
       case 'small-desktop':
-        return "heading1"; // 992px 이하
+        return 'heading1'; // 992px 이하
       default:
-        return "display4"; // 992px 초과
+        return 'display4'; // 992px 초과
     }
   };
 
   // br 태그를 JSX로 변환하는 함수
-  const renderTitleWithBreaks = (title) => {
+  const renderTitleWithBreaks = title => {
     if (!title) return null;
-    
+
     const parts = title.split('<br />');
     return parts.map((part, index) => (
       <Fragment key={index}>
@@ -121,18 +126,22 @@ const HeroSection1 = () => {
           <div className="hero-top-row">
             <div className="hero-left-container">
               <div className="hero-image-placeholder">
-                <video 
-                  className="hero-left-video" 
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline 
-                  preload="metadata" 
+                <video
+                  className="hero-left-video"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
                   poster={templateData.videoPoster}
                 >
                   <source media="(min-width: 577px)" src={templateData.videoSrc} type="video/mp4" />
                 </video>
-                <img src={templateData.mobileImageSrc} alt="hero-main-mobile" className="hero-left-image" />
+                <img
+                  src={templateData.mobileImageSrc}
+                  alt="hero-main-mobile"
+                  className="hero-left-image"
+                />
               </div>
               <div className="hero-image-dim"></div>
               <div className="hero-title">
@@ -145,7 +154,11 @@ const HeroSection1 = () => {
               <div className="hero-right-background"></div>
               <picture id="hero-main-picture">
                 <source media="(max-width: 992px)" srcSet={templateData.rightImageMobileSrc} />
-                <img src={templateData.rightImageSrc} alt="main-image" className="hero-right-image" />
+                <img
+                  src={templateData.rightImageSrc}
+                  alt="main-image"
+                  className="hero-right-image"
+                />
               </picture>
             </div>
           </div>
@@ -153,14 +166,18 @@ const HeroSection1 = () => {
           {/* 하단 카드 3개 */}
           <div className="hero-bottom-row">
             {templateData.cards.map((card, index) => (
-              <div 
+              <div
                 key={index}
                 className={`hero-card-container ${isHovered === index ? 'hovered' : ''}`}
                 onMouseEnter={() => handleCardHover(index)}
                 onMouseLeave={handleCardLeave}
               >
                 <div className="hero-card-image">
-                  <img src={card.imageSrc} alt={`sub-image-${index + 1}`} className="hero-card-bg" />
+                  <img
+                    src={card.imageSrc}
+                    alt={`sub-image-${index + 1}`}
+                    className="hero-card-bg"
+                  />
                 </div>
                 <div className="hero-card-overlay"></div>
                 <div className="hero-card-content">
@@ -189,4 +206,4 @@ const HeroSection1 = () => {
   );
 };
 
-export default HeroSection1; 
+export default HeroSection1;

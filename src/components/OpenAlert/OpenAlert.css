@@ -50,13 +50,12 @@
   .open-alert {
     background: rgba(var(--vapor-color-background-normal), 0.03);
     backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
   }
 }
 
 /* Dark theme support for backdrop filter */
 @supports (backdrop-filter: blur(25px)) or (-webkit-backdrop-filter: blur(25px)) {
-  [data-theme="dark"] .open-alert {
+  [data-theme='dark'] .open-alert {
     background: rgba(var(--vapor-color-background-normal), 0.03);
   }
 }
@@ -122,10 +121,6 @@
   display: flex;
   flex-direction: column;
 }
-
-
-
-
 
 .days-left {
   color: var(--ktc-tech-up-red);
@@ -248,29 +243,28 @@
   }
 
   .open-alert-style {
-      border-radius: var(--vapor-size-borderRadius-000);
-      margin-bottom: var(--safe-area-inset-bottom);
-      flex-direction: column;
+    border-radius: var(--vapor-size-borderRadius-000);
+    margin-bottom: var(--safe-area-inset-bottom);
+    flex-direction: column;
   }
 }
 
 /* Data 속성 기반 애니메이션 */
-.open-alert[data-state="visible"] {
+.open-alert[data-state='visible'] {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
   transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   transition-duration: 0.5s;
 }
 
-.open-alert[data-state="hidden"] {
+.open-alert[data-state='hidden'] {
   opacity: 0;
   transform: translateX(-50%) translateY(100%);
   transition-timing-function: cubic-bezier(0.22, 0, 0.36, 1);
   transition-duration: 0.4s;
 }
 
-Focus states for accessibility
-.copy-button:focus-visible,
+Focus states for accessibility .copy-button:focus-visible,
 .cta-button:focus-visible {
   outline: 2px solid var(--vapor-color-primary-500);
   outline-offset: 2px;
@@ -287,7 +281,7 @@ Focus states for accessibility
   .open-alert {
     border: 2px solid var(--vapor-color-gray-900);
   }
-  
+
   .digit {
     border: 1px solid var(--vapor-color-primary-700);
   }
@@ -299,7 +293,7 @@ Focus states for accessibility
     animation: none;
     transition: none;
   }
-  
+
   .cta-button:hover:not(:disabled) {
     transform: none;
   }

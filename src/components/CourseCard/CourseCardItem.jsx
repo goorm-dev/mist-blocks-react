@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom';
+'use client';
+
+import Link from 'next/link';
 import { Text, Badge, Button } from '@vapor-ui/core';
 import { CalendarIcon } from '@vapor-ui/icons';
 import './CourseCard.css';
@@ -173,7 +175,7 @@ const CourseCardItem = ({ course, onCtaClick }) => {
   return (
     <div className="course-common">
       <div className="course-card">
-        <Link to={course.link} className="course-link">
+        <Link href={course.link} className="course-link">
           <div className="course-thumb">
             <div className="course-status-badge">
               {statusType === 'open' ? (

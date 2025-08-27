@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect, Fragment } from 'react';
 import { Text } from '@vapor-ui/core';
 import './HeroSection3.css';
@@ -14,15 +16,17 @@ const HeroSection3 = () => {
   // 화면 크기 감지
   useEffect(() => {
     const checkScreenSize = () => {
-      const width = window.innerWidth;
-      if (width <= 576) {
-        setScreenSize('mobile');
-      } else if (width <= 768) {
-        setScreenSize('tablet');
-      } else if (width <= 992) {
-        setScreenSize('small-desktop');
-      } else {
-        setScreenSize('desktop');
+      if (typeof window !== 'undefined') {
+        const width = window.innerWidth;
+        if (width <= 576) {
+          setScreenSize('mobile');
+        } else if (width <= 768) {
+          setScreenSize('tablet');
+        } else if (width <= 992) {
+          setScreenSize('small-desktop');
+        } else {
+          setScreenSize('desktop');
+        }
       }
     };
 
@@ -30,23 +34,26 @@ const HeroSection3 = () => {
     checkScreenSize();
 
     // 리사이즈 이벤트 리스너
-    window.addEventListener('resize', checkScreenSize);
-
-    // 클린업
-    return () => window.removeEventListener('resize', checkScreenSize);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', checkScreenSize);
+      // 클린업
+      return () => window.removeEventListener('resize', checkScreenSize);
+    }
   }, []);
 
   // 비디오 자동 재생을 위한 useEffect
   useEffect(() => {
-    const video = document.querySelector('.hero-left-video');
-    if (video) {
-      video.play().catch(error => {
-        console.log('비디오 자동 재생 실패:', error);
-      });
+    if (typeof document !== 'undefined') {
+      const video = document.querySelector('.hero-left-video');
+      if (video) {
+        video.play().catch(error => {
+          console.log('비디오 자동 재생 실패:', error);
+        });
+      }
     }
   }, []);
 
-  const handleCardHover = (index) => {
+  const handleCardHover = index => {
     setIsHovered(index);
     console.log(`🖱️ 카드 ${index + 1}에 호버되었습니다.`);
   };
@@ -58,44 +65,51 @@ const HeroSection3 = () => {
 
   // 템플릿 변수들
   const templateData = {
-    mainTitle: "내일의 인재,<br />kt cloud TECH UP에서<br />완성됩니다.",
-    videoSrc: "",
-    videoPoster: screenSize === 'mobile' || screenSize === 'tablet' ? "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_main_mo.png" : "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_main.png",
-    mobileImageSrc: screenSize === 'mobile' || screenSize === 'tablet' ? "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_main_mo.png" : "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_main.png",
+    mainTitle: '내일의 인재,<br />kt cloud TECH UP에서<br />완성됩니다.',
+    videoSrc: '',
+    videoPoster:
+      screenSize === 'mobile' || screenSize === 'tablet'
+        ? 'https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_main_mo.png'
+        : 'https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_main.png',
+    mobileImageSrc:
+      screenSize === 'mobile' || screenSize === 'tablet'
+        ? 'https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_main_mo.png'
+        : 'https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_main.png',
     cards: [
       {
-        label: "혁신의 시작",
-        title: "기술로 세상을 바꾸는 힘",
-        description: "kt cloud는 산업 혁신을 이끌며<br />최고의 기술과 함께 성장해왔습니다.",
-        imageSrc: "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_hero_1.png"
+        label: '혁신의 시작',
+        title: '기술로 세상을 바꾸는 힘',
+        description: 'kt cloud는 산업 혁신을 이끌며<br />최고의 기술과 함께 성장해왔습니다.',
+        imageSrc: 'https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_hero_1.png',
       },
       {
-        label: "세상을 키우는 약속",
-        title: "인재 중심의 기술 가치",
-        description: "최고의 인재가 세상을 성장시킬 때까지,<br />kt cloud의 노력은 계속될 것입니다.",
-        imageSrc: "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_hero_2.png"
-      }
-    ]
+        label: '세상을 키우는 약속',
+        title: '인재 중심의 기술 가치',
+        description:
+          '최고의 인재가 세상을 성장시킬 때까지,<br />kt cloud의 노력은 계속될 것입니다.',
+        imageSrc: 'https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_hero_2.png',
+      },
+    ],
   };
 
   // 반응형 타이포그래피 결정 함수
   const getResponsiveTypography = () => {
     switch (screenSize) {
       case 'mobile':
-        return "heading2"; // 576px 이하
+        return 'heading2'; // 576px 이하
       case 'tablet':
-        return "heading2"; // 768px 이하
+        return 'heading2'; // 768px 이하
       case 'small-desktop':
-        return "heading1"; // 992px 이하
+        return 'heading1'; // 992px 이하
       default:
-        return "display4"; // 992px 초과
+        return 'display4'; // 992px 초과
     }
   };
 
   // br 태그를 JSX로 변환하는 함수
-  const renderTitleWithBreaks = (title) => {
+  const renderTitleWithBreaks = title => {
     if (!title) return null;
-    
+
     const parts = title.split('<br />');
     return parts.map((part, index) => (
       <Fragment key={index}>
@@ -106,9 +120,9 @@ const HeroSection3 = () => {
   };
 
   // description에 br 태그를 JSX로 변환하는 함수
-  const renderDescriptionWithBreaks = (description) => {
+  const renderDescriptionWithBreaks = description => {
     if (!description) return null;
-    
+
     const parts = description.split('<br />');
     return parts.map((part, index) => (
       <Fragment key={index}>
@@ -125,22 +139,30 @@ const HeroSection3 = () => {
           {/* 왼쪽 메인 카드 */}
           <div className="hero-left-container">
             <div className="hero-image-placeholder">
-              <video 
-                className="hero-left-video" 
-                autoPlay 
-                loop 
-                muted 
-                playsInline 
-                preload="metadata" 
+              <video
+                className="hero-left-video"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
                 poster={templateData.videoPoster}
               >
                 <source media="(min-width: 577px)" src={templateData.videoSrc} type="video/mp4" />
               </video>
-              <img src={templateData.mobileImageSrc} alt="hero-main-mobile" className="hero-left-image" />
+              <img
+                src={templateData.mobileImageSrc}
+                alt="hero-main-mobile"
+                className="hero-left-image"
+              />
             </div>
             <div className="hero-image-dim"></div>
             <h1 className="hero-title">
-              <Text typography={getResponsiveTypography()} foreground="accent" className="hero-title-text">
+              <Text
+                typography={getResponsiveTypography()}
+                foreground="accent"
+                className="hero-title-text"
+              >
                 {renderTitleWithBreaks(templateData.mainTitle)}
               </Text>
             </h1>
@@ -149,14 +171,18 @@ const HeroSection3 = () => {
           {/* 오른쪽 카드 2개 */}
           <div className="hero-right-container">
             {templateData.cards.map((card, index) => (
-              <div 
+              <div
                 key={index}
                 className={`hero-card-container ${isHovered === index ? 'hovered' : ''}`}
                 onMouseEnter={() => handleCardHover(index)}
                 onMouseLeave={handleCardLeave}
               >
                 <div className="hero-card-image">
-                  <img src={card.imageSrc} alt={`sub-image-${index + 1}`} className="hero-card-bg" />
+                  <img
+                    src={card.imageSrc}
+                    alt={`sub-image-${index + 1}`}
+                    className="hero-card-bg"
+                  />
                 </div>
                 <div className="hero-card-overlay"></div>
                 <div className="hero-card-content">
@@ -185,4 +211,4 @@ const HeroSection3 = () => {
   );
 };
 
-export default HeroSection3; 
+export default HeroSection3;

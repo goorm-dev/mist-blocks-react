@@ -1,13 +1,12 @@
+'use client';
+
 import { useState, useEffect, useRef } from 'react';
 import { Text, Button, IconButton } from '@vapor-ui/core';
 import { LinkOutlineIcon } from '@vapor-ui/icons';
 import { COURSE, COURSE_INFORMATION } from '../../constants/CourseInformation';
 import './OpenAlert.css';
 
-const OpenAlert = ({ 
-  courseType = COURSE.FULLSTACK,
-  className = ''
-}) => {
+const OpenAlert = ({ courseType = COURSE.FULLSTACK, className = '' }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
   const [isCopied, setIsCopied] = useState(false);
@@ -24,31 +23,31 @@ const OpenAlert = ({
 
   // Intersection Observer 참조 저장
   const observerRef = useRef(null);
-  
+
   // Intersection Observer 설정
   useEffect(() => {
     // 초기 상태는 숨김
     setIsVisible(false);
-    
+
     // Intersection Observer 콜백 함수
-    const observerCallback = (entries) => {
+    const observerCallback = entries => {
       // cta-enroll 요소가 화면에 보이는지 여부에 따라 상태 변경
       const isCtaVisible = entries[0].isIntersecting;
       setIsVisible(!isCtaVisible); // 보이지 않을 때만 OpenAlert 표시
     };
-    
+
     // 페이지가 로드된 후에 Observer 초기화 함수
     const initObserver = () => {
       // DetailHero에 있는 버튼 클래스명이 정확히 'cta-enroll'임
       const ctaElement = document.querySelector('.cta-enroll');
-      
+
       if (ctaElement) {
         // Observer 생성 및 설정
         observerRef.current = new IntersectionObserver(observerCallback, {
           threshold: 0.1, // 10% 이상 보이면 보이는 것으로 간주
-          rootMargin: '0px' // 뷰포트에 대한 마진 설정
+          rootMargin: '0px', // 뷰포트에 대한 마진 설정
         });
-        
+
         // 요소 관찰 시작
         observerRef.current.observe(ctaElement);
       } else {
@@ -56,14 +55,14 @@ const OpenAlert = ({
         setIsVisible(true);
       }
     };
-    
+
     // DOM이 완전히 로드된 후에 초기화
     if (document.readyState === 'complete') {
       initObserver();
     } else {
       window.addEventListener('load', initObserver, { once: true });
     }
-    
+
     // 컴포넌트 언마운트 시 클린업
     return () => {
       if (observerRef.current) {
@@ -80,29 +79,29 @@ const OpenAlert = ({
     const now = currentTime;
     const startAt = new Date(courseInfo.startAt);
     const endAt = new Date(courseInfo.endAt);
-    
+
     if (now < startAt) return 'beforeOpen';
     if (now >= startAt && now <= endAt) return 'open';
     return 'closed';
   };
 
-  const getDaysLeft = (targetDate) => {
+  const getDaysLeft = targetDate => {
     const now = currentTime;
     const diff = Math.ceil((targetDate - now) / (1000 * 60 * 60 * 24));
     return Math.max(0, diff);
   };
 
-  const getTimeLeft = (targetDate) => {
+  const getTimeLeft = targetDate => {
     const now = currentTime;
     const diff = targetDate - now;
-    
+
     if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-    
+
     return {
       days: Math.floor(diff / (1000 * 60 * 60 * 24)),
       hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
       minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
-      seconds: Math.floor((diff % (1000 * 60)) / 1000)
+      seconds: Math.floor((diff % (1000 * 60)) / 1000),
     };
   };
 
@@ -111,7 +110,7 @@ const OpenAlert = ({
   const courseTitle = courseInfo.title.replace('kt cloud ', '');
   const daysLeft = getDaysLeft(new Date(courseInfo.startAt));
   const timeLeft = getTimeLeft(new Date(courseInfo.endAt));
-  
+
   // 코스별 지원 버튼 텍스트 생성
   const getApplyButtonText = () => {
     const courseMap = {
@@ -123,12 +122,12 @@ const OpenAlert = ({
       [COURSE.CLOUD_NATIVE]: '클라우드 네이티브',
       [COURSE.CLOUD_INFRASTRUCTURE]: '클라우드 인프라',
       [COURSE.PRODUCT_DESIGN]: '프로덕트 디자인',
-      [COURSE.PRODUCT_MANAGEMENT]: '프로덕트 매니지먼트'
+      [COURSE.PRODUCT_MANAGEMENT]: '프로덕트 매니지먼트',
     };
-    
+
     return `${courseMap[courseType] || courseTitle} 지원하기`;
   };
-  
+
   // 상태에 따른 버튼 설정
   const getButtonConfig = () => {
     switch (status) {
@@ -136,25 +135,25 @@ const OpenAlert = ({
         return {
           text: '오픈 알림 신청하기',
           disabled: false,
-          link: `https://gem.goorm.io/submissions/ktcloudtechup/openalarm`
+          link: `https://gem.goorm.io/submissions/ktcloudtechup/openalarm`,
         };
       case 'open':
         return {
           text: getApplyButtonText(),
           disabled: false,
-          link: `https://gem.goorm.io/submissions/ktcloudtechup/${courseInfo.keyword}`
+          link: `https://gem.goorm.io/submissions/ktcloudtechup/${courseInfo.keyword}`,
         };
       case 'closed':
         return {
           text: '모집 마감',
           disabled: true,
-          link: null
+          link: null,
         };
       default:
         return {
           text: '오픈 알림 신청하기',
           disabled: false,
-          link: `https://gem.goorm.io/submissions/ktcloudtechup/openalarm`
+          link: `https://gem.goorm.io/submissions/ktcloudtechup/openalarm`,
         };
     }
   };
@@ -178,16 +177,16 @@ const OpenAlert = ({
         document.body.appendChild(textArea);
         textArea.focus();
         textArea.select();
-        
+
         try {
           document.execCommand('copy');
         } catch (err) {
           console.error('execCommand copy failed:', err);
         }
-        
+
         document.body.removeChild(textArea);
       }
-      
+
       setIsCopied(true);
       setTimeout(() => setIsCopied(false), 2000);
     } catch (err) {
@@ -202,39 +201,33 @@ const OpenAlert = ({
     if (!buttonConfig.disabled && buttonConfig.link) {
       window.open(buttonConfig.link, '_blank');
     }
-  }
-
+  };
 
   // 모집 예정 레이아웃
   const renderBeforeOpen = () => (
     <div className="open-alert-style">
-              <div className="alert-text">
-          <div id="pre-notification-container">
-            <Text typography="heading6" className="open-alert-text-pre">
-              TECH UP 모집 오픈
-            </Text>
-            <Text typography="heading6" className="days-left">
-              D-{daysLeft}
-            </Text>
-            <Text typography="heading6" className="notification-description">
-              오픈 알림 신청하시면 가장 먼저 오픈 소식을 알려드려요.
-            </Text>
-          </div>
+      <div className="alert-text">
+        <div id="pre-notification-container">
+          <Text typography="heading6" className="open-alert-text-pre">
+            TECH UP 모집 오픈
+          </Text>
+          <Text typography="heading6" className="days-left">
+            D-{daysLeft}
+          </Text>
+          <Text typography="heading6" className="notification-description">
+            오픈 알림 신청하시면 가장 먼저 오픈 소식을 알려드려요.
+          </Text>
         </div>
+      </div>
       <div className="cta-button-container">
         {isCopied ? (
-          <Button 
-            size="xl" 
-            color="secondary" 
-            className="copy-button"
-            disabled
-          >
+          <Button size="xl" color="secondary" className="copy-button" disabled>
             복사됨
           </Button>
         ) : (
-          <IconButton 
-            size="xl" 
-            color="secondary" 
+          <IconButton
+            size="xl"
+            color="secondary"
             className="copy-button"
             onClick={handleShareClick}
             onTouchEnd={handleShareClick} // 모바일 터치 이벤트 추가
@@ -279,18 +272,13 @@ const OpenAlert = ({
       </div>
       <div className="cta-button-container">
         {isCopied ? (
-          <Button 
-            size="xl" 
-            color="secondary" 
-            className="copy-button"
-            disabled
-          >
+          <Button size="xl" color="secondary" className="copy-button" disabled>
             복사됨
           </Button>
         ) : (
-          <IconButton 
-            size="xl" 
-            color="secondary" 
+          <IconButton
+            size="xl"
+            color="secondary"
             className="copy-button"
             onClick={handleShareClick}
           >
@@ -308,12 +296,7 @@ const OpenAlert = ({
             {buttonConfig.text}
           </Button>
         ) : (
-          <Button
-            size="xl"
-            color="primary"
-            className="cta-button"
-            disabled={buttonConfig.disabled}
-          >
+          <Button size="xl" color="primary" className="cta-button" disabled={buttonConfig.disabled}>
             {buttonConfig.text}
           </Button>
         )}
@@ -331,30 +314,20 @@ const OpenAlert = ({
       </div>
       <div className="cta-button-container">
         {isCopied ? (
-          <Button 
-            size="xl" 
-            color="secondary" 
-            className="copy-button"
-            disabled
-          >
+          <Button size="xl" color="secondary" className="copy-button" disabled>
             복사됨
           </Button>
         ) : (
-          <IconButton 
-            size="xl" 
-            color="secondary" 
+          <IconButton
+            size="xl"
+            color="secondary"
             className="copy-button"
             onClick={handleShareClick}
           >
             <LinkOutlineIcon />
           </IconButton>
         )}
-        <Button
-          size="xl"
-          color="primary"
-          className="cta-button"
-          disabled={buttonConfig.disabled}
-        >
+        <Button size="xl" color="primary" className="cta-button" disabled={buttonConfig.disabled}>
           {buttonConfig.text}
         </Button>
       </div>
@@ -373,17 +346,9 @@ const OpenAlert = ({
     }
   };
 
-
-
   return (
     <>
-      {isVisible && (
-        <div 
-          className={`open-alert show ${className}`.trim()}
-        >
-          {renderContent()}
-        </div>
-      )}
+      {isVisible && <div className={`open-alert show ${className}`.trim()}>{renderContent()}</div>}
     </>
   );
 };

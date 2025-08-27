@@ -1,5 +1,7 @@
+'use client';
+
 import { useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 import { Text } from '@vapor-ui/core';
 import { YoutubeIcon, BlogIcon, ArrowUpOutlineIcon } from '@vapor-ui/icons';
@@ -14,7 +16,7 @@ const FooterCourseLink = ({ course }) => {
 
   return (
       <li key={course}>
-        <Link to={hrefLink} className="footer-link">
+        <Link href={hrefLink} className="footer-link">
           <Text as="span" typography="heading6" foreground="inherit">{COURSE_INFORMATION[course].title}</Text>
         </Link>
       </li>
@@ -137,7 +139,7 @@ const FooterFull = ({ logoUrl = "https://tech.ktcloud.com" }) => {
         <div className="footer-bottom-content">
           <div className="footer-info-text">
             <div className="footer-info-group">
-              <Link to={'https://vivid-thyme-ac6.notion.site/kt-cloud-TECH-UP-2479e3e335cc80dbb7fae14d3c6040d4'} className="footer-link" target="_blank" rel="noopener noreferrer">
+              <Link href={'https://vivid-thyme-ac6.notion.site/kt-cloud-TECH-UP-2479e3e335cc80dbb7fae14d3c6040d4'} className="footer-link" target="_blank" rel="noopener noreferrer">
                 <Text as="span" typography="subtitle1" foreground="secondary">{'개인정보처리방침'}</Text>
               </Link>
               <Text as="p" typography="subtitle1" foreground="secondary">{'고객센터 ㅣ 평일 10:30 - 17:00 (휴게 시간 12:00 - 13:30, 주말 및 공휴일 휴무)'}</Text>

@@ -1,38 +1,40 @@
+'use client';
+
 import { useState } from 'react';
 import { Nav, Text, Card } from '@vapor-ui/core';
 import ReactMarkdown from 'react-markdown';
-import remarkGfm from "remark-gfm";
+import remarkGfm from 'remark-gfm';
 import './AccordionFaq.css';
 
 import { FAQ_TABS, FAQ_DATA } from './AccordionFaq.constant';
 
 const MarkdownDisplay = ({ children }) => (
   <ReactMarkdown remarkPlugins={[remarkGfm]}>{children}</ReactMarkdown>
-)
+);
 
 const AccordionFaq = () => {
   const [activeTab, setActiveTab] = useState(FAQ_TABS[0].key);
   const [openIndexes, setOpenIndexes] = useState([]);
 
-  const handleTabClick = (key) => {
+  const handleTabClick = key => {
     setActiveTab(key);
     setOpenIndexes([]); // 탭 변경 시 아코디언 모두 닫기
   };
 
-  const handleAccordionClick = (idx) => {
-    setOpenIndexes((prev) =>
-      prev.includes(idx) ? prev.filter((i) => i !== idx) : [idx]
-    ); // 하나만 열리게
+  const handleAccordionClick = idx => {
+    setOpenIndexes(prev => (prev.includes(idx) ? prev.filter(i => i !== idx) : [idx])); // 하나만 열리게
   };
 
   return (
     <section className="content-section faq-section" id="faq">
       <div className="container">
-        <Text typography="heading2" className="title">자주 묻는 질문</Text>
+        <Text typography="heading2" className="title">
+          자주 묻는 질문
+        </Text>
         {/* Vapor Nav 컴포넌트로 탭 네비게이션 */}
         <Nav.Root className="faq-nav" size="lg" shape="fill" aria-label="FAQ 카테고리 선택">
           <Nav.List className="faq-nav-list">
-            {FAQ_TABS.map((tab) => (
+            {FAQ_TABS.map(tab => (
               <Nav.Item key={tab.key} className="faq-nav-item">
                 <Nav.Link
                   as="button"
@@ -58,10 +60,18 @@ const AccordionFaq = () => {
                   onClick={() => handleAccordionClick(idx)}
                   aria-expanded={openIndexes.includes(idx)}
                 >
-                  <Text typography="heading6" className="faq-question"><MarkdownDisplay>{item.question}</MarkdownDisplay></Text>
+                  <Text typography="heading6" className="faq-question">
+                    <MarkdownDisplay>{item.question}</MarkdownDisplay>
+                  </Text>
                   <span className="faq-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path
+                        d="M6 9L12 15L18 9"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
                     </svg>
                   </span>
                 </button>
@@ -81,4 +91,4 @@ const AccordionFaq = () => {
   );
 };
 
-export default AccordionFaq; 
+export default AccordionFaq;

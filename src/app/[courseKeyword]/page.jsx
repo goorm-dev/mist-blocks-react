@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import Navbar from '../../components/NavBar/NavBar';
 import FooterFull from '../../components/FooterFull/FooterFull';
 import DetailHero from '../../components/DetailHero/DetailHero';
@@ -14,18 +17,39 @@ import DetailLearningPlace from '../../components/DetailLearningPlace/DetailLear
 import DetailRecruitmentProcess from '../../components/DetailRecruitmentProcess/DetailRecruitmentProcess';
 import DetailCareer from '../../components/DetailCareer/DetailCareer';
 import OpenAlert from '../../components/OpenAlert/OpenAlert';
-
-import { COURSE, COURSE_INFORMATION } from '../../constants/CourseInformation';
+import { COURSE_INFORMATION } from '../../constants/CourseInformation';
 import { useInitializeChannelTalk } from '../../hooks/useInitializeChannelTalk';
+import { notFound } from 'next/navigation';
 
-function Detail({ course }) {
+// 정적 내보내기 설정
+export const dynamic = 'force-static';
+
+export default function CourseDetailRoute({ params }) {
+  const [course, setCourse] = useState(null);
+  // Try to get theme context - will be handled by ThemeProviderFallback
   const { setTheme, appearance } = useTheme();
 
+  useEffect(() => {
+    // Find the course from the keyword in URL params
+    const foundCourse = Object.keys(COURSE_INFORMATION).find(
+      courseKey => COURSE_INFORMATION[courseKey].keyword === params.courseKeyword
+    );
+
+    if (foundCourse) {
+      setCourse(foundCourse);
+    } else {
+      notFound();
+    }
+  }, [params.courseKeyword]);
+
   const handleToggleTheme = () => {
-    setTheme({appearance: appearance === 'dark' ? 'light' : 'dark'})
-  }
+    setTheme({ appearance: appearance === 'dark' ? 'light' : 'dark' });
+  };
 
   useInitializeChannelTalk();
+
+  // Wait until course is loaded
+  if (!course) return null;
 
   const courseData = COURSE_INFORMATION[course];
 
@@ -42,7 +66,7 @@ function Detail({ course }) {
         <DetailCurriculum course={course} />
         <DetailCareer course={course} />
         <DetailBenefit />
-        <DetailLearningPlace/>
+        <DetailLearningPlace />
         <DetailRecruitmentProcess />
         <AccordionFaq />
       </main>
@@ -51,5 +75,3 @@ function Detail({ course }) {
     </>
   );
 }
-
-export default Detail; 

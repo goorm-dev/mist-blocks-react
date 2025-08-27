@@ -136,7 +136,7 @@ export const COURSE_INFORMATION = {
         recruitedPeopleAmount: 50,
         navIconSrc: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/fullstack/techup_nav_fullstack.png",
         imageSrc: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/fullstack/techup_thumb_fullstack.png",
-        detailImageDesktop: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/fullstack/techup_dㄴetail_pc_fullstack.png",
+        detailImageDesktop: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/fullstack/techup_detail_pc_fullstack.png",
         detailImageMobile: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/fullstack/techup_detail_mo_fullstack.png"
     },
     [COURSE.FRONTEND]: {

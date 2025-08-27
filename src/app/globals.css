@@ -1,5 +1,12 @@
-@layer vapor-theme, theme, vapor-reset, base, vapor-component, components, vapor-utilities, utilities;
-@import "tailwindcss";
+/* 1. 파일 최상단에서 전체 Layer 순서를 정의합니다. */
+@layer tw-theme, theme, reset, components, utilities, tw-utilities;
+/* 2. Tailwind와 Vapor UI 스타일을 불러옵니다. */
+@import 'tailwindcss/theme.css' layer(tw-theme);
+@import 'tailwindcss/utilities.css' layer(tw-utilities);
+
+@import '@vapor-ui/core/styles.css';
+@import '@vapor-ui/core/tailwind.css';
+
 @plugin '@tailwindcss/typography';
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
@@ -35,7 +42,7 @@
   --ktc-tech-up-cybersecurity: #ec3550;
   --ktc-tech-up-frontend: #28c864;
   --ktc-tech-up-backend: #19e1ca;
-  --ktc-tech-up-cloud-infra: #728CF4;
+  --ktc-tech-up-cloud-infra: #728cf4;
   --ktc-tech-up-cloud-native: #ffc800;
   --ktc-tech-up-generative-ai: #ff6200;
   --ktc-tech-up-product-designer: #f413a9;
@@ -48,24 +55,28 @@
 }
 
 :root.vapor-light-theme {
-  --ktc-background-gradient: linear-gradient(145deg,#FFFFFFcc 0%,#F7F7FA88 100%);
-  --ktc-text-gradient: linear-gradient(to bottom, var(--vapor-color-foreground-normal), var(--vapor-color-foreground-secondary));
-  --ktc-tech-up-glass: rgba(108, 110, 126, 0.10);
+  --ktc-background-gradient: linear-gradient(145deg, #ffffffcc 0%, #f7f7fa88 100%);
+  --ktc-text-gradient: linear-gradient(
+    to bottom,
+    var(--vapor-color-foreground-normal),
+    var(--vapor-color-foreground-secondary)
+  );
+  --ktc-tech-up-glass: rgba(108, 110, 126, 0.1);
 }
 
 :root.vapor-dark-theme {
   --vapor-color-foreground-contrast: #323640;
   --vapor-color-foreground-contrast-darker: #434753;
   --vapor-color-foreground-hint: #737785;
-  --vapor-color-foreground-hint-darker: #8C8F9E;
-  --vapor-color-foreground-normal: #D6D6DE;
-  --vapor-color-foreground-normal-lighter: #8C8F9E;
-  --vapor-color-foreground-secondary: #B4B5C3;
-  --vapor-color-foreground-secondary-darker: #D6D6DE;
-  --vapor-color-foreground-accent: #FFFFFF;
+  --vapor-color-foreground-hint-darker: #8c8f9e;
+  --vapor-color-foreground-normal: #d6d6de;
+  --vapor-color-foreground-normal-lighter: #8c8f9e;
+  --vapor-color-foreground-secondary: #b4b5c3;
+  --vapor-color-foreground-secondary-darker: #d6d6de;
+  --vapor-color-foreground-accent: #ffffff;
   --vapor-color-background-normal: #141418;
-  --vapor-color-background-normal-lighter: #1B1E23;
-  --vapor-color-background-normal-darker: #1B1E23;
+  --vapor-color-background-normal-lighter: #1b1e23;
+  --vapor-color-background-normal-darker: #1b1e23;
   --vapor-color-background-secondary: #262930;
   --vapor-color-background-contrast: #323640;
   --vapor-color-background-hint: #737785;
@@ -73,8 +84,12 @@
   --vapor-color-border-secondary: #262930;
   --vapor-color-border-contrast: #323640;
   --vapor-color-border-hint: #737785;
-  --ktc-background-gradient: linear-gradient(145deg,#3236408c 0%,#62667344 100%);
-  --ktc-text-gradient: linear-gradient(to bottom, var(--vapor-color-foreground-normal), var(--vapor-color-foreground-secondary));
+  --ktc-background-gradient: linear-gradient(145deg, #3236408c 0%, #62667344 100%);
+  --ktc-text-gradient: linear-gradient(
+    to bottom,
+    var(--vapor-color-foreground-normal),
+    var(--vapor-color-foreground-secondary)
+  );
   --ktc-tech-up-glass: rgba(255, 255, 255, 0.08);
 }
 
@@ -118,7 +133,8 @@ svg {
   color: var(--vapor-color-white);
   border: none;
 }
-.pre-open-badge, .close-badge {
+.pre-open-badge,
+.close-badge {
   background: var(--vapor-color-background-secondary);
   color: var(--vapor-color-foreground-hint);
   border: none;
@@ -131,7 +147,7 @@ svg {
   .container-sm {
     max-width: 540px;
     padding-right: 16px;
-    padding-left: 16px; 
+    padding-left: 16px;
   }
 }
 /* Medium devices (768px and up) */

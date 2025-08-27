@@ -1,5 +1,6 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom';
+'use client';
+
+import { useState } from 'react';
 import {
   Dialog,
   DialogPanel,
@@ -10,7 +11,7 @@ import {
   PopoverButton,
   PopoverGroup,
   PopoverPanel,
-} from '@headlessui/react'
+} from '@headlessui/react';
 import {
   ArrowPathIcon,
   Bars2Icon,
@@ -21,11 +22,16 @@ import {
   XMarkIcon,
   SunIcon,
   MoonIcon,
-} from '@heroicons/react/24/outline'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
-const logoLight = "https://statics.goorm.io/ktcloud-techup/logo/techup_light.svg"
-const logoDark = "https://statics.goorm.io/ktcloud-techup/logo/techup_dark.svg"
-import { COURSE_INFORMATION, COURSE_AREA_INFORMATION, COURSE } from '../../constants/CourseInformation'
+} from '@heroicons/react/24/outline';
+import { ChevronDownIcon } from '@heroicons/react/20/solid';
+const logoLight = 'https://statics.goorm.io/ktcloud-techup/logo/techup_light.svg';
+const logoDark = 'https://statics.goorm.io/ktcloud-techup/logo/techup_dark.svg';
+import {
+  COURSE_INFORMATION,
+  COURSE_AREA_INFORMATION,
+  COURSE,
+} from '../../constants/CourseInformation';
+import Link from 'next/link';
 
 const COURSE_ICONS = {
   [COURSE.FULLSTACK]: ChartPieIcon,
@@ -37,51 +43,47 @@ const COURSE_ICONS = {
   [COURSE.CLOUD_NATIVE]: SquaresPlusIcon,
   [COURSE.PRODUCT_DESIGN]: FingerPrintIcon,
   [COURSE.PRODUCT_MANAGEMENT]: SquaresPlusIcon,
-}
+};
 
 // COURSE_DESCRIPTIONS 제거 - COURSE_INFORMATION에서 직접 description 사용
 
-const createCourseDropdownItems = (courseTypes) => {
+const createCourseDropdownItems = courseTypes => {
   return courseTypes.map(courseType => ({
     name: COURSE_INFORMATION[courseType].title,
     navIconSrc: COURSE_INFORMATION[courseType].navIconSrc,
     description: COURSE_INFORMATION[courseType].description,
     href: `/${COURSE_INFORMATION[courseType].keyword}`,
-    icon: COURSE_ICONS[courseType]
-  }))
-}
+    icon: COURSE_ICONS[courseType],
+  }));
+};
 
 const mainMenuItems = [
-  { 
+  {
     name: COURSE_AREA_INFORMATION.WEB_DEVELOPMENT.title,
     isDropdown: true,
-    dropdownItems: createCourseDropdownItems(COURSE_AREA_INFORMATION.WEB_DEVELOPMENT.courses)
+    dropdownItems: createCourseDropdownItems(COURSE_AREA_INFORMATION.WEB_DEVELOPMENT.courses),
   },
-  { 
+  {
     name: COURSE_AREA_INFORMATION.INFRA_INNOVATION.title,
     isDropdown: true,
-    dropdownItems: createCourseDropdownItems(COURSE_AREA_INFORMATION.INFRA_INNOVATION.courses)
+    dropdownItems: createCourseDropdownItems(COURSE_AREA_INFORMATION.INFRA_INNOVATION.courses),
   },
-  { 
+  {
     name: COURSE_AREA_INFORMATION.PRODUCT_EXPERT.title,
     isDropdown: true,
-    dropdownItems: createCourseDropdownItems(COURSE_AREA_INFORMATION.PRODUCT_EXPERT.courses)
+    dropdownItems: createCourseDropdownItems(COURSE_AREA_INFORMATION.PRODUCT_EXPERT.courses),
   },
-]
+];
 
 export default function Example({ isDarkMode, toggleDarkMode }) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <header className="absolute inset-x-0 top-0 z-50">
       <nav aria-label="Global" className="container flex items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
-          <Link to="/" className="-m-1.5 p-1.5 transition-opacity hover:opacity-80">
+          <Link href="/" prefetch className="-m-1.5 p-1.5 transition-opacity hover:opacity-80">
             <span className="sr-only">Your Company</span>
-            <img
-              alt="Logo"
-              src={isDarkMode ? logoDark : logoLight}
-              className="h-9 w-auto"
-            />
+            <img alt="Logo" src={isDarkMode ? logoDark : logoLight} className="h-9 w-auto" />
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -95,11 +97,14 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
           </button>
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-8">
-          {mainMenuItems.map((item) => (
+          {mainMenuItems.map(item => (
             <Popover key={item.name} className="relative">
               <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 p-3 transition-[background-color]">
                 {item.name}
-                <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-[var(--vapor-color-foreground-normal)] stroke-2" />
+                <ChevronDownIcon
+                  aria-hidden="true"
+                  className="size-5 flex-none text-[var(--vapor-color-foreground-normal)] stroke-2"
+                />
               </PopoverButton>
               <PopoverPanel
                 transition
@@ -107,20 +112,30 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
               >
                 <div className="grid grid-cols-1 gap-4 p-4">
                   <div className="space-y-4">
-                    {item.dropdownItems.map((dropdownItem) => (
+                    {item.dropdownItems.map(dropdownItem => (
                       <div
                         key={dropdownItem.name}
                         className="group relative flex items-center gap-x-3 p-3 text-sm/6 hover:bg-[var(--vapor-color-gray-400)]/16"
                       >
                         <div className="flex size-10 flex-none items-center justify-center bg-[var(--vapor-color-background-normal-darker)] group-hover:bg-[var(--vapor-color-background-normal)]">
-                        <img className="size-8" src={dropdownItem.navIconSrc} alt={dropdownItem.keyword} />  
+                          <img
+                            className="size-8"
+                            src={dropdownItem.navIconSrc}
+                            alt={dropdownItem.keyword}
+                          />
                         </div>
                         <div className="flex-auto">
-                          <Link to={dropdownItem.href} className="block font-semibold text-[var(--vapor-color-foreground-normal)]">
+                          <Link
+                            prefetch
+                            href={dropdownItem.href}
+                            className="block font-semibold text-[var(--vapor-color-foreground-normal)]"
+                          >
                             {dropdownItem.name}
                             <span className="absolute inset-0" />
                           </Link>
-                          <p className="text-[var(--vapor-color-foreground-normal-lighter)] text-xs">{dropdownItem.description}</p>
+                          <p className="text-[var(--vapor-color-foreground-normal-lighter)] text-xs">
+                            {dropdownItem.description}
+                          </p>
                         </div>
                       </div>
                     ))}
@@ -134,31 +149,37 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
           <button
             onClick={toggleDarkMode}
             className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 p-3 transition-[background-color]"
-            aria-label={isDarkMode ? "라이트 모드로 전환" : "다크 모드로 전환"}
+            aria-label={isDarkMode ? '라이트 모드로 전환' : '다크 모드로 전환'}
           >
-            {isDarkMode ? <SunIcon className="size-5 stroke-2" /> : <MoonIcon className="size-5 stroke-2" />}
+            {isDarkMode ? (
+              <SunIcon className="size-5 stroke-2" />
+            ) : (
+              <MoonIcon className="size-5 stroke-2" />
+            )}
           </button>
-          <a href="https://gem.goorm.io/spaces/space_68760419fd5f865c3926eb2d/submission-answers/verify" target='_blank' className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 p-3 transition-[background-color]">
+          <a
+            href="https://gem.goorm.io/spaces/space_68760419fd5f865c3926eb2d/submission-answers/verify"
+            target="_blank"
+            className="text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 p-3 transition-[background-color]"
+          >
             지원 확인
           </a>
         </div>
       </nav>
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
         <div className="fixed inset-0 z-50" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[var(--vapor-color-background-normal)] sm:max-w-sm sm:ring-1 sm:ring-[var(--vapor-color-border-normal)]"
+        <DialogPanel
+          className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[var(--vapor-color-background-normal)] sm:max-w-sm sm:ring-1 sm:ring-[var(--vapor-color-border-normal)]"
           style={{
             paddingLeft: 'calc(var(--spacing) * 5)',
             paddingRight: 'calc(var(--spacing) * 5)',
             paddingTop: 'calc(var(--spacing) * 6)',
-            paddingBottom: 'calc(var(--spacing) * 6)'
-          }}>
+            paddingBottom: 'calc(var(--spacing) * 6)',
+          }}
+        >
           <div className="flex items-center justify-between">
-            <Link to="/" className="-m-1.5 p-1.5 transition-opacity hover:opacity-80">
-              <img
-                alt=""
-                src={isDarkMode ? logoDark : logoLight}
-                className="h-9 w-auto"
-              />
+            <Link prefetch href="/" className="-m-1.5 p-1.5 transition-opacity hover:opacity-80">
+              <img alt="" src={isDarkMode ? logoDark : logoLight} className="h-9 w-auto" />
             </Link>
             <button
               type="button"
@@ -172,23 +193,26 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-[var(--vapor-color-border-normal)]">
               <div className="space-y-2 py-6">
-                {mainMenuItems.map((item) => (
+                {mainMenuItems.map(item => (
                   <Disclosure key={item.name} as="div" className="-mx-3">
                     <DisclosureButton className="group flex w-full items-center justify-between py-2 pr-3.5 pl-3 text-base/7 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16">
                       {item.name}
-                      <ChevronDownIcon aria-hidden="true" className="size-6 flex-none group-data-open:rotate-180 stroke-2" />
+                      <ChevronDownIcon
+                        aria-hidden="true"
+                        className="size-6 flex-none group-data-open:rotate-180 stroke-2"
+                      />
                     </DisclosureButton>
                     <DisclosurePanel className="mt-2 space-y-2">
-                      {item.dropdownItems.map((dropdownItem) => (
-                        <DisclosureButton
+                      {item.dropdownItems.map(dropdownItem => (
+                        <Link
+                          prefetch
                           key={dropdownItem.name}
-                          as="a"
                           href={dropdownItem.href}
                           className="block py-2 pr-3 pl-6 text-sm/7 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           {dropdownItem.name}
-                        </DisclosureButton>
+                        </Link>
                       ))}
                     </DisclosurePanel>
                   </Disclosure>
@@ -197,7 +221,7 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
               <div className="py-6">
                 <a
                   href="https://gem.goorm.io/spaces/space_68760419fd5f865c3926eb2d/submission-answers/verify"
-                  target='_blank'
+                  target="_blank"
                   className="-mx-3 block px-3 py-2.5 text-base/7 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16"
                 >
                   지원 확인
@@ -205,9 +229,13 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
                 <button
                   onClick={toggleDarkMode}
                   className="-mx-3 block px-3 py-2.5 text-base/7 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 transition-[background-color]"
-                  aria-label={isDarkMode ? "라이트 모드로 전환" : "다크 모드로 전환"}
+                  aria-label={isDarkMode ? '라이트 모드로 전환' : '다크 모드로 전환'}
                 >
-                  {isDarkMode ? <SunIcon className="size-5 stroke-2" /> : <MoonIcon className="size-5 stroke-2" />}
+                  {isDarkMode ? (
+                    <SunIcon className="size-5 stroke-2" />
+                  ) : (
+                    <MoonIcon className="size-5 stroke-2" />
+                  )}
                 </button>
               </div>
             </div>
@@ -215,5 +243,5 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
         </DialogPanel>
       </Dialog>
     </header>
-  )
+  );
 }

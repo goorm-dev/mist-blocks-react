@@ -1,11 +1,13 @@
-import { useEffect, useRef } from "react";
-import { Renderer, Triangle, Program, Mesh } from "ogl";
-import "./Prism.css";
+'use client';
+
+import { useEffect, useRef } from 'react';
+import { Renderer, Triangle, Program, Mesh } from 'ogl';
+import './Prism.css';
 
 const Prism = ({
   height = 3.5,
   baseWidth = 5.5,
-  animationType = "rotate",
+  animationType = 'rotate',
   glow = 1,
   offset = { x: 0, y: 0 },
   noise = 0.5,
@@ -56,23 +58,23 @@ const Prism = ({
       console.error('Prism renderer initialization failed:', err);
       return; // Early exit if renderer initialization fails
     }
-    
+
     const gl = renderer.gl;
     if (!gl) {
       console.error('WebGL context not available');
       return;
     }
-    
+
     gl.disable(gl.DEPTH_TEST);
     gl.disable(gl.CULL_FACE);
     gl.disable(gl.BLEND);
 
     Object.assign(gl.canvas.style, {
-      position: "absolute",
-      inset: "0",
-      width: "100%",
-      height: "100%",
-      display: "block",
+      position: 'absolute',
+      inset: '0',
+      width: '100%',
+      height: '100%',
+      display: 'block',
     });
     if (gl.canvas) {
       container.appendChild(gl.canvas);
@@ -247,20 +249,14 @@ const Prism = ({
       iResBuf[1] = gl.drawingBufferHeight;
       offsetPxBuf[0] = offX * dpr;
       offsetPxBuf[1] = offY * dpr;
-      program.uniforms.uPxScale.value =
-        1 / ((gl.drawingBufferHeight || 1) * 0.1 * SCALE);
+      program.uniforms.uPxScale.value = 1 / ((gl.drawingBufferHeight || 1) * 0.1 * SCALE);
     };
     const ro = new ResizeObserver(resize);
     ro.observe(container);
     resize();
 
     const rotBuf = new Float32Array(9);
-    const setMat3FromEuler = (
-      yawY,
-      pitchX,
-      rollZ,
-      out
-    ) => {
+    const setMat3FromEuler = (yawY, pitchX, rollZ, out) => {
       const cy = Math.cos(yawY),
         sy = Math.sin(yawY);
       const cx = Math.cos(pitchX),
@@ -319,7 +315,7 @@ const Prism = ({
     const lerp = (a, b, t) => a + (b - a) * t;
 
     const pointer = { x: 0, y: 0, inside: true };
-    const onMove = (e) => {
+    const onMove = e => {
       const ww = Math.max(1, window.innerWidth);
       const wh = Math.max(1, window.innerHeight);
       const cx = ww * 0.5;
@@ -338,28 +334,28 @@ const Prism = ({
     };
 
     let onPointerMove = null;
-    if (animationType === "hover") {
-      onPointerMove = (e) => {
+    if (animationType === 'hover') {
+      onPointerMove = e => {
         onMove(e);
         startRAF();
       };
-      window.addEventListener("pointermove", onPointerMove, { passive: true });
-      window.addEventListener("mouseleave", onLeave);
-      window.addEventListener("blur", onBlur);
+      window.addEventListener('pointermove', onPointerMove, { passive: true });
+      window.addEventListener('mouseleave', onLeave);
+      window.addEventListener('blur', onBlur);
       program.uniforms.uUseBaseWobble.value = 0;
-    } else if (animationType === "3drotate") {
+    } else if (animationType === '3drotate') {
       program.uniforms.uUseBaseWobble.value = 0;
     } else {
       program.uniforms.uUseBaseWobble.value = 1;
     }
 
-    const render = (t) => {
+    const render = t => {
       const time = (t - t0) * 0.001;
       program.uniforms.iTime.value = time;
 
       let continueRAF = true;
 
-      if (animationType === "hover") {
+      if (animationType === 'hover') {
         const maxPitch = 0.6 * HOVSTR;
         const maxYaw = 0.6 * HOVSTR;
         targetYaw = (pointer.inside ? -pointer.x : 0) * maxYaw;
@@ -370,12 +366,7 @@ const Prism = ({
         yaw = lerp(prevYaw, targetYaw, INERT);
         pitch = lerp(prevPitch, targetPitch, INERT);
         roll = lerp(prevRoll, 0, 0.1);
-        program.uniforms.uRot.value = setMat3FromEuler(
-          yaw,
-          pitch,
-          roll,
-          rotBuf
-        );
+        program.uniforms.uRot.value = setMat3FromEuler(yaw, pitch, roll, rotBuf);
 
         if (NOISE_IS_ZERO) {
           const settled =
@@ -384,17 +375,12 @@ const Prism = ({
             Math.abs(roll) < 1e-4;
           if (settled) continueRAF = false;
         }
-      } else if (animationType === "3drotate") {
+      } else if (animationType === '3drotate') {
         const tScaled = time * TS;
         yaw = tScaled * wY;
         pitch = Math.sin(tScaled * wX + phX) * 0.6;
         roll = Math.sin(tScaled * wZ + phZ) * 0.5;
-        program.uniforms.uRot.value = setMat3FromEuler(
-          yaw,
-          pitch,
-          roll,
-          rotBuf
-        );
+        program.uniforms.uRot.value = setMat3FromEuler(yaw, pitch, roll, rotBuf);
         if (TS < 1e-6) continueRAF = false;
       } else {
         rotBuf[0] = 1;
@@ -419,8 +405,8 @@ const Prism = ({
     };
 
     if (suspendWhenOffscreen) {
-      const io = new IntersectionObserver((entries) => {
-        const vis = entries.some((e) => e.isIntersecting);
+      const io = new IntersectionObserver(entries => {
+        const vis = entries.some(e => e.isIntersecting);
         if (vis) startRAF();
         else stopRAF();
       });
@@ -434,22 +420,17 @@ const Prism = ({
     return () => {
       stopRAF();
       ro.disconnect();
-      if (animationType === "hover") {
-        if (onPointerMove)
-          window.removeEventListener(
-            "pointermove",
-            onPointerMove
-          );
-        window.removeEventListener("mouseleave", onLeave);
-        window.removeEventListener("blur", onBlur);
+      if (animationType === 'hover') {
+        if (onPointerMove) window.removeEventListener('pointermove', onPointerMove);
+        window.removeEventListener('mouseleave', onLeave);
+        window.removeEventListener('blur', onBlur);
       }
       if (suspendWhenOffscreen) {
-        const io = container.__prismIO
+        const io = container.__prismIO;
         if (io) io.disconnect();
         delete container.__prismIO;
       }
-      if (gl.canvas.parentElement === container)
-        container.removeChild(gl.canvas);
+      if (gl.canvas.parentElement === container) container.removeChild(gl.canvas);
     };
   }, [
     height,

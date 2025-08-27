@@ -1,5 +1,7 @@
-import { Text } from "@vapor-ui/core";
-import "./DetailBenefit.css";
+'use client';
+
+import { Text } from '@vapor-ui/core';
+import './DetailBenefit.css';
 
 // Icon components
 const MetaverseIcon = () => (
@@ -14,7 +16,7 @@ const MetaverseIcon = () => (
       <g clipPath="url(#clip0_585_971)">
         <mask
           id="mask0_585_971"
-          style={{ maskType: "luminance" }}
+          style={{ maskType: 'luminance' }}
           maskUnits="userSpaceOnUse"
           x="0"
           y="0"
@@ -24,10 +26,7 @@ const MetaverseIcon = () => (
           <path d="M28 0H0V28H28V0Z" fill="white" />
         </mask>
         <g mask="url(#mask0_585_971)">
-          <path
-            d="M24.5 12.8335H3.5V15.1668H24.5V12.8335Z"
-            fill="var(--ktc-tech-up-red)"
-          />
+          <path d="M24.5 12.8335H3.5V15.1668H24.5V12.8335Z" fill="var(--ktc-tech-up-red)" />
           <path
             d="M14 2.3335C7.57165 2.3335 2.33331 7.57183 2.33331 14.0002C2.33331 20.4285 7.57165 25.6668 14 25.6668C20.4283 25.6668 25.6666 20.4285 25.6666 14.0002C25.6666 7.57183 20.4283 2.3335 14 2.3335ZM12.8333 5.08683V22.9252C11.2233 21.7935 9.76498 18.4452 9.76498 14.0118C9.76498 9.5785 11.2233 6.2185 12.8333 5.0985V5.08683ZM15.1666 22.9252V5.08683C16.7766 6.2185 18.235 9.56683 18.235 14.0002C18.235 18.4335 16.7766 21.7935 15.1666 22.9135V22.9252ZM4.66665 14.0118C4.66665 10.6285 6.47498 7.67683 9.18165 6.03183C8.09665 8.1085 7.44331 10.8852 7.44331 14.0118C7.44331 17.1385 8.10831 19.9152 9.18165 21.9918C6.48665 20.3585 4.66665 17.3952 4.66665 14.0118ZM18.8183 21.9918C19.9033 19.9152 20.5566 17.1385 20.5566 14.0118C20.5566 10.8852 19.8916 8.1085 18.8183 6.03183C21.5133 7.66516 23.3333 10.6285 23.3333 14.0118C23.3333 17.3952 21.525 20.3468 18.8183 21.9918Z"
             fill="currentColor"
@@ -79,7 +78,7 @@ const OfficeTourIcon = () => (
       <g clipPath="url(#clip0_585_1115)">
         <mask
           id="mask0_585_1115"
-          style={{ maskType: "luminance" }}
+          style={{ maskType: 'luminance' }}
           maskUnits="userSpaceOnUse"
           x="0"
           y="0"
@@ -93,14 +92,8 @@ const OfficeTourIcon = () => (
             d="M13.1367 10.7803H9.22833V12.5303H13.1367V10.7803Z"
             fill="var(--ktc-tech-up-red)"
           />
-          <path
-            d="M13.1367 13.9536H9.22833V15.7036H13.1367V13.9536Z"
-            fill="currentColor"
-          />
-          <path
-            d="M18.7717 10.7803H15.2017V12.5303H18.7717V10.7803Z"
-            fill="currentColor"
-          />
+          <path d="M13.1367 13.9536H9.22833V15.7036H13.1367V13.9536Z" fill="currentColor" />
+          <path d="M18.7717 10.7803H15.2017V12.5303H18.7717V10.7803Z" fill="currentColor" />
           <path
             d="M18.7717 13.9536H15.2017V15.7036H18.7717V13.9536Z"
             fill="var(--ktc-tech-up-red)"
@@ -131,7 +124,7 @@ const AWSIcon = () => (
     >
       <mask
         id="mask0_585_1018"
-        style={{ maskType: "luminance" }}
+        style={{ maskType: 'luminance' }}
         maskUnits="userSpaceOnUse"
         x="0"
         y="0"
@@ -170,7 +163,7 @@ const AIToolIcon = () => (
       <g clipPath="url(#clip0_585_1108)">
         <mask
           id="mask0_585_1108"
-          style={{ maskType: "luminance" }}
+          style={{ maskType: 'luminance' }}
           maskUnits="userSpaceOnUse"
           x="0"
           y="0"
@@ -207,7 +200,7 @@ const OnlineContentIcon = () => (
       <g clipPath="url(#clip0_585_1045)">
         <mask
           id="mask0_585_1045"
-          style={{ maskType: "luminance" }}
+          style={{ maskType: 'luminance' }}
           maskUnits="userSpaceOnUse"
           x="0"
           y="0"
@@ -217,14 +210,8 @@ const OnlineContentIcon = () => (
           <path d="M28 0H0V28H28V0Z" fill="white" />
         </mask>
         <g mask="url(#mask0_585_1045)">
-          <path
-            d="M17.4067 8.41162H7.245V10.1616H17.4067V8.41162Z"
-            fill="var(--ktc-tech-up-red)"
-          />
-          <path
-            d="M12.0867 11.7246H7.245V13.4746H12.0867V11.7246Z"
-            fill="var(--ktc-tech-up-red)"
-          />
+          <path d="M17.4067 8.41162H7.245V10.1616H17.4067V8.41162Z" fill="var(--ktc-tech-up-red)" />
+          <path d="M12.0867 11.7246H7.245V13.4746H12.0867V11.7246Z" fill="var(--ktc-tech-up-red)" />
           <path
             d="M25.8767 23.3332L24.7917 16.6365V4.6665H3.21999V16.6365L2.13499 23.3332H25.8767ZM4.87666 20.9998L5.37833 17.8965H22.6333L23.135 20.9998H4.87666ZM5.55333 6.99984H22.4583V15.5632H5.55333V6.99984Z"
             fill="currentColor"
@@ -251,7 +238,7 @@ const BookIcon = () => (
     >
       <mask
         id="mask0_585_1056"
-        style={{ maskType: "luminance" }}
+        style={{ maskType: 'luminance' }}
         maskUnits="userSpaceOnUse"
         x="0"
         y="0"
@@ -261,10 +248,7 @@ const BookIcon = () => (
         <path d="M28 0H0V28H28V0Z" fill="white" />
       </mask>
       <g mask="url(#mask0_585_1056)">
-        <path
-          d="M19.39 7.78174H12.53V9.53174H19.39V7.78174Z"
-          fill="var(--ktc-tech-up-red)"
-        />
+        <path d="M19.39 7.78174H12.53V9.53174H19.39V7.78174Z" fill="var(--ktc-tech-up-red)" />
         <path
           d="M6.83664 2.3335C5.5883 2.3335 4.5733 3.3835 4.5733 4.6785V23.3102C4.5733 24.6052 5.5883 25.6552 6.83664 25.6552H23.4266V2.3335H6.83664ZM6.83664 4.66683H8.78497V23.3218H6.9183L6.8483 4.66683H6.83664ZM21.0933 23.3335H10.5233V4.66683H21.0933V23.3335Z"
           fill="currentColor"
@@ -285,8 +269,7 @@ const CodingTestIcon = () => (
     >
       <mask
         id="mask0_585_1065"
-        s
-        style={{ maskType: "luminance" }}
+        style={{ maskType: 'luminance' }}
         maskUnits="userSpaceOnUse"
         x="0"
         y="0"
@@ -297,18 +280,9 @@ const CodingTestIcon = () => (
       </mask>
       <g mask="url(#mask0_585_1065)">
         <path d="M20.5917 8.75H10.43V10.5H20.5917V8.75Z" fill="currentColor" />
-        <path
-          d="M15.2717 12.063H10.43V13.813H15.2717V12.063Z"
-          fill="var(--ktc-tech-up-red)"
-        />
-        <path
-          d="M9.15833 12.063H7.40833V13.813H9.15833V12.063Z"
-          fill="currentColor"
-        />
-        <path
-          d="M9.15833 8.75H7.40833V10.5H9.15833V8.75Z"
-          fill="var(--ktc-tech-up-red)"
-        />
+        <path d="M15.2717 12.063H10.43V13.813H15.2717V12.063Z" fill="var(--ktc-tech-up-red)" />
+        <path d="M9.15833 12.063H7.40833V13.813H9.15833V12.063Z" fill="currentColor" />
+        <path d="M9.15833 8.75H7.40833V10.5H9.15833V8.75Z" fill="var(--ktc-tech-up-red)" />
         <path
           d="M25.8767 23.3332L24.7917 16.6365V4.6665H3.22001V16.6365L2.13501 23.3332H25.8767ZM4.87668 20.9998L5.37834 17.8965H22.6333L23.135 20.9998H4.87668ZM5.55334 6.99984H22.4583V15.5632H5.55334V6.99984Z"
           fill="currentColor"
@@ -330,7 +304,7 @@ const GrowthFundIcon = () => (
       <g clipPath="url(#clip0_585_1101)">
         <mask
           id="mask0_585_1101"
-          style={{ maskType: "luminance" }}
+          style={{ maskType: 'luminance' }}
           maskUnits="userSpaceOnUse"
           x="0"
           y="0"
@@ -367,7 +341,7 @@ const TrainingFundIcon = () => (
       <g clipPath="url(#clip0_585_1094)">
         <mask
           id="mask0_585_1094"
-          style={{ maskType: "luminance" }}
+          style={{ maskType: 'luminance' }}
           maskUnits="userSpaceOnUse"
           x="0"
           y="0"
@@ -404,7 +378,7 @@ const MacbookIcon = () => (
       <g clipPath="url(#clip0_585_1076)">
         <mask
           id="mask0_585_1076"
-          style={{ maskType: "luminance" }}
+          style={{ maskType: 'luminance' }}
           maskUnits="userSpaceOnUse"
           x="0"
           y="0"
@@ -530,18 +504,10 @@ const BenefitItem = ({ icon, title, description }) => {
 
       <div className="benefit-icon-wrapper">{icon}</div>
       <div className="benefit-content">
-        <Text
-          typography="heading4"
-          foreground="normal"
-          className="benefit-title"
-        >
+        <Text typography="heading4" foreground="normal" className="benefit-title">
           {title}
         </Text>
-        <Text
-          typography="body1"
-          foreground="hint"
-          className="benefit-description"
-        >
+        <Text typography="body1" foreground="hint" className="benefit-description">
           {description}
         </Text>
       </div>
@@ -552,67 +518,63 @@ const BenefitItem = ({ icon, title, description }) => {
 const benefitItems = [
   {
     icon: <OfflineClassroomIcon />,
-    title: "오프라인 교육장",
-    description:
-      "오프라인 협업으로 몰입도 200% 실전 같은 팀 프로젝트가 펼쳐집니다.",
+    title: '오프라인 교육장',
+    description: '오프라인 협업으로 몰입도 200% 실전 같은 팀 프로젝트가 펼쳐집니다.',
   },
   {
     icon: <MetaverseIcon />,
-    title: "메타버스 교육장",
-    description: "현실을 뛰어넘는 메타버스 기반 몰입형 학습 경험을 제공합니다.",
+    title: '메타버스 교육장',
+    description: '현실을 뛰어넘는 메타버스 기반 몰입형 학습 경험을 제공합니다.',
   },
   {
     icon: <NetworkingIcon />,
-    title: "네트워킹 파티",
-    description: "혼자가 아닌 연결의 힘으로 성장의 속도를 높이세요.",
+    title: '네트워킹 파티',
+    description: '혼자가 아닌 연결의 힘으로 성장의 속도를 높이세요.',
   },
   {
     icon: <OfficeTourIcon />,
-    title: "kt cloud 오피스 투어",
-    description:
-      "실제 업무 공간을 직접 둘러보고, 기업 문화를 가까이에서 느껴보세요.",
+    title: 'kt cloud 오피스 투어',
+    description: '실제 업무 공간을 직접 둘러보고, 기업 문화를 가까이에서 느껴보세요.',
   },
   {
     icon: <AWSIcon />,
-    title: "AWS 인프라 지원",
-    description: "실무 프로젝트와 성장을 위해 AWS 비용을 지원합니다.",
+    title: 'AWS 인프라 지원',
+    description: '실무 프로젝트와 성장을 위해 AWS 비용을 지원합니다.',
   },
   {
     icon: <AIToolIcon />,
-    title: "생성형 AI 도구 지원",
-    description: "AI와 함께라면 학습이 더 빠르고 똑똑해집니다.",
+    title: '생성형 AI 도구 지원',
+    description: 'AI와 함께라면 학습이 더 빠르고 똑똑해집니다.',
   },
   {
     icon: <OnlineContentIcon />,
-    title: "인프런 콘텐츠 제공",
-    description:
-      "합격 시점부터 한 달 간 인프런 강의를 무제한으로 수강하실 수 있습니다.",
+    title: '인프런 콘텐츠 제공',
+    description: '합격 시점부터 한 달 간 인프런 강의를 무제한으로 수강하실 수 있습니다.',
   },
   {
     icon: <BookIcon />,
-    title: "전문 서적 지원",
-    description: "학습과 지식 성장을 위해 필요한 전문 서적을 지원합니다.",
+    title: '전문 서적 지원',
+    description: '학습과 지식 성장을 위해 필요한 전문 서적을 지원합니다.',
   },
   {
     icon: <CodingTestIcon />,
-    title: "모의 코딩 테스트 지원",
-    description: "실전 같은 모의 테스트로 실력을 검증하고 한 단계 도약하세요.",
+    title: '모의 코딩 테스트 지원',
+    description: '실전 같은 모의 테스트로 실력을 검증하고 한 단계 도약하세요.',
   },
   {
     icon: <GrowthFundIcon />,
-    title: "성장 격려금 제공",
-    description: "대회 수상 시 성장 격려금으로 최대 100만원 제공합니다.",
+    title: '성장 격려금 제공',
+    description: '대회 수상 시 성장 격려금으로 최대 100만원 제공합니다.',
   },
   {
     icon: <TrainingFundIcon />,
-    title: "훈련 장려금 제공",
-    description:
-      "성장의 밑거름으로 월 최대 316,000원의 훈련장려금이 지급됩니다.",
+    title: '훈련 장려금 제공',
+    description: '성장의 밑거름으로 월 최대 316,000원의 훈련장려금이 지급됩니다.',
   },
   {
     icon: <MacbookIcon />,
-    title: "학습용 맥북 대여",
-    description: "최적의 환경에서 학습할 수 있도록 맥북을 제공합니다.",
+    title: '학습용 맥북 대여',
+    description: '최적의 환경에서 학습할 수 있도록 맥북을 제공합니다.',
   },
 ];
 

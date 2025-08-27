@@ -1,13 +1,12 @@
+'use client';
+
 import { Fragment } from 'react';
 import { Text } from '@vapor-ui/core';
 import './DetailIntroduceCourse.css';
 import { COURSE_CONTENT } from './DetailIntroduceCourse.constant';
 import { COURSE_INFORMATION } from '../../constants/CourseInformation';
 
-const DetailIntroduceCourse = ({ 
-  course,
-  className = ""
-}) => {
+const DetailIntroduceCourse = ({ course, className = '' }) => {
   // 선택된 과정의 콘텐츠 가져오기
   const content = COURSE_CONTENT[course];
   const courseInfo = COURSE_INFORMATION[course];
@@ -17,16 +16,11 @@ const DetailIntroduceCourse = ({
     console.warn(`Course content not found for: ${course}`);
     return null;
   }
-  
+
   // 과정에 맞는 배경 이미지 가져오기 - CDN URL 사용
   const backgroundImageUrl = `https://statics.goorm.io/ktcloud-techup/landing/assets/course/${courseInfo.keyword}/techup_introduce_bg_${courseInfo.keyword}.png`;
 
-  const {
-    title,
-    coreMessage,
-    valueProposition,
-    targetAudience
-  } = content;
+  const { title, coreMessage, valueProposition, targetAudience } = content;
 
   // valueProposition을 줄바꿈으로 분리
   const valuePropositionLines = valueProposition.split('\n');
@@ -34,7 +28,7 @@ const DetailIntroduceCourse = ({
   const valueDescription = valuePropositionLines.slice(1).join('\n');
 
   // 핵심 메시지 텍스트 파싱 함수 - 중괄호로 감싸진 키워드와 줄바꿈 처리
-  const parseMessage = (message) => {
+  const parseMessage = message => {
     if (!message) return null;
 
     // 중괄호 패턴을 찾아서 분리
@@ -49,10 +43,10 @@ const DetailIntroduceCourse = ({
         const beforeText = message.substring(currentIndex, match.index);
         parts.push({ type: 'text', content: beforeText });
       }
-      
+
       // 중괄호 안의 키워드
       parts.push({ type: 'keyword', content: match[1] });
-      
+
       currentIndex = regex.lastIndex;
     }
 
@@ -70,41 +64,41 @@ const DetailIntroduceCourse = ({
             <span className="normal-text">
               {(() => {
                 const lines = part.content.split('\n');
-                
+
                 // 연속된 줄바꿈을 확인하기 위한 처리
                 const elements = [];
                 let consecutiveNewlines = 0;
-                
+
                 for (let i = 0; i < lines.length; i++) {
                   const line = lines[i];
-                  
+
                   // 현재 라인이 빈 문자열이면 연속된 줄바꿈 카운트 증가
-                  if (line === "") {
+                  if (line === '') {
                     consecutiveNewlines++;
                     // 마지막 라인이 아니면 계속 진행
                     if (i < lines.length - 1) {
                       continue;
                     }
                   }
-                  
+
                   // 이전 라인이 있고 연속된 줄바꿈이 있으면 <br/> 추가
                   if (i > 0) {
                     // 일반적인 줄바꿈은 무조건 하나 추가
                     elements.push(<br key={`br-keyword-${i}-1`} />);
-                    
+
                     // 연속된 줄바꿈이 있으면 추가 <br/> 삽입
                     for (let j = 0; j < consecutiveNewlines; j++) {
-                      elements.push(<br key={`br-keyword-${i}-${j+2}`} />);
+                      elements.push(<br key={`br-keyword-${i}-${j + 2}`} />);
                     }
                   }
-                  
+
                   // 현재 라인이 빈 문자열이 아닌 경우에만 내용 추가
-                  if (line !== "") {
+                  if (line !== '') {
                     elements.push(<Fragment key={`line-keyword-${i}`}>{line}</Fragment>);
                     consecutiveNewlines = 0;
                   }
                 }
-                
+
                 return elements;
               })()}
             </span>
@@ -117,41 +111,41 @@ const DetailIntroduceCourse = ({
           <span key={index} className="normal-text">
             {(() => {
               const lines = part.content.split('\n');
-              
+
               // 연속된 줄바꿈을 확인하기 위한 처리
               const elements = [];
               let consecutiveNewlines = 0;
-              
+
               for (let i = 0; i < lines.length; i++) {
                 const line = lines[i];
-                
+
                 // 현재 라인이 빈 문자열이면 연속된 줄바꿈 카운트 증가
-                if (line === "") {
+                if (line === '') {
                   consecutiveNewlines++;
                   // 마지막 라인이 아니면 계속 진행
                   if (i < lines.length - 1) {
                     continue;
                   }
                 }
-                
+
                 // 이전 라인이 있고 연속된 줄바꿈이 있으면 <br/> 추가
                 if (i > 0) {
                   // 일반적인 줄바꿈은 무조건 하나 추가
                   elements.push(<br key={`br-normal-${i}-1`} />);
-                  
+
                   // 연속된 줄바꿈이 있으면 추가 <br/> 삽입
                   for (let j = 0; j < consecutiveNewlines; j++) {
-                    elements.push(<br key={`br-normal-${i}-${j+2}`} />);
+                    elements.push(<br key={`br-normal-${i}-${j + 2}`} />);
                   }
                 }
-                
+
                 // 현재 라인이 빈 문자열이 아닌 경우에만 내용 추가
-                if (line !== "") {
+                if (line !== '') {
                   elements.push(<Fragment key={`line-normal-${i}`}>{line}</Fragment>);
                   consecutiveNewlines = 0;
                 }
               }
-              
+
               return elements;
             })()}
           </span>
@@ -162,106 +156,110 @@ const DetailIntroduceCourse = ({
 
   return (
     <section className={`content-section ${className}`.trim()} id="introduce">
-      <div className="container" >
-            {/* 메인 타이틀 */}
-              <Text typography="heading2" foreground="normal" className="title">
-                {(() => {
-                  // 줄바꿈을 기준으로 텍스트를 분리
-                  const lines = title.split('\n');
-                  
-                  // 연속된 줄바꿈을 확인하기 위한 변수
-                  let consecutiveNewlines = 0;
-                  const elements = [];
-                  
-                  // 각 라인을 처리
-                  for (let i = 0; i < lines.length; i++) {
-                    const line = lines[i];
-                    
-                    // 현재 라인이 빈 문자열이면 연속된 줄바꿈 카운트 증가
-                    if (line === "") {
-                      consecutiveNewlines++;
-                      // 마지막 라인이 아니면 계속 진행
-                      if (i < lines.length - 1) {
-                        continue;
-                      }
-                    }
-                    
-                    // 이전 라인이 있고 연속된 줄바꿈이 있으면 <br/> 추가
-                    if (i > 0) {
-                      // 일반적인 줄바꿈은 무조건 하나 추가
-                      elements.push(<br key={`br-${i}-1`} />);
-                      
-                      // 연속된 줄바꿈이 있으면 추가 <br/> 삽입
-                      for (let j = 0; j < consecutiveNewlines; j++) {
-                        elements.push(<br key={`br-${i}-${j+2}`} />);
-                      }
-                    }
-                    
-                    // 현재 라인이 빈 문자열이 아닌 경우에만 내용 추가
-                    if (line !== "") {
-                      elements.push(<Fragment key={`line-${i}`}>{line}</Fragment>);
-                      consecutiveNewlines = 0;
-                    }
-                  }
-                  
-                  return elements;
-                })()}
-              </Text>
+      <div className="container">
+        {/* 메인 타이틀 */}
+        <Text typography="heading2" foreground="normal" className="title">
+          {(() => {
+            // 줄바꿈을 기준으로 텍스트를 분리
+            const lines = title.split('\n');
 
-            {/* 콘텐츠 그리드 */}
-            <div className="content-grid">
-              {/* 핵심 메시지 섹션 */}
-              <div className="content-card core-message-card">
-                <img 
-                  src={backgroundImageUrl} 
-                  alt="과정 소개 배경 이미지" 
-                  className="core-message-background"
-                />
-                <div className="core-card-content">
-                  <Text typography="heading2" foreground="accent" className="core-message-text">
-                    {parseMessage(coreMessage)}
+            // 연속된 줄바꿈을 확인하기 위한 변수
+            let consecutiveNewlines = 0;
+            const elements = [];
+
+            // 각 라인을 처리
+            for (let i = 0; i < lines.length; i++) {
+              const line = lines[i];
+
+              // 현재 라인이 빈 문자열이면 연속된 줄바꿈 카운트 증가
+              if (line === '') {
+                consecutiveNewlines++;
+                // 마지막 라인이 아니면 계속 진행
+                if (i < lines.length - 1) {
+                  continue;
+                }
+              }
+
+              // 이전 라인이 있고 연속된 줄바꿈이 있으면 <br/> 추가
+              if (i > 0) {
+                // 일반적인 줄바꿈은 무조건 하나 추가
+                elements.push(<br key={`br-${i}-1`} />);
+
+                // 연속된 줄바꿈이 있으면 추가 <br/> 삽입
+                for (let j = 0; j < consecutiveNewlines; j++) {
+                  elements.push(<br key={`br-${i}-${j + 2}`} />);
+                }
+              }
+
+              // 현재 라인이 빈 문자열이 아닌 경우에만 내용 추가
+              if (line !== '') {
+                elements.push(<Fragment key={`line-${i}`}>{line}</Fragment>);
+                consecutiveNewlines = 0;
+              }
+            }
+
+            return elements;
+          })()}
+        </Text>
+
+        {/* 콘텐츠 그리드 */}
+        <div className="content-grid">
+          {/* 핵심 메시지 섹션 */}
+          <div className="content-card core-message-card">
+            <img
+              src={backgroundImageUrl}
+              alt="과정 소개 배경 이미지"
+              className="core-message-background"
+            />
+            <div className="core-card-content">
+              <Text typography="heading2" foreground="accent" className="core-message-text">
+                {parseMessage(coreMessage)}
+              </Text>
+            </div>
+          </div>
+
+          <div className="content-grid-right">
+            {/* 가치 증명 섹션 */}
+            <div className="content-card value-proposition-card">
+              <div className="core-card-content">
+                <div className="value-content">
+                  <Text typography="heading4" foreground="normal" className="value-title">
+                    {valueTitle}
+                  </Text>
+                  <Text
+                    typography="body1"
+                    foreground="normal-lighter"
+                    className="value-description"
+                  >
+                    {valueDescription}
                   </Text>
                 </div>
               </div>
-              
-              <div className='content-grid-right'>
-                {/* 가치 증명 섹션 */}
-                <div className="content-card value-proposition-card">
-                  <div className="core-card-content">
-                    <div className="value-content">
-                      <Text typography="heading4" foreground="normal" className="value-title">
-                        {valueTitle}
-                      </Text>
-                      <Text typography="body1" foreground="normal-lighter" className="value-description">
-                        {valueDescription}
-                      </Text>
-                    </div>
-                  </div>
-                </div>
+            </div>
 
-                {/* 추천 대상 섹션 */}
-                <div className="content-card target-audience-card">
-                  <div className="card-header">
-                    <Text typography="subtitle1" foreground="primary" className="card-label">
-                      이런 분께 추천합니다
-                    </Text>
-                  </div>
-                  <div className="flex flex-col">
-                    <div className="target-audience-list">
-                      {targetAudience.map((audience, index) => (
-                        <div key={index} className="target-audience-item">
-                          <div className="audience-bullet"></div>
-                          <Text typography="body1" foreground="normal" className="audience-text">
-                            {audience}
-                          </Text>
-                        </div>
-                      ))}
+            {/* 추천 대상 섹션 */}
+            <div className="content-card target-audience-card">
+              <div className="card-header">
+                <Text typography="subtitle1" foreground="primary" className="card-label">
+                  이런 분께 추천합니다
+                </Text>
+              </div>
+              <div className="flex flex-col">
+                <div className="target-audience-list">
+                  {targetAudience.map((audience, index) => (
+                    <div key={index} className="target-audience-item">
+                      <div className="audience-bullet"></div>
+                      <Text typography="body1" foreground="normal" className="audience-text">
+                        {audience}
+                      </Text>
                     </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
+          </div>
         </div>
+      </div>
     </section>
   );
 };
