@@ -3,15 +3,9 @@ import { useEffect } from "react";
 export const useInitializeChannelTalk = () => {
   useEffect(() => {
     const initChannelTalk = () => {
-      if (typeof window === "undefined" || window.ChannelIO) {
-        return;
-      }
-
-      console.log(import.meta.env.VITE_PUBLIC_CHANNEL_TALK_PLUGIN_KEY);
-
-        window.ChannelIO("boot", {
-            pluginKey: import.meta.env.VITE_PUBLIC_CHANNEL_TALK_PLUGIN_KEY || "YOUR_PLUGIN_KEY"
-        });
+	  window.ChannelIO("boot", {
+		pluginKey: "8d3e0c5a-ffbe-44d1-8f7c-60f7dca10efd",
+	  });
     };
 
     initChannelTalk();
