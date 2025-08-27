@@ -1,0 +1,348 @@
+.rc-card-wrapper {
+  perspective: 31.25rem;
+  transform: translate3d(0, 0, 0.1px);
+  position: relative;
+  touch-action: none;
+  /* width가 유동적으로 변하도록 수정 (기본값 100%) */
+  flex-shrink: 0;
+}
+
+.rc-card-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -0.625rem;
+  background: inherit;
+  background-position: inherit;
+  border-radius: inherit;
+  transition: all 0.5s ease;
+  filter: contrast(2) saturate(2) blur(2.25rem) opacity(0);
+  transform: scale(0.8) translate3d(0, 0, 0.1px);
+  background-size: 100% 100%;
+  background-image: var(--behind-gradient);
+  z-index: -1;
+}
+
+.rc-card-wrapper:hover,
+.rc-card-wrapper.active {
+  --card-opacity: 1;
+}
+  
+  
+.rc-card {
+  width: 100%;
+  /* grid 대신 일반 블록 요소로 변경 */
+  display: block;
+  border-radius: var(--vapor-size-borderRadius-600);
+  position: relative;
+  background-blend-mode: color-dodge, normal, normal, normal;
+  animation: glow-bg 12s linear infinite;
+  transition: transform 1s ease, border 0.3s ease;
+  transform: translate3d(0, 0, 0.1px) rotateX(0deg) rotateY(0deg);
+  background-size: 100% 100%;
+  background-position: 0 0, 0 0, 50% 50%, 0 0;
+  overflow: hidden;
+  border: 1px solid transparent;
+}
+  
+.rc-card:hover,
+.rc-card.active {
+  transition: all 0.5s ease;
+  background-image: radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y), hsla(266, 100%, 90%, var(--card-opacity)) 4%, hsla(266, 50%, 80%, calc(var(--card-opacity) * 0.75)) 10%, hsla(266, 25%, 70%, calc(var(--card-opacity) * 0.5)) 50%, hsla(266, 0%, 60%, 0) 100%), radial-gradient(35% 52% at 55% 20%, #00ffaac4 0%, #073aff00 100%), radial-gradient(100% 100% at 50% 50%, #00c1ffff 1%, #073aff00 76%), conic-gradient(from 124deg at 50% 50%, #c137ffff 0%, #07c6ffff 40%, #07c6ffff 60%, #c137ffff 100%);
+  border: none;
+  position: relative;
+}
+
+/* Hologram border effect */
+.rc-card:hover::after,
+.rc-card.active::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--vapor-size-borderRadius-600);
+  background: linear-gradient(
+    calc(var(--bgrotate, 90deg) + var(--pointer-from-center, 0) * 45deg),
+    #c137ff 0%, 
+    #07c6ff 30%, 
+    #00ffaa 50%, 
+    #07c6ff 70%, 
+    #c137ff 100%
+  );
+  background-size: 300% 300%;
+  animation: animateHologramBorder 6s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.8;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  padding: 1px;
+}
+
+/* Inner content needs to remain above the border */
+.rc-card:hover .rc-inside,
+.rc-card.active .rc-inside {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes animateHologramBorder {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+  
+.rc-card > * {
+  transform: translate3d(0, 0, 0.1px);
+  pointer-events: none;
+}
+  
+.rc-inside {
+  position: relative;
+  background-image: var(--ktc-background-gradient);
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: translate3d(0, 0, 0.01px);
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  border-radius: var(--vapor-size-borderRadius-600);
+  margin: 1px;
+  z-index: 1;
+}
+  
+.rc-shine {
+  mask-image: var(--icon);
+  mask-mode: luminance;
+  mask-repeat: repeat;
+  mask-size: 80%;
+  mask-position: top calc(200% - (var(--background-y) * 5)) left calc(100% - var(--background-x));
+  transition: filter 0.6s ease;
+  filter: brightness(0.66) contrast(1.33) saturate(0.33) opacity(0.5);
+  animation: holo-bg 18s linear infinite;
+  mix-blend-mode: color-dodge;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+  
+.rc-shine,
+.rc-shine::after {
+  --space: 5%;
+  --angle: -45deg;
+  transform: translate3d(0, 0, 1px);
+  overflow: hidden;
+  z-index: 3;
+  background: transparent;
+  background-size: cover;
+  background-position: center;
+  background-image: repeating-linear-gradient(0deg, var(--sunpillar-clr-1) calc(var(--space) * 1), var(--sunpillar-clr-2) calc(var(--space) * 2), var(--sunpillar-clr-3) calc(var(--space) * 3), var(--sunpillar-clr-4) calc(var(--space) * 4), var(--sunpillar-clr-5) calc(var(--space) * 5), var(--sunpillar-clr-6) calc(var(--space) * 6), var(--sunpillar-clr-1) calc(var(--space) * 7)), repeating-linear-gradient(var(--angle), #0e152e 0%, hsl(180, 10%, 60%) 3.8%, hsl(180, 29%, 66%) 4.5%, hsl(180, 10%, 60%) 5.2%, #0e152e 10%, #0e152e 12%), radial-gradient(farthest-corner circle at var(--pointer-x) var(--pointer-y), hsla(0, 0%, 0%, 0.1) 12%, hsla(0, 0%, 0%, 0.15) 20%, hsla(0, 0%, 0%, 0.25) 120%);
+  background-position: 0 var(--background-y), var(--background-x) var(--background-y), center;
+  background-blend-mode: color, hard-light;
+  background-size: 500% 500%, 300% 300%, 200% 200%;
+  background-repeat: repeat;
+}
+
+.rc-shine::before,
+.rc-shine::after {
+  content: '';
+  background-position: center;
+  background-size: cover;
+  grid-area: 1/1;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.rc-card:hover .rc-shine,
+.rc-card.active .rc-shine {
+  filter: brightness(0.85) contrast(1.5) saturate(0.5);
+  animation: none;
+}
+
+.rc-card:hover .rc-shine::before,
+.rc-card.active .rc-shine::before,
+.rc-card:hover .rc-shine::after,
+.rc-card.active .rc-shine::after {
+  opacity: 1;
+}
+  
+.rc-shine::before {
+  background-image: linear-gradient(45deg, var(--sunpillar-4), var(--sunpillar-5), var(--sunpillar-6), var(--sunpillar-1), var(--sunpillar-2), var(--sunpillar-3)), radial-gradient(circle at var(--pointer-x) var(--pointer-y), hsl(0, 0%, 70%) 0%, hsla(0, 0%, 30%, 0.2) 90%), var(--grain);
+  background-size: 250% 250%, 100% 100%, 220px 220px;
+  background-position: var(--pointer-x) var(--pointer-y), center, calc(var(--pointer-x) * 0.01) calc(var(--pointer-y) * 0.01);
+  background-blend-mode: color-dodge;
+  filter: brightness(calc(2 - var(--pointer-from-center))) contrast(calc(var(--pointer-from-center) + 2)) saturate(calc(0.5 + var(--pointer-from-center)));
+  mix-blend-mode: luminosity;
+}
+  
+.rc-shine::after {
+  background-position: 0 var(--background-y), calc(var(--background-x) * 0.4) calc(var(--background-y) * 0.5), center;
+  background-size: 200% 300%, 700% 700%, 100% 100%;
+  mix-blend-mode: difference;
+  filter: brightness(0.8) contrast(1.5);
+}
+  
+.rc-glare {
+  transform: translate3d(0, 0, 1.1px);
+  overflow: hidden;
+  background-image: radial-gradient(farthest-corner circle at var(--pointer-x) var(--pointer-y), hsl(248, 25%, 80%) 12%, hsl(226.67deg 7.26% 48.63% / 80%) 90%);
+  mix-blend-mode: overlay;
+  filter: brightness(0.8) contrast(1.2);
+  z-index: 4;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+/* Avatar 컴포넌트 스타일 - 상단 배치 */
+.rc-avatar-content {
+  display: flex;
+  align-items: center;
+  gap: var(--vapor-size-space-150);
+  z-index: 5;
+  mix-blend-mode: normal;
+}
+
+.rc-avatar-container {
+  width: 56px;
+  height: 56px;
+  position: relative;
+  background-color: #dddde4;
+  overflow: hidden;
+  border-radius: 100%;
+  /* Avatar 그라디언트 추가 */
+  background: linear-gradient(90deg, #FF512F 0%, #DD2476 100%);
+}
+
+.rc-avatar-image {
+  left: 0;
+  top: 0;
+  position: absolute;
+  border-radius: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 아바타 이미지 효과 */
+  transition: transform 0.3s ease;
+}
+
+/* 호버 시 이미지 효과 - 제거됨 */
+.rc-card:hover .rc-avatar-image,
+.rc-card.active .rc-avatar-image {
+  transform: none;
+}
+
+/* 사용자 정보 스타일 - 하단 배치 */
+.rc-user-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vapor-size-space-300);
+  z-index: 5;
+  padding: var(--vapor-size-space-150) var(--vapor-size-space-175);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(16px);
+  pointer-events: auto;
+}
+
+.rc-profile-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.rc-user-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vapor-size-space-100);
+  width: 100%
+}
+
+.rc-title {
+  width: 100%;
+}
+
+.rc-description {
+  width: 100%;
+}
+
+.rc-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--vapor-size-space-300);
+  padding: var(--vapor-size-space-300);
+}
+
+@keyframes glow-bg {
+  0% {
+    --bgrotate: 0deg;
+  }
+  
+  100% {
+    --bgrotate: 360deg;
+  }
+}
+  
+@keyframes holo-bg {
+  0% {
+    background-position: 0 var(--background-y), 0 0, center;
+  }
+  
+  100% {
+    background-position: 0 var(--background-y), 90% 90%, center;
+  }
+}
+
+/* Responsive Design */
+
+@media (max-width: 1200px) {
+  .rc-avatar-container {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 992px) {
+  .rc-avatar-container {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+@media (max-width: 768px) {
+  .rc-card {
+    /* 모바일에서도 내용에 따른 높이 유지 */
+    min-height: 180px;
+  }
+
+  .rc-avatar-container {
+    width: 64px;
+    height: 64px;
+  }
+
+  .rc-user-info {
+    gap: var(--vapor-size-space-200);
+  }
+}
+
+@media (max-width: 576px) {
+  .rc-avatar-container {
+    width: 48px;
+    height: 48px;
+  }
+}

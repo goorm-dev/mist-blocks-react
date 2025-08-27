@@ -37,7 +37,7 @@ function Detail({ course }) {
         <DetailLearnCation />
         <ProjectCultureSection />
         <DetailCurriculum course={course} />
-        <DetailCareer />
+        <DetailCareer course={course} />
         <DetailBenefit />
         <DetailLearningPlace/>
         <DetailRecruitmentProcess />

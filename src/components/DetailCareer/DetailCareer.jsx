@@ -1,6 +1,9 @@
 import { Text } from '@vapor-ui/core';
 import './DetailCareer.css';
 import Prism from '../Prism/Prism';
+import RecommendCommentCard from '../RecommendComment/RecommendCommentCard';
+import { MENTOR_PROFILES } from '../SpecialProfile/SpecialProfile.constant';
+import { COURSE } from '../../constants/CourseInformation';
 
 const careerData = [
   {
@@ -87,7 +90,16 @@ const careerData = [
   }
 ];
 
-const DetailCareer = () => {
+const DetailCareer = ({ course = COURSE.FRONTEND }) => {
+  // 해당 course와 매칭되는 멘토 프로필 필터링
+  const filteredMentors = MENTOR_PROFILES.filter(mentor => mentor.course === course);
+  
+  // 멘토가 2명 이상이면 처음 2개만 사용, 1명이면 그 1명만 사용, 없으면 빈 배열
+  const mentorsToShow = filteredMentors.length > 1 
+    ? [filteredMentors[0], filteredMentors[1]]
+    : filteredMentors.length === 1 
+      ? [filteredMentors[0]] 
+      : [];
   return (
     <section className="content-section" id="career_support">
       <div className="container">
@@ -133,6 +145,26 @@ const DetailCareer = () => {
             ))}
           </div>
         </div>
+                  {/* RecommendCommentCard 섹션 추가 */}
+          {mentorsToShow.length > 0 && (
+            <div className="recommend-comment-flex">
+              {mentorsToShow.map((mentor, index) => (
+                <RecommendCommentCard
+                  key={`mentor-${mentor.name}-${index}`}
+                  name={mentor.name}
+                  position={mentor.position}
+                  title={mentor.title}
+                  description={mentor.description}
+                  avatarUrl={mentor.avatarUrl}
+                  width={mentorsToShow.length === 1 ? "100%" : "48%"}
+                  enableTilt={true}
+                  showUserInfo={true}
+                  iconUrl="/assets/iconpattern.png"
+                  grainUrl="/assets/grain.webp"
+                />
+              ))}
+            </div>
+          )}
       </div>
     </section>
   );
