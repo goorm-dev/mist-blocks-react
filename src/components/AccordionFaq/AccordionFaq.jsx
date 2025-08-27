@@ -87,9 +87,9 @@ const AccordionFaq = () => {
               </Card.Header>
               {openIndexes.includes(idx) && (
                 <Card.Body className="faq-card-body">
-                  <div className="faq-answer">
+                  <Text typography="body1" foreground="normal" className="faq-card-body">
                     <MarkdownDisplay>{item.answer}</MarkdownDisplay>
-                  </div>
+                  </Text>
                 </Card.Body>
               )}
             </Card.Root>
