@@ -67,7 +67,7 @@ import { formatPeriod, getRecruitmentStatus } from '../../utils/courseUtils';
 
 const CourseCardItem = ({ course, onCtaClick }) => {
   const period = formatPeriod(course.eventStartAt, course.eventEndAt);
-  const { status, statusType } = getRecruitmentStatus(course.eventStartAt, course.eventEndAt);
+  const { status, statusType } = getRecruitmentStatus(course.startAt, course.endAt);
 
   console.log({ period, eventStartAt: course.eventStartAt, eventEndAt: course.eventEndAt });
 
