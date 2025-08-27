@@ -14,7 +14,7 @@ const CeoInterviewSection = () => {
   const templateData = {
     videoSrc: "http://statics.goorm.io/ktcloud-techup/landing/assets/video/techup_ceo_interview.mp4",
     videoPoster: "/assets/interview-poster.png",
-    youtubeUrl: "", // 유튜브 링크 (미정)
+    youtubeUrl: "https://youtu.be/0xlwUnrinIM", // 유튜브 링크 (미정)
   };
 
   const handlePlusClick = () => {
