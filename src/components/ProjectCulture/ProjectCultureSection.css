@@ -67,7 +67,7 @@
   background: var(--vapor-color-background-normal);
   border: 1px solid var(--vapor-color-border-normal);
   border-radius: var(--vapor-size-borderRadius-400);
-  padding: var(--vapor-size-space-100);
+  padding: var(--vapor-size-space-075);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,13 +101,13 @@
   .project-grid-wrapper {
     grid-template-columns: 1fr;
     gap: var(--vapor-size-space-300);
-  } 
+  }
   .project-culture-content {
     padding: var(--vapor-size-space-300);
   }
 }
 @media (max-width: 768px) {
-  .project-grid-wrapper{
+  .project-grid-wrapper {
     gap: var(--vapor-size-space-200);
   }
   .project-title {

@@ -247,7 +247,11 @@ const ProfileCard = ({
 
     const handleClick = () => {
       if (!enableMobileTilt || location.protocol !== 'https:' || isSmallScreen) return;
-      if (typeof window !== 'undefined' && window.DeviceMotionEvent && typeof window.DeviceMotionEvent.requestPermission === 'function') {
+      if (
+        typeof window !== 'undefined' &&
+        window.DeviceMotionEvent &&
+        typeof window.DeviceMotionEvent.requestPermission === 'function'
+      ) {
         window.DeviceMotionEvent.requestPermission()
           .then(state => {
             if (state === 'granted') {
@@ -418,7 +422,7 @@ const ProfileCard = ({
 
 // 애니메이션 설정
 const SCROLL_CONFIG = {
-  SPEED: 80, // 픽셀/초 (속도 조정 - 더 천천히 이동)
+  SPEED: 102, // 픽셀/초 (속도 조정 - 더 천천히 이동)
   GAP: 24, // 카드 간격 (px)
   OFFSET: 76, // 두 번째 열 시작점 오프셋 (px)
 };
