@@ -128,7 +128,7 @@ export const COURSE_INFORMATION = {
         title: "kt cloud 풀스택",
         description: "프론트엔드와 백엔드 모두 다루는 개발 전문가 과정",
         tags: ["React", "Java", "Spring", "아키텍처 설계"],
-        startAt: new Date('2025-08-24T15:00:00.000Z'),
+        startAt: new Date('2025-08-27T15:00:00.000Z'),
         endAt: new Date('2025-09-11T14:59:59.999Z'),
         eventStartAt: new Date('2025-09-22T15:00:00.000Z'),
         eventEndAt: new Date('2026-04-22T14:59:59.999Z'),
@@ -136,7 +136,7 @@ export const COURSE_INFORMATION = {
         recruitedPeopleAmount: 50,
         navIconSrc: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/fullstack/techup_nav_fullstack.png",
         imageSrc: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/fullstack/techup_thumb_fullstack.png",
-        detailImageDesktop: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/fullstack/techup_detail_pc_fullstack.png",
+        detailImageDesktop: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/fullstack/techup_dㄴetail_pc_fullstack.png",
         detailImageMobile: "https://statics.goorm.io/ktcloud-techup/landing/assets/course/fullstack/techup_detail_mo_fullstack.png"
     },
     [COURSE.FRONTEND]: {
