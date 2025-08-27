@@ -158,31 +158,43 @@
 .recommend-comment-flex {
   display: flex;
   flex-direction: row;
-  gap: var(--vapor-size-space-400);
+  gap: var(--vapor-size-space-300); /* 갭 크기 300으로 조정 */
   margin-top: var(--vapor-size-space-700);
   position: relative;
   z-index: 1;
+  width: 100%; /* 전체 너비 사용 */
 }
 
 /* RecommendCommentCard 컴포넌트의 카드 래퍼 스타일 재정의 */
 .recommend-comment-flex .rc-card-wrapper {
   height: 100%;
+  flex: 1; /* 균등하게 공간 차지 */
+  max-width: 100%; /* 최대 너비 지정 */
 }
 
 .recommend-comment-flex .rc-card {
   height: 100%;
+  width: 100%; /* 카드도 100% 너비로 설정 */
 }
 
 @media (max-width: 992px) {
   .recommend-comment-flex {
-    flex-direction: row;
+    flex-direction: column;
     gap: var(--vapor-size-space-300);
+  }
+  
+  .recommend-comment-flex .rc-card-wrapper {
+    width: 100%;
   }
 }
 
 @media (max-width: 768px) {
   .recommend-comment-flex {
     flex-direction: column;
-    gap: var(--vapor-size-space-300);
+    gap: var(--vapor-size-space-200);
+  }
+  
+  .recommend-comment-flex .rc-card-wrapper {
+    width: 100%;
   }
 }

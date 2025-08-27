@@ -156,7 +156,7 @@ const DetailCareer = ({ course = COURSE.FRONTEND }) => {
                   title={mentor.title}
                   description={mentor.description}
                   avatarUrl={mentor.avatarUrl}
-                  width={mentorsToShow.length === 1 ? "100%" : "48%"}
+                  width="100%"
                   enableTilt={true}
                   showUserInfo={true}
                   iconUrl="/assets/iconpattern.png"
