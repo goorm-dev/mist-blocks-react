@@ -316,4 +316,12 @@
     font-weight: var(--vapor-typography-fontWeight-700);
     line-height: var(--vapor-typography-lineHeight-400);
   }
+  .video-thumb-overlay{
+    padding: var(--vapor-size-space-300);
+  }
+  .overlay-description {
+    letter-spacing: var(--vapor-typography-letterSpacing-100);
+    font-size: var(--vapor-typography-fontSize-100);
+    line-height: var(--vapor-typography-lineHeight-200);
+  }
 }

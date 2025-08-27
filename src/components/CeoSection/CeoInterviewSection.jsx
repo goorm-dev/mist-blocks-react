@@ -165,7 +165,7 @@ const CeoInterviewSection = () => {
                      TECH UP은 단순한 지식 전달을 넘어 고객 관점의 문제 해결 능력과 탁월한 협업 능력, 오너십을 통해 함께 성장하는 인재를 양성합니다. 이 모든 가치를 묶는 핵심이 바로 ‘Agile Mindset’입니다.
                      교육생은 기획자, 디자이너, 엔지니어 등 총 9가지 직무가 통합되어 대기업 핵심 프로젝트 팀에 견줄만한 생태계 속에서 문제 해결 능력을 체득하게 됩니다.
                     </Text>
-                    <Text typography="heading5" foreground="accent" className="overlay-description">
+                    <Text typography="heading5" foreground="accent" className="overlay-description" style={{marginBottom: 'var(--vapor-size-space-600)'}}>
                      그 결과, ‘kt cloud TECH UP 출신은 문제 접근 방식부터 다르다’는 이야기를 듣게 될 것입니다. 문제의 본질을 파악하고 해결하는 사고와 태도를 갖추게 될 테니까요.
                      “할까 말까 할 땐 하고, 갈까 말까 할 땐 가봐야죠.” 주저 없이 도전해 보세요.
                     </Text>
