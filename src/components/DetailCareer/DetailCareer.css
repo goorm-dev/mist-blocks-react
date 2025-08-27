@@ -130,7 +130,7 @@
     left: 0;
     top: 0;
   }
-  
+
   .gradient-overlay-tall .gradient-svg {
     width: 100%;
     height: 100%;
@@ -155,13 +155,7 @@
   gap: var(--vapor-size-space-100);
   width: 100%;
 }
-.bf-career-card-title {
-  margin-bottom: 0;
-}
-.bf-career-card-desc {
-  margin-bottom: 0;
-  opacity: 0.8;
-}
+
 .bf-career-card-icon {
   align-self: flex-end;
   background: var(--vapor-color-background-normal);
@@ -199,18 +193,18 @@
 }
 /* Responsive breakpoints - 기존 Vapor 디자인 시스템 규칙 사용 */
 @media (max-width: 1200px) {
-    .bf-career-card-content{
-        gap: var(--vapor-size-space-100);
-    }
-    .bf-career-card {
-        padding: var(--vapor-size-space-300);
-    }
+  .bf-career-card-content {
+    gap: var(--vapor-size-space-100);
+  }
+  .bf-career-card {
+    padding: var(--vapor-size-space-300);
+  }
 }
 @media (max-width: 992px) {
   .bf-career-card {
     gap: var(--vapor-size-space-200);
-  }   
-  .bf-career-grid {   
+  }
+  .bf-career-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--vapor-size-space-300);
@@ -252,14 +246,14 @@
   .bf-career-card.is-wide,
   .bf-career-card.is-regular {
     grid-area: auto;
-  }  
+  }
   .bf-career-card-title {
     line-height: var(--vapor-typography-lineHeight-200);
     letter-spacing: var(--vapor-typography-letterSpacing-100);
     font-size: var(--vapor-typography-fontSize-200);
   }
 }
-@media (max-width: 576px) { 
+@media (max-width: 576px) {
   .bf-career-card {
     padding: var(--vapor-size-space-300);
   }
@@ -293,7 +287,7 @@
     flex-direction: column;
     gap: var(--vapor-size-space-300);
   }
-  
+
   .recommend-comment-flex .rc-card-wrapper {
     width: 100%;
   }
@@ -305,7 +299,7 @@
     gap: var(--vapor-size-space-200);
     margin-top: var(--vapor-size-space-500);
   }
-  
+
   .recommend-comment-flex .rc-card-wrapper {
     width: 100%;
   }

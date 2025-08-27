@@ -266,13 +266,12 @@ const DetailCareer = ({ course = COURSE.FRONTEND }) => {
                   </svg>
                 </div>
                 <div className="bf-career-card-content">
-                  <Text typography="heading4" foreground="normal" className="bf-career-card-title">
+                  <Text typography="heading4" foreground="normal">
                     {career.title}
                   </Text>
-                  <div
-                    className="bf-career-card-desc"
-                    dangerouslySetInnerHTML={{ __html: career.description }}
-                  />
+                  <Text typography="heading6" foreground="normal-lighter">
+                    {career.description}
+                  </Text>
                 </div>
                 <div className="bf-career-card-icon" aria-hidden="true">
                   {career.icon}
