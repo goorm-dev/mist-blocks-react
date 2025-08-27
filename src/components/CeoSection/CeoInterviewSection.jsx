@@ -104,12 +104,12 @@ const CeoInterviewSection = () => {
           <div className="text-content-area col-span-7">
             <div className="text-wrapper">
               <Text typography="heading2" foreground="normal" className="interview-title">
-                두려움을 넘어, 기술로 향하는 여정 <br />
-                두려움을 넘어, 기술로 향하는 여정
+                우리가 찾는 인재, <br />
+                kt cloud가 직접 교육합니다
               </Text>
               <Text typography="heading5" foreground="hint-darker" className="interview-description">
-                지금, 테크업 부트캠프에 탑승하세요. <br />
-                지금, 테크업 부트캠프에 탑승하세요.
+                이론 교육을 넘어 완성형 교육으로. <br />
+                지식 습득을 넘어 애자일 마인드 셋을 갖추기까지.
               </Text>
             </div>
           </div>
@@ -158,7 +158,16 @@ const CeoInterviewSection = () => {
                 >
                   <div className="overlay-content">
                     <Text typography="heading5" foreground="accent" className="overlay-description">
-                      지금, 테크업 부트캠프에 탑승하세요. 지금, 테크업 부트캠프에 탑승하세요. 지금, 테크업 부트캠프에 탑승하세요.
+                     kt cloud는 빠르게 변화하는 디지털 환경 속에서 실무형 인재의 필요성을 절감했습니다.
+                     특히 산업 현장과 교육의 간극을 해결하지 않으면 미래 성장에 한계가 있다는 문제의식으로 현업의 기술과 경험을 담은 교육을 직접 만들게 되었습니다.
+                    </Text>
+                    <Text typography="heading5" foreground="accent" className="overlay-description">
+                     TECH UP은 단순한 지식 전달을 넘어 고객 관점의 문제 해결 능력과 탁월한 협업 능력, 오너십을 통해 함께 성장하는 인재를 양성합니다. 이 모든 가치를 묶는 핵심이 바로 ‘Agile Mindset’입니다.
+                     교육생은 기획자, 디자이너, 엔지니어 등 총 9가지 직무가 통합되어 대기업 핵심 프로젝트 팀에 견줄만한 생태계 속에서 문제 해결 능력을 체득하게 됩니다.
+                    </Text>
+                    <Text typography="heading5" foreground="accent" className="overlay-description">
+                     그 결과, ‘kt cloud TECH UP 출신은 문제 접근 방식부터 다르다’는 이야기를 듣게 될 것입니다. 문제의 본질을 파악하고 해결하는 사고와 태도를 갖추게 될 테니까요.
+                     “할까 말까 할 땐 하고, 갈까 말까 할 땐 가봐야죠.” 주저 없이 도전해 보세요.
                     </Text>
                   </div>
                 </div>

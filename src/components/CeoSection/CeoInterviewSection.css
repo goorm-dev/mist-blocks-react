@@ -190,6 +190,41 @@
   line-height: var(--vapor-typography-lineHeight-300);
   font-weight: var(--vapor-typography-fontWeight-500);
 }
+.overlay-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vapor-size-space-150);
+  max-height: calc(100% - var(--vapor-size-space-000));
+  overflow-y: auto;
+  padding-right: var(--vapor-size-space-100);
+  
+  /* Firefox 스크롤바 스타일링 */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.3) rgba(0, 0, 0, 0.1);
+}
+
+.overlay-content .overlay-description:last-child {
+  margin-bottom: var(--vapor-size-space-100);
+}
+
+/* Webkit 기반 브라우저 (Chrome, Safari, Edge) 스크롤바 스타일링 */
+.overlay-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.overlay-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+.overlay-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+}
+
+.overlay-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
 @keyframes overlayFadeIn {
   from {
     opacity: 0;
