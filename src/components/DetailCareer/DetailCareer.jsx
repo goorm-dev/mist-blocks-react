@@ -1,6 +1,6 @@
 import { Text } from '@vapor-ui/core';
 import './DetailCareer.css';
-import Prism from '../Prism/Prism';
+// import Prism from '../Prism/Prism';
 import RecommendCommentCard from '../RecommendComment/RecommendCommentCard';
 import { MENTOR_PROFILES } from '../SpecialProfile/SpecialProfile.constant';
 import { COURSE } from '../../constants/CourseInformation';
@@ -108,7 +108,7 @@ const DetailCareer = ({ course = COURSE.FRONTEND }) => {
         </Text>
           
         <div className="career-content-wrapper">
-          <div className="prism-background">
+          {/* <div className="prism-background">
             <Prism
               animationType="3drotate"
               timeScale={0.5}
@@ -120,11 +120,33 @@ const DetailCareer = ({ course = COURSE.FRONTEND }) => {
               noise={0}
               glow={1}
             />
-          </div>
+          </div> */}
           
           <div className="bf-career-grid">
             {careerData.map((career) => (
               <div key={career.id} className={`bf-career-card ${career.variant}`}>
+                {/* Gradient overlay for hover effect */}
+                <div className="gradient-overlay">
+                  <svg 
+                    className="gradient-svg" 
+                    fill="none" 
+                    viewBox="0 0 701 467" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g className="transform-gpu">
+                      <path className="will-change-transform" d="M407.64 132.674 511.646 108l81.075 17.082V326.27H419.103l-31.111-98.696 19.648-94.9Z" fill="#FCD34D"></path>
+                      <path className="will-change-transform" d="m357.667 186.498 72.448-19.143 56.475 13.253v156.09H365.651l-21.671-76.572 13.687-73.628Z" fill="#F59E0B"></path>
+                      <path className="will-change-transform" d="m471.471 217.57 58.714-9.647 45.77 6.679v78.666h-98.013l-17.563-38.591 11.092-37.107Z" fill="#D97706"></path>
+                      <path className="will-change-transform" d="m160.042 229.351 80.266-16.432 62.569 11.376v133.988H168.888l-24.009-65.73 15.163-63.202Z" fill="#B45309"></path>
+                      <path className="will-change-transform" d="m290.066 207.03 73.697-19.143 57.449 13.253v156.091H298.188l-22.044-76.573 13.922-73.628Z" fill="#92400E"></path>
+                      <path className="will-change-transform" d="m136.004 208.083 73.697-19.143 57.449 13.253v156.09H144.127l-22.045-76.572 13.922-73.628Z" fill="#78350F"></path>
+                      <path className="will-change-transform" d="m243.752 200.799 86.172-18.321 67.174 12.683v149.388H253.249l-25.776-73.284 16.279-70.466Z" fill="#451A03"></path>
+                      <path className="will-change-transform" d="m417.299 212.382 39.278-7.668 30.618 5.309v62.518h-65.567l-11.749-30.669 7.42-29.49Z" fill="#7C2D12"></path>
+                      <path className="will-change-transform" d="m145.653 194.349 93.505-19.143 72.89 13.253v156.09h-156.09l-27.97-76.573 17.665-73.627Z" fill="#991B1B"></path>
+                      <path className="will-change-transform" d="m117.665 194.349 93.505-19.143 72.89 13.253v156.09H127.97L100 267.976l17.665-73.627Z" fill="#7F1D1D"></path>
+                    </g>
+                  </svg>
+                </div>
                 <div className="bf-career-card-content">
                   <Text 
                     typography="heading4" 

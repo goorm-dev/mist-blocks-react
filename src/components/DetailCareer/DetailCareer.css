@@ -10,7 +10,7 @@
   position: relative;
   z-index: 1;
 }
-.prism-background {
+/* .prism-background {
   position: absolute;
   top: 0;
   left: 0;
@@ -22,14 +22,15 @@
   align-items: center;
   justify-content: center;
   opacity: 0.4;
-}
+} */
 /* .prism-background > div {
   width: 100% !important;
   height: 100% !important;
 } */
+
 .bf-career-card {
-  background: var(--ktc-tech-up-glass);
-  border: 1px solid var(--ktc-tech-up-glass);
+  background-color: var(--vapor-color-background-normal-darker);
+  border: 1px solid var(--vapor-color-border-normal);
   border-radius: var(--vapor-size-borderRadius-600);
   padding: var(--vapor-size-space-400);
   display: flex;
@@ -37,7 +38,117 @@
   justify-content: space-between;
   position: relative;
   z-index: 1;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
+
+.bf-career-card:hover {
+  border-color: var(--ktc-tech-up-red);
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
+  margin: 0;
+  padding: 0;
+  transform: rotate(180deg);
+}
+
+.bf-career-card:hover .gradient-overlay {
+  opacity: 0.8;
+}
+
+.gradient-svg {
+  position: absolute;
+  left: -72%;
+  bottom: 0;
+  overflow: visible;
+  aspect-ratio: 2/1;
+  width: 250%;
+  transform: translateY(calc(50% - 122px + 25vw)) translate3d(0, 0, 0);
+  filter: blur(calc(12vw)) saturate(150%);
+  will-change: transform, filter;
+}
+
+@media (min-width: 768px) {
+  .gradient-svg {
+    transform: translateY(50%) translate3d(0, 0, 0);
+    filter: blur(56px) saturate(150%);
+  }
+}
+
+.bf-career-card > *:not(.gradient-overlay) {
+  position: relative;
+  z-index: 1;
+}
+
+/* is-tall 카드 전용 gradient overlay 스타일 */
+.gradient-overlay-tall {
+  /* 카드 윗부분 중심으로 아래부분까지 이어지도록 조정 */
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  left: -20%;
+  top: -40%;
+  z-index: 0;
+  /* 기본 transform 재정의 */
+  transform: none;
+}
+
+.gradient-overlay-tall .gradient-svg {
+  /* 더 넓은 범위를 차지하도록 크기 조정 */
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  left: -10%;
+  top: -30%;
+  filter: blur(calc(8vw)) saturate(150%);
+  /* 기본 transform 재정의 */
+  transform: none;
+}
+
+/* Mobile/Desktop SVG 표시 제어 */
+.mobile-only {
+  display: block;
+}
+
+.desktop-only {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .gradient-overlay-tall {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+  
+  .gradient-overlay-tall .gradient-svg {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    filter: blur(calc(12vw)) saturate(150%);
+  }
+
+  /* Desktop에서는 mobile-only 숨기고 desktop-only 표시 */
+  .mobile-only {
+    display: none;
+  }
+
+  .desktop-only {
+    display: block;
+  }
+}
+
 .bf-career-card-content {
   display: flex;
   flex-direction: column;
@@ -151,8 +262,6 @@
 @media (max-width: 576px) { 
   .bf-career-card {
     padding: var(--vapor-size-space-300);
-    background-color: var(--vapor-color-background-normal-darker);
-    border: 1px solid var(--vapor-color-border-normal);
   }
 }
 
