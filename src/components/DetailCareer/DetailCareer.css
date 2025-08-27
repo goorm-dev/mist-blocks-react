@@ -151,6 +151,8 @@
 @media (max-width: 576px) { 
   .bf-career-card {
     padding: var(--vapor-size-space-300);
+    background-color: var(--vapor-color-background-normal-darker);
+    border: 1px solid var(--vapor-color-border-normal);
   }
 }
 
