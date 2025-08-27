@@ -16,6 +16,7 @@ import DetailCareer from '../../components/DetailCareer/DetailCareer';
 import OpenAlert from '../../components/OpenAlert/OpenAlert';
 
 import { COURSE, COURSE_INFORMATION } from '../../constants/CourseInformation';
+import { useInitializeChannelTalk } from '../../hooks/useInitializeChannelTalk';
 
 function Detail({ course }) {
   const { setTheme, appearance } = useTheme();
@@ -23,6 +24,8 @@ function Detail({ course }) {
   const handleToggleTheme = () => {
     setTheme({appearance: appearance === 'dark' ? 'light' : 'dark'})
   }
+
+  useInitializeChannelTalk();
 
   const courseData = COURSE_INFORMATION[course];
 

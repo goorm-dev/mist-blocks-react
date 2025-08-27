@@ -8,11 +8,14 @@ import CeoInterviewSection from '../components/CeoSection/CeoInterviewSection';
 import PreBannerSection from '../components/PreBanner/PreBannerSection';
 import DetailLearnCation from '../components/DetailLearnCation/DetailLearnCation';
 import ProjectCultureSection from '../components/ProjectCulture/ProjectCultureSection';
+import { useInitializeChannelTalk } from '../hooks/useInitializeChannelTalk';
 
 function Home() {
   const { setTheme, appearance } = useTheme();
 
   const toggleDarkMode = () => setTheme({appearance: appearance === 'dark' ? 'light' : 'dark'})
+
+  useInitializeChannelTalk();
 
   return (
     <>

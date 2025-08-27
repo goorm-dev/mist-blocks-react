@@ -22,16 +22,6 @@ const DetailHero = ({
     detailImageMobile
   } = data;
 
-  // 이미지 경로 디버깅
-  useEffect(() => {
-    console.log('DetailHero 이미지 정보:', {
-      title,
-      detailImageDesktop,
-      detailImageMobile,
-      data
-    });
-  }, [title, detailImageDesktop, detailImageMobile, data]);
-
   // 화면 크기 감지
   useEffect(() => {
     // 원본 크기 감지 함수
@@ -60,7 +50,6 @@ const DetailHero = ({
   const { statusType } = getRecruitmentStatus(data.startAt, data.endAt);
 
   const getCtaButtonConfig = (statusType) => {
-    console.log(statusType)
     switch (statusType) {
       case 'close':
         return {
@@ -84,8 +73,6 @@ const DetailHero = ({
   };
 
   const ctaButton = getCtaButtonConfig(statusType);
-  
-  console.log(getCtaButtonConfig(statusType))
 
   const shareButton = {
      link: window.location.href,

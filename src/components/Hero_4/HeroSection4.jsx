@@ -5,11 +5,6 @@ import './HeroSection4.css';
 const HeroSection4 = () => {
   const [screenSize, setScreenSize] = useState('desktop');
 
-  // 컴포넌트 마운트 확인
-  useEffect(() => {
-    console.log('🎨 HeroSection4 컴포넌트가 성공적으로 렌더링되었습니다!');
-  }, []);
-
   // 화면 크기 감지
   useEffect(() => {
     const checkScreenSize = () => {
