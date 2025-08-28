@@ -65,6 +65,7 @@ const RecommendCommentCard = ({
   description = '내용',
   position = '소속',
   avatarUrl = '/path/to/avatar.jpg',
+  coursename = '과정 이름',
 
   // 스타일링 props
   className = '',
@@ -377,7 +378,7 @@ const RecommendCommentCard = ({
                   {name}
                 </Text>
                 <Text typography="subtitle1" foreground="normal">
-                  {position}
+                  {position} &nbsp;|&nbsp; {coursename}
                 </Text>
               </div>
             </div>

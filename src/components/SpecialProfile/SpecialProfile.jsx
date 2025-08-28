@@ -67,6 +67,7 @@ const ProfileCard = ({
   position = '소속',
   avatarUrl = '/path/to/avatar.jpg',
   showUserInfo = true,
+  coursename = '과정 이름',
 
   // 스타일링 props
   className = '',
@@ -402,7 +403,7 @@ const ProfileCard = ({
                   {name}
                 </Text>
                 <Text typography="subtitle1" foreground="normal">
-                  {position}
+                  {position} &nbsp;|&nbsp; {coursename}
                 </Text>
               </div>
             </div>
@@ -466,6 +467,7 @@ const SpecialProfile = ({ title = '기술과 경험을 전할\n멘토 라인업'
                   description={profile.description}
                   position={profile.position}
                   avatarUrl={profile.avatarUrl}
+                  coursename={profile.coursename}
                   iconUrl="/assets/iconpattern.png"
                   grainUrl="/assets/grain.webp"
                   showUserInfo={true}
@@ -490,6 +492,7 @@ const SpecialProfile = ({ title = '기술과 경험을 전할\n멘토 라인업'
                   description={profile.description}
                   position={profile.position}
                   avatarUrl={profile.avatarUrl}
+                  coursename={profile.coursename}
                   iconUrl="/assets/iconpattern.png"
                   grainUrl="/assets/grain.webp"
                   showUserInfo={true}

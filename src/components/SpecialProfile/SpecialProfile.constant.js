@@ -3,7 +3,8 @@ import { COURSE } from "../../constants/CourseInformation";
 export const MENTOR_PROFILES = [
     {
         name: "김정애",
-        position: "kt cloud 프로덕트 디자이너",
+        position: "UI/UX팀",
+        coursename: "kt cloud 프로덕트 디자이너",
         avatarUrl: "https://statics.goorm.io/ktcloud-techup/landing/assets/mentor/techup_mentor_avatar_1.png",
         title: "사용자 중심의 프로덕트 디자인, 제품의 가치를 현실로",
         description:
@@ -12,7 +13,8 @@ export const MENTOR_PROFILES = [
     },
     {
         name: "최영화",
-        position: "kt cloud 프로덕트 매니지먼트",
+        position: "상품기획팀",
+        coursename: "kt cloud 프로덕트 매니지먼트",
         avatarUrl: "https://statics.goorm.io/ktcloud-techup/landing/assets/mentor/techup_mentor_avatar_2.png",
         title: "상품 기획은 시장성과 더불어 원가·수익성 분석이 필수",
         description:
@@ -21,7 +23,8 @@ export const MENTOR_PROFILES = [
     },
     {
         name: "이운영",
-        position: "kt cloud 클라우드 네이티브",
+        position: "Cloud컨설팅팀",
+        coursename: "kt cloud 클라우드 네이티브",
         avatarUrl: "https://statics.goorm.io/ktcloud-techup/landing/assets/mentor/techup_mentor_avatar_3.png",
         title: "클라우드 인프라 역량은 필수적인 기술",
         description:
@@ -30,7 +33,8 @@ export const MENTOR_PROFILES = [
     },
     {
         name: "송재경",
-        position: "kt cloud 클라우드 네이티브",
+        position: "Cloud컨설팅팀",
+        coursename: "kt cloud 클라우드 네이티브",
         avatarUrl: "https://statics.goorm.io/ktcloud-techup/landing/assets/mentor/techup_mentor_avatar_4.png",
         title: "현대 IT의 성공은 클라우드 네이티브 기술에서 시작",
         description:
@@ -39,7 +43,8 @@ export const MENTOR_PROFILES = [
     },
     {
         name: "이정택",
-        position: "kt cloud 클라우드 인프라",
+        position: "Cloud컨설팅팀",
+        coursename: "kt cloud 클라우드 인프라",
         avatarUrl: "https://statics.goorm.io/ktcloud-techup/landing/assets/mentor/techup_mentor_avatar_5.png",
         title: "디지털 기반을 설계하고 구축할 클라우드 건축가 모집",
         description:
@@ -48,7 +53,8 @@ export const MENTOR_PROFILES = [
     },
     {
         name: "윤민상",
-        position: "kt cloud 클라우드 인프라",
+        position: "Cloud컨설팅팀",
+        coursename: "kt cloud 클라우드 인프라",
         avatarUrl: "https://statics.goorm.io/ktcloud-techup/landing/assets/mentor/techup_mentor_avatar_6.png",
         title: "클라우드 컴퓨팅이 산업 혁신의 중심",
         description:
@@ -57,7 +63,8 @@ export const MENTOR_PROFILES = [
     },
     {
         name: "송재희",
-        position: "kt cloud 프론트엔드",
+        position: "UI/UX팀",
+        coursename: "kt cloud 프론트엔드",
         avatarUrl: "https://statics.goorm.io/ktcloud-techup/landing/assets/mentor/techup_mentor_avatar_7.png",
         title: "사용자의 사용성을 고려한 프론트엔드 개발자",
         description:
@@ -66,7 +73,8 @@ export const MENTOR_PROFILES = [
     },
     {
         name: "김소현",
-        position: "kt cloud 프론트엔드",
+        position: "UI/UX팀",
+        coursename: "kt cloud 프론트엔드",
         avatarUrl: "https://statics.goorm.io/ktcloud-techup/landing/assets/mentor/techup_mentor_avatar_8.png",
         title: "비즈니스 가치를 전달하는 가장 앞선 영역",
         description:
@@ -75,7 +83,8 @@ export const MENTOR_PROFILES = [
     },
     {
         name: "부대권",
-        position: "kt cloud 생성형 AI",
+        position: "AI플랫폼팀",
+        coursename: "kt cloud 생성형 AI",
         avatarUrl: "https://statics.goorm.io/ktcloud-techup/landing/assets/mentor/techup_mentor_avatar_9.png",
         title: "데이터, 인프라, 서비스 환경까지 고려하는 AI",
         description:
@@ -84,7 +93,8 @@ export const MENTOR_PROFILES = [
     },
     {
         name: "배성진",
-        position: "kt cloud 사이버 보안",
+        position: "보안아키텍처팀",
+        coursename: "kt cloud 사이버 보안",
         avatarUrl: "https://statics.goorm.io/ktcloud-techup/landing/assets/mentor/techup_mentor_avatar_10.png",
         title: "누구나 도전할 수 있는 보안 전문가",
         description:

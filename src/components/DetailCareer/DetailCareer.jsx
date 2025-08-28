@@ -288,6 +288,7 @@ const DetailCareer = ({ course = COURSE.FRONTEND }) => {
                 key={`mentor-${mentor.name}-${index}`}
                 name={mentor.name}
                 position={mentor.position}
+                coursename={mentor.coursename}
                 title={mentor.title}
                 description={mentor.description}
                 avatarUrl={mentor.avatarUrl}
