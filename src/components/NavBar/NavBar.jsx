@@ -23,6 +23,7 @@ import {
   SunIcon,
   MoonIcon,
 } from '@heroicons/react/24/outline';
+import { Badge } from '@vapor-ui/core';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 const logoLight = 'https://statics.goorm.io/ktcloud-techup/logo/techup_light.svg';
 const logoDark = 'https://statics.goorm.io/ktcloud-techup/logo/techup_dark.svg';
@@ -32,6 +33,23 @@ import {
   COURSE,
 } from '../../constants/CourseInformation';
 import Link from 'next/link';
+
+// 모집 일정에 따라 badge 표시 여부를 결정하는 함수
+const isRecruiting = (courseType) => {
+  const courseInfo = COURSE_INFORMATION[courseType];
+  if (!courseInfo) return false;
+  
+  const now = new Date();
+  const startAt = new Date(courseInfo.startAt);
+  const endAt = new Date(courseInfo.endAt);
+  
+  return now >= startAt && now <= endAt;
+};
+
+// 메뉴 아이템에 모집 중인 과정이 있는지 확인하는 함수
+const hasRecruitingCourses = (courseTypes) => {
+  return courseTypes.some(courseType => isRecruiting(courseType));
+};
 
 const COURSE_ICONS = {
   [COURSE.FULLSTACK]: ChartPieIcon,
@@ -62,16 +80,19 @@ const mainMenuItems = [
     name: COURSE_AREA_INFORMATION.WEB_DEVELOPMENT.title,
     isDropdown: true,
     dropdownItems: createCourseDropdownItems(COURSE_AREA_INFORMATION.WEB_DEVELOPMENT.courses),
+    hasRecruiting: hasRecruitingCourses(COURSE_AREA_INFORMATION.WEB_DEVELOPMENT.courses),
   },
   {
     name: COURSE_AREA_INFORMATION.INFRA_INNOVATION.title,
     isDropdown: true,
     dropdownItems: createCourseDropdownItems(COURSE_AREA_INFORMATION.INFRA_INNOVATION.courses),
+    hasRecruiting: hasRecruitingCourses(COURSE_AREA_INFORMATION.INFRA_INNOVATION.courses),
   },
   {
     name: COURSE_AREA_INFORMATION.PRODUCT_EXPERT.title,
     isDropdown: true,
     dropdownItems: createCourseDropdownItems(COURSE_AREA_INFORMATION.PRODUCT_EXPERT.courses),
+    hasRecruiting: hasRecruitingCourses(COURSE_AREA_INFORMATION.PRODUCT_EXPERT.courses),
   },
 ];
 
@@ -96,11 +117,16 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
             <Bars2Icon aria-hidden="true" className="size-6 stroke-2" />
           </button>
         </div>
-        <PopoverGroup className="hidden lg:flex lg:gap-x-8">
+        <PopoverGroup className="hidden lg:flex lg:gap-x-6">
           {mainMenuItems.map(item => (
             <Popover key={item.name} className="relative">
-              <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 p-3 transition-[background-color]">
+              <PopoverButton className="flex items-center gap-x-2 text-sm/6 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16 p-3 transition-[background-color]">
                 {item.name}
+                {item.hasRecruiting && (
+                  <Badge color="danger" size="md">
+                    모집 중
+                  </Badge>
+                )}
                 <ChevronDownIcon
                   aria-hidden="true"
                   className="size-5 flex-none text-[var(--vapor-color-foreground-normal)] stroke-2"
@@ -195,11 +221,18 @@ export default function Example({ isDarkMode, toggleDarkMode }) {
               <div className="space-y-2 py-6">
                 {mainMenuItems.map(item => (
                   <Disclosure key={item.name} as="div" className="-mx-3">
-                    <DisclosureButton className="group flex w-full items-center justify-between py-2 pr-3.5 pl-3 text-base/7 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16">
-                      {item.name}
+                    <DisclosureButton className="group flex w-full items-center py-2 pr-3.5 pl-3 text-base/7 font-semibold text-[var(--vapor-color-foreground-normal)] hover:bg-[var(--vapor-color-gray-400)]/16">
+                      <div className="flex items-center gap-2">
+                        {item.name}
+                        {item.hasRecruiting && (
+                          <Badge color="danger" size="md">
+                            모집 중
+                          </Badge>
+                        )}
+                      </div>
                       <ChevronDownIcon
                         aria-hidden="true"
-                        className="size-6 flex-none group-data-open:rotate-180 stroke-2"
+                        className="size-6 flex-none group-data-open:rotate-180 stroke-2 ml-auto"
                       />
                     </DisclosureButton>
                     <DisclosurePanel className="mt-2 space-y-2">
