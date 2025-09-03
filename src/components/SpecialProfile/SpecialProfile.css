@@ -355,7 +355,7 @@
 }
 
 .profile-content-title {
-  font-weight: 700;
+  font-weight: var(--vapor-typography-fontWeight-700);
 }
 
 .pc-description {
