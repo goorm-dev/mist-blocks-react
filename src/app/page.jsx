@@ -31,7 +31,7 @@ export default function Page() {
       <Navbar isDarkMode={appearance === 'dark'} toggleDarkMode={toggleDarkMode} />
       <main>
         <HeroSection3 />
-        <PreBannerSection />
+        {/* <PreBannerSection /> */}
         <CeoInterviewSection />
         <DetailLearnCation />
         <ProjectCultureSection />

@@ -59,7 +59,7 @@ export default function CourseDetailRoute() {
       <Navbar isDarkMode={appearance === 'dark'} toggleDarkMode={handleToggleTheme} />
       <main>
         <DetailHero data={courseData} />
-        <PreBannerSection />
+        {/* <PreBannerSection />         */}
         <DetailNavigation />
         <DetailIntroduceCourse course={course} />
         <DetailLearnCation />
