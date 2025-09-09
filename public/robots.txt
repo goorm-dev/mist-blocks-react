@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://techup.kt.com/sitemap.xml
+
+# LLM-friendly documentation
+# See: /llms.txt
