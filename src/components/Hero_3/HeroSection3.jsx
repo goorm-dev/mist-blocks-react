@@ -66,15 +66,13 @@ const HeroSection3 = () => {
   // 템플릿 변수들
   const templateData = {
     mainTitle: '내일의 인재,<br />kt cloud TECH UP에서<br />완성됩니다.',
-    videoSrc: '',
+    videoSrc: 'https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_main.mp4',
     videoPoster:
       screenSize === 'mobile' || screenSize === 'tablet'
         ? 'https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_main_mo.png'
-        : 'https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_main.png',
-    mobileImageSrc:
-      screenSize === 'mobile' || screenSize === 'tablet'
-        ? 'https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_main_mo.png'
-        : 'https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_main.png',
+        : '',
+        // : 'https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_main.png',
+    mobileImageSrc: 'https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_main_mo.png',
     cards: [
       {
         label: '혁신의 시작',
@@ -150,11 +148,13 @@ const HeroSection3 = () => {
               >
                 <source media="(min-width: 577px)" src={templateData.videoSrc} type="video/mp4" />
               </video>
-              <img
-                src={templateData.mobileImageSrc}
-                alt="hero-main-mobile"
-                className="hero-left-image"
-              />
+              {(screenSize === 'mobile' || screenSize === 'tablet') && (
+                <img
+                  src={templateData.mobileImageSrc}
+                  alt="hero-main-mobile"
+                  className="hero-left-image"
+                />
+              )}
             </div>
             <div className="hero-image-dim"></div>
             <h1 className="hero-title">

@@ -46,6 +46,10 @@
   border-color: var(--ktc-tech-up-red);
 }
 
+.bf-career-card:hover .bf-career-card-desc {
+  color: var(--vapor-color-foreground-normal);
+}
+
 .gradient-overlay {
   position: absolute;
   top: 0;

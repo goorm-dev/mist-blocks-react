@@ -9,6 +9,7 @@ import './DetailRecruitmentProcess.css';
 const PROCESS_TABS = [
   { key: 'first', label: '1차 일정' },
   { key: 'second', label: '2차 일정' },
+  { key: 'third', label: '3차 일정' },
 ];
 
 // 모바일용 프로세스 아이템 컴포넌트
@@ -49,6 +50,8 @@ const ProcessItem = ({
   firstStageDescription,
   secondStageDate,
   secondStageDescription,
+  thirdStageDate,
+  thirdStageDescription,
   isLastItem,
 }) => {
   return (
@@ -87,6 +90,16 @@ const ProcessItem = ({
             </Text>
           )}
         </div>
+        <div className="stage-info third-stage">
+          <Text typography="heading6" foreground="normal" className="stage-date">
+            {thirdStageDate}
+          </Text>
+          {thirdStageDescription && (
+            <Text typography="subtitle1" foreground="hint" className="stage-description">
+              {thirdStageDescription}
+            </Text>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -115,6 +128,15 @@ const DetailRecruitmentProcess = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // 모바일 여부에 따라 기본 활성 탭 설정 (모바일: 3차, 데스크톱: 1차)
+  useEffect(() => {
+    if (isMobile) {
+      setActiveTab('third');
+    } else {
+      setActiveTab('first');
+    }
+  }, [isMobile]);
+
   // 탭 변경 핸들러
   const handleTabClick = tab => {
     setActiveTab(tab);
@@ -127,10 +149,15 @@ const DetailRecruitmentProcess = () => {
         date: item.firstStageDate,
         description: item.firstStageDescription,
       };
-    } else {
+    } else if (activeTab === 'second') {
       return {
         date: item.secondStageDate,
         description: item.secondStageDescription,
+      };
+    } else {
+      return {
+        date: item.thirdStageDate,
+        description: item.thirdStageDescription,
       };
     }
   };
@@ -143,6 +170,8 @@ const DetailRecruitmentProcess = () => {
       firstStageDescription: '지원서 및 고용24 수강신청',
       secondStageDate: '25.9.5 (목) - 25.9.11 (목)',
       secondStageDescription: '지원서 및 고용24 수강신청',
+      thirdStageDate: '25.9.12 (금) - 25.9.17 (수)',
+      thirdStageDescription: '지원서 및 고용24 수강신청',
     },
     {
       number: '2',
@@ -151,6 +180,8 @@ const DetailRecruitmentProcess = () => {
       firstStageDescription: null,
       secondStageDate: '25.9.12 (금)',
       secondStageDescription: null,
+      thirdStageDate: '25.9.18 (목)',
+      thirdStageDescription: null,
     },
     {
       number: '3',
@@ -159,6 +190,8 @@ const DetailRecruitmentProcess = () => {
       firstStageDescription: null,
       secondStageDate: '25.9.15 (월) - 25.9.16 (화)',
       secondStageDescription: null,
+      thirdStageDate: '25.9.19 (금)',
+      thirdStageDescription: null,
     },
     {
       number: '4',
@@ -167,6 +200,8 @@ const DetailRecruitmentProcess = () => {
       firstStageDescription: null,
       secondStageDate: '25.9.17 (수)',
       secondStageDescription: null,
+      thirdStageDate: '25.9.19 (금)',
+      thirdStageDescription: null,
     },
   ];
 
@@ -214,7 +249,7 @@ const DetailRecruitmentProcess = () => {
                 </div>
                 <div className="step-content">
                   <Text typography="heading6" foreground="normal" className="step-date">
-                    25.8.28 (목) - 25.9.11 (목)
+                    25.8.28 (목) - 25.9.17 (목)
                   </Text>
                   <Text typography="subtitle1" foreground="hint" className="step-desc">
                     지원서 및 고용24 수강신청
@@ -281,7 +316,7 @@ const DetailRecruitmentProcess = () => {
                 </div>
                 <div className="step-content">
                   <Text typography="heading6" foreground="normal" className="step-date">
-                    25.8.28 (목) - 25.9.11 (목)
+                    25.8.28 (목) - 25.9.17 (목)
                   </Text>
                   <Text typography="subtitle1" foreground="hint" className="step-desc">
                     지원서 및 고용24 수강신청
@@ -388,6 +423,11 @@ const DetailRecruitmentProcess = () => {
                       2차 일정
                     </Text>
                   </div>
+                  <div className="stage-header third-stage">
+                    <Text typography="subtitle1" foreground="hint">
+                      3차 일정
+                    </Text>
+                  </div>
                 </div>
 
                 <div className="process-items">
@@ -400,6 +440,8 @@ const DetailRecruitmentProcess = () => {
                       firstStageDescription={item.firstStageDescription}
                       secondStageDate={item.secondStageDate}
                       secondStageDescription={item.secondStageDescription}
+                      thirdStageDate={item.thirdStageDate}
+                      thirdStageDescription={item.thirdStageDescription}
                       isLastItem={index === processItems.length - 1}
                     />
                   ))}
