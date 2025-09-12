@@ -40,9 +40,12 @@ const DetailInstructor = ({ course = COURSE.FRONTEND, className = '' }) => {
                 <Text typography="heading3" foreground="normal" className="instructor-name">
                   {instructor.name}
                 </Text>
-                <Text typography="body1" foreground="normal" className="instructor-description">
-                  {instructor.description}
-                </Text>
+                  <Text 
+                    typography="body1" 
+                    foreground="normal" 
+                    className="instructor-description"
+                    dangerouslySetInnerHTML={{ __html: instructor.description }}
+                  />
               </div>
               
               <div className="instructor-careers">

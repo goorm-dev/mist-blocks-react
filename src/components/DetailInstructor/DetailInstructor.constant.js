@@ -5,7 +5,7 @@ export const INSTRUCTOR_PROFILES = [
     id: 1,
     name: "김클라우드",
     role: "kt cloud TECH UP 풀스택 개발 강사",
-    description: "200여 종 솔루션 운영 경험을 담은 실무형 풀스택 교육을 통해 프론트엔드부터 백엔드, 생성형 AI까지 프로젝트 실습으로 웹 서비스 개발 전 과정을 완성할 수 있도록 지도합니다.",
+    description: "200여 종 솔루션 운영 경험을 담은 실무형 풀스택 교육을 통해 프론트엔드부터 백엔드, 생성형 AI까지<br>프로젝트 실습으로 웹 서비스 개발 전 과정을 완성할 수 있도록 지도합니다.",
     image: "https://statics.goorm.io/ktcloud-techup/landing/assets/mentor/techup_mentor_avatar_5.png",
     careers: [
       {
