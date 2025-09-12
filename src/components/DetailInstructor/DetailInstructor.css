@@ -17,7 +17,7 @@
   height: 90px;
   border-radius: var(--vapor-size-borderRadius-600);
   overflow: hidden;
-  background-color: var(--vapor-color-background-secondary);
+  background-color: #83838c;
   border: 1px solid var(--vapor-color-border-normal);
   z-index: 1;
 }
@@ -74,40 +74,15 @@
 }
 
 /* 반응형 디자인 */
+@media (max-width: 992px) {
+  .instructor-card {
+    padding: var(--vapor-size-space-300);
+  }
+}
 @media (max-width: 768px) {
   .instructor-card {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
     gap: var(--vapor-size-space-200);
-  }
-  
-  .instructor-avatar {
-    width: 80px;
-    height: 80px;
-  }
-  
-  .instructor-info-wrapper {
-    align-items: center;
-    text-align: center;
-  }
-  
-  .instructor-name {
-    white-space: normal;
-    text-align: center;
-  }
-  
-  .instructor-description {
-    text-align: center;
-  }
-  
-  .career-item {
-    justify-content: center;
-  }
-  
-  .career-text {
-    white-space: normal;
-    text-align: center;
   }
 }
 
@@ -115,10 +90,14 @@
   .instructor-card {
     padding: var(--vapor-size-space-300);
   }
-  
   .instructor-avatar {
-    width: 70px;
-    height: 70px;
+    width: 5rem;
+    height: 5rem;
   }
-  
+  .instructor-name {
+    line-height: var(--vapor-typography-lineHeight-300);
+    letter-spacing: var(--vapor-typography-letterSpacing-200);
+    font-size: var(--vapor-typography-fontSize-300);
+    font-weight: var(--vapor-typography-fontWeight-700);
+  }
 }
