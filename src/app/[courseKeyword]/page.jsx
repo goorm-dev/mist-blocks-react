@@ -20,6 +20,7 @@ import OpenAlert from '../../components/OpenAlert/OpenAlert';
 import { COURSE_INFORMATION } from '../../constants/CourseInformation';
 import { useInitializeChannelTalk } from '../../hooks/useInitializeChannelTalk';
 import { notFound, useParams } from 'next/navigation';
+import DetailInstructor from '../../components/DetailInstructor/DetailInstructor';
 
 // 정적 내보내기 설정
 export const dynamic = 'force-static';
@@ -65,6 +66,7 @@ export default function CourseDetailRoute() {
         <DetailLearnCation />
         <ProjectCultureSection />
         <DetailCurriculum course={course} />
+        <DetailInstructor course={course} />
         <DetailCareer course={course} />
         <DetailBenefit />
         <DetailLearningPlace />

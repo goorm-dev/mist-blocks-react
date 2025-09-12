@@ -1,0 +1,124 @@
+/* DetailInstructor 컴포넌트 스타일 */
+.instructor-card {
+  position: relative;
+  background-color: var(--vapor-color-background-normal-darker);
+  border: 1px solid var(--vapor-color-border-normal);
+  border-radius: var(--vapor-size-borderRadius-600);
+  padding: var(--vapor-size-space-400);
+  display: flex;
+  gap: var(--vapor-size-space-300);
+  align-items: flex-start;
+}
+
+.instructor-avatar {
+  position: relative;
+  flex-shrink: 0;
+  width: 90px;
+  height: 90px;
+  border-radius: var(--vapor-size-borderRadius-600);
+  overflow: hidden;
+  background-color: var(--vapor-color-background-secondary);
+  border: 1px solid var(--vapor-color-border-normal);
+  z-index: 1;
+}
+
+.instructor-profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.instructor-info-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--vapor-size-space-200);
+  z-index: 1;
+}
+
+.instructor-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vapor-size-space-050);
+}
+
+.instructor-name {
+  color: var(--vapor-color-foreground-normal);
+  white-space: nowrap;
+}
+
+.instructor-description {
+  color: var(--vapor-color-foreground-normal);
+}
+
+.instructor-careers {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vapor-size-space-050);
+}
+
+.career-item {
+  display: flex;
+  align-items: center;
+  gap: var(--vapor-size-space-100);
+}
+
+.career-badge {
+  flex-shrink: 0;
+}
+
+.career-text {
+  color: var(--vapor-color-foreground-normal);
+  white-space: nowrap;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .instructor-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--vapor-size-space-200);
+  }
+  
+  .instructor-avatar {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .instructor-info-wrapper {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .instructor-name {
+    white-space: normal;
+    text-align: center;
+  }
+  
+  .instructor-description {
+    text-align: center;
+  }
+  
+  .career-item {
+    justify-content: center;
+  }
+  
+  .career-text {
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .instructor-card {
+    padding: var(--vapor-size-space-300);
+  }
+  
+  .instructor-avatar {
+    width: 70px;
+    height: 70px;
+  }
+  
+}
