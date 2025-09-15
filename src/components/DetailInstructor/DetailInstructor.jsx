@@ -40,30 +40,62 @@ const DetailInstructor = ({ course = COURSE.FRONTEND, className = '' }) => {
                 <Text typography="heading3" foreground="normal" className="instructor-name">
                   {instructor.name}
                 </Text>
+                {instructor.description && (
                   <Text 
-                    typography="body1" 
-                    foreground="normal" 
+                    typography="heading6" 
+                    foreground="hint" 
                     className="instructor-description"
                     dangerouslySetInnerHTML={{ __html: instructor.description }}
                   />
+                )}
               </div>
               
-              <div className="instructor-careers">
-                {instructor.careers.map((career, index) => (
-                  <div key={index} className="career-item">
-                    <Badge 
-                      size="sm" 
-                      color={career.badge === "현재" ? "danger" : "hint"} 
-                      shape="square"
-                      className="career-badge"
-                    >
-                      {career.badge}
-                    </Badge>
-                    <Text typography="heading6" foreground="normal" className="career-text">
-                      {career.description}
-                    </Text>
+              <div className="instructor-sections">
+                {/* 이력 소개 섹션 - badge 형태 */}
+                <div className="career-section">
+                  <Text typography="heading6" foreground="normal" className="instructor-sub-title">
+                    이력 소개
+                  </Text>
+                  <div className="career-list">
+                    {instructor.careerHistory.map((career, index) => (
+                      <div key={index} className="career-item">
+                        {typeof career === 'string' ? (
+                          <Text typography="heading6" foreground="normal" className="career-text-only">
+                            {career}
+                          </Text>
+                        ) : (
+                          <>
+                            <Badge 
+                              size="sm" 
+                              color={career.badge === "현재" ? "danger" : "hint"} 
+                              shape="square"
+                              className="career-badge"
+                            >
+                              {career.badge}
+                            </Badge>
+                            <Text typography="heading6" foreground="normal" className="career-text">
+                              {career.description}
+                            </Text>
+                          </>
+                        )}
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </div>
+
+                {/* 강의 이력 섹션 - 단순 텍스트 */}
+                <div className="teaching-section">
+                  <Text typography="heading6" foreground="normal" className="instructor-sub-title">
+                    강의 이력
+                  </Text>
+                  <div className="teaching-list">
+                    {instructor.teachingHistory.map((teaching, index) => (
+                      <Text key={index} typography="heading6" foreground="normal" className="teaching-item-text">
+                        {teaching}
+                      </Text>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

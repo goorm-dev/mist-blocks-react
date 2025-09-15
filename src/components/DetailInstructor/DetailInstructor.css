@@ -6,15 +6,15 @@
   border-radius: var(--vapor-size-borderRadius-600);
   padding: var(--vapor-size-space-400);
   display: flex;
-  gap: var(--vapor-size-space-300);
+  gap: var(--vapor-size-space-400);
   align-items: flex-start;
 }
 
 .instructor-avatar {
   position: relative;
   flex-shrink: 0;
-  width: 90px;
-  height: 90px;
+  width: 6.25rem;
+  height: 6.25rem;
   border-radius: var(--vapor-size-borderRadius-600);
   overflow: hidden;
   background-color: #83838c;
@@ -33,14 +33,15 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--vapor-size-space-200);
+  gap: var(--vapor-size-space-300);
   z-index: 1;
 }
 
 .instructor-info {
   display: flex;
-  flex-direction: column;
-  gap: var(--vapor-size-space-050);
+  flex-direction: row;
+  gap: var(--vapor-size-space-100);
+  align-items: center;
 }
 
 .instructor-name {
@@ -48,11 +49,25 @@
   white-space: nowrap;
 }
 
-.instructor-description {
-  color: var(--vapor-color-foreground-normal);
+.instructor-sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vapor-size-space-300);
 }
 
-.instructor-careers {
+.career-section,
+.teaching-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vapor-size-space-100);
+}
+
+.instructor-sub-title {
+  color: var(--vapor-color-foreground-normal);
+  font-weight: var(--vapor-typography-fontWeight-700);
+}
+
+.career-list {
   display: flex;
   flex-direction: column;
   gap: var(--vapor-size-space-050);
@@ -70,15 +85,52 @@
 
 .career-text {
   color: var(--vapor-color-foreground-normal);
-  white-space: nowrap;
+}
+
+.career-text-only {
+  color: var(--vapor-color-foreground-normal);
+  position: relative;
+  padding-left: var(--vapor-size-space-200);
+}
+
+.career-text-only::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--vapor-color-foreground-normal);
+}
+
+.teaching-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vapor-size-space-050);
+}
+
+.teaching-item-text {
+  color: var(--vapor-color-foreground-normal);
+  position: relative;
+  padding-left: var(--vapor-size-space-200);
+}
+
+.teaching-item-text::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--vapor-color-foreground-normal);
 }
 
 /* 반응형 디자인 */
 @media (max-width: 992px) {
   .instructor-card {
     padding: var(--vapor-size-space-300);
+    gap: var(--vapor-size-space-300);
+  }
+
+  .instructor-info-wrapper {
+    gap: var(--vapor-size-space-200);
   }
 }
+
 @media (max-width: 768px) {
   .instructor-card {
     flex-direction: column;
@@ -89,15 +141,5 @@
 @media (max-width: 576px) {
   .instructor-card {
     padding: var(--vapor-size-space-300);
-  }
-  .instructor-avatar {
-    width: 5rem;
-    height: 5rem;
-  }
-  .instructor-name {
-    line-height: var(--vapor-typography-lineHeight-300);
-    letter-spacing: var(--vapor-typography-letterSpacing-200);
-    font-size: var(--vapor-typography-fontSize-300);
-    font-weight: var(--vapor-typography-fontWeight-700);
   }
 }
