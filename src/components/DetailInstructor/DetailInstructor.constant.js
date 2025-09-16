@@ -5,12 +5,12 @@ export const INSTRUCTOR_PROFILES = [
     id: 1,
     name: "이재희",
     role: "kt cloud TECH UP 풀스택 개발 강사",
-    description: "울산대학교 컴퓨터공학 학사",
-    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/mentor/techup_mentor_avatar_5.png",
+    description: "빅데이터 및 AI 플랫폼 구축 전문가",
+    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/instructor/techup_instructor_frontend.png",
     careerHistory: [
       {
         badge: "현재",
-        description: "kt cloud TECH UP 풀스택 개발 강사"
+        description: "kt cloud TECH UP 풀스택 강사"
       },
       {
         badge: "현재",
@@ -23,49 +23,67 @@ export const INSTRUCTOR_PROFILES = [
       {
         badge: "이전",
         description: "이웨이파트너스 연구개발"
-      },
-      {
-        badge: "이전",
-        description: "클라우다인 연구원"
-      },
-      {
-        badge: "이전",
-        description: "온세T&C 사원"
       }
-    ],
-    teachingHistory: [
-      "kt cloud TECH UP 풀스택 개발 강사",
-      "웹 개발 실무 교육",
-      "클라우드 플랫폼 교육"
     ],
     course: COURSE.FULLSTACK,
   },
   {
     id: 2,
-    name: "박프론트",
+    name: "권수정",
     role: "kt cloud TECH UP 프론트엔드 강사",
-    description: "전국 거점 CDN 구축 노하우를 바탕으로 웹·앱 로딩 속도를 최적화하는 프론트엔드 실습 교육을 통해 React, SSR, UI/UX 최적화를 배우고 실무 역량을 강화할 수 있도록 지도합니다.",
+    description: "생성형 AI와 빅데이터 분석 경험을 프론트엔드 개발에 융합하는 전문가",
     image: "https://statics.goorm.io/ktcloud-techup/landing/assets/instructor/techup_instructor_frontend.png",
     careerHistory: [
       {
         badge: "현재",
         description: "kt cloud TECH UP 프론트엔드 강사"
       },
-      "React 전문가",
-      "CDN 최적화 전문가"
-    ],
-    teachingHistory: [
-      "kt cloud TECH UP 프론트엔드 강사",
-      "React 실무 교육",
-      "웹 성능 최적화 교육"
+      {
+        badge: "현재",
+        description: "프롬인사이트 대표이사"
+      },
+      {
+        badge: "이전",
+        description: "퀀팃 매크로모델팀 팀장, 큐비어스 공동창업자"
+      },
+      {
+        badge: "이전",
+        description: "한국자산평가 금융공학팀 팀장"
+      },
     ],
     course: COURSE.FRONTEND,
   },
   {
     id: 3,
-    name: "이백엔드",
+    name: "정원준",
+    role: "kt cloud TECH UP 프론트엔드 강사",
+    description: "금융공학 전문성과 AI·모바일 개발 경험을 프론트엔드 교육에 접목하는 전문가",
+    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/instructor/techup_instructor_frontend2.png",
+    careerHistory: [
+      {
+        badge: "현재",
+        description: "kt cloud TECH UP 프론트엔드 강사"
+      },
+      {
+        badge: "현재",
+        description: "프롬인사이트 파이어니어"
+      },
+      {
+        badge: "이전",
+        description: "삼정회계법인 Banking & Finance Senior"
+      },
+      {
+        badge: "이전",
+        description: "퀀팃 금융모델본부 전략모델팀"
+      }
+    ],
+    course: COURSE.FRONTEND,
+  },
+  {
+    id: 4,
+    name: "조필균",
     role: "kt cloud TECH UP 백엔드 강사",
-    description: "월 가용성 99.95%를 달성한 운영 경험을 기반으로 대규모 트래픽을 처리하는 백엔드 시스템을 배우는 실습 중심 교육을 통해 Java Spring, MSA, 무중단 배포까지 마스터할 수 있도록 지도합니다.",
+    description: "게임 및 IT 플랫폼 백엔드 개발 전문가",
     image: "https://statics.goorm.io/ktcloud-techup/landing/assets/instructor/techup_instructor_backend.png",
     careerHistory: [
       {
@@ -73,26 +91,51 @@ export const INSTRUCTOR_PROFILES = [
         description: "kt cloud TECH UP 백엔드 강사"
       },
       {
-        badge: "이전",
-        description: "Java Spring 전문가"
+        badge: "현재",
+        description: "HYBE IM 게임플랫폼팀 백엔드 엔지니어"
       },
       {
         badge: "이전",
-        description: "MSA 아키텍트"
+        description: "펄어비스 게임플랫폼팀 개발자"
+      },
+      {
+        badge: "이전",
+        description: "도구테크놀로지스 공동창업자 겸 백엔드 담당"
       }
-    ],
-    teachingHistory: [
-      "kt cloud TECH UP 백엔드 강사",
-      "Java Spring 실무 교육",
-      "MSA 아키텍처 교육"
     ],
     course: COURSE.BACKEND,
   },
   {
-    id: 4,
-    name: "최AI",
+    id: 5,
+    name: "신철호",
+    role: "kt cloud TECH UP 백엔드 강사",
+    description: "서버 개발 및 백오피스 플랫폼 전문가",
+    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/instructor/techup_instructor_backend2.png",
+    careerHistory: [
+      {
+        badge: "현재",
+        description: "kt cloud TECH UP 백엔드 강사"
+      },
+      {
+        badge: "현재",
+        description: "브이투씨 개발팀 리드 및 페이앤스토어 서버개발자"
+      },
+      {
+        badge: "이전",
+        description: "티제이랩스 서버 개발팀 리드"
+      },
+      {
+        badge: "이전",
+        description: "큐브위즈 백오피스 CMS 서버 개발팀 리드"
+      }
+    ],
+    course: COURSE.BACKEND,
+  },
+  {
+    id: 6,
+    name: "김명진",
     role: "kt cloud TECH UP 생성형 AI 강사",
-    description: "H100 GPU 기반 AI 파운드리 플랫폼을 활용한 생성형 AI 실습 교육을 통해 프롬프트 엔지니어링, RAG, LLM 모델 활용까지 프로젝트 기반으로 AI 서비스 개발 역량을 완성할 수 있도록 지도합니다.",
+    description: "AI 및 빅데이터 분석과 기획 전문가",
     image: "https://statics.goorm.io/ktcloud-techup/landing/assets/instructor/techup_instructor_gen-ai.png",
     careerHistory: [
       {
@@ -100,26 +143,25 @@ export const INSTRUCTOR_PROFILES = [
         description: "kt cloud TECH UP 생성형 AI 강사"
       },
       {
-        badge: "이전",
-        description: "LLM 전문가"
+        badge: "현재",
+        description: "AI 및 데이터분석 강의 다수 진행 (대한상공회의소, 제주ICT, KT AICE 등)"
       },
       {
         badge: "이전",
-        description: "AI 파운드리 아키텍트"
+        description: "안랩 제품기획 및 마케팅 PM"
+      },
+      {
+        badge: "이전",
+        description: "한글과컴퓨터 제품기획 및 마케팅 PM"
       }
-    ],
-    teachingHistory: [
-      "kt cloud TECH UP 생성형 AI 강사",
-      "AI 모델 개발 교육",
-      "프롬프트 엔지니어링 교육"
     ],
     course: COURSE.GEN_AI,
   },
   {
-    id: 5,
-    name: "정보안",
+    id: 7,
+    name: "강태운",
     role: "kt cloud TECH UP 사이버 보안 강사",
-    description: "국내 최초 공공 클라우드 보안 인증 '상' 등급을 획득한 kt cloud의 보안 아키텍처를 기반으로 한 실습 중심 교육을 통해 IAM, DevSecOps, 보안 자동화까지 한 번에 배울 수 있도록 지도합니다.",
+    description: "정보보안 및 데이터 분석 전문가",
     image: "https://statics.goorm.io/ktcloud-techup/landing/assets/instructor/techup_instructor_cybersecurity.png",
     careerHistory: [
       {
@@ -127,26 +169,25 @@ export const INSTRUCTOR_PROFILES = [
         description: "kt cloud TECH UP 사이버 보안 강사"
       },
       {
-        badge: "이전",
-        description: "클라우드 보안 전문가"
+        badge: "현재",
+        description: "마켓인사이트 대표"
       },
       {
         badge: "이전",
-        description: "DevSecOps 아키텍트"
+        description: "제이앤에이치프랜즈 정보보안 담당"
+      },
+      {
+        badge: "이전",
+        description: "정보보호 취약점 제보 및 대회 출제 다수"
       }
-    ],
-    teachingHistory: [
-      "kt cloud TECH UP 사이버 보안 강사",
-      "클라우드 보안 교육",
-      "DevSecOps 실무 교육"
     ],
     course: COURSE.INFORMATION_SECURITY,
   },
   {
-    id: 6,
-    name: "김네이티브",
+    id: 8,
+    name: "김선우",
     role: "kt cloud TECH UP 클라우드 네이티브 강사",
-    description: "전국 14개 데이터센터 운영 노하우를 기반으로 클라우드 환경 설계부터 자동화까지 배우는 실무 중심 교육을 통해 Docker, Kubernetes, CI/CD를 실습하며 DevOps 전문가로 성장할 수 있도록 지도합니다.",
+    description: "DevOps 전문가이자 AWS Community Builder",
     image: "https://statics.goorm.io/ktcloud-techup/landing/assets/instructor/techup_instructor_cloud-native.png",
     careerHistory: [
       {
@@ -154,26 +195,25 @@ export const INSTRUCTOR_PROFILES = [
         description: "kt cloud TECH UP 클라우드 네이티브 강사"
       },
       {
-        badge: "이전",
-        description: "Kubernetes 전문가"
+        badge: "현재",
+        description: "AWSKRUG 운영진 및 DevOps 프리랜서"
       },
       {
         badge: "이전",
-        description: "DevOps 아키텍트"
+        description: "더스윙 DevOps 엔지니어"
+      },
+      {
+        badge: "이전",
+        description: "어딩 DevOps 엔지니어"
       }
-    ],
-    teachingHistory: [
-      "kt cloud TECH UP 클라우드 네이티브 강사",
-      "Docker/Kubernetes 교육",
-      "DevOps 실무 교육"
     ],
     course: COURSE.CLOUD_NATIVE,
   },
   {
-    id: 7,
-    name: "박인프라",
+    id: 9,
+    name: "김범택",
     role: "kt cloud TECH UP 클라우드 인프라 강사",
-    description: "국내 최대 민간 GPU 클라우드 인프라 운영 경험을 바탕으로 멀티 클라우드 환경 구축부터 자동화까지 실습합니다. Azure까지 아우르는 인프라 전문가로 성장할 수 있도록 지도합니다.",
+    description: "클라우드 구축 및 컨설팅 전문가",
     image: "https://statics.goorm.io/ktcloud-techup/landing/assets/instructor/techup_instructor_cloud-infra.png",
     careerHistory: [
       {
@@ -181,26 +221,25 @@ export const INSTRUCTOR_PROFILES = [
         description: "kt cloud TECH UP 클라우드 인프라 강사"
       },
       {
-        badge: "이전",
-        description: "GPU 클라우드 전문가"
+        badge: "현재",
+        description: "클라우드 분야 컨설팅 및 강의 프리랜서"
       },
       {
         badge: "이전",
-        description: "멀티 클라우드 아키텍트"
+        description: "하니웰코리아 네트워크·서버 엔지니어"
+      },
+      {
+        badge: "이전",
+        description: "시스코코리아 가상화 엔지니어"
       }
-    ],
-    teachingHistory: [
-      "kt cloud TECH UP 클라우드 인프라 강사",
-      "클라우드 인프라 교육",
-      "멀티 클라우드 환경 구축 교육"
     ],
     course: COURSE.CLOUD_INFRASTRUCTURE,
   },
   {
-    id: 8,
-    name: "이디자인",
+    id: 10,
+    name: "김수진",
     role: "kt cloud TECH UP 프로덕트 디자인 강사",
-    description: "수십 가지 클라우드 상품의 UX 설계 경험을 담은 실무형 교육을 통해 디자인 시스템 구축부터 데이터 기반 UI/UX 개선, 생성형 AI 활용까지 실전 중심으로 배울 수 있도록 지도합니다.",
+    description: "UX·UI 디자인부터 하이브리드앱·디지털 플랫폼까지 아우르는 프로덕트 디자인 전문가",
     image: "https://statics.goorm.io/ktcloud-techup/landing/assets/instructor/techup_instructor_product-design.png",
     careerHistory: [
       {
@@ -208,26 +247,29 @@ export const INSTRUCTOR_PROFILES = [
         description: "kt cloud TECH UP 프로덕트 디자인 강사"
       },
       {
-        badge: "이전",
-        description: "UX 설계 전문가"
+        badge: "현재",
+        description: "프로덕트 디자인 프리랜서"
       },
       {
         badge: "이전",
-        description: "디자인 시스템 아키텍트"
+        description: "네이버 메인디자인팀 디자이너"
+      },
+      {
+        badge: "이전",
+        description: "웅진씽크빅 AI매쓰피드 B2C 하이브리드앱 고도화"
+      },
+      {
+        badge: "이전",
+        description: "인천공항 T1 디지털 사이니지 개선 프로젝트"
       }
-    ],
-    teachingHistory: [
-      "kt cloud TECH UP 프로덕트 디자인 강사",
-      "UX 디자인 교육",
-      "디자인 시스템 구축 교육"
     ],
     course: COURSE.PRODUCT_DESIGN,
   },
   {
-    id: 9,
-    name: "최매니지먼트",
+    id: 11,
+    name: "안혜림",
     role: "kt cloud TECH UP 프로덕트 매니지먼트 강사",
-    description: "공공 클라우드 시장 점유율 42% 1위를 달성한 kt cloud의 PM 노하우를 기반으로 한 실무 중심 교육을 통해 데이터 분석부터 애자일, 생성형 AI 활용까지 제품 개발 전 과정을 경험할 수 있도록 지도합니다.",
+    description: "AI와 데이터 분석을 활용한 비즈니스 효율화 전문가",
     image: "https://statics.goorm.io/ktcloud-techup/landing/assets/instructor/techup_instructor_product-management.png",
     careerHistory: [
       {
@@ -235,18 +277,43 @@ export const INSTRUCTOR_PROFILES = [
         description: "kt cloud TECH UP 프로덕트 매니지먼트 강사"
       },
       {
-        badge: "이전",
-        description: "제품 기획 전문가"
+        badge: "현재",
+        description: "AI, 빅데이터 강의 프리랜서"
       },
       {
         badge: "이전",
-        description: "애자일 전문가"
+        description: "현대자동차, 연세대학교 등 기업, 대학 강의 다수"
+      },
+      {
+        badge: "이전",
+        description: "이투스교육 브랜드마케터"
       }
     ],
-    teachingHistory: [
-      "kt cloud TECH UP 프로덕트 매니지먼트 강사",
-      "제품 기획 교육",
-      "애자일 방법론 교육"
+    course: COURSE.PRODUCT_MANAGEMENT,
+  },
+  {
+    id: 12,
+    name: "김수정",
+    role: "kt cloud TECH UP 프로덕트 매니지먼트 강사",
+    description: "실무 중심의 핀테크 및 에듀테크 서비스 기획 전문가",
+    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/instructor/techup_instructor_product-management2.png",
+    careerHistory: [
+      {
+        badge: "현재",
+        description: "kt cloud TECH UP 프로덕트 매니지먼트 강사"
+      },
+      {
+        badge: "현재",
+        description: "서비스기획 에이전시 대표"
+      },
+      {
+        badge: "이전",
+        description: "핀테크 서비스 PO/기획"
+      },
+      {
+        badge: "이전",
+        description: "에듀테크 서비스 PM/기획"
+      }
     ],
     course: COURSE.PRODUCT_MANAGEMENT,
   }

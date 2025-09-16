@@ -1,4 +1,10 @@
 /* DetailInstructor 컴포넌트 스타일 */
+.instructor-cards-container {
+  display: flex;
+  gap: var(--vapor-size-space-300);
+  flex-direction: row;
+}
+
 .instructor-card {
   position: relative;
   background-color: var(--vapor-color-background-normal-darker);
@@ -6,8 +12,10 @@
   border-radius: var(--vapor-size-borderRadius-600);
   padding: var(--vapor-size-space-400);
   display: flex;
-  gap: var(--vapor-size-space-400);
+  gap: var(--vapor-size-space-300);
   align-items: flex-start;
+  flex: 1;
+  min-width: 0;
 }
 
 .instructor-avatar {
@@ -39,9 +47,8 @@
 
 .instructor-info {
   display: flex;
-  flex-direction: row;
-  gap: var(--vapor-size-space-100);
-  align-items: center;
+  flex-direction: column;
+  gap: var(--vapor-size-space-050);
 }
 
 .instructor-name {
@@ -121,9 +128,12 @@
 
 /* 반응형 디자인 */
 @media (max-width: 992px) {
+  .instructor-cards-container {
+    flex-direction: column;
+  }
+  
   .instructor-card {
     padding: var(--vapor-size-space-300);
-    gap: var(--vapor-size-space-300);
   }
 
   .instructor-info-wrapper {
@@ -132,6 +142,11 @@
 }
 
 @media (max-width: 768px) {
+  .instructor-cards-container {
+    flex-direction: column;
+    gap: var(--vapor-size-space-200);
+  }
+  
   .instructor-card {
     flex-direction: column;
     gap: var(--vapor-size-space-200);
