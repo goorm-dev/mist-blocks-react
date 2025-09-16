@@ -225,6 +225,14 @@ export const INSTRUCTOR_PROFILES = [
         description: "클라우드 분야 컨설팅 및 강의 프리랜서"
       },
       {
+        badge: "현재",
+        description: "AWS 클라우드 엔지니어링 강의"
+      },
+      {
+        badge: "이전",
+        description: "kakao 클라우드 엔지니어링 강의"
+      },
+      {
         badge: "이전",
         description: "하니웰코리아 네트워크·서버 엔지니어"
       },
