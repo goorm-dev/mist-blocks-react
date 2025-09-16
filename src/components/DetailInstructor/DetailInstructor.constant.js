@@ -6,7 +6,7 @@ export const INSTRUCTOR_PROFILES = [
     name: "이재희",
     role: "kt cloud TECH UP 풀스택 개발 강사",
     description: "빅데이터 및 AI 플랫폼 구축 전문가",
-    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/instructor/techup_instructor_frontend.png",
+    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_lecturer_fullstack_jaehee.png",
     careerHistory: [
       {
         badge: "현재",
@@ -32,7 +32,7 @@ export const INSTRUCTOR_PROFILES = [
     name: "권수정",
     role: "kt cloud TECH UP 프론트엔드 강사",
     description: "생성형 AI와 빅데이터 분석 경험을 프론트엔드 개발에 융합하는 전문가",
-    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/instructor/techup_instructor_frontend.png",
+    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_lecturer_frontend_sujung.png",
     careerHistory: [
       {
         badge: "현재",
@@ -58,7 +58,7 @@ export const INSTRUCTOR_PROFILES = [
     name: "정원준",
     role: "kt cloud TECH UP 프론트엔드 강사",
     description: "금융공학 전문성과 AI·모바일 개발 경험을 프론트엔드 교육에 접목하는 전문가",
-    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/instructor/techup_instructor_frontend2.png",
+    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_lecturer_frontend_wonjoon.png",
     careerHistory: [
       {
         badge: "현재",
@@ -84,7 +84,7 @@ export const INSTRUCTOR_PROFILES = [
     name: "조필균",
     role: "kt cloud TECH UP 백엔드 강사",
     description: "게임 및 IT 플랫폼 백엔드 개발 전문가",
-    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/instructor/techup_instructor_backend.png",
+    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_lecturer_backend_philgyun.png",
     careerHistory: [
       {
         badge: "현재",
@@ -110,7 +110,7 @@ export const INSTRUCTOR_PROFILES = [
     name: "신철호",
     role: "kt cloud TECH UP 백엔드 강사",
     description: "서버 개발 및 백오피스 플랫폼 전문가",
-    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/instructor/techup_instructor_backend2.png",
+    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_lecturer_backend_cheolho.png",
     careerHistory: [
       {
         badge: "현재",
@@ -136,7 +136,7 @@ export const INSTRUCTOR_PROFILES = [
     name: "김명진",
     role: "kt cloud TECH UP 생성형 AI 강사",
     description: "AI 및 빅데이터 분석과 기획 전문가",
-    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/instructor/techup_instructor_gen-ai.png",
+    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_lecturer_genai_myeongjin.png",
     careerHistory: [
       {
         badge: "현재",
@@ -162,7 +162,7 @@ export const INSTRUCTOR_PROFILES = [
     name: "강태운",
     role: "kt cloud TECH UP 사이버 보안 강사",
     description: "정보보안 및 데이터 분석 전문가",
-    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/instructor/techup_instructor_cybersecurity.png",
+    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_lecturer_security_taewoon.png",
     careerHistory: [
       {
         badge: "현재",
@@ -188,7 +188,7 @@ export const INSTRUCTOR_PROFILES = [
     name: "김선우",
     role: "kt cloud TECH UP 클라우드 네이티브 강사",
     description: "DevOps 전문가이자 AWS Community Builder",
-    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/instructor/techup_instructor_cloud-native.png",
+    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_lecturer_native_sunwoo.png",
     careerHistory: [
       {
         badge: "현재",
@@ -214,7 +214,7 @@ export const INSTRUCTOR_PROFILES = [
     name: "김범택",
     role: "kt cloud TECH UP 클라우드 인프라 강사",
     description: "클라우드 구축 및 컨설팅 전문가",
-    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/instructor/techup_instructor_cloud-infra.png",
+    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_lecturer_infra_beomtaek.png",
     careerHistory: [
       {
         badge: "현재",
@@ -240,7 +240,7 @@ export const INSTRUCTOR_PROFILES = [
     name: "김수진",
     role: "kt cloud TECH UP 프로덕트 디자인 강사",
     description: "UX·UI 디자인부터 하이브리드앱·디지털 플랫폼까지 아우르는 프로덕트 디자인 전문가",
-    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/instructor/techup_instructor_product-design.png",
+    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_lecturer_design_soojin.png",
     careerHistory: [
       {
         badge: "현재",
@@ -270,7 +270,7 @@ export const INSTRUCTOR_PROFILES = [
     name: "안혜림",
     role: "kt cloud TECH UP 프로덕트 매니지먼트 강사",
     description: "AI와 데이터 분석을 활용한 비즈니스 효율화 전문가",
-    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/instructor/techup_instructor_product-management.png",
+    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_lecturer_pm_hyerim.png",
     careerHistory: [
       {
         badge: "현재",
@@ -296,7 +296,7 @@ export const INSTRUCTOR_PROFILES = [
     name: "김수정",
     role: "kt cloud TECH UP 프로덕트 매니지먼트 강사",
     description: "실무 중심의 핀테크 및 에듀테크 서비스 기획 전문가",
-    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/instructor/techup_instructor_product-management2.png",
+    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_lecturer_pm_sujung.png",
     careerHistory: [
       {
         badge: "현재",
