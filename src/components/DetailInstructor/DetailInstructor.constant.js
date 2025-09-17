@@ -110,7 +110,7 @@ export const INSTRUCTOR_PROFILES = [
     name: "신철호",
     role: "kt cloud TECH UP 백엔드 강사",
     description: "서버 개발 및 백오피스 플랫폼 전문가",
-    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_lecturer_backend_cheolho.png",
+    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_lecturer_backend_cheolho_01.png",
     careerHistory: [
       {
         badge: "현재",
