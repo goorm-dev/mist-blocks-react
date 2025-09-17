@@ -159,6 +159,32 @@ export const INSTRUCTOR_PROFILES = [
   },
   {
     id: 7,
+    name: "조윤실",
+    role: "kt cloud TECH UP 생성형 AI 강사",
+    description: "생성형 AI와 데이터 분석을 활용한 교육 전문가",
+    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_lecturer_genai_yunsil.png",
+    careerHistory: [
+      {
+        badge: "현재",
+        description: "kt cloud TECH UP 생성형 AI 강사"
+      },
+      {
+        badge: "현재",
+        description: "가천대학교 컴퓨터공학과 강의"
+      },
+      {
+        badge: "이전",
+        description: "연세대학교 의료원 Health-IT 산업화지원센터 IoMT 연구원"
+      },
+      {
+        badge: "이전",
+        description: "SK커뮤니케이션즈 백엔드 개발 및 PM"
+      }
+    ],
+    course: COURSE.GEN_AI,
+  },
+  {
+    id: 8,
     name: "강태운",
     role: "kt cloud TECH UP 사이버 보안 강사",
     description: "정보보안 및 데이터 분석 전문가",
@@ -184,7 +210,7 @@ export const INSTRUCTOR_PROFILES = [
     course: COURSE.INFORMATION_SECURITY,
   },
   {
-    id: 8,
+    id: 9,
     name: "김선우",
     role: "kt cloud TECH UP 클라우드 네이티브 강사",
     description: "DevOps 전문가이자 AWS Community Builder",
@@ -210,7 +236,7 @@ export const INSTRUCTOR_PROFILES = [
     course: COURSE.CLOUD_NATIVE,
   },
   {
-    id: 9,
+    id: 10,
     name: "김범택",
     role: "kt cloud TECH UP 클라우드 인프라 강사",
     description: "클라우드 구축 및 컨설팅 전문가",
@@ -225,7 +251,7 @@ export const INSTRUCTOR_PROFILES = [
         description: "클라우드 분야 컨설팅 및 강의 프리랜서"
       },
       {
-        badge: "현재",
+        badge: "이전",
         description: "AWS 클라우드 엔지니어링 강의"
       },
       {
@@ -244,7 +270,7 @@ export const INSTRUCTOR_PROFILES = [
     course: COURSE.CLOUD_INFRASTRUCTURE,
   },
   {
-    id: 10,
+    id: 11,
     name: "김수진",
     role: "kt cloud TECH UP 프로덕트 디자인 강사",
     description: "UX·UI 디자인부터 하이브리드앱·디지털 플랫폼까지 아우르는 프로덕트 디자인 전문가",
@@ -274,7 +300,37 @@ export const INSTRUCTOR_PROFILES = [
     course: COURSE.PRODUCT_DESIGN,
   },
   {
-    id: 11,
+    id: 12,
+    name: "하다경",
+    role: "kt cloud TECH UP 프로덕트 디자인 강사",
+    description: "다양한 분야의 경험을 가진 현직 디자이너",
+    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_lecturer_design_dakyung.png",
+    careerHistory: [
+      {
+        badge: "현재",
+        description: "kt cloud TECH UP 프로덕트 디자인 강사"
+      },
+      {
+        badge: "현재",
+        description: "프리랜서 디자이너"
+      },
+      {
+        badge: "이전",
+        description: "서울대학병원 소아통증관리서비스 디자인개발"
+      },
+      {
+        badge: "이전",
+        description: "현대 위아 KCNC HMI 디자인"
+      },
+      {
+        badge: "이전",
+        description: "파리올림픽 한국홍보관 스내피즘 디자인"
+      }
+    ],
+    course: COURSE.PRODUCT_DESIGN,
+  },
+  {
+    id: 13,
     name: "안혜림",
     role: "kt cloud TECH UP 프로덕트 매니지먼트 강사",
     description: "AI와 데이터 분석을 활용한 비즈니스 효율화 전문가",
@@ -300,7 +356,7 @@ export const INSTRUCTOR_PROFILES = [
     course: COURSE.PRODUCT_MANAGEMENT,
   },
   {
-    id: 12,
+    id: 14,
     name: "김수정",
     role: "kt cloud TECH UP 프로덕트 매니지먼트 강사",
     description: "실무 중심의 핀테크 및 에듀테크 서비스 기획 전문가",
@@ -321,6 +377,32 @@ export const INSTRUCTOR_PROFILES = [
       {
         badge: "이전",
         description: "에듀테크 서비스 PM/기획"
+      }
+    ],
+    course: COURSE.PRODUCT_MANAGEMENT,
+  },
+  {
+    id: 15,
+    name: "오예원",
+    role: "kt cloud TECH UP 프로덕트 매니지먼트 강사",
+    description: "다양한 산업의 제품 전략과 운영을 이끌어온 실전형 프로덕트 매니지먼트 전문가",
+    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_lecturer_genai_yewon.png",
+    careerHistory: [
+      {
+        badge: "현재",
+        description: "kt cloud TECH UP 프로덕트 매니지먼트 강사"
+      },
+      {
+        badge: "이전",
+        description: "북미 웹 서비스 및 모바일 앱 기획"
+      },
+      {
+        badge: "이전",
+        description: "금융, 의료, 공공기관 플렛폼 운영 및 기획"
+      },
+      {
+        badge: "이전",
+        description: "개인정보 비식별화 운영 및 컨설팅"
       }
     ],
     course: COURSE.PRODUCT_MANAGEMENT,

@@ -15,7 +15,7 @@ const DetailInstructor = ({ course = COURSE.FRONTEND, className = '' }) => {
   }
 
   return (
-    <section className={`content-section ${className}`.trim()} id="instructor">
+    <section className={`content-section ${className}`.trim()} id="instructor" data-course={course}>
       <div className="container">
         {/* 메인 타이틀 */}
         <Text typography="heading2" foreground="normal" className="title">
@@ -74,7 +74,7 @@ const DetailInstructor = ({ course = COURSE.FRONTEND, className = '' }) => {
                               >
                                 {career.badge}
                               </Badge>
-                              <Text typography="heading6" foreground="normal" className="career-text">
+                              <Text typography="subtitle1" foreground="normal" className="career-text">
                                 {career.description}
                               </Text>
                             </>
@@ -87,6 +87,11 @@ const DetailInstructor = ({ course = COURSE.FRONTEND, className = '' }) => {
               </div>
             </div>
           ))}
+        </div>
+        <div className="instructor-notice-wrapper">
+          <Text typography="subtitle1" foreground="hint" className="instructor-notice">
+            ※ 운영상의 이유로 강사가 변경될 수 있습니다.
+          </Text>
         </div>
       </div>
     </section>

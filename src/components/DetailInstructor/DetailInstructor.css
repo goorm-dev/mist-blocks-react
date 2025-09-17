@@ -126,6 +126,21 @@
   color: var(--vapor-color-foreground-normal);
 }
 
+/* 강사 변경 안내 텍스트 */
+.instructor-notice-wrapper {
+  margin-top: var(--vapor-size-space-200);
+  display: block;
+}
+
+.instructor-notice {
+  color: var(--vapor-color-foreground-hint);
+}
+
+/* 프로덕트 매니지먼트 과정 강사 카드 스타일 */
+[data-course="PRODUCT_MANAGEMENT"] .instructor-card {
+  flex-direction: column;
+}
+
 /* 반응형 디자인 */
 @media (max-width: 992px) {
   .instructor-cards-container {

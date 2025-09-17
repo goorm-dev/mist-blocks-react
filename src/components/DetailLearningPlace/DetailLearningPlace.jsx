@@ -12,7 +12,9 @@ const DetailLearningPlace = () => {
     'https://statics.goorm.io/ktcloud-techup/landing/assets/learning-place/techup_learning_place_04.png',
     'https://statics.goorm.io/ktcloud-techup/landing/assets/learning-place/techup_learning_place_05.png',
     'https://statics.goorm.io/ktcloud-techup/landing/assets/learning-place/techup_learning_place_06.png',
-    'https://statics.goorm.io/ktcloud-techup/landing/assets/learning-place/techup_learning_place_07.png',
+    'https://statics.goorm.io/ktcloud-techup/landing/assets/learning-place/techup_learning_place_09.png',
+    'https://statics.goorm.io/ktcloud-techup/landing/assets/learning-place/techup_learning_place_08.png',
+    'https://statics.goorm.io/ktcloud-techup/landing/assets/learning-place/techup_learning_place_10.png',
   ];
 
   return (
