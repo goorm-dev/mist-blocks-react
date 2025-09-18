@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Text, Nav } from '@vapor-ui/core';
+import { Text, Nav, Callout } from '@vapor-ui/core';
 import { debounce } from '../../utils/performanceUtils';
 import './DetailRecruitmentProcess.css';
 
@@ -10,6 +10,7 @@ const PROCESS_TABS = [
   { key: 'first', label: '1차 일정' },
   { key: 'second', label: '2차 일정' },
   { key: 'third', label: '3차 일정' },
+  { key: 'fourth', label: '추가 모집' },
 ];
 
 // 모바일용 프로세스 아이템 컴포넌트
@@ -52,6 +53,8 @@ const ProcessItem = ({
   secondStageDescription,
   thirdStageDate,
   thirdStageDescription,
+  fourthStageDate,
+  fourthStageDescription,
   isLastItem,
 }) => {
   return (
@@ -100,6 +103,16 @@ const ProcessItem = ({
             </Text>
           )}
         </div>
+        <div className="stage-info fourth-stage">
+          <Text typography="heading6" foreground="normal" className="stage-date">
+            {fourthStageDate}
+          </Text>
+          {fourthStageDescription && (
+            <Text typography="subtitle1" foreground="hint" className="stage-description">
+              {fourthStageDescription}
+            </Text>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -128,10 +141,10 @@ const DetailRecruitmentProcess = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // 모바일 여부에 따라 기본 활성 탭 설정 (모바일: 3차, 데스크톱: 1차)
+  // 모바일 여부에 따라 기본 활성 탭 설정 (모바일: 추가 모집, 데스크톱: 1차)
   useEffect(() => {
     if (isMobile) {
-      setActiveTab('third');
+      setActiveTab('fourth');
     } else {
       setActiveTab('first');
     }
@@ -154,10 +167,15 @@ const DetailRecruitmentProcess = () => {
         date: item.secondStageDate,
         description: item.secondStageDescription,
       };
-    } else {
+    } else if (activeTab === 'third') {
       return {
         date: item.thirdStageDate,
         description: item.thirdStageDescription,
+      };
+    } else {
+      return {
+        date: item.fourthStageDate,
+        description: item.fourthStageDescription,
       };
     }
   };
@@ -172,6 +190,8 @@ const DetailRecruitmentProcess = () => {
       secondStageDescription: '지원서 및 고용24 수강신청',
       thirdStageDate: '25.9.12 (금) - 25.9.17 (수)',
       thirdStageDescription: '지원서 및 고용24 수강신청',
+      fourthStageDate: '25.9.18 (목) - 25.10.1 (수)',
+      fourthStageDescription: '지원서 및 고용24 수강신청',
     },
     {
       number: '2',
@@ -182,6 +202,8 @@ const DetailRecruitmentProcess = () => {
       secondStageDescription: null,
       thirdStageDate: '25.9.18 (목)',
       thirdStageDescription: null,
+      fourthStageDate: '개별 별도 안내',
+      fourthStageDescription: null,
     },
     {
       number: '3',
@@ -192,6 +214,8 @@ const DetailRecruitmentProcess = () => {
       secondStageDescription: null,
       thirdStageDate: '25.9.19 (금)',
       thirdStageDescription: null,
+      fourthStageDate: '개별 별도 안내',
+      fourthStageDescription: null,
     },
     {
       number: '4',
@@ -202,6 +226,8 @@ const DetailRecruitmentProcess = () => {
       secondStageDescription: null,
       thirdStageDate: '25.9.19 (금)',
       thirdStageDescription: null,
+      fourthStageDate: '개별 별도 안내',
+      fourthStageDescription: null,
     },
   ];
 
@@ -213,6 +239,14 @@ const DetailRecruitmentProcess = () => {
           <br />
           한눈에 확인하는 과정
         </Text>
+        <Callout color="danger" className="callout-wrapper">
+          <Text typography="heading6" foreground="danger" className="callout-title">
+            추가 모집 안내
+          </Text>
+          <Text typography="subtitle1" foreground="danger" className="callout-desc">
+            등록 포기 인원 발생으로 인한 추가 충원 모집을 진행하고 있습니다. <br />추가 모집 일정은 아래와 같으며 지원 이후 일정과 결과는 개별로 별도 안내됩니다.
+          </Text>
+        </Callout>
 
         <div className="process-group">
           {/* 트랙 1: Lightning Pass */}
@@ -248,8 +282,11 @@ const DetailRecruitmentProcess = () => {
                   </div>
                 </div>
                 <div className="step-content">
+                  <Text typography="heading6" foreground="hint" className="step-date">
+                    1-3차 모집 : 25.8.28 (목) - 25.9.17 (수)
+                  </Text>
                   <Text typography="heading6" foreground="normal" className="step-date">
-                    25.8.28 (목) - 25.9.17 (목)
+                    추가 모집 : 25.9.18 (목) - 25.10.1 (수)
                   </Text>
                   <Text typography="subtitle1" foreground="hint" className="step-desc">
                     지원서 및 고용24 수강신청
@@ -271,8 +308,11 @@ const DetailRecruitmentProcess = () => {
                   </div>
                 </div>
                 <div className="step-content">
+                  <Text typography="heading6" foreground="hint" className="step-date">
+                  1-3차 모집 : 서류 제출 후 5영업일 이내 최종 합격 발표
+                  </Text>
                   <Text typography="heading6" foreground="normal" className="step-date">
-                    서류 제출 후 5영업일 이내 최종 합격 발표
+                    추가 모집 : 개별 별도 안내
                   </Text>
                   <Text typography="subtitle1" foreground="hint" className="step-desc">
                     본 전형은 별도의 면접 없이, 제출 서류를 바탕으로 최종 합격 여부가 안내됩니다.
@@ -315,8 +355,11 @@ const DetailRecruitmentProcess = () => {
                   </div>
                 </div>
                 <div className="step-content">
+                  <Text typography="heading6" foreground="hint" className="step-date">
+                    1-3차 모집 : 25.8.28 (목) - 25.9.17 (수)
+                  </Text>
                   <Text typography="heading6" foreground="normal" className="step-date">
-                    25.8.28 (목) - 25.9.17 (목)
+                    추가 모집 : 25.9.18 (목) - 25.10.1 (수)
                   </Text>
                   <Text typography="subtitle1" foreground="hint" className="step-desc">
                     지원서 및 고용24 수강신청
@@ -338,8 +381,11 @@ const DetailRecruitmentProcess = () => {
                   </div>
                 </div>
                 <div className="step-content">
+                  <Text typography="heading6" foreground="hint" className="step-date">
+                  1-3차 모집 : 서류 제출 후 5영업일 이내 최종 합격 발표
+                  </Text>
                   <Text typography="heading6" foreground="normal" className="step-date">
-                    서류 제출 후 5영업일 이내 최종 합격 발표
+                    추가 모집 : 개별 별도 안내
                   </Text>
                   <Text typography="subtitle1" foreground="hint" className="step-desc">
                     본 전형은 별도의 면접 없이, 제출 서류를 바탕으로 최종 합격 여부가 안내됩니다.
@@ -428,6 +474,11 @@ const DetailRecruitmentProcess = () => {
                       3차 일정
                     </Text>
                   </div>
+                  <div className="stage-header fourth-stage">
+                    <Text typography="subtitle1" foreground="hint">
+                      추가 모집
+                    </Text>
+                  </div>
                 </div>
 
                 <div className="process-items">
@@ -442,6 +493,8 @@ const DetailRecruitmentProcess = () => {
                       secondStageDescription={item.secondStageDescription}
                       thirdStageDate={item.thirdStageDate}
                       thirdStageDescription={item.thirdStageDescription}
+                      fourthStageDate={item.fourthStageDate}
+                      fourthStageDescription={item.fourthStageDescription}
                       isLastItem={index === processItems.length - 1}
                     />
                   ))}

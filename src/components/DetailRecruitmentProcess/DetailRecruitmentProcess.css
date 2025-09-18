@@ -80,7 +80,18 @@
 }
 .step-date {
   font-weight: var(--vapor-typography-fontWeight-500);
-  color: var(--vapor-color-foreground-normal);
+  /* color: var(--vapor-color-foreground-normal); */
+}
+.callout-wrapper {
+  margin-bottom: var(--vapor-size-space-500);
+}
+.callout-title {
+  font-weight: var(--vapor-typography-fontWeight-700);
+  margin-bottom: var(--vapor-size-space-050);
+  display: block;
+}
+.callout-desc {
+  font-weight: var(--vapor-typography-fontWeight-500);
 }
 .step-desc {
   color: var(--vapor-color-foreground-hint);
@@ -229,6 +240,9 @@
   }
   .process-header-group {
     gap: var(--vapor-size-space-050);
+  }
+  .callout-wrapper {
+    margin-bottom: var(--vapor-size-space-400);
   }
 }
 
