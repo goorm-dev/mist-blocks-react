@@ -91,7 +91,7 @@ export const INSTRUCTOR_PROFILES = [
         description: "kt cloud TECH UP 백엔드 강사"
       },
       {
-        badge: "현재",
+        badge: "이전",
         description: "HYBE IM 게임플랫폼팀 백엔드 엔지니어"
       },
       {
