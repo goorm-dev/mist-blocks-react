@@ -239,15 +239,6 @@ const DetailRecruitmentProcess = () => {
           <br />
           한눈에 확인하는 과정
         </Text>
-        <Callout color="danger" className="callout-wrapper">
-          <Text typography="heading6" foreground="danger" className="callout-title">
-            추가 모집 안내
-          </Text>
-          <Text typography="subtitle1" foreground="danger" className="callout-desc">
-            등록 포기 인원 발생으로 인한 추가 충원 모집을 진행하고 있습니다. <br />추가 모집 일정은 아래와 같으며 지원 이후 일정과 결과는 개별로 별도 안내됩니다.
-          </Text>
-        </Callout>
-
         <div className="process-group">
           {/* 트랙 1: Lightning Pass */}
           <div className="process-category">
