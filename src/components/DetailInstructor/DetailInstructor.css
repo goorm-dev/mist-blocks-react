@@ -136,8 +136,9 @@
   color: var(--vapor-color-foreground-hint);
 }
 
-/* 프로덕트 매니지먼트 과정 강사 카드 스타일 */
-[data-course="PRODUCT_MANAGEMENT"] .instructor-card {
+/* 프로덕트 매니지먼트 과정, 프로덕트 디자인 과정 강사 카드 스타일 */
+[data-course="PRODUCT_MANAGEMENT"] .instructor-card,
+[data-course="PRODUCT_DESIGN"] .instructor-card {
   flex-direction: column;
 }
 
