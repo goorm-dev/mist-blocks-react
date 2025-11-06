@@ -334,7 +334,7 @@ export const INSTRUCTOR_PROFILES = [
     name: "권진석",
     role: "kt cloud TECH UP 프로덕트 디자인 강사",
     description: "미국 스타트업 디자이너 출신 프로덕트 전문가",
-    image: "https://grizzled-swoop-b93.notion.site/image/attachment%3Aea29f135-4546-438e-8393-1bd7e38c47cf%3Atechup_lecturer_design_jinseok.jpeg?table=block&id=2a31501d-68b9-805a-bc58-d99670d82ce5&spaceId=f8da0dc0-8696-417e-9cc8-4dc66e623ee1&width=1420&userId=&cache=v2",
+    image: "https://statics.goorm.io/ktcloud-techup/landing/assets/common/techup_lecturer_design_jinsuk.png",
     careerHistory: [
       {
         badge: "현재",
